@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { ArrowRightIcon, PhoneIcon } from "@/components/icons";
@@ -35,14 +34,18 @@ export function Hero({
 }: HeroProps) {
   return (
     <section className="relative isolate overflow-hidden bg-ink text-white">
-      <Image
+      {/* Already-optimised WebP: served directly (no image-optimiser hop) and
+          preloaded so it is the first thing the browser fetches. */}
+      <link rel="preload" as="image" href={posterSrc} fetchPriority="high" />
+      <img
         src={posterSrc}
         alt=""
         aria-hidden="true"
-        fill
-        priority
-        sizes="100vw"
-        className="-z-20 object-cover"
+        fetchPriority="high"
+        decoding="async"
+        width={media.hero.posterWidth}
+        height={media.hero.posterHeight}
+        className="absolute inset-0 -z-20 h-full w-full object-cover"
       />
       {videoSrc ? (
         <video
