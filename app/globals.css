@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    background-color: var(--color-white);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    text-wrap: balance;
+  }
+
+  /* Anchor targets on /service-areas need room for the sticky header. */
+  [id] {
+    scroll-margin-top: 6rem;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-red);
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background-color: var(--color-red);
+    color: var(--color-white);
+  }
+}
+
+/*
+ * Hero background video: poster-only on small screens and whenever the
+ * visitor asks for reduced motion. The video element stays in the DOM so
+ * nothing shifts when the media query stops matching.
+ */
+@media (max-width: 767px), (prefers-reduced-motion: reduce) {
+  .hero-video {
+    display: none;
+  }
+}
+
+/* Tailwind v4 puts utilities in a cascade layer; this keeps the video rule
+ * winning over a `block`/`flex` utility on the same element. */
+@layer utilities {
+  @media (max-width: 767px), (prefers-reduced-motion: reduce) {
+    .hero-video {
+      display: none !important;
+    }
+  }
+}
