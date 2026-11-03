@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Hero } from "@/components/hero";
 import { QuoteForm } from "@/components/quote-form";
+import { ReviewsBand } from "@/components/reviews-band";
 import { ArrowRightIcon, PhoneIcon } from "@/components/icons";
 import { cities, cityHref, services, site, todo } from "@/data/site";
 import { pageMetadata } from "@/lib/seo";
@@ -12,6 +13,8 @@ export const metadata: Metadata = pageMetadata({
     "TODO_CONTENT — 150-character home page description listing the main services and the cities served.",
   path: "/",
 });
+
+export const revalidate = 600;
 
 const reasons = [
   {
@@ -108,6 +111,8 @@ export default function HomePage() {
           <p className="mt-4 text-small text-muted">{todo("note about jobs outside these cities")}</p>
         </div>
       </section>
+
+      <ReviewsBand tone="light" limit={3} />
 
       <section id="quote" className="bg-white">
         <div className="mx-auto grid max-w-page gap-10 px-page-x py-section lg:grid-cols-[0.9fr_1.1fr] lg:gap-16 lg:px-page-x-lg lg:py-section-lg">

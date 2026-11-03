@@ -170,15 +170,6 @@ export const christmas = {
     },
   ],
 
-  reviews: {
-    headline: "What customers say",
-    note: todo("paste real Google/review quotes with names and cities — do not invent reviews"),
-    items: [
-      { quote: todo("review quote 1"), name: todo("reviewer name 1"), city: todo("city 1") },
-      { quote: todo("review quote 2"), name: todo("reviewer name 2"), city: todo("city 2") },
-      { quote: todo("review quote 3"), name: todo("reviewer name 3"), city: todo("city 3") },
-    ],
-  },
 
   where: {
     headline: "Where we install",

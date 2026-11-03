@@ -7,9 +7,12 @@ import {
   PhoneIcon,
 } from "@/components/icons";
 import { QuoteForm } from "@/components/quote-form";
+import { ReviewsBand } from "@/components/reviews-band";
 import { christmas } from "@/data/christmas-lights";
 import { cities, cityHref, site } from "@/data/site";
 import { pageMetadata } from "@/lib/seo";
+
+export const revalidate = 600;
 
 export const metadata: Metadata = pageMetadata({
   title: "Christmas Light Installation",
@@ -236,27 +239,7 @@ export default function ChristmasLightInstallationPage() {
         </div>
       </section>
 
-      {/* Reviews */}
-      <section className="bg-ink text-white">
-        <div className="mx-auto max-w-page px-page-x py-section lg:px-page-x-lg lg:py-section-lg">
-          <h2 className="font-display text-display-3 uppercase text-white">
-            {christmas.reviews.headline}
-          </h2>
-          <p className="mt-3 max-w-xl text-small text-red-on-dark">{christmas.reviews.note}</p>
-          <ul className="mt-8 grid gap-gutter md:grid-cols-3">
-            {christmas.reviews.items.map((review) => (
-              <li
-                key={review.quote}
-                className="border border-dashed border-line-dark p-5 text-small text-white/45"
-              >
-                <p>{review.quote}</p>
-                <p className="mt-4">{review.name}</p>
-                <p>{review.city}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+      <ReviewsBand tone="dark" limit={3} service="Christmas Light Installation" />
 
       <section id="quote" className="bg-ink text-white">
         <div className="mx-auto grid max-w-page gap-10 px-page-x py-section lg:grid-cols-[0.9fr_1.1fr] lg:gap-16 lg:px-page-x-lg lg:py-20">

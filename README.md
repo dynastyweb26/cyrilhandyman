@@ -52,7 +52,7 @@ TODO_CONTENT state.
   `HomeAndConstructionBusiness` with `areaServed`; no street address by design.
 - **Hero media** — `src/data/media.ts` (one value for the video URL).
 - **Christmas page copy** — `src/data/christmas-lights.ts`.
-- **Supabase schema** — `supabase/migrations/20261103120000_projects_and_project_media.sql`.
+- **Supabase schema** — `supabase/migrations/` (projects, project_media, leads, reviews).
 
 ## Assets to replace
 
