@@ -4,17 +4,17 @@
  *
  * Rules from the brand blueprint:
  *  - Black #0A0A0B + charcoal #17171A are the base surfaces.
- *  - Dark red #8E1B1B is an ACCENT only (never a large fill, never a gradient).
- *  - #D65A5A is the red used for text on dark surfaces (contrast safe).
+ *  - Brand red #CC0000 is an ACCENT only (never a large fill, never a gradient).
+ *  - #E04848 is the red used for text on dark surfaces (base red is ~2:1 there).
  *  - No gradients, no gold, no emoji icons.
  */
 @theme {
   /* ---- Color ---- */
   --color-ink: #0a0a0b; /* primary black, dark sections + text */
   --color-charcoal: #17171a; /* secondary dark surface: cards, bars */
-  --color-red: #8e1b1b; /* accent: buttons, rules, active states */
-  --color-red-hover: #6e1313; /* accent hover/pressed */
-  --color-red-text: #d65a5a; /* red text on dark backgrounds */
+  --color-red: #cc0000; /* accent: buttons, rules, active states */
+  --color-red-hover: #a30000; /* accent hover/pressed */
+  --color-red-on-dark: #e04848; /* red text/links on dark backgrounds */
   --color-white: #ffffff;
   --color-bone: #f5f3ef; /* optional warm off-white section fill */
   --color-line: #e3e0d9; /* hairline on light surfaces */

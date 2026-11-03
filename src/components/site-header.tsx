@@ -41,7 +41,7 @@ export function SiteHeader() {
                     </ul>
                     <Link
                       href="/service-areas"
-                      className="mt-1 block border-t border-line-dark px-3 pb-2 pt-3 text-eyebrow font-semibold uppercase tracking-[0.16em] text-red-text"
+                      className="mt-1 block border-t border-line-dark px-3 pb-2 pt-3 text-eyebrow font-semibold uppercase tracking-[0.16em] text-red-on-dark"
                     >
                       All service areas
                     </Link>

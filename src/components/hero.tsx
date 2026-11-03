@@ -67,7 +67,7 @@ export function Hero({
       <div aria-hidden="true" className="absolute inset-0 -z-10 bg-ink/70" />
 
       <div className="mx-auto max-w-page px-page-x py-section lg:px-page-x-lg lg:py-28">
-        <p className="font-display text-eyebrow font-semibold uppercase text-red-text">{eyebrow}</p>
+        <p className="font-display text-eyebrow font-semibold uppercase text-red-on-dark">{eyebrow}</p>
         <h1 className="mt-4 max-w-3xl font-display text-display-1 uppercase text-white lg:text-5xl">
           {title}
         </h1>

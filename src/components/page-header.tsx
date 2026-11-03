@@ -13,7 +13,7 @@ export function PageHeader({
     <section className="border-b border-line-dark bg-ink text-white">
       <div className="mx-auto max-w-page px-page-x py-section lg:px-page-x-lg lg:py-20">
         {eyebrow ? (
-          <p className="font-display text-eyebrow font-semibold uppercase text-red-text">
+          <p className="font-display text-eyebrow font-semibold uppercase text-red-on-dark">
             {eyebrow}
           </p>
         ) : null}
