@@ -107,17 +107,15 @@ export const site = {
   email: "crazydoor04@gmail.com",
   brand: {
     /**
-     * Drop the final transparent PNG/SVG at public/brand/. If the filename
-     * changes, update it here. The current file is the shop's existing logo,
-     * used as a placeholder until the new asset is uploaded.
+     * The shop's real logo: transparent PNG, black mark with white lettering,
+     * so it sits directly on the dark chrome with no white chip behind it.
+     * Swap for the SVG when the vector exists.
      */
     logo: {
-      src: "/brand/logo.png",
+      src: "/brand/logo-transparent.png",
       width: 1448,
       height: 1086,
       alt: "Cyril Handyman & Door LLC",
-      /** Set true for a light/white logo that sits on dark surfaces. */
-      forDarkSurface: true,
     },
     ogImage: "/og-image.png",
   },
