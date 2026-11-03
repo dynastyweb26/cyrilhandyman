@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { SiteLogo } from "@/components/site-logo";
-import { cities, cityHref, services, site, todo } from "@/data/site";
+import { cities, cityHref, services, site } from "@/data/site";
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
@@ -79,7 +79,6 @@ export function SiteFooter() {
                 {site.nap.locality}, {site.nap.region} — serving {site.county} and nearby
               </p>
               <p>{site.nap.hours}</p>
-              <p>{site.nap.license}</p>
             </address>
           </div>
         </div>
@@ -88,7 +87,6 @@ export function SiteFooter() {
           <p>
             © {year} {site.name}. All rights reserved.
           </p>
-          <p>{todo("footer legal line, e.g. insured / license number")}</p>
         </div>
       </div>
     </footer>

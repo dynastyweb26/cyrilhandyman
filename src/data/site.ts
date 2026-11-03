@@ -130,7 +130,6 @@ export const site = {
     country: "US",
     serviceRadius: todo("service radius, e.g. “within 40 miles of Forney, TX”"),
     hours: todo("hours of operation"),
-    license: todo("license / insurance line, e.g. “Licensed & insured”"),
     response: todo("response time promise, e.g. “we reply within one business day”"),
   },
   social: {

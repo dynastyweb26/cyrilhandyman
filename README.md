@@ -70,7 +70,7 @@ TODO_CONTENT state.
 Rendered visibly on the site, not hidden lorem ipsum:
 
 - Site + per-page meta descriptions (`app/*/page.tsx`).
-- Footer NAP: hours, license/insurance line, service radius, legal line.
+- Footer NAP: hours, service radius, response-time promise.
 - Christmas page: prices, booking cutoff dates, ownership model, maintenance promise,
   commercial scope, reviews (real quotes only), gallery photos, city intro copy.
 - About: owner story, founding year, crew size.

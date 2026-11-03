@@ -34,7 +34,6 @@ export default function AboutPage() {
               the whole marketing plan.
             </p>
             <p className="text-small">{todo("owner story, year founded, crew size")}</p>
-            <p className="text-small">{site.nap.license}</p>
             <p className="text-small">{site.nap.response}</p>
           </div>
           <div className="border border-line bg-bone p-6 lg:p-8">
