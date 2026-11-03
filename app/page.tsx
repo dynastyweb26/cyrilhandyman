@@ -1,13 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Hero } from "@/components/hero";
 import { ArrowRightIcon, PhoneIcon } from "@/components/icons";
 import { cities, cityHref, services, site, todo } from "@/data/site";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: `Handyman & Garage Door Service in ${site.nap.locality}, ${site.nap.region}`,
   description:
     "TODO_CONTENT — 150-character home page description listing the main services and the cities served.",
-};
+  path: "/",
+});
 
 const reasons = [
   {
@@ -27,36 +30,16 @@ const reasons = [
 export default function HomePage() {
   return (
     <>
-      <section className="bg-bone">
-        <div className="mx-auto max-w-page px-page-x py-section lg:px-page-x-lg lg:py-24">
-          <p className="font-display text-eyebrow font-semibold uppercase text-red">
-            {site.nap.locality}, {site.nap.region} &amp; nearby
-          </p>
-          <h1 className="mt-4 max-w-3xl font-display text-display-2 uppercase text-ink lg:text-5xl">
-            Handyman work and garage doors, done wholeheartedly
-          </h1>
-          <p className="mt-5 max-w-xl text-lead text-muted">
-            Repairs, renovations and installations for homeowners across {site.county} — from
-            garage doors and media walls to flooring, paint and holiday lighting.
-          </p>
-          <div className="mt-8 flex flex-wrap items-center gap-3">
-            <a
-              href={`tel:${site.phone.tel}`}
-              className="inline-flex items-center gap-2 bg-red px-5 py-3.5 font-display text-small font-semibold uppercase tracking-[0.12em] text-white transition-colors hover:bg-red-hover"
-            >
-              <PhoneIcon />
-              Call {site.phone.display}
-            </a>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 border border-ink/25 px-5 py-3.5 font-display text-small font-semibold uppercase tracking-[0.12em] text-ink transition-colors hover:border-ink hover:bg-ink hover:text-white"
-            >
-              Get a free quote
-              <ArrowRightIcon />
-            </Link>
-          </div>
-        </div>
-      </section>
+      <Hero
+        eyebrow={`${site.nap.locality}, ${site.nap.region} & nearby`}
+        title="Handyman work and garage doors, done wholeheartedly"
+        intro={`Repairs, renovations and installations for homeowners across ${site.county} — from garage doors and media walls to flooring, paint and holiday lighting.`}
+        primaryCta={{ label: "Get a free quote", href: "/contact" }}
+        secondaryCta={{
+          label: "Christmas light installation",
+          href: "/services/christmas-light-installation",
+        }}
+      />
 
       <section className="bg-white">
         <div className="mx-auto max-w-page px-page-x py-section lg:px-page-x-lg lg:py-section-lg">
