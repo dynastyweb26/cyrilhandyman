@@ -1,0 +1,62 @@
+/*
+ * Cyril Handyman & Door LLC — design tokens.
+ * One file, one place to change brand colors, type and spacing.
+ *
+ * Rules from the brand blueprint:
+ *  - Black #0A0A0B + charcoal #17171A are the base surfaces.
+ *  - Dark red #8E1B1B is an ACCENT only (never a large fill, never a gradient).
+ *  - #D65A5A is the red used for text on dark surfaces (contrast safe).
+ *  - No gradients, no gold, no emoji icons.
+ */
+@theme {
+  /* ---- Color ---- */
+  --color-ink: #0a0a0b; /* primary black, dark sections + text */
+  --color-charcoal: #17171a; /* secondary dark surface: cards, bars */
+  --color-red: #8e1b1b; /* accent: buttons, rules, active states */
+  --color-red-hover: #6e1313; /* accent hover/pressed */
+  --color-red-text: #d65a5a; /* red text on dark backgrounds */
+  --color-white: #ffffff;
+  --color-bone: #f5f3ef; /* optional warm off-white section fill */
+  --color-line: #e3e0d9; /* hairline on light surfaces */
+  --color-line-dark: #2a2a2e; /* hairline on dark surfaces */
+  --color-muted: #5b5b62; /* body copy on light surfaces */
+  --color-muted-dark: #a6a6ad; /* body copy on dark surfaces */
+
+  /* ---- Type ---- */
+  --font-display: var(--font-oswald), "Arial Narrow", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-open-sans), ui-sans-serif, system-ui, sans-serif;
+
+  --text-display-1: 2.625rem; /* mobile hero */
+  --text-display-1--line-height: 1.04;
+  --text-display-1--letter-spacing: -0.02em;
+  --text-display-2: 2rem;
+  --text-display-2--line-height: 1.08;
+  --text-display-2--letter-spacing: -0.015em;
+  --text-display-3: 1.5rem;
+  --text-display-3--line-height: 1.15;
+  --text-display-3--letter-spacing: -0.01em;
+  --text-lead: 1.125rem;
+  --text-lead--line-height: 1.6;
+  --text-body: 1rem;
+  --text-body--line-height: 1.65;
+  --text-small: 0.875rem;
+  --text-small--line-height: 1.5;
+  --text-eyebrow: 0.75rem;
+  --text-eyebrow--line-height: 1.2;
+  --text-eyebrow--letter-spacing: 0.16em;
+
+  /* ---- Spacing ---- */
+  --spacing-gutter: 1.5rem; /* gap between cards */
+  --spacing-stack: 1rem; /* default vertical rhythm inside a block */
+  --spacing-section: 3.5rem; /* mobile section padding */
+  --spacing-section-lg: 6rem; /* desktop section padding */
+  --spacing-page-x: 1.25rem; /* mobile page gutter */
+  --spacing-page-x-lg: 2rem; /* desktop page gutter */
+
+  /* ---- Layout ---- */
+  --container-page: 76rem;
+
+  /* ---- Radius ---- */
+  --radius-card: 0.375rem;
+  --radius-pill: 9999px;
+}
