@@ -397,7 +397,7 @@ Stack: Next.js App Router, TypeScript, Tailwind, Supabase, Vercel. Verify everyt
 
 Build in this order:
 1. Old URL inventory -> redirects map file (old path -> new path, 301).
-2. Design tokens in one file (colors, type, spacing), using the brand tokens in section 24 (black #0A0A0B, charcoal #17171A, dark red #8E1B1B with #6E1313 hover, #D65A5A for red text on dark, white, optional bone #F5F3EF). Red is an accent only, no gradients, no emoji icons, no gold. Use the logo from /public/brand (I will upload a transparent PNG or SVG).
+2. Design tokens in one file (colors, type, spacing), using the brand tokens in section 24 (black #0A0A0B, charcoal #17171A, brand red #CC0000 (confirmed from his current site) with #A30000 hover, #E04848 for small red text on dark, white, optional bone #F5F3EF). Red is an accent only, no gradients, no emoji icons, no gold. Use the logo from /public/brand (I will upload a transparent PNG or SVG).
 3. Shell: layout, nav using the route list in section 23 (Areas dropdown lists all 8 cities, each linking to its section on /service-areas; Blog hidden), footer with TODO_CONTENT NAP placeholders, sticky mobile call bar.
 4. SEO plumbing: title template, per-route metadata, canonicals, app/sitemap.ts (with image/video entries) and app/robots.ts driven by one data file, server-rendered JSON-LD component for HomeAndConstructionBusiness using areaServed and NO street address.
 5. Hero component: native <video muted autoplay loop playsInline preload="metadata"> with a preloaded WebP poster (fetchpriority=high), poster-only on mobile and under prefers-reduced-motion, video URL in one config value, real H1/phone/CTA as HTML text over a dark scrim.
@@ -474,9 +474,9 @@ The logo is a black circle with white "Cyril Handyman & Door" text and tool icon
 | --- | --- | --- |
 | `--ink` | `#0A0A0B` | Page and hero backgrounds, headlines on light |
 | `--charcoal` | `#17171A` | Cards and surfaces on dark |
-| `--red` | `#8E1B1B` | Buttons, rules, small accents (starting value, confirm against his van, cards or signage) |
-| `--red-deep` | `#6E1313` | Hover and pressed states |
-| `--red-on-dark` | `#D65A5A` | Red text or links on black (the base red is too dark to read on black) |
+| `--red` | `#CC0000` | Buttons, rules, accents. CONFIRMED (matches current site). White text on it passes AA; do not use it for small text on black |
+| `--red-deep` | `#A30000` | Hover and pressed states |
+| `--red-on-dark` | `#E04848` | Red text or links on black (the base red is too dark to read on black) |
 | `--white` | `#FFFFFF` | Text on dark, light sections |
 | `--bone` | `#F5F3EF` | Optional warm off-white for light sections |
 
