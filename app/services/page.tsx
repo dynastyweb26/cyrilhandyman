@@ -3,12 +3,14 @@ import Link from "next/link";
 import { ArrowRightIcon } from "@/components/icons";
 import { PageHeader } from "@/components/page-header";
 import { services, site, todo } from "@/data/site";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Handyman & Home Improvement Services",
   description:
     "TODO_CONTENT — services index description covering garage doors, media walls, kitchen renovation, flooring, painting and holiday lighting.",
-};
+  path: "/services",
+});
 
 export default function ServicesPage() {
   return (

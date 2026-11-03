@@ -2,12 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHeader } from "@/components/page-header";
 import { cities, site, todo } from "@/data/site";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Service Areas",
   description:
     "TODO_CONTENT — description naming the eight cities Cyril Handyman & Door LLC serves.",
-};
+  path: "/service-areas",
+});
 
 export default function ServiceAreasPage() {
   return (

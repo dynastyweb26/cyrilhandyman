@@ -3,12 +3,14 @@ import { PhoneIcon } from "@/components/icons";
 import { PageHeader } from "@/components/page-header";
 import { serviceAreasList } from "@/lib/format";
 import { cities, site, todo } from "@/data/site";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Contact & Free Quotes",
   description:
     "TODO_CONTENT — contact description: phone, email and how to request a quote.",
-};
+  path: "/contact",
+});
 
 export default function ContactPage() {
   return (

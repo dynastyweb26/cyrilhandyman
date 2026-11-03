@@ -2,12 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHeader } from "@/components/page-header";
 import { site, todo } from "@/data/site";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "About",
   description:
     "TODO_CONTENT — about description: who Cyril Handyman & Door LLC is and how the crew works.",
-};
+  path: "/about",
+});
 
 export default function AboutPage() {
   return (

@@ -1,10 +1,12 @@
 import type { Metadata, Viewport } from "next";
 import { Open_Sans, Oswald } from "next/font/google";
 import type { ReactNode } from "react";
+import { JsonLd } from "@/components/json-ld";
 import { MobileCallBar } from "@/components/mobile-call-bar";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { site } from "@/data/site";
+import { businessSchema } from "@/lib/schema";
 import "./globals.css";
 
 const oswald = Oswald({
@@ -51,6 +53,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={`${oswald.variable} ${openSans.variable}`}>
       <body className="flex min-h-dvh flex-col pb-[4.5rem] md:pb-0">
+        <JsonLd id="business-schema" data={businessSchema()} />
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:bg-white focus:px-4 focus:py-2 focus:font-display focus:text-small focus:uppercase focus:tracking-[0.12em] focus:text-ink"
