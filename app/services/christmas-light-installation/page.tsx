@@ -6,6 +6,7 @@ import {
   ChevronDownIcon,
   PhoneIcon,
 } from "@/components/icons";
+import { QuoteForm } from "@/components/quote-form";
 import { christmas } from "@/data/christmas-lights";
 import { cities, cityHref, site } from "@/data/site";
 import { pageMetadata } from "@/lib/seo";
@@ -23,7 +24,7 @@ export default function ChristmasLightInstallationPage() {
       {/* Hero */}
       <section className="relative border-b border-line-dark bg-ink text-white">
         <div className="mx-auto max-w-page px-page-x py-section lg:px-page-x-lg lg:py-24">
-          <p className="font-display text-eyebrow font-semibold uppercase text-red-text">
+          <p className="font-display text-eyebrow font-semibold uppercase text-red-on-dark">
             {christmas.hero.eyebrow}
           </p>
           <h1 className="mt-4 max-w-4xl font-display text-display-1 uppercase text-white lg:text-5xl">
@@ -54,7 +55,7 @@ export default function ChristmasLightInstallationPage() {
         <div className="mx-auto max-w-page px-page-x py-section lg:px-page-x-lg lg:py-section-lg">
           <div className="grid gap-8 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
             <div>
-              <p className="font-display text-eyebrow font-semibold uppercase text-red-text">
+              <p className="font-display text-eyebrow font-semibold uppercase text-red-on-dark">
                 {christmas.quickAnswer.label}
               </p>
               <h2 className="mt-3 font-display text-display-3 uppercase text-white">
@@ -66,7 +67,7 @@ export default function ChristmasLightInstallationPage() {
             <ul className="space-y-3 border-l border-line-dark pl-6">
               {christmas.quickAnswer.points.map((point) => (
                 <li key={point} className="flex gap-3 text-small text-white/80">
-                  <CheckIcon className="mt-0.5 shrink-0 text-red-text" />
+                  <CheckIcon className="mt-0.5 shrink-0 text-red-on-dark" />
                   <span>{point}</span>
                 </li>
               ))}
@@ -91,7 +92,7 @@ export default function ChristmasLightInstallationPage() {
                 }`}
               >
                 {pkg.featured ? (
-                  <p className="mb-3 font-display text-eyebrow font-semibold uppercase text-red-text">
+                  <p className="mb-3 font-display text-eyebrow font-semibold uppercase text-red-on-dark">
                     Most booked
                   </p>
                 ) : null}
@@ -101,7 +102,7 @@ export default function ChristmasLightInstallationPage() {
                 <ul className="mt-5 flex-1 space-y-2.5">
                   {pkg.includes.map((item) => (
                     <li key={item} className="flex gap-2.5 text-small text-white/75">
-                      <CheckIcon className="mt-0.5 shrink-0 text-red-text" />
+                      <CheckIcon className="mt-0.5 shrink-0 text-red-on-dark" />
                       <span>{item}</span>
                     </li>
                   ))}
@@ -146,7 +147,7 @@ export default function ChristmasLightInstallationPage() {
         <div className="mx-auto max-w-page px-page-x py-section lg:px-page-x-lg lg:py-14">
           <div className="border border-red bg-red/10 p-6 lg:flex lg:items-center lg:justify-between lg:gap-10 lg:p-8">
             <div>
-              <p className="font-display text-eyebrow font-semibold uppercase text-red-text">
+              <p className="font-display text-eyebrow font-semibold uppercase text-red-on-dark">
                 {christmas.cutoff.label}
               </p>
               <p className="mt-2 font-display text-display-3 uppercase text-white">
@@ -226,7 +227,7 @@ export default function ChristmasLightInstallationPage() {
                   <span className="font-display text-body font-semibold text-white">
                     {faq.question}
                   </span>
-                  <ChevronDownIcon className="mt-1 shrink-0 text-red-text transition-transform group-open:rotate-180 motion-reduce:transition-none" />
+                  <ChevronDownIcon className="mt-1 shrink-0 text-red-on-dark transition-transform group-open:rotate-180 motion-reduce:transition-none" />
                 </summary>
                 <p className="mt-3 pr-8 text-small text-white/75">{faq.answer}</p>
               </details>
@@ -241,7 +242,7 @@ export default function ChristmasLightInstallationPage() {
           <h2 className="font-display text-display-3 uppercase text-white">
             {christmas.reviews.headline}
           </h2>
-          <p className="mt-3 max-w-xl text-small text-red-text">{christmas.reviews.note}</p>
+          <p className="mt-3 max-w-xl text-small text-red-on-dark">{christmas.reviews.note}</p>
           <ul className="mt-8 grid gap-gutter md:grid-cols-3">
             {christmas.reviews.items.map((review) => (
               <li
@@ -254,6 +255,24 @@ export default function ChristmasLightInstallationPage() {
               </li>
             ))}
           </ul>
+        </div>
+      </section>
+
+      <section id="quote" className="bg-ink text-white">
+        <div className="mx-auto grid max-w-page gap-10 px-page-x py-section lg:grid-cols-[0.9fr_1.1fr] lg:gap-16 lg:px-page-x-lg lg:py-20">
+          <div>
+            <h2 className="font-display text-display-3 uppercase text-white">
+              Get your season on the calendar
+            </h2>
+            <p className="mt-3 text-white/70">
+              Send the property address and a photo of the front elevation. We&rsquo;ll quote the
+              roofline and hold a date.
+            </p>
+            <p className="mt-4 text-small text-white/55">{christmas.cutoff.headline}</p>
+          </div>
+          <div className="border border-line-dark bg-charcoal p-6 lg:p-8">
+            <QuoteForm source="/services/christmas-light-installation" tone="dark" />
+          </div>
         </div>
       </section>
 

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Hero } from "@/components/hero";
+import { QuoteForm } from "@/components/quote-form";
 import { ArrowRightIcon, PhoneIcon } from "@/components/icons";
 import { cities, cityHref, services, site, todo } from "@/data/site";
 import { pageMetadata } from "@/lib/seo";
@@ -105,6 +106,31 @@ export default function HomePage() {
             ))}
           </ul>
           <p className="mt-4 text-small text-muted">{todo("note about jobs outside these cities")}</p>
+        </div>
+      </section>
+
+      <section id="quote" className="bg-white">
+        <div className="mx-auto grid max-w-page gap-10 px-page-x py-section lg:grid-cols-[0.9fr_1.1fr] lg:gap-16 lg:px-page-x-lg lg:py-section-lg">
+          <div>
+            <h2 className="font-display text-display-3 uppercase text-ink">Request a quote</h2>
+            <p className="mt-3 text-muted">
+              Tell us the job and the city. We&rsquo;ll come back with a price and a date — or call{" "}
+              <a href={`tel:${site.phone.tel}`} className="text-ink underline underline-offset-4">
+                {site.phone.display}
+              </a>
+              .
+            </p>
+            <p className="mt-4 text-small text-muted">{site.nap.response}</p>
+            <p className="mt-1 text-small text-muted">
+              Prefer email?{" "}
+              <a href={`mailto:${site.email}`} className="text-ink underline underline-offset-4">
+                {site.email}
+              </a>
+            </p>
+          </div>
+          <div className="border border-line bg-bone p-6 lg:p-8">
+            <QuoteForm source="/" tone="light" />
+          </div>
         </div>
       </section>
 

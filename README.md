@@ -14,6 +14,20 @@ npm run typecheck  # tsc --noEmit
 npm run build      # production build
 ```
 
+## Environment
+
+Server-side only — set these in Vercel → Project → Settings → Environment Variables
+(and in `.env.local` locally). They are deliberately not `NEXT_PUBLIC_`.
+
+| Variable | Used by |
+| --- | --- |
+| `SUPABASE_URL`, `SUPABASE_ANON_KEY` | quote form insert, reviews read |
+| `RESEND_API_KEY`, `LEAD_NOTIFY_TO`, `LEAD_NOTIFY_FROM` | lead notification email |
+
+With no variables set the form returns a "please call" error instead of
+pretending the lead was captured, and the reviews band renders its
+TODO_CONTENT state.
+
 ## What exists
 
 | Route | State |
@@ -42,9 +56,9 @@ npm run build      # production build
 
 ## Assets to replace
 
-- `public/brand/logo.png` — current file is the existing logo, used as a placeholder.
-  Drop the final transparent PNG/SVG here and update `site.brand.logo.src` +
-  width/height if the filename or ratio changes.
+- `public/brand/logo-transparent.png` — the real logo (black mark, white lettering),
+  rendered directly on the dark chrome. Swap in the SVG and update
+  `site.brand.logo.src` when the vector exists.
 - `public/media/hero.mp4` + `public/media/hero-poster.webp` — placeholder garage-door
   still/clip. Replace with real footage and keep the poster under ~100 KB.
 - `public/gallery/christmas/*` — the flagship gallery expects six photos at the paths
