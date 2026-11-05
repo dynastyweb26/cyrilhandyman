@@ -27,7 +27,7 @@ export function ReviewCard({ card, compact = false }: { card: ReviewCardProps; c
   return (
     <figure
       className={`m-0 flex h-full flex-col justify-between gap-10 border border-line bg-coal p-6 md:p-9 ${
-        compact ? "min-h-[260px] md:min-h-0 md:w-[300px]" : "min-h-[260px] md:min-h-[320px]"
+        compact ? "min-h-[260px] md:min-h-0" : "min-h-[260px] md:min-h-[320px]"
       }`}
     >
       <div>
