@@ -29,9 +29,9 @@ export default function ServiceAreasPage() {
         <div className="mx-auto max-w-page px-page-x py-section lg:px-page-x-lg lg:py-section-lg">
           <div className="grid gap-10 md:grid-cols-2 lg:gap-gutter">
             {cities.map((city) => (
-              <article key={city.slug} id={city.slug} className="border-t border-line pt-6">
+              <article key={city.slug} id={city.slug} className="border-t border-line-ink pt-6">
                 <h2 className="font-display text-display-3 uppercase text-ink">Handyman in {city.name}, TX</h2>
-                <p className="mt-3 text-small text-muted">
+                <p className="mt-3 text-small text-muted-ink">
                   {todo(`${city.name} intro — 2–3 sentences about the work we do there`)}
                 </p>
                 <div className="mt-4 flex flex-wrap gap-3 text-eyebrow font-semibold uppercase tracking-[0.14em]">
@@ -45,7 +45,7 @@ export default function ServiceAreasPage() {
               </article>
             ))}
           </div>
-          <p className="mt-12 text-small text-muted">{site.nap.serviceRadius}</p>
+          <p className="mt-12 text-small text-muted-ink">{site.nap.serviceRadius}</p>
         </div>
       </section>
     </>

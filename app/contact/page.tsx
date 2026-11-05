@@ -32,7 +32,7 @@ export default function ContactPage() {
             <h2 className="font-display text-display-3 uppercase text-ink">Reach us directly</h2>
             <ul className="mt-6 space-y-5">
               <li>
-                <p className="text-eyebrow font-semibold uppercase tracking-[0.14em] text-muted">
+                <p className="text-eyebrow font-semibold uppercase tracking-[0.14em] text-muted-ink">
                   Phone
                 </p>
                 <a
@@ -44,7 +44,7 @@ export default function ContactPage() {
                 </a>
               </li>
               <li>
-                <p className="text-eyebrow font-semibold uppercase tracking-[0.14em] text-muted">
+                <p className="text-eyebrow font-semibold uppercase tracking-[0.14em] text-muted-ink">
                   Email
                 </p>
                 <a
@@ -55,14 +55,14 @@ export default function ContactPage() {
                 </a>
               </li>
               <li>
-                <p className="text-eyebrow font-semibold uppercase tracking-[0.14em] text-muted">
+                <p className="text-eyebrow font-semibold uppercase tracking-[0.14em] text-muted-ink">
                   Service area
                 </p>
                 <p className="mt-1 text-body text-ink">{serviceAreasList(cities)}</p>
-                <p className="mt-1 text-small text-muted">{site.nap.serviceRadius}</p>
+                <p className="mt-1 text-small text-muted-ink">{site.nap.serviceRadius}</p>
               </li>
               <li>
-                <p className="text-eyebrow font-semibold uppercase tracking-[0.14em] text-muted">
+                <p className="text-eyebrow font-semibold uppercase tracking-[0.14em] text-muted-ink">
                   Hours
                 </p>
                 <p className="mt-1 text-body text-ink">{site.nap.hours}</p>
@@ -70,14 +70,14 @@ export default function ContactPage() {
             </ul>
           </div>
 
-          <div className="border border-line bg-bone p-6 lg:p-8">
+          <div className="border border-line-ink bg-bone p-6 lg:p-8">
             <h2 className="font-display text-body font-semibold uppercase tracking-[0.08em] text-ink">
               Quote form
             </h2>
-            <p className="mt-3 text-small text-muted">
+            <p className="mt-3 text-small text-muted-ink">
               {todo("quote form build — name, phone, city, service, message; decide EmailJS/Resend + spam protection")}
             </p>
-            <p className="mt-3 text-small text-muted">
+            <p className="mt-3 text-small text-muted-ink">
               Until the form ships, calling is the fastest way to get a price.
             </p>
             <a

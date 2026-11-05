@@ -14,14 +14,14 @@
   }
 
   body {
-    background-color: var(--color-white);
-    color: var(--color-ink);
+    background-color: var(--color-ink);
+    color: var(--color-bone);
     font-family: var(--font-sans);
-    font-size: var(--text-body);
-    line-height: var(--text-body--line-height);
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
 
+  /* Display type is always Bricolage; the italic accent is opt-in per element. */
   h1,
   h2,
   h3,
@@ -30,14 +30,26 @@
     text-wrap: balance;
   }
 
-  /* Anchor targets on /service-areas need room for the sticky header. */
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Native <details> FAQ: hide the default triangle, keep the content in the DOM. */
+  summary {
+    list-style: none;
+  }
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  /* Anchor targets need room for the sticky header. */
   [id] {
     scroll-margin-top: 6rem;
   }
 
   :focus-visible {
     outline: 2px solid var(--color-red);
-    outline-offset: 2px;
+    outline-offset: 3px;
   }
 
   ::selection {
@@ -46,15 +58,76 @@
   }
 }
 
-/*
- * Hero background video: poster-only on small screens and whenever the
- * visitor asks for reduced motion. The video element stays in the DOM so
- * nothing shifts when the media query stops matching.
- */
 @layer utilities {
-  @media (max-width: 767px), (prefers-reduced-motion: reduce) {
-    .hero-video {
+  /* Gallery marquee: CSS keyframes only, no JS. The track holds the cards plus
+     an aria-hidden duplicate, so a -50% translate loops seamlessly. */
+  @keyframes drift-left {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes drift-right {
+    from {
+      transform: translateX(-50%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  .marquee-track {
+    animation: drift-left 60s linear infinite;
+  }
+
+  .marquee-track-reverse {
+    animation: drift-right 60s linear infinite;
+  }
+
+  /* Pause on hover and keyboard focus inside the strip. */
+  .marquee:hover .marquee-track,
+  .marquee:focus-within .marquee-track,
+  .marquee:hover .marquee-track-reverse,
+  .marquee:focus-within .marquee-track-reverse {
+    animation-play-state: paused;
+  }
+
+  /* Reduced motion: no drift, no duplicate set, scrollable instead. */
+  @media (prefers-reduced-motion: reduce) {
+    .marquee {
+      overflow-x: auto !important;
+      mask-image: none !important;
+      -webkit-mask-image: none !important;
+    }
+    .marquee-track,
+    .marquee-track-reverse {
+      animation: none !important;
+      transform: none !important;
+    }
+    .marquee-duplicate {
       display: none !important;
+    }
+    *,
+    *::before,
+    *::after {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+    }
+  }
+
+  /* Poster-only stand-in when the visitor asks for reduced motion. */
+  .reduced-motion-poster {
+    display: none;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reduced-motion-poster {
+      display: block;
+    }
+    .motion-video {
+      display: none;
     }
   }
 }

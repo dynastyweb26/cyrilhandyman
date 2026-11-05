@@ -1,32 +1,62 @@
 /*
  * Cyril Handyman & Door LLC — design tokens.
- * One file, one place to change brand colors, type and spacing.
+ * One file, one place to change colours, type and layout.
  *
- * Rules from the brand blueprint:
- *  - Black #0A0A0B + charcoal #17171A are the base surfaces.
- *  - Brand red #CC0000 is an ACCENT only (never a large fill, never a gradient).
- *  - #E04848 is the red used for text on dark surfaces (base red is ~2:1 there).
- *  - No gradients, no gold, no emoji icons.
+ * Palette and type are taken from the design export (Handoff.dc.html,
+ * "Component list" panel). Rules that survive from AGENTS.md:
+ *  - Black / charcoal / brand red accent / white. No gradients, no gold, no emoji.
+ *  - Brand red is #CC0000 and its hover is #A30000 (confirmed fact), not the
+ *    export's #A80000.
+ *  - Small red text on black uses #E04848; the base red is ~2:1 there.
  */
 @theme {
-  /* ---- Color ---- */
-  --color-ink: #0a0a0b; /* primary black, dark sections + text */
-  --color-charcoal: #17171a; /* secondary dark surface: cards, bars */
-  --color-red: #cc0000; /* accent: buttons, rules, active states */
-  --color-red-hover: #a30000; /* accent hover/pressed */
-  --color-red-on-dark: #e04848; /* red text/links on dark backgrounds */
+  /* ---- Surfaces ---- */
+  --color-ink: #0a0a0b; /* page, hero, dark sections */
+  --color-coal: #17171a; /* cards and panels on dark */
+  --color-slot: #1c1c20; /* hovered panel row */
+  --color-line: #2a2a2f; /* hairline on dark */
+  --color-hair: #1f1f23; /* chrome dividers: top bar, header, footer */
+  --color-edge: #3a3a40; /* chip and input borders on dark */
+  --color-bone: #f5f3ef; /* light section fill */
+  --color-sand: #e8e3db; /* light bento tile */
+  --color-sand-hover: #ded8ce;
+  --color-sand-slot: #dcd6cc; /* media slot inside a sand tile */
   --color-white: #ffffff;
-  --color-bone: #f5f3ef; /* optional warm off-white section fill */
-  --color-line: #e3e0d9; /* hairline on light surfaces */
-  --color-line-dark: #2a2a2e; /* hairline on dark surfaces */
-  --color-muted: #5b5b62; /* body copy on light surfaces */
-  --color-muted-dark: #a6a6ad; /* body copy on dark surfaces */
+
+  /* ---- Red ---- */
+  --color-red: #cc0000; /* buttons, rules, markers */
+  --color-red-hover: #a30000; /* hover — AGENTS.md confirmed */
+  --color-red-active: #8f0000; /* pressed */
+  --color-red-soft: #e04848; /* red text / numerals on black */
+  --color-red-deep: #b80000; /* red text on bone */
+  --color-red-press: #b30000; /* red bento tile pressed */
+
+  /* ---- Muted text ---- */
+  --color-muted: #b4b0a8; /* body copy on dark */
+  --color-muted-soft: #a8a49c; /* meta lines on dark */
+  --color-muted-faint: #8f8b84; /* copyright, slot labels */
+  --color-muted-ink: #4a4640; /* body copy on bone */
+  --color-muted-ink-strong: #3a3732; /* body copy on sand */
+  --color-body-dark: #d6d2cb; /* intro copy on ink */
+  --color-body-dim: #e2dfd9; /* footer links */
+
+  /* ---- Legacy aliases ----
+   * Routes outside this build (/about, /contact, /service-areas, /services)
+   * still use the previous token names. They map onto the new palette so
+   * those pages keep rendering until they are rebuilt. */
+  --color-charcoal: var(--color-coal);
+  --color-line-dark: var(--color-line);
+  --color-muted-dark: var(--color-muted);
+  --color-red-on-dark: var(--color-red-soft);
+  --color-line-ink: #e3e0d9; /* light-surface hairline for the old pages */
 
   /* ---- Type ---- */
-  --font-display: var(--font-oswald), "Arial Narrow", ui-sans-serif, system-ui, sans-serif;
-  --font-sans: var(--font-open-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-bricolage), "Arial Narrow", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-instrument), ui-sans-serif, system-ui, sans-serif;
+  --font-accent: var(--font-newsreader), Georgia, "Times New Roman", serif;
 
-  --text-display-1: 2.625rem; /* mobile hero */
+  /* Legacy type scale (old pages still use these utilities). */
+  --text-display-1: 2.625rem;
   --text-display-1--line-height: 1.04;
   --text-display-1--letter-spacing: -0.02em;
   --text-display-2: 2rem;
@@ -45,18 +75,12 @@
   --text-eyebrow--line-height: 1.2;
   --text-eyebrow--letter-spacing: 0.16em;
 
-  /* ---- Spacing ---- */
-  --spacing-gutter: 1.5rem; /* gap between cards */
-  --spacing-stack: 1rem; /* default vertical rhythm inside a block */
-  --spacing-section: 3.5rem; /* mobile section padding */
-  --spacing-section-lg: 6rem; /* desktop section padding */
-  --spacing-page-x: 1.25rem; /* mobile page gutter */
-  --spacing-page-x-lg: 2rem; /* desktop page gutter */
-
   /* ---- Layout ---- */
-  --container-page: 76rem;
+  --container-page: 83rem; /* 1328px content width */
+  --spacing-page-x: 1.25rem; /* mobile gutter, 20px */
+  --spacing-page-x-lg: 3.5rem; /* desktop gutter, 56px */
 
-  /* ---- Radius ---- */
-  --radius-card: 0.375rem;
+  /* ---- Radius: 0 everywhere except pills ---- */
+  --radius-card: 0rem;
   --radius-pill: 9999px;
 }

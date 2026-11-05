@@ -30,11 +30,11 @@ export default function ServicesPage() {
         <div className="mx-auto max-w-page px-page-x py-section lg:px-page-x-lg lg:py-section-lg">
           <ul className="grid gap-gutter md:grid-cols-2">
             {services.map((service) => (
-              <li key={service.slug} className="border border-line p-6">
+              <li key={service.slug} className="border border-line-ink p-6">
                 <h2 className="font-display text-body font-semibold uppercase tracking-[0.06em] text-ink">
                   {service.name}
                 </h2>
-                <p className="mt-2 text-small text-muted">{service.summary}</p>
+                <p className="mt-2 text-small text-muted-ink">{service.summary}</p>
                 {service.href ? (
                   <Link
                     href={service.href}
@@ -43,14 +43,14 @@ export default function ServicesPage() {
                     View details <ArrowRightIcon width={14} height={14} />
                   </Link>
                 ) : (
-                  <p className="mt-5 text-eyebrow font-semibold uppercase tracking-[0.14em] text-muted">
+                  <p className="mt-5 text-eyebrow font-semibold uppercase tracking-[0.14em] text-muted-ink">
                     Page coming soon — call for pricing
                   </p>
                 )}
               </li>
             ))}
           </ul>
-          <p className="mt-8 text-small text-muted">{todo("services not listed here")}</p>
+          <p className="mt-8 text-small text-muted-ink">{todo("services not listed here")}</p>
         </div>
       </section>
     </>

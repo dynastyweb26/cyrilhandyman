@@ -48,7 +48,7 @@ export default function HomePage() {
       <section className="bg-white">
         <div className="mx-auto max-w-page px-page-x py-section lg:px-page-x-lg lg:py-section-lg">
           <h2 className="font-display text-display-3 uppercase text-ink">What we do</h2>
-          <p className="mt-3 max-w-xl text-muted">
+          <p className="mt-3 max-w-xl text-muted-ink">
             One crew for the jobs that need a second pair of hands and the ones that need a
             finish carpenter.
           </p>
@@ -56,7 +56,7 @@ export default function HomePage() {
             {services.map((service) => (
               <li
                 key={service.slug}
-                className="flex flex-col border border-line bg-white p-5 transition-colors hover:border-ink/30"
+                className="flex flex-col border border-line-ink bg-white p-5 transition-colors hover:border-ink/30"
               >
                 <h3 className="font-display text-body font-semibold uppercase tracking-[0.06em] text-ink">
                   {service.href ? (
@@ -67,7 +67,7 @@ export default function HomePage() {
                     service.name
                   )}
                 </h3>
-                <p className="mt-2 flex-1 text-small text-muted">{service.summary}</p>
+                <p className="mt-2 flex-1 text-small text-muted-ink">{service.summary}</p>
                 <p className="mt-4 text-eyebrow font-semibold uppercase tracking-[0.14em] text-red">
                   {service.href ? (
                     <Link href={service.href} className="inline-flex items-center gap-1.5">
@@ -83,7 +83,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="border-y border-line bg-bone">
+      <section className="border-y border-line-ink bg-bone">
         <div className="mx-auto max-w-page px-page-x py-section lg:px-page-x-lg lg:py-section-lg">
           <div className="grid gap-10 lg:grid-cols-3 lg:gap-gutter">
             {reasons.map((reason) => (
@@ -91,7 +91,7 @@ export default function HomePage() {
                 <h3 className="font-display text-body font-semibold uppercase tracking-[0.08em] text-ink">
                   {reason.title}
                 </h3>
-                <p className="mt-2 text-small text-muted">{reason.body}</p>
+                <p className="mt-2 text-small text-muted-ink">{reason.body}</p>
               </div>
             ))}
           </div>
@@ -101,14 +101,14 @@ export default function HomePage() {
               <li key={city.slug}>
                 <Link
                   href={cityHref(city)}
-                  className="inline-flex border border-line bg-white px-3 py-1.5 text-small text-ink transition-colors hover:border-ink/40"
+                  className="inline-flex border border-line-ink bg-white px-3 py-1.5 text-small text-ink transition-colors hover:border-ink/40"
                 >
                   {city.name}
                 </Link>
               </li>
             ))}
           </ul>
-          <p className="mt-4 text-small text-muted">{todo("note about jobs outside these cities")}</p>
+          <p className="mt-4 text-small text-muted-ink">{todo("note about jobs outside these cities")}</p>
         </div>
       </section>
 
@@ -118,22 +118,22 @@ export default function HomePage() {
         <div className="mx-auto grid max-w-page gap-10 px-page-x py-section lg:grid-cols-[0.9fr_1.1fr] lg:gap-16 lg:px-page-x-lg lg:py-section-lg">
           <div>
             <h2 className="font-display text-display-3 uppercase text-ink">Request a quote</h2>
-            <p className="mt-3 text-muted">
+            <p className="mt-3 text-muted-ink">
               Tell us the job and the city. We&rsquo;ll come back with a price and a date — or call{" "}
               <a href={`tel:${site.phone.tel}`} className="text-ink underline underline-offset-4">
                 {site.phone.display}
               </a>
               .
             </p>
-            <p className="mt-4 text-small text-muted">{site.nap.response}</p>
-            <p className="mt-1 text-small text-muted">
+            <p className="mt-4 text-small text-muted-ink">{site.nap.response}</p>
+            <p className="mt-1 text-small text-muted-ink">
               Prefer email?{" "}
               <a href={`mailto:${site.email}`} className="text-ink underline underline-offset-4">
                 {site.email}
               </a>
             </p>
           </div>
-          <div className="border border-line bg-bone p-6 lg:p-8">
+          <div className="border border-line-ink bg-bone p-6 lg:p-8">
             <QuoteForm source="/" tone="light" />
           </div>
         </div>

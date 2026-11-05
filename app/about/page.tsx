@@ -22,7 +22,7 @@ export default function AboutPage() {
 
       <section className="bg-white">
         <div className="mx-auto grid max-w-page gap-12 px-page-x py-section lg:grid-cols-2 lg:gap-16 lg:px-page-x-lg lg:py-section-lg">
-          <div className="space-y-4 text-muted">
+          <div className="space-y-4 text-muted-ink">
             <p>
               Cyril Handyman &amp; Door LLC started with door work and grew into the renovation and
               finish work that surrounds it — media walls, kitchens, flooring and paint. The crew
@@ -36,13 +36,13 @@ export default function AboutPage() {
             <p className="text-small">{todo("owner story, year founded, crew size")}</p>
             <p className="text-small">{site.nap.response}</p>
           </div>
-          <div className="border border-line bg-bone p-6 lg:p-8">
+          <div className="border border-line-ink bg-bone p-6 lg:p-8">
             <h2 className="font-display text-body font-semibold uppercase tracking-[0.08em] text-ink">
               Get in touch
             </h2>
             <dl className="mt-4 space-y-3 text-small">
               <div>
-                <dt className="text-eyebrow font-semibold uppercase tracking-[0.14em] text-muted">
+                <dt className="text-eyebrow font-semibold uppercase tracking-[0.14em] text-muted-ink">
                   Phone
                 </dt>
                 <dd>
@@ -52,7 +52,7 @@ export default function AboutPage() {
                 </dd>
               </div>
               <div>
-                <dt className="text-eyebrow font-semibold uppercase tracking-[0.14em] text-muted">
+                <dt className="text-eyebrow font-semibold uppercase tracking-[0.14em] text-muted-ink">
                   Email
                 </dt>
                 <dd>
@@ -62,7 +62,7 @@ export default function AboutPage() {
                 </dd>
               </div>
               <div>
-                <dt className="text-eyebrow font-semibold uppercase tracking-[0.14em] text-muted">
+                <dt className="text-eyebrow font-semibold uppercase tracking-[0.14em] text-muted-ink">
                   Area
                 </dt>
                 <dd className="text-ink">

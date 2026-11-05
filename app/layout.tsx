@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Open_Sans, Oswald } from "next/font/google";
+import { Bricolage_Grotesque, Instrument_Sans, Newsreader } from "next/font/google";
 import type { ReactNode } from "react";
 import { JsonLd } from "@/components/json-ld";
 import { MobileCallBar } from "@/components/mobile-call-bar";
@@ -9,17 +9,25 @@ import { site } from "@/data/site";
 import { businessSchema } from "@/lib/schema";
 import "./globals.css";
 
-const oswald = Oswald({
+const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-oswald",
+  weight: ["600", "700", "800"],
+  variable: "--font-bricolage",
   display: "swap",
 });
 
-const openSans = Open_Sans({
+const instrument = Instrument_Sans({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  variable: "--font-open-sans",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-instrument",
+  display: "swap",
+});
+
+const newsreader = Newsreader({
+  subsets: ["latin"],
+  weight: ["400"],
+  style: ["italic"],
+  variable: "--font-newsreader",
   display: "swap",
 });
 
@@ -46,17 +54,20 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: "#0a0a0b",
-  colorScheme: "light",
+  colorScheme: "dark",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className={`${oswald.variable} ${openSans.variable}`}>
-      <body className="flex min-h-dvh flex-col pb-[4.5rem] md:pb-0">
+    <html
+      lang="en"
+      className={`${bricolage.variable} ${instrument.variable} ${newsreader.variable}`}
+    >
+      <body className="flex min-h-dvh flex-col bg-ink text-bone antialiased">
         <JsonLd id="business-schema" data={businessSchema()} />
         <a
           href="#main"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:bg-white focus:px-4 focus:py-2 focus:font-display focus:text-small focus:uppercase focus:tracking-[0.12em] focus:text-ink"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:bg-bone focus:px-4 focus:py-2 focus:text-[15px] focus:font-semibold focus:text-ink"
         >
           Skip to content
         </a>
