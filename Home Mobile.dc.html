@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Cyril Handyman &amp; Door · Forney, TX</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&amp;family=Instrument+Sans:wght@400;500;600;700&amp;family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0A0A0B;-webkit-font-smoothing:antialiased}
+a{color:#E04848}a:hover{color:#F5F3EF}
+summary::-webkit-details-marker{display:none}
+@keyframes driftL{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes driftR{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+[data-drift-wrap]:hover [data-drift],[data-drift-wrap]:focus-within [data-drift]{animation-play-state:paused!important}
+@media (prefers-reduced-motion:reduce){[data-drift]{animation:none!important;transform:none!important}[data-dup]{display:none!important}[data-drift-wrap]{overflow-x:auto!important;-webkit-mask-image:none!important;mask-image:none!important}*{transition:none!important}}
+</style>
+</helmet>
+<div style="max-width:430px;margin:0 auto;background:#0A0A0B;color:#F5F3EF;font-family:'Instrument Sans',system-ui,sans-serif;padding-bottom:76px;overflow-x:hidden">
+
+<header style="position:relative;z-index:20;background:#0A0A0B">
+  <div style="padding:8px 20px;border-bottom:1px solid #1F1F23;font:400 12px/1.4 'Instrument Sans',sans-serif;color:#B4B0A8">Forney, TX · Serving Kaufman County</div>
+  <nav aria-label="Primary" style="display:flex;align-items:center;justify-content:space-between;padding:10px 12px 10px 20px;border-bottom:1px solid #1F1F23">
+    <a href="/" style="display:flex;align-items:center;gap:10px;min-height:44px;text-decoration:none;color:#F5F3EF">
+      <span style="position:relative;flex:none;width:38px;height:38px;border-radius:50%;border:1px dashed #3A3A40;overflow:hidden;display:flex;align-items:center;justify-content:center;font:600 7px/1 ui-monospace,Menlo,monospace;color:#8F8B84">LOGO<img src="{{ px }}" alt="" data-slot="logo" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain"></span>
+      <span style="font:800 14px/1.05 'Bricolage Grotesque',sans-serif;letter-spacing:.02em;text-transform:uppercase">Cyril Handyman<br>&amp; Door</span>
+    </a>
+    <button type="button" aria-expanded="{{ menuOpen }}" aria-controls="m-menu" onClick="{{ toggleMenu }}" style="display:flex;align-items:center;gap:10px;height:48px;padding:0 14px;background:transparent;border:1px solid #3A3A40;color:#F5F3EF;font:600 15px/1 'Instrument Sans',sans-serif;cursor:pointer" style-active="background-color:#17171A">{{ menuLabel }}<span aria-hidden="true" style="display:flex;flex-direction:column;gap:4px"><span style="width:18px;height:2px;background:#F5F3EF"></span><span style="width:18px;height:2px;background:#F5F3EF"></span><span style="width:12px;height:2px;background:#CC0000"></span></span></button>
+  </nav>
+  <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+    <ul id="m-menu" style="position:absolute;left:0;right:0;top:100%;margin:0;padding:8px 20px 20px;list-style:none;background:#0A0A0B;border-bottom:1px solid #2A2A2F">
+      <sc-for list="{{ navLinks }}" as="l" hint-placeholder-count="6"><li style="border-bottom:1px solid #1F1F23"><a href="{{ l.href }}" style="display:flex;align-items:center;justify-content:space-between;min-height:56px;font:700 22px/1 'Bricolage Grotesque',sans-serif;color:#F5F3EF;text-decoration:none" style-active="color:#E04848">{{ l.label }}<span aria-hidden="true" style="color:#E04848">→</span></a></li></sc-for>
+    </ul>
+  </sc-if>
+</header>
+
+<section data-screen-label="M Hero" aria-labelledby="mh" style="position:relative;min-height:700px;display:flex;align-items:flex-end;padding:0 20px 40px;overflow:hidden;background:#111113">
+  <video ref="{{ heroRef }}" data-slot="hero-video-mobile" muted="{{ true }}" loop="{{ true }}" playsInline="{{ true }}" preload="none" poster="{{ px }}" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></video>
+  <div aria-hidden="true" style="position:absolute;inset:0;background:rgba(10,10,11,.55)"></div>
+  <div style="position:absolute;top:16px;left:20px;right:20px;padding:8px 10px;border:1px dashed #3A3A40;font:500 10px/1.5 ui-monospace,Menlo,monospace;color:#8F8B84">[ HERO POSTER 9:16 · 1080×1920 JPG shows first · VIDEO 9:16 loop · 720×1280, max 10s, loads after first paint ]</div>
+  <div style="position:relative">
+    <p style="margin:0 0 18px;font:700 11px/1.3 'Instrument Sans',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#E04848">Forney, TX · Registered LLC · 2+ years</p>
+    <h1 id="mh" style="margin:0;font:800 50px/.96 'Bricolage Grotesque',sans-serif;letter-spacing:-.035em;text-wrap:balance">Garage doors to media walls. Same crew, every job.</h1>
+    <p style="margin:20px 0 0;font:400 17px/1.5 'Instrument Sans',sans-serif;color:#D6D2CB">The people who quote your job are the people who do it. Doors, blinds, patio screens, accent walls and holiday lights across Kaufman County.</p>
+    <div style="display:flex;flex-direction:column;gap:10px;margin-top:28px">
+      <a href="#m-quote" style="display:flex;align-items:center;justify-content:center;height:56px;background:#CC0000;color:#FFFFFF;font:700 17px/1 'Instrument Sans',sans-serif;text-decoration:none" style-active="background-color:#8F0000">Send a photo, get a quote</a>
+      <a href="/gallery" style="display:flex;align-items:center;justify-content:center;height:56px;border:1.5px solid #F5F3EF;box-sizing:border-box;color:#F5F3EF;font:700 17px/1 'Instrument Sans',sans-serif;text-decoration:none" style-active="background-color:#F5F3EF;color:#0A0A0B">See recent work</a>
+    </div>
+    <ul aria-label="About the company" style="display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin:24px 0 0;padding:0;list-style:none;font:500 14px/1.3 'Instrument Sans',sans-serif;color:#D6D2CB">
+      <li>Registered Texas LLC</li><li aria-hidden="true" style="width:4px;height:4px;background:#CC0000"></li><li>2+ years</li><li aria-hidden="true" style="width:4px;height:4px;background:#CC0000"></li><li>Same crew on every job</li>
+    </ul>
+  </div>
+</section>
+
+<section data-screen-label="M Gallery showcase" aria-labelledby="mg" style="padding:56px 0 64px;background:#0A0A0B;color:#F5F3EF;border-top:1px solid #1F1F23">
+  <div style="padding:0 20px 28px">
+    <p style="margin:0 0 14px;font:700 11px/1 'Instrument Sans',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#E04848">The gallery</p>
+    <h2 id="mg" style="margin:0;font:800 40px/1 'Bricolage Grotesque',sans-serif;letter-spacing:-.035em">See the work <span style="font:italic 400 42px/1 'Newsreader',serif;color:#E04848">before you call.</span></h2>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:14px">
+    <div data-drift-wrap="" style="overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)">
+      <div data-drift="" style="display:flex;gap:14px;padding:4px 14px 4px 0;width:max-content;animation:driftL 60s linear infinite">
+        <sc-for list="{{ row1 }}" as="c" hint-placeholder-count="6"><dc-import name="GalleryCard" kind="{{ c.kind }}" tag="{{ c.tag }}" title="{{ c.title }}" city="{{ c.city }}" line="{{ c.line }}" slug="{{ c.slug }}" ratio="{{ c.ratio }}" slot="{{ c.slot }}" style="width:270px;flex:none" hint-size="270px,420px"></dc-import></sc-for>
+        <div data-dup="" aria-hidden="true" style="display:contents"><sc-for list="{{ row1 }}" as="c" hint-placeholder-count="6"><dc-import name="GalleryCard" dup="{{ true }}" kind="{{ c.kind }}" tag="{{ c.tag }}" title="{{ c.title }}" city="{{ c.city }}" line="{{ c.line }}" slug="{{ c.slug }}" ratio="{{ c.ratio }}" slot="{{ c.slot }}" style="width:270px;flex:none" hint-size="270px,420px"></dc-import></sc-for></div>
+      </div>
+    </div>
+    <div data-drift-wrap="" style="overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)">
+      <div data-drift="" style="display:flex;gap:14px;padding:4px 14px 4px 0;width:max-content;animation:driftR 60s linear infinite">
+        <sc-for list="{{ row2 }}" as="c" hint-placeholder-count="6"><dc-import name="GalleryCard" kind="{{ c.kind }}" tag="{{ c.tag }}" title="{{ c.title }}" city="{{ c.city }}" line="{{ c.line }}" slug="{{ c.slug }}" ratio="{{ c.ratio }}" slot="{{ c.slot }}" style="width:270px;flex:none" hint-size="270px,420px"></dc-import></sc-for>
+        <div data-dup="" aria-hidden="true" style="display:contents"><sc-for list="{{ row2 }}" as="c" hint-placeholder-count="6"><dc-import name="GalleryCard" dup="{{ true }}" kind="{{ c.kind }}" tag="{{ c.tag }}" title="{{ c.title }}" city="{{ c.city }}" line="{{ c.line }}" slug="{{ c.slug }}" ratio="{{ c.ratio }}" slot="{{ c.slot }}" style="width:270px;flex:none" hint-size="270px,420px"></dc-import></sc-for></div>
+      </div>
+    </div>
+  </div>
+  <ul aria-label="Filter the gallery by service" style="display:flex;gap:8px;margin:28px 0 0;padding:0 20px;list-style:none;overflow-x:auto">
+    <sc-for list="{{ filters }}" as="f" hint-placeholder-count="6"><li style="flex:none"><a href="{{ f.href }}" aria-current="{{ f.cur }}" style="display:inline-flex;align-items:center;height:44px;padding:0 18px;border-radius:999px;border:1px solid #3A3A40;box-sizing:border-box;background:{{ f.bg }};color:{{ f.fg }};font:600 14px/1 'Instrument Sans',sans-serif;text-decoration:none;white-space:nowrap">{{ f.label }}</a></li></sc-for>
+  </ul>
+  <a href="/gallery" style="display:flex;align-items:center;justify-content:center;height:56px;margin:16px 20px 0;background:#CC0000;color:#FFFFFF;font:700 16px/1 'Instrument Sans',sans-serif;text-decoration:none" style-active="background-color:#8F0000">Open the full gallery →</a>
+</section>
+
+<section id="services" data-screen-label="M Services" aria-labelledby="ms" style="padding:64px 20px;background:#F5F3EF;color:#0A0A0B">
+  <h2 id="ms" style="margin:0;font:800 42px/1 'Bricolage Grotesque',sans-serif;letter-spacing:-.035em">Five specialties. <span style="font:italic 400 46px/.95 'Newsreader',serif;color:#CC0000">One crew.</span></h2>
+  <p style="margin:16px 0 28px;font:400 16px/1.5 'Instrument Sans',sans-serif;color:#4A4640">Each one has its own page with pricing guidance, process, FAQs and real projects.</p>
+  <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px">
+    <a href="/services/garage-doors" style="grid-column:1 / -1;position:relative;height:400px;box-sizing:border-box;padding:22px;display:flex;flex-direction:column;justify-content:space-between;background:#0A0A0B;color:#F5F3EF;text-decoration:none;overflow:hidden" style-active="background-color:#17171A">
+      <span style="font:italic 400 26px/1 'Newsreader',serif;color:#E04848">01</span>
+      <div style="position:absolute;top:66px;left:22px;right:22px;bottom:128px;background:#17171A"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:500 10px/1.5 ui-monospace,Menlo,monospace;color:#8F8B84">[ IMAGE 3:2 · 1200×800 ]</div><img src="{{ px }}" alt="[ALT: New garage door installed on a home in Kaufman County]" loading="lazy" decoding="async" data-slot="svc-garage-m" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
+      <div><h3 style="margin:0;font:800 38px/1 'Bricolage Grotesque',sans-serif;letter-spacing:-.03em">Garage doors</h3><p style="margin:8px 0 0;font:400 15px/1.4 'Instrument Sans',sans-serif;color:#D6D2CB">New doors, openers, springs, repairs. The shop's specialty.</p></div>
+    </a>
+    <a href="/services/faux-wood-blinds" style="height:220px;box-sizing:border-box;padding:18px;display:flex;flex-direction:column;justify-content:space-between;background:#E8E3DB;color:#0A0A0B;text-decoration:none" style-active="background-color:#DED8CE">
+      <span style="font:italic 400 24px/1 'Newsreader',serif;color:#B80000">02</span>
+      <div><h3 style="margin:0;font:800 22px/1.05 'Bricolage Grotesque',sans-serif;letter-spacing:-.02em">Faux wood blinds</h3><p style="margin:6px 0 0;font:400 14px/1.35 'Instrument Sans',sans-serif;color:#4A4640">Measured and installed.</p></div>
+    </a>
+    <a href="/services/patio-screens" style="height:220px;box-sizing:border-box;padding:18px;display:flex;flex-direction:column;justify-content:space-between;background:#E8E3DB;color:#0A0A0B;text-decoration:none" style-active="background-color:#DED8CE">
+      <span style="font:italic 400 24px/1 'Newsreader',serif;color:#B80000">03</span>
+      <div><h3 style="margin:0;font:800 22px/1.05 'Bricolage Grotesque',sans-serif;letter-spacing:-.02em">Patio screens</h3><p style="margin:6px 0 0;font:400 14px/1.35 'Instrument Sans',sans-serif;color:#4A4640">Motorized and retractable.</p></div>
+    </a>
+    <a href="/services/media-accent-walls" style="grid-column:1 / -1;height:200px;box-sizing:border-box;padding:22px;display:flex;flex-direction:column;justify-content:space-between;background:#0A0A0B;color:#F5F3EF;text-decoration:none" style-active="background-color:#17171A">
+      <span style="font:italic 400 24px/1 'Newsreader',serif;color:#E04848">04</span>
+      <div><h3 style="margin:0;font:800 28px/1 'Bricolage Grotesque',sans-serif;letter-spacing:-.02em">Media &amp; accent walls</h3><p style="margin:6px 0 0;font:400 14px/1.35 'Instrument Sans',sans-serif;color:#D6D2CB">Slat, panel and built-ins.</p></div>
+    </a>
+    <a href="/services/christmas-lights" style="grid-column:1 / -1;height:200px;box-sizing:border-box;padding:22px;display:flex;flex-direction:column;justify-content:space-between;background:#CC0000;color:#FFFFFF;text-decoration:none" style-active="background-color:#B30000">
+      <span style="font:italic 400 24px/1 'Newsreader',serif">05</span>
+      <div><h3 style="margin:0;font:800 28px/1 'Bricolage Grotesque',sans-serif;letter-spacing:-.02em">Christmas lights</h3><p style="margin:6px 0 0;font:500 14px/1.35 'Instrument Sans',sans-serif">Designed, hung, maintained, taken down.</p></div>
+    </a>
+  </div>
+  <p style="margin:24px 0 0;padding-top:20px;border-top:1px solid #D9D4CB;font:400 15px/1.5 'Instrument Sans',sans-serif;color:#3A3732">Also: flooring, painting, cabinet refacing and handyman repairs. <a href="/services" style="font-weight:700;color:#CC0000;text-decoration:none">See everything →</a></p>
+</section>
+
+<section data-screen-label="M Before / after" aria-labelledby="mba" style="padding:64px 20px">
+  <p style="margin:0 0 14px;font:700 11px/1 'Instrument Sans',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#E04848">Before / after</p>
+  <h2 id="mba" style="margin:0;font:800 36px/1 'Bricolage Grotesque',sans-serif;letter-spacing:-.03em">Drag to see the difference.</h2>
+  <p style="margin:14px 0 24px;font:400 16px/1.5 'Instrument Sans',sans-serif;color:#D6D2CB">Every gallery project can carry a before and after, with the city and service on it so you know it was done near you.</p>
+  <div style="aspect-ratio:4/5;width:100%"><dc-import name="BeforeAfter" slot-id="home-ba-m" before-slot="[ BEFORE 4:5 · 1200×1500 ]" after-slot="[ AFTER 4:5 · 1200×1500 ]" style="width:100%;height:100%" hint-size="100%,100%"></dc-import></div>
+  <a href="/gallery" style="display:flex;align-items:center;min-height:44px;margin-top:12px;font:700 15px/1 'Instrument Sans',sans-serif;color:#E04848;text-decoration:none">Browse the gallery →</a>
+</section>
+
+<section id="about" data-screen-label="M Who shows up" aria-labelledby="mw" style="padding:64px 20px;background:#17171A">
+  <p style="margin:0 0 14px;font:700 11px/1 'Instrument Sans',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#E04848">Who shows up</p>
+  <h2 id="mw" style="margin:0 0 24px;font:800 38px/1 'Bricolage Grotesque',sans-serif;letter-spacing:-.035em">The ones you talked to.</h2>
+  <div style="position:relative;aspect-ratio:1/1;background:#0A0A0B;border:1px solid #2A2A2F"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:20px;text-align:center;font:500 10px/1.5 ui-monospace,Menlo,monospace;color:#8F8B84">[ IMAGE 1:1 · 1600×1600 — same file as desktop crew photo ]</div><img src="{{ px }}" alt="[ALT: Cyril and his crew standing in front of the company truck in Forney, TX]" loading="lazy" decoding="async" data-slot="crew" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
+  <dl style="margin:24px 0 0">
+    <div style="padding:20px 0;border-top:1px solid #2A2A2F"><dt style="font:600 18px/1.3 'Instrument Sans',sans-serif">Cyril and his team do every job</dt><dd style="margin:6px 0 0;font:400 15px/1.5 'Instrument Sans',sans-serif;color:#B4B0A8">No handoffs and no strangers. You meet the crew who does the work.</dd></div>
+    <div style="padding:20px 0;border-top:1px solid #2A2A2F"><dt style="font:600 18px/1.3 'Instrument Sans',sans-serif">Registered Texas LLC, 2+ years in</dt><dd style="margin:6px 0 0;font:400 15px/1.5 'Instrument Sans',sans-serif;color:#B4B0A8">Local to Forney. Our name is on the truck and on every review.</dd></div>
+    <div style="padding:20px 0;border-top:1px solid #2A2A2F;border-bottom:1px solid #2A2A2F"><dt style="font:600 18px/1.3 'Instrument Sans',sans-serif">Working wholeheartedly</dt><dd style="margin:6px 0 0;font:400 15px/1.5 'Instrument Sans',sans-serif;color:#B4B0A8">The job is finished right and the space is left cleaner than we found it.</dd></div>
+  </dl>
+</section>
+
+<section data-screen-label="M How a job goes" aria-labelledby="mhow" style="padding:64px 20px">
+  <h2 id="mhow" style="margin:0 0 28px;font:800 40px/1 'Bricolage Grotesque',sans-serif;letter-spacing:-.035em">How a job goes. <span style="font:italic 400 42px/1 'Newsreader',serif;color:#E04848">Start to clean-up.</span></h2>
+  <ol style="margin:0;padding:0;list-style:none">
+    <li style="display:grid;grid-template-columns:44px minmax(0,1fr);gap:8px;padding:20px 0;border-top:1px solid #2A2A2F"><span aria-hidden="true" style="font:italic 400 34px/1 'Newsreader',serif;color:#E04848">1</span><div><h3 style="margin:2px 0 6px;font:600 18px/1.25 'Instrument Sans',sans-serif">Send a photo</h3><p style="margin:0;font:400 15px/1.5 'Instrument Sans',sans-serif;color:#B4B0A8">Or call. Tell us the job and the city.</p></div></li>
+    <li style="display:grid;grid-template-columns:44px minmax(0,1fr);gap:8px;padding:20px 0;border-top:1px solid #2A2A2F"><span aria-hidden="true" style="font:italic 400 34px/1 'Newsreader',serif;color:#E04848">2</span><div><h3 style="margin:2px 0 6px;font:600 18px/1.25 'Instrument Sans',sans-serif">Get a quote</h3><p style="margin:0;font:400 15px/1.5 'Instrument Sans',sans-serif;color:#B4B0A8">A clear price and a date. [ Confirm response time ]</p></div></li>
+    <li style="display:grid;grid-template-columns:44px minmax(0,1fr);gap:8px;padding:20px 0;border-top:1px solid #2A2A2F"><span aria-hidden="true" style="font:italic 400 34px/1 'Newsreader',serif;color:#E04848">3</span><div><h3 style="margin:2px 0 6px;font:600 18px/1.25 'Instrument Sans',sans-serif">We do the work</h3><p style="margin:0;font:400 15px/1.5 'Instrument Sans',sans-serif;color:#B4B0A8">The same crew you spoke to.</p></div></li>
+    <li style="display:grid;grid-template-columns:44px minmax(0,1fr);gap:8px;padding:20px 0;border-top:1px solid #2A2A2F;border-bottom:1px solid #2A2A2F"><span aria-hidden="true" style="font:italic 400 34px/1 'Newsreader',serif;color:#E04848">4</span><div><h3 style="margin:2px 0 6px;font:600 18px/1.25 'Instrument Sans',sans-serif">Cleaner than we found it</h3><p style="margin:0;font:400 15px/1.5 'Instrument Sans',sans-serif;color:#B4B0A8">We walk through it with you before we leave.</p></div></li>
+  </ol>
+</section>
+
+<section id="reviews" data-screen-label="M Reviews" aria-labelledby="mr" style="padding:64px 0 48px">
+  <div style="padding:0 20px">
+    <h2 id="mr" style="margin:0;font:800 40px/1 'Bricolage Grotesque',sans-serif;letter-spacing:-.035em">What neighbors say.</h2>
+    <p style="margin:16px 0 0;display:flex;align-items:center;gap:10px;color:#E04848"><span style="font:800 30px/1 'Bricolage Grotesque',sans-serif">[ X.X ]</span><span aria-label="[ X.X ] out of 5 stars" style="font:400 24px/1 'Instrument Sans',sans-serif">★★★★★</span></p>
+    <p style="margin:8px 0 24px;font:400 14px/1.4 'Instrument Sans',sans-serif;color:#B4B0A8">[ NN ] Google reviews · <a href="https://g.page/[PLACEHOLDER]" style="color:#E04848;text-decoration:none;font-weight:600">Read them all</a></p>
+  </div>
+  <ul style="display:flex;gap:12px;margin:0;padding:0 20px;list-style:none;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 20px">
+    <sc-for list="{{ reviews }}" as="r" hint-placeholder-count="3">
+      <li style="flex:none;width:300px;min-height:260px;box-sizing:border-box;padding:24px;display:flex;flex-direction:column;justify-content:space-between;gap:28px;background:#17171A;border:1px solid #2A2A2F;scroll-snap-align:start">
+        <figure style="margin:0"><span aria-label="[ N ] out of 5 stars" style="display:block;font:400 14px/1 'Instrument Sans',sans-serif;letter-spacing:.12em;color:#E04848">★★★★★</span><blockquote style="margin:16px 0 0;font:400 17px/1.5 'Instrument Sans',sans-serif">[ Real review text goes here — pulled from Google reviews, nothing invented. ]</blockquote></figure>
+        <p style="margin:0;font:400 13px/1.4 'Instrument Sans',sans-serif;color:#A8A49C">[ First name ] · [ City ] · [ Service ]</p>
+      </li>
+    </sc-for>
+  </ul>
+</section>
+
+<section id="faq" data-screen-label="M FAQ" aria-labelledby="mfaq" style="padding:64px 20px;border-top:1px solid #1F1F23">
+  <p style="margin:0 0 14px;font:700 11px/1 'Instrument Sans',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#E04848">FAQ</p>
+  <h2 id="mfaq" style="margin:0;font:800 40px/1 'Bricolage Grotesque',sans-serif;letter-spacing:-.035em">Questions, <span style="font:italic 400 44px/1 'Newsreader',serif;color:#E04848">answered.</span></h2>
+  <p style="margin:14px 0 24px;font:400 16px/1.5 'Instrument Sans',sans-serif;color:#D6D2CB">Straight answers about quotes, timing and how we work.</p>
+  <div style="background:#17171A;border:1px solid #2A2A2F;border-bottom:0">
+        <sc-for list="{{ faq }}" as="f" hint-placeholder-count="10">
+          <details open="{{ f.open }}" onToggle="{{ f.toggle }}" style="border-bottom:1px solid #2A2A2F">
+            <summary style="list-style:none;display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:64px;box-sizing:border-box;padding:14px 16px;cursor:pointer;font:600 17px/1.35 'Instrument Sans',sans-serif;color:#F5F3EF;transition:color .15s" style-hover="color:#FFFFFF;background-color:#1C1C20" style-focus="outline:2px solid #F5F3EF;outline-offset:-2px"><span style="display:flex;gap:16px;align-items:baseline"><span aria-hidden="true" style="flex:none;width:30px;font:italic 400 20px/1 'Newsreader',serif;color:#E04848">{{ f.n }}</span><span>{{ f.q }}</span></span><span aria-hidden="true" style="flex:none;position:relative;width:36px;height:36px;border:1px solid #3A3A40;border-radius:50%"><span style="position:absolute;left:10px;top:16px;width:14px;height:2px;background:#E04848"></span><span style="position:absolute;left:16px;top:10px;width:2px;height:14px;background:#E04848;transform:{{ f.vbar }};transition:transform .2s"></span></span></summary>
+            <p style="margin:0;padding:0 18px 20px 62px;max-width:680px;font:400 15px/1.6 'Instrument Sans',sans-serif;color:#D6D2CB">{{ f.a }} <sc-if value="{{ f.hasC }}" hint-placeholder-val="{{ false }}"><span style="font-weight:600;color:#E04848">{{ f.c }}</span></sc-if></p>
+          </details>
+        </sc-for>
+      </div>
+  <a href="/services" style="display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:0 16px;margin-top:20px;border:1px solid #2A2A2F;border-radius:999px;box-sizing:border-box;font:500 14px/1 'Instrument Sans',sans-serif;color:#D6D2CB;text-decoration:none;transition:border-color .15s" style-hover="border-color:#CC0000;color:#FFFFFF"><span aria-hidden="true" style="width:6px;height:6px;background:#CC0000"></span>Each service page has its own FAQ too.</a>
+  <div style="margin-top:24px"><div style="background:#17171A;border:1px solid #2A2A2F;padding:22px">
+        <p style="margin:0;font:600 19px/1.3 'Instrument Sans',sans-serif;color:#F5F3EF">Still have a question?</p>
+        <p style="margin:8px 0 22px;font:400 16px/1.5 'Instrument Sans',sans-serif;color:#B4B0A8">Call or text. A photo of the job helps.</p>
+        <a href="tel:+19453444580" style="display:inline-flex;align-items:center;justify-content:center;height:56px;padding:0 28px;background:#CC0000;color:#FFFFFF;font:700 16px/1 'Instrument Sans',sans-serif;text-decoration:none;transition:background-color .15s,transform .1s" style-hover="background-color:#A80000" style-active="background-color:#8F0000;transform:translateY(1px)" style-focus="outline:2px solid #F5F3EF;outline-offset:3px">Call 945-344-4580</a>
+      </div></div>
+</section>
+
+<section data-screen-label="M Where we work" aria-labelledby="mwh" style="padding:56px 20px 64px;border-top:1px solid #1F1F23">
+  <p style="margin:0 0 14px;font:700 11px/1 'Instrument Sans',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#E04848">Where we work</p>
+  <h2 id="mwh" style="margin:0 0 24px;font:800 38px/1 'Bricolage Grotesque',sans-serif;letter-spacing:-.035em">Forney and the towns around it.</h2>
+  <ul style="display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none">
+    <sc-for list="{{ cities }}" as="c" hint-placeholder-count="8"><li><a href="{{ c.href }}" style="display:inline-flex;align-items:center;height:44px;padding:0 16px;border:1px solid #3A3A40;box-sizing:border-box;color:#F5F3EF;font:600 15px/1 'Instrument Sans',sans-serif;text-decoration:none" style-active="background-color:#CC0000;border-color:#CC0000">{{ c.name }}</a></li></sc-for>
+  </ul>
+  <div style="position:relative;aspect-ratio:4/3;margin-top:24px;background:#17171A;border:1px solid #2A2A2F"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:20px;text-align:center;font:500 10px/1.5 ui-monospace,Menlo,monospace;color:#8F8B84">[ MAP 4:3 · same file as desktop — service area shaded, no street address ]</div><img src="{{ px }}" alt="Map of the service area around Forney and Kaufman County, Texas" loading="lazy" decoding="async" data-slot="map" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
+  <p style="margin:16px 0 0;font:400 14px/1.5 'Instrument Sans',sans-serif;color:#A8A49C">[ Confirm the final city list with Cyril ]</p>
+</section>
+
+<section id="m-quote" data-screen-label="M Quote" aria-labelledby="mq" style="padding:56px 20px 40px;background:#CC0000;color:#FFFFFF">
+  <p style="margin:0 0 14px;font:700 11px/1 'Instrument Sans',sans-serif;letter-spacing:.16em;text-transform:uppercase">Quote by photo</p>
+  <h2 id="mq" style="margin:0;font:800 48px/.96 'Bricolage Grotesque',sans-serif;letter-spacing:-.04em">Send a photo. <span style="font:italic 400 50px/.96 'Newsreader',serif">Get a price.</span></h2>
+  <p style="margin:18px 0 24px;font:400 16px/1.5 'Instrument Sans',sans-serif">Snap the door, window, wall or roofline. Tell us the city. Cyril gets back to you with a price. [ Confirm response time ]</p>
+  <form action="/api/quote" method="post" encType="multipart/form-data" onSubmit="{{ submit }}" style="display:flex;flex-direction:column;gap:16px;padding:20px;background:#0A0A0B;color:#F5F3EF">
+    <label style="display:flex;flex-direction:column;gap:8px;font:600 15px/1 'Instrument Sans',sans-serif">Photos of the job
+      <span style="position:relative;display:flex;align-items:center;gap:14px;min-height:96px;padding:16px;border:1.5px dashed #4A4A52;box-sizing:border-box">
+        <svg width="32" height="32" viewBox="0 0 40 40" fill="none" stroke="#E04848" stroke-width="1.8" aria-hidden="true"><rect x="4" y="9" width="32" height="24" rx="2"></rect><path d="M20 27V15M15 20l5-5 5 5"></path></svg>
+        <span style="display:flex;flex-direction:column;gap:6px"><span style="font:600 16px/1.2 'Instrument Sans',sans-serif">{{ fileText }}</span><span style="font:400 13px/1.3 'Instrument Sans',sans-serif;color:#A8A49C">Camera or library · up to 5</span></span>
+        <input type="file" name="photos" accept="image/*" multiple="{{ true }}" onChange="{{ files }}" style="position:absolute;inset:0;opacity:0">
+      </span>
+    </label>
+    <label style="display:flex;flex-direction:column;gap:8px;font:600 15px/1 'Instrument Sans',sans-serif">Name<input name="name" autoComplete="name" style="height:52px;padding:0 14px;background:#17171A;border:1px solid #3A3A40;color:#F5F3EF;font:400 16px 'Instrument Sans',sans-serif;outline:none" style-focus="border-color:#F5F3EF"></label>
+    <label style="display:flex;flex-direction:column;gap:8px;font:600 15px/1 'Instrument Sans',sans-serif">Phone<input name="phone" type="tel" autoComplete="tel" style="height:52px;padding:0 14px;background:#17171A;border:1px solid #3A3A40;color:#F5F3EF;font:400 16px 'Instrument Sans',sans-serif;outline:none" style-focus="border-color:#F5F3EF"></label>
+    <label style="display:flex;flex-direction:column;gap:8px;font:600 15px/1 'Instrument Sans',sans-serif">City<select name="city" style="height:52px;padding:0 14px;background:#17171A;border:1px solid #3A3A40;color:#F5F3EF;font:400 16px 'Instrument Sans',sans-serif"><option value="">Choose your city</option><sc-for list="{{ cities }}" as="c" hint-placeholder-count="8"><option value="{{ c.name }}">{{ c.name }}</option></sc-for><option value="other">Somewhere else nearby</option></select></label>
+    <label style="display:flex;flex-direction:column;gap:8px;font:600 15px/1 'Instrument Sans',sans-serif">Service<select name="service" style="height:52px;padding:0 14px;background:#17171A;border:1px solid #3A3A40;color:#F5F3EF;font:400 16px 'Instrument Sans',sans-serif"><option value="">What do you need?</option><sc-for list="{{ services }}" as="s" hint-placeholder-count="10"><option value="{{ s }}">{{ s }}</option></sc-for></select></label>
+    <label style="display:flex;flex-direction:column;gap:8px;font:600 15px/1 'Instrument Sans',sans-serif">Details<textarea name="details" rows="4" placeholder="Size, what's wrong, when you'd like it done" style="padding:12px 14px;background:#17171A;border:1px solid #3A3A40;color:#F5F3EF;font:400 16px/1.5 'Instrument Sans',sans-serif;outline:none" style-focus="border-color:#F5F3EF"></textarea></label>
+    <button type="submit" style="height:56px;border:0;background:#CC0000;color:#FFFFFF;font:700 17px/1 'Instrument Sans',sans-serif" style-active="background-color:#8F0000">Send it to Cyril →</button>
+    <span style="font:400 13px/1.4 'Instrument Sans',sans-serif;color:#A8A49C">{{ sentText }}</span>
+  </form>
+</section>
+
+<footer style="padding:48px 20px 32px;border-top:1px solid #1F1F23">
+  <a href="/" style="display:flex;align-items:center;gap:12px;min-height:44px;text-decoration:none;color:#F5F3EF"><span style="position:relative;width:48px;height:48px;border-radius:50%;border:1px dashed #3A3A40;overflow:hidden;display:flex;align-items:center;justify-content:center;font:600 8px/1 ui-monospace,Menlo,monospace;color:#8F8B84">LOGO<img src="{{ px }}" alt="" data-slot="logo-footer" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain"></span><span style="font:800 16px/1.05 'Bricolage Grotesque',sans-serif;text-transform:uppercase">Cyril Handyman<br>&amp; Door LLC</span></a>
+  <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px 16px;margin-top:32px">
+    <nav aria-label="Services" style="display:flex;flex-direction:column"><h2 style="margin:0 0 8px;font:700 11px/1 'Instrument Sans',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#E04848">Services</h2><sc-for list="{{ footSvc }}" as="l" hint-placeholder-count="6"><a href="{{ l.href }}" style="display:flex;align-items:center;min-height:44px;color:#E2DFD9;text-decoration:none;font-size:15px">{{ l.label }}</a></sc-for></nav>
+    <nav aria-label="Company" style="display:flex;flex-direction:column"><h2 style="margin:0 0 8px;font:700 11px/1 'Instrument Sans',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#E04848">Company</h2><sc-for list="{{ navLinks }}" as="l" hint-placeholder-count="6"><a href="{{ l.href }}" style="display:flex;align-items:center;min-height:44px;color:#E2DFD9;text-decoration:none;font-size:15px">{{ l.label }}</a></sc-for></nav>
+  </div>
+  <div style="display:flex;flex-direction:column;margin-top:28px;padding-top:20px;border-top:1px solid #1F1F23">
+    <a href="tel:+19453444580" style="display:flex;align-items:center;min-height:44px;font:700 18px/1 'Instrument Sans',sans-serif;color:#FFFFFF;text-decoration:none">945-344-4580</a>
+    <a href="mailto:crazydoor04@gmail.com" style="display:flex;align-items:center;min-height:44px;font-size:15px;color:#E2DFD9;text-decoration:none">crazydoor04@gmail.com</a>
+    <div style="display:flex;gap:20px"><a href="https://facebook.com/[PLACEHOLDER]" style="display:flex;align-items:center;min-height:44px;font-size:15px;color:#E2DFD9;text-decoration:none">Facebook</a><a href="https://instagram.com/[PLACEHOLDER]" style="display:flex;align-items:center;min-height:44px;font-size:15px;color:#E2DFD9;text-decoration:none">Instagram</a></div>
+  </div>
+  <p style="margin:24px 0 0;font:400 12px/1.5 'Instrument Sans',sans-serif;color:#8F8B84">© 2026 Cyril Handyman &amp; Door LLC · Registered Texas LLC · Forney, TX</p>
+</footer>
+
+<div role="region" aria-label="Quick contact" style="position:fixed;z-index:30;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:430px;box-sizing:border-box;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:#0A0A0B;border-top:1px solid #2A2A2F">
+  <a href="tel:+19453444580" style="display:flex;align-items:center;justify-content:center;gap:8px;height:52px;background:#CC0000;color:#FFFFFF;font:700 16px/1 'Instrument Sans',sans-serif;text-decoration:none" style-active="background-color:#8F0000"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="4" y="1.5" width="8" height="13" rx="1.5"></rect><path d="M7 12h2"></path></svg>Call 945-344-4580</a>
+  <a href="#m-quote" style="display:flex;align-items:center;justify-content:center;height:52px;border:1.5px solid #F5F3EF;box-sizing:border-box;color:#F5F3EF;font:700 16px/1 'Instrument Sans',sans-serif;text-decoration:none" style-active="background-color:#F5F3EF;color:#0A0A0B">Get a quote</a>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:390,&quot;height&quot;:844}}">
+class Component extends DCLogic {
+  state = { n: 0, sent: false, faqOpen: { 0: true }, menu: false };
+  heroRef = React.createRef();
+  componentDidMount() {
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const save = navigator.connection && navigator.connection.saveData;
+    if (reduce) document.querySelectorAll('video').forEach(v => { v.autoplay = false; v.pause(); });
+    else if (!save && this.heroRef.current) {
+      // Poster-first: start the hero loop only after the page has painted.
+      window.addEventListener('load', () => { const v = this.heroRef.current; if (v && v.currentSrc) v.play().catch(() => {}); }, { once: true });
+    }
+  }
+faqList() {
+    const Q = [
+      ['Which cities do you serve?', 'Forney, Mesquite, Rockwall, Heath, Terrell, Crandall, Kaufman and Sunnyvale, plus the towns around them.', '[CONFIRM final list]'],
+      ['How do I get a quote?', 'Send a photo and your city through the form on this page, or call 945-344-4580.', '[CONFIRM response time]'],
+      ['Do you take small jobs?', 'Yes. Anything from a sticking door to a full media wall, with the same crew and the same standard.', ''],
+      ['Who actually does the work?', 'Cyril and his team do every job. No handoffs.', ''],
+      ['How long does a garage door install take?', '', '[CONFIRM typical install time]'],
+      ['How long until my faux wood blinds arrive?', '', '[CONFIRM lead time]'],
+      ['What do motorized patio screens cost?', 'It depends on the size of the opening, the fabric and the motor. Send a photo and we will quote from that.', '[CONFIRM whether a "starting at" price can be shown]'],
+      ['When should I book Christmas lights?', '', '[CONFIRM booking window and takedown policy]'],
+      ['What do you need from me to quote a media or accent wall?', 'A photo of the wall, rough measurements and the look you want.', ''],
+      ['How do you handle payment?', '', '[CONFIRM accepted payment methods and deposit policy]']
+    ];
+    const o = this.state.faqOpen;
+    return Q.map(([q, a, c], i) => ({
+      n: String(i + 1).padStart(2, '0'), q, a, c, hasC: !!c, open: !!o[i], vbar: o[i] ? 'scaleY(0)' : 'scaleY(1)',
+      toggle: e => { const v = e.currentTarget.open; if (!!this.state.faqOpen[i] !== v) this.setState(s => ({ faqOpen: { ...s.faqOpen, [i]: v } })); }
+    }));
+  }
+  renderVals() {
+    const slug = s => s.toLowerCase().replace(/&/g, 'and').replace(/[^a-z]+/g, '-').replace(/-$/, '');
+    const svc = ['Garage doors', 'Faux wood blinds', 'Patio screens', 'Media & accent walls', 'Christmas lights'];
+    const cityNames = ['Forney', 'Mesquite', 'Rockwall', 'Heath', 'Terrell', 'Crandall', 'Kaufman', 'Sunnyvale'];
+    const card = (kind, tag, n) => ({
+      kind, tag, title: '[ Project title ]', city: '[ City ]', line: '[ One line on what was done ]',
+      slug: slug(tag) + '-' + n, ratio: '4 / 3',
+      slot: kind === 'video' ? '[ VIDEO 4:3 loop · 1200×900 · max 8s ]' : '[ IMAGE 4:3 · 1200×900 ]'
+    });
+    const ribbon = [];
+    cityNames.forEach((c, i) => { if (i) ribbon.push({ sep: true }); ribbon.push({ city: true, name: c, href: '/service-areas#' + slug(c) }); });
+    return {
+      px: 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7',
+      heroRef: this.heroRef,
+      menuOpen: this.state.menu, menuLabel: this.state.menu ? 'Close' : 'Menu',
+      toggleMenu: () => this.setState(s => ({ menu: !s.menu })),
+      navLinks: [['Services', '/#services'], ['Gallery', '/gallery'], ['Service areas', '/service-areas'], ['Reviews', '/#reviews'], ['About', '/about'], ['FAQ', '/faq']].map(([label, href]) => ({ label, href })),
+      footSvc: svc.map(s => ({ label: s, href: '/services/' + slug(s) })),
+      jobs: svc.map((s, i) => ({ service: s, city: '[ City ]', href: '/gallery/' + slug(s) + '-recent', slot: 'recent-' + (i + 1), alt: `[ALT: ${s} job, city]` })),
+      ribbon,
+      cities: cityNames.map(c => ({ name: c, href: '/service-areas#' + slug(c) })),
+      row1: [card('photo', 'Garage doors', 1), card('video', 'Media walls', 1), card('ba', 'Patio screens', 1), card('photo', 'Blinds', 1), card('video', 'Christmas lights', 1), card('ba', 'Garage doors', 2)],
+      row2: [card('ba', 'Media walls', 2), card('photo', 'Christmas lights', 2), card('video', 'Garage doors', 3), card('photo', 'Patio screens', 2), card('ba', 'Blinds', 2), card('video', 'Patio screens', 3)],
+      filters: ['All', 'Garage doors', 'Blinds', 'Patio screens', 'Media walls', 'Christmas lights'].map((l, i) => ({
+        label: l, href: i ? '/gallery?service=' + slug(l) : '/gallery', cur: i ? undefined : 'true',
+        bg: i ? 'transparent' : '#F5F3EF', fg: i ? '#F5F3EF' : '#0A0A0B'
+      })),
+      reviews: [1, 2, 3],
+      faq: this.faqList(),
+      services: [...svc, 'Flooring', 'Painting', 'Cabinet refacing', 'Handyman repair', 'Something else'],
+      fileText: this.state.n ? `${this.state.n} photo${this.state.n > 1 ? 's' : ''} added` : 'Add photos of the job',
+      files: e => this.setState({ n: Math.min(5, e.target.files.length) }),
+      sentText: this.state.sent ? 'Got it. Cyril will be in touch. [ Confirm response time ]' : 'Or text the photo to 945-344-4580.',
+      submit: e => { e.preventDefault(); this.setState({ sent: true }); }
+    };
+  }
+}
+</script>
+</body>
+</html>

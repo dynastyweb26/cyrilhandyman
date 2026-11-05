@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>[ Project title ] · Garage doors in [ City ], TX · Cyril Handyman &amp; Door</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&amp;family=Instrument+Sans:wght@400;500;600;700&amp;family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0A0A0B;-webkit-font-smoothing:antialiased}
+a{color:#E04848}a:hover{color:#F5F3EF}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</helmet>
+<div style="background:#0A0A0B;color:#F5F3EF;font-family:'Instrument Sans',system-ui,sans-serif;min-width:1440px">
+<dc-import name="SiteHeader" active="Gallery" hint-size="100%,124px"></dc-import>
+
+<article>
+<section data-screen-label="Project media" style="padding:40px 56px 0">
+  <div style="max-width:1328px;margin:0 auto">
+    <nav aria-label="Breadcrumb" style="font:500 14px/1 'Instrument Sans',sans-serif;color:#A8A49C;margin-bottom:28px"><a href="/gallery" style="color:#D6D2CB;text-decoration:none" style-hover="color:#FFFFFF">Gallery</a> <span aria-hidden="true" style="color:#CC0000;margin:0 8px">/</span> <a href="/gallery?service=garage-doors" style="color:#D6D2CB;text-decoration:none" style-hover="color:#FFFFFF">Garage doors</a> <span aria-hidden="true" style="color:#CC0000;margin:0 8px">/</span> <span aria-current="page">[ Project title ]</span></nav>
+    <div style="position:relative;aspect-ratio:16/9;background:#17171A;border:1px solid #2A2A2F;overflow:hidden">
+      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:24px;text-align:center;font:500 12px/1.5 ui-monospace,Menlo,monospace;color:#8F8B84">[ HERO IMAGE 16:9 · 2400×1350 — or VIDEO 16:9 loop · 1920×1080, max 12s, muted · this is the LCP image: load eagerly, fetchpriority high ]</div>
+      <img src="{{ px }}" alt="[ALT: Finished garage door, city]" fetchPriority="high" decoding="async" data-slot="project-hero" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Project info" style="padding:64px 56px 96px">
+  <div style="max-width:1328px;margin:0 auto;display:grid;grid-template-columns:minmax(0,8fr) minmax(0,4fr);gap:80px;align-items:start">
+    <div>
+      <span style="display:inline-flex;align-items:center;height:28px;padding:0 14px;border-radius:999px;background:#17171A;border:1px solid #2A2A2F;font:700 12px/1 'Instrument Sans',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#E04848">Garage doors</span>
+      <h1 style="margin:24px 0 0;font:800 80px/.96 'Bricolage Grotesque',sans-serif;letter-spacing:-.04em">[ Project title ]</h1>
+      <p style="margin:16px 0 0;font:italic 400 30px/1.2 'Newsreader',serif;color:#E04848">[ City ], Texas</p>
+      <div style="margin-top:40px;max-width:680px;display:flex;flex-direction:column;gap:20px;font:400 19px/1.65 'Instrument Sans',sans-serif;color:#D6D2CB">
+        <p style="margin:0">[ PLACEHOLDER write-up, 2–4 sentences: what the homeowner needed, what the crew did, and how long it took. Written with Cyril from the real job — no invented details. ]</p>
+        <p style="margin:0">[ Optional second paragraph: products or materials used, anything the homeowner should know. ]</p>
+      </div>
+    </div>
+    <aside style="position:sticky;top:24px;padding:32px;background:#17171A;border:1px solid #2A2A2F">
+      <dl style="margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:16px 20px;font:400 16px/1.4 'Instrument Sans',sans-serif">
+        <dt style="color:#A8A49C">Service</dt><dd style="margin:0"><a href="/services/garage-doors" style="color:#F5F3EF;font-weight:600;text-decoration:underline;text-underline-offset:4px;text-decoration-color:#CC0000" style-hover="color:#E04848">Garage doors</a></dd>
+        <dt style="color:#A8A49C">City</dt><dd style="margin:0;font-weight:600">[ City ]</dd>
+        <dt style="color:#A8A49C">Finished</dt><dd style="margin:0;font-weight:600">[ Month YYYY ]</dd>
+        <dt style="color:#A8A49C">Crew</dt><dd style="margin:0;font-weight:600">Cyril and team</dd>
+      </dl>
+      <a href="/?service=garage-doors#quote" style="display:flex;align-items:center;justify-content:center;height:60px;margin-top:28px;background:#CC0000;color:#FFFFFF;font:700 17px/1 'Instrument Sans',sans-serif;text-decoration:none;transition:background-color .15s,transform .1s" style-hover="background-color:#A80000" style-active="background-color:#8F0000;transform:translateY(1px)" style-focus="outline:2px solid #F5F3EF;outline-offset:3px">Request a quote like this →</a>
+      <a href="tel:+19453444580" style="display:flex;align-items:center;justify-content:center;min-height:48px;margin-top:8px;font:600 16px/1 'Instrument Sans',sans-serif;color:#F5F3EF;text-decoration:none" style-hover="color:#E04848">or call 945-344-4580</a>
+    </aside>
+  </div>
+</section>
+
+<section data-screen-label="Project before/after" aria-labelledby="p-ba" style="padding:0 56px 96px">
+  <div style="max-width:1328px;margin:0 auto">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:28px">
+      <h2 id="p-ba" style="margin:0;font:800 48px/1 'Bricolage Grotesque',sans-serif;letter-spacing:-.03em">Before and after.</h2>
+      <p style="margin:0;font:400 15px/1 'Instrument Sans',sans-serif;color:#A8A49C">Drag the handle, or use the arrow keys.</p>
+    </div>
+    <div style="aspect-ratio:16/9;width:100%"><dc-import name="BeforeAfter" slot-id="project" before-slot="[ BEFORE 16:9 · 2400×1350 — same angle as after ]" after-slot="[ AFTER 16:9 · 2400×1350 ]" style="width:100%;height:100%" hint-size="100%,100%"></dc-import></div>
+  </div>
+</section>
+
+<section data-screen-label="Project photos" aria-labelledby="p-more" style="padding:0 56px 112px">
+  <div style="max-width:1328px;margin:0 auto">
+    <h2 id="p-more" style="margin:0 0 28px;font:800 48px/1 'Bricolage Grotesque',sans-serif;letter-spacing:-.03em">More from this job.</h2>
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px">
+      <sc-for list="{{ extra }}" as="e" hint-placeholder-count="3">
+        <figure style="margin:0">
+          <div style="position:relative;aspect-ratio:4/3;background:#17171A;border:1px solid #2A2A2F;overflow:hidden"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:500 11px/1.5 ui-monospace,Menlo,monospace;color:#8F8B84">[ IMAGE 4:3 · 1200×900 ]</div><img src="{{ px }}" alt="{{ e.alt }}" loading="lazy" decoding="async" data-slot="{{ e.slot }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
+          <figcaption style="margin-top:12px;font:400 14px/1.4 'Instrument Sans',sans-serif;color:#A8A49C">[ Optional caption ]</figcaption>
+        </figure>
+      </sc-for>
+    </div>
+  </div>
+</section>
+</article>
+
+<section data-screen-label="Related projects" aria-labelledby="p-rel" style="padding:104px 56px 120px;background:#F5F3EF;color:#0A0A0B">
+  <div style="max-width:1328px;margin:0 auto">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:40px">
+      <h2 id="p-rel" style="margin:0;font:800 56px/1 'Bricolage Grotesque',sans-serif;letter-spacing:-.035em">More garage door <span style="font:italic 400 60px/1 'Newsreader',serif;color:#CC0000">projects.</span></h2>
+      <a href="/gallery?service=garage-doors" style="display:inline-flex;align-items:center;min-height:44px;font:700 16px/1 'Instrument Sans',sans-serif;color:#B80000;text-decoration:none" style-hover="color:#0A0A0B">All garage doors →</a>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px">
+      <sc-for list="{{ related }}" as="c" hint-placeholder-count="3"><dc-import name="GalleryCard" kind="{{ c.kind }}" tag="Garage doors" slug="{{ c.slug }}" slot="{{ c.slot }}" hint-size="100%,480px"></dc-import></sc-for>
+    </div>
+  </div>
+</section>
+
+<dc-import name="SiteFooter" hint-size="100%,420px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      px: 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7',
+      extra: [1, 2, 3].map(i => ({ slot: 'project-photo-' + i, alt: `[ALT: Detail ${i}, garage door project, city]` })),
+      related: [
+        { kind: 'photo', slug: 'garage-doors-2', slot: '[ IMAGE 4:3 · 1200×900 ]' },
+        { kind: 'video', slug: 'garage-doors-3', slot: '[ VIDEO 4:3 loop · 1200×900 · max 8s ]' },
+        { kind: 'ba', slug: 'garage-doors-4', slot: '' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>
