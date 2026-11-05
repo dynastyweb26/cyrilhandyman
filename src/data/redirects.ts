@@ -38,8 +38,12 @@ export const redirects: RedirectRule[] = [
   { source: "/services/window-blinds", destination: "/services/faux-wood-blinds", statusCode: 301 },
 
   // Kaufman and Heath are no longer served: point the old URLs at the hub.
+  // Case and trailing-slash variants are handled in middleware.ts, which sees
+  // the raw request path before Next normalises a trailing slash.
   { source: "/service-areas/kaufman", destination: "/service-areas", statusCode: 301 },
+  { source: "/service-areas/heath", destination: "/service-areas", statusCode: 301 },
   { source: "/heath", destination: "/service-areas", statusCode: 301 },
+  { source: "/kaufman", destination: "/service-areas", statusCode: 301 },
 
   // Legacy entry points seen on the old SPA's catch-all rewrite.
   { source: "/index.html", destination: "/", statusCode: 301 },
