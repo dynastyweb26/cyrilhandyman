@@ -1,0 +1,6 @@
+title:
+city:
+month_year:
+one_line_on_what_was_done:
+write_up (2-4 sentences, real details only):
+source_files: 29b60070-image.jpg
