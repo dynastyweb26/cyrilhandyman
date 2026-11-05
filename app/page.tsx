@@ -6,7 +6,7 @@ import { Faq } from "@/components/Faq";
 import { GalleryMarquee } from "@/components/GalleryMarquee";
 import { Hero } from "@/components/Hero";
 import { JsonLd } from "@/components/json-ld";
-import { ReviewCard, Stars } from "@/components/ReviewCard";
+import { ReviewCard } from "@/components/ReviewCard";
 import { ServiceTile } from "@/components/ServiceTile";
 import { Step } from "@/components/Step";
 import { QuoteForm } from "@/components/quote-form";
