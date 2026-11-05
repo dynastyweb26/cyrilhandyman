@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { GalleryCard } from "@/components/GalleryCard";
-import type { GalleryProject } from "@/data/gallery";
+import { filterSlug, galleryFilters, type GalleryProject } from "@/data/gallery";
 
 /**
  * Server-rendered marquee: two rows drifting in opposite directions.
@@ -49,18 +49,24 @@ export function GalleryMarquee({
           aria-label="Filter the gallery by service"
           className="flex list-none gap-2 overflow-x-auto p-0 md:flex-wrap md:gap-2.5 md:overflow-visible"
         >
-          {["Garage doors", "Blinds", "Patio screens", "Media walls", "Christmas lights"].map(
-            (label) => (
+          {/* Same row as /gallery, inverted for the dark strip: the strip always
+              shows every project, so "All" is the current chip. */}
+          {galleryFilters.map((label) => {
+            const isActive = label === "All";
+            return (
               <li key={label} className="flex-none">
                 <Link
-                  href={`/gallery?service=${label.toLowerCase().replace(/ /g, "-")}`}
-                  className="inline-flex h-11 items-center rounded-full border border-edge px-[18px] text-[14px] font-semibold leading-none text-bone transition-colors duration-150 hover:border-red focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-red md:h-11 md:px-5 md:text-[15px]"
+                  href={isActive ? "/gallery" : `/gallery?service=${filterSlug(label)}`}
+                  aria-current={isActive ? "true" : undefined}
+                  className={`inline-flex h-11 items-center rounded-full border px-[18px] text-[14px] font-semibold leading-none transition-colors duration-150 hover:border-red focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-red md:px-5 md:text-[15px] ${
+                    isActive ? "border-bone bg-bone text-ink" : "border-edge text-bone"
+                  }`}
                 >
                   {label}
                 </Link>
               </li>
-            ),
-          )}
+            );
+          })}
         </ul>
         <Link
           href="/gallery"
