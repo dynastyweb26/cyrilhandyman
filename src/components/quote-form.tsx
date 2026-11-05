@@ -1,200 +1,171 @@
 "use client";
 
-import { useActionState, useId } from "react";
-import { useFormStatus } from "react-dom";
-import { submitLead } from "@/app/actions/lead";
-import { ArrowRightIcon, PhoneIcon } from "@/components/icons";
-import { cities, services, site } from "@/data/site";
-import type { LeadFormState } from "@/lib/leads";
-import { cn } from "@/lib/cn";
+import { useState } from "react";
+import type { ChangeEvent, FormEvent } from "react";
+import { cities } from "@/data/site";
 
-const initialState: LeadFormState = { status: "idle" };
+const services = [
+  "Garage doors",
+  "Faux wood blinds",
+  "Patio screens",
+  "Media & accent walls",
+  "Christmas lights",
+  "Flooring",
+  "Painting",
+  "Cabinet refacing",
+  "Handyman repair",
+  "Something else",
+];
 
-const serviceOptions = [...services.map((service) => service.name), "Other"];
-const cityOptions = [...cities.map((city) => city.name), "Other"];
+const field =
+  "h-[52px] w-full border border-edge bg-coal px-4 text-[16px] font-normal text-bone outline-none transition-colors placeholder:text-muted-soft focus:border-bone";
+const label = "flex flex-col gap-2 text-[15px] font-semibold leading-none text-bone";
 
-function SubmitButton({ tone }: { tone: "light" | "dark" }) {
-  const { pending } = useFormStatus();
-  return (
-    <button
-      type="submit"
-      disabled={pending}
-      className={cn(
-        "inline-flex items-center justify-center gap-2 bg-red px-5 py-3.5 font-display text-small font-semibold uppercase tracking-[0.12em] text-white transition-colors hover:bg-red-hover disabled:cursor-not-allowed disabled:opacity-70",
-        tone === "dark" && "w-full sm:w-auto",
-      )}
-    >
-      {pending ? "Sending…" : "Request my quote"}
-      {pending ? null : <ArrowRightIcon />}
-    </button>
-  );
-}
-
+/**
+ * Quote form — UI only for now.
+ *
+ * The submit is stubbed: it flips to the success state and does not send
+ * anything. Photo upload, the server action and email delivery land with the
+ * backend, so the form never pretends a lead was captured.
+ */
 export function QuoteForm({
-  source,
-  tone = "light",
-  className,
+  source: _source,
+  tone: _tone,
 }: {
-  source: string;
+  /** Kept so existing pages can pass the route they render on. */
+  source?: string;
   tone?: "light" | "dark";
-  className?: string;
 }) {
-  const [state, formAction] = useActionState(submitLead, initialState);
-  const formId = useId();
-  const dark = tone === "dark";
+  const [photoCount, setPhotoCount] = useState(0);
+  const [sent, setSent] = useState(false);
 
-  const labelClass = cn(
-    "font-display text-eyebrow font-semibold uppercase tracking-[0.14em]",
-    dark ? "text-white/70" : "text-muted",
-  );
-  const fieldClass = cn(
-    "mt-1.5 w-full border px-3 py-2.5 text-body outline-none transition-colors focus:border-red",
-    dark
-      ? "border-line-dark bg-ink text-white placeholder:text-white/35"
-      : "border-line bg-white text-ink placeholder:text-muted/60",
-  );
+  const onFiles = (event: ChangeEvent<HTMLInputElement>) => {
+    setPhotoCount(Math.min(5, event.target.files?.length ?? 0));
+  };
 
-  if (state.status === "success") {
-    return (
-      <div
-        role="status"
-        aria-live="polite"
-        className={cn(
-          "border p-6",
-          dark ? "border-red bg-ink text-white" : "border-red bg-white text-ink",
-          className,
-        )}
-      >
-        <p className="font-display text-display-3 uppercase">Request received</p>
-        <p className={cn("mt-2 text-small", dark ? "text-white/75" : "text-muted")}>
-          {state.message}
-        </p>
-        <a
-          href={`tel:${site.phone.tel}`}
-          className="mt-5 inline-flex items-center gap-2 font-display text-small font-semibold uppercase tracking-[0.12em] text-red"
-        >
-          <PhoneIcon />
-          {site.phone.display}
-        </a>
-      </div>
-    );
-  }
+  const onSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setSent(true);
+  };
+
+  const photoText =
+    photoCount > 0
+      ? `${photoCount} photo${photoCount > 1 ? "s" : ""} added — tap to change`
+      : "Add photos — tap to choose or drop here";
 
   return (
-    <form action={formAction} className={cn("space-y-4", className)} noValidate>
-      <input type="hidden" name="source_page" value={source} />
-
-      <div className="grid gap-4 sm:grid-cols-2">
-        <div>
-          <label htmlFor={`${formId}-name`} className={labelClass}>
-            Name
-          </label>
-          <input
-            id={`${formId}-name`}
-            name="name"
-            type="text"
-            autoComplete="name"
-            required
-            maxLength={120}
-            placeholder="First and last name"
-            className={fieldClass}
-          />
-        </div>
-        <div>
-          <label htmlFor={`${formId}-phone`} className={labelClass}>
-            Phone
-          </label>
-          <input
-            id={`${formId}-phone`}
-            name="phone"
-            type="tel"
-            inputMode="tel"
-            autoComplete="tel"
-            required
-            maxLength={40}
-            placeholder="945-344-4580"
-            className={fieldClass}
-          />
-        </div>
-        <div>
-          <label htmlFor={`${formId}-city`} className={labelClass}>
-            City
-          </label>
-          <select id={`${formId}-city`} name="city" required defaultValue="" className={fieldClass}>
-            <option value="" disabled>
-              Choose a city
-            </option>
-            {cityOptions.map((city) => (
-              <option key={city} value={city}>
-                {city}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div>
-          <label htmlFor={`${formId}-service`} className={labelClass}>
-            Service
-          </label>
-          <select
-            id={`${formId}-service`}
-            name="service"
-            required
-            defaultValue=""
-            className={fieldClass}
+    <form
+      onSubmit={onSubmit}
+      className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-5"
+      aria-describedby="quote-form-note"
+    >
+      <label className={`${label} md:col-span-2`}>
+        Photos of the job
+        <span className="relative flex min-h-24 items-center gap-3.5 border-[1.5px] border-dashed border-[#4A4A52] p-4 transition-colors hover:border-red-soft md:min-h-32 md:gap-5 md:p-6">
+          <svg
+            width="40"
+            height="40"
+            viewBox="0 0 40 40"
+            fill="none"
+            stroke="#E04848"
+            strokeWidth="1.6"
+            aria-hidden="true"
+            className="hidden md:block"
           >
-            <option value="" disabled>
-              Choose a service
-            </option>
-            {serviceOptions.map((service) => (
-              <option key={service} value={service}>
-                {service}
-              </option>
-            ))}
-          </select>
-        </div>
-      </div>
+            <rect x="4" y="9" width="32" height="24" rx="2" />
+            <path d="M20 27V15M15 20l5-5 5 5" />
+          </svg>
+          <span className="flex flex-col gap-1.5">
+            <span className="text-[16px] font-semibold leading-[1.2] md:text-[17px]">
+              {photoText}
+            </span>
+            <span className="text-[13px] font-normal leading-[1.3] text-muted-soft md:text-[14px]">
+              JPG, PNG or HEIC · up to 5 photos
+            </span>
+          </span>
+          <input
+            type="file"
+            name="photos"
+            accept="image/*"
+            multiple
+            onChange={onFiles}
+            className="absolute inset-0 cursor-pointer opacity-0"
+          />
+        </span>
+      </label>
 
-      <div>
-        <label htmlFor={`${formId}-details`} className={labelClass}>
-          Job details
-        </label>
-        <textarea
-          id={`${formId}-details`}
-          name="details"
-          required
-          rows={4}
-          maxLength={2000}
-          placeholder="What needs doing, and when would you like it done?"
-          className={fieldClass}
-        />
-      </div>
-
-      {/* Honeypot: hidden from people and assistive tech, irresistible to bots. */}
-      <div className="hidden" aria-hidden="true">
-        <label htmlFor={`${formId}-company`}>Company website</label>
+      <label className={label}>
+        Name
         <input
-          id={`${formId}-company`}
-          name="company_website"
-          type="text"
-          tabIndex={-1}
-          autoComplete="off"
+          name="name"
+          autoComplete="name"
+          required
+          placeholder="[ Your name ]"
+          className={field}
         />
-      </div>
+      </label>
 
-      {state.status === "error" && state.message ? (
-        <p role="alert" className="text-small font-medium text-red">
-          {state.message}
-        </p>
-      ) : null}
+      <label className={label}>
+        Phone
+        <input
+          name="phone"
+          type="tel"
+          autoComplete="tel"
+          required
+          placeholder="[ Best number ]"
+          className={field}
+        />
+      </label>
 
-      <div className="flex flex-wrap items-center gap-4">
-        <SubmitButton tone={tone} />
-        <p className={cn("text-small", dark ? "text-white/60" : "text-muted")}>
-          Or call{" "}
-          <a href={`tel:${site.phone.tel}`} className="underline underline-offset-4">
-            {site.phone.display}
-          </a>
-        </p>
+      <label className={label}>
+        City
+        <select name="city" defaultValue="" className={field}>
+          <option value="">Choose your city</option>
+          {cities.map((city) => (
+            <option key={city.slug} value={city.name}>
+              {city.name}
+            </option>
+          ))}
+          <option value="other">Somewhere else nearby</option>
+        </select>
+      </label>
+
+      <label className={label}>
+        Service
+        <select name="service" defaultValue="" className={field}>
+          <option value="">What do you need?</option>
+          {services.map((service) => (
+            <option key={service} value={service}>
+              {service}
+            </option>
+          ))}
+        </select>
+      </label>
+
+      <label className={`${label} md:col-span-2`}>
+        Details
+        <textarea
+          name="details"
+          rows={4}
+          placeholder="Size, what's wrong, when you'd like it done"
+          className="w-full resize-y border border-edge bg-coal px-4 py-3.5 text-[16px] font-normal leading-[1.5] text-bone outline-none placeholder:text-muted-soft focus:border-bone"
+        />
+      </label>
+
+      <div className="flex flex-col items-start justify-between gap-4 md:col-span-2 md:flex-row md:items-center">
+        <span
+          id="quote-form-note"
+          aria-live="polite"
+          className="text-[13px] leading-[1.4] text-muted-soft md:text-[14px]"
+        >
+          {sent ? "Got it. Cyril will be in touch. [ Confirm response time ]" : "Or text the photo to 945-344-4580."}
+        </span>
+        <button
+          type="submit"
+          className="h-14 w-full bg-red px-9 text-[17px] font-bold leading-none text-white transition-[background-color,transform] duration-150 hover:bg-red-hover active:translate-y-px active:bg-red-active focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-bone md:w-auto md:h-[60px]"
+        >
+          Send it to Cyril →
+        </button>
       </div>
     </form>
   );
