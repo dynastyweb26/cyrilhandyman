@@ -15,9 +15,11 @@ export type Review = {
 export async function getPublishedReviews({
   limit = 3,
   service,
+  city,
 }: {
   limit?: number;
   service?: string;
+  city?: string;
 } = {}): Promise<Review[]> {
   const supabase = getSupabaseServerClient();
   if (!supabase) {
@@ -33,6 +35,7 @@ export async function getPublishedReviews({
     .limit(limit);
 
   if (service) query = query.eq("service", service);
+  if (city) query = query.eq("city", city);
 
   const { data, error } = await query;
   if (error) {
