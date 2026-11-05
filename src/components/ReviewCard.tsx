@@ -39,7 +39,8 @@ export function ReviewCard({ card, compact = false }: { card: ReviewCardProps; c
       <figcaption className="flex justify-between gap-3 text-[13px] leading-[1.4] text-muted-soft md:text-[14px]">
         <span>{card.meta}</span>
         {card.source ? <span>{card.source}</span> : null}
-        {card.reviewUrl ? (
+        {/* A [PLACEHOLDER] URL is not a link. */}
+        {card.reviewUrl && !card.reviewUrl.includes("[PLACEHOLDER]") ? (
           <a
             href={card.reviewUrl}
             rel="noopener noreferrer nofollow"

@@ -89,44 +89,68 @@ export function SiteFooter() {
 
           <div className="flex flex-col">
             <h2 className={heading}>Follow</h2>
-            <a
-              href={site.social.facebook}
-              rel="noopener"
-              className="flex min-h-11 items-center gap-[10px] text-[15px] text-body-dim transition-colors hover:text-white"
-            >
-              <svg
-                width="18"
-                height="18"
-                viewBox="0 0 18 18"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                aria-hidden="true"
-              >
-                <rect x="1.5" y="1.5" width="15" height="15" rx="3" />
-                <path d="M11.5 5.5h-1.5a1.5 1.5 0 0 0-1.5 1.5v9M7 9.5h4" />
-              </svg>
-              Facebook
-            </a>
-            <a
-              href={site.social.instagram}
-              rel="noopener"
-              className="flex min-h-11 items-center gap-[10px] text-[15px] text-body-dim transition-colors hover:text-white"
-            >
-              <svg
-                width="18"
-                height="18"
-                viewBox="0 0 18 18"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                aria-hidden="true"
-              >
-                <rect x="1.5" y="1.5" width="15" height="15" rx="4.5" />
-                <circle cx="9" cy="9" r="3.5" />
-              </svg>
-              Instagram
-            </a>
+            {[
+              {
+                label: "Facebook",
+                href: site.social.facebook,
+                icon: (
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 18 18"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    aria-hidden="true"
+                  >
+                    <rect x="1.5" y="1.5" width="15" height="15" rx="3" />
+                    <path d="M11.5 5.5h-1.5a1.5 1.5 0 0 0-1.5 1.5v9M7 9.5h4" />
+                  </svg>
+                ),
+              },
+              {
+                label: "Instagram",
+                href: site.social.instagram,
+                icon: (
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 18 18"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    aria-hidden="true"
+                  >
+                    <rect x="1.5" y="1.5" width="15" height="15" rx="4.5" />
+                    <circle cx="9" cy="9" r="3.5" />
+                  </svg>
+                ),
+              },
+              // A [PLACEHOLDER] URL is not a destination: the label renders as
+              // plain text until site.social holds a real profile.
+            ].map(({ label, href, icon }) => {
+              const isRealLink = /^https?:\/\//.test(href) && !href.includes("[PLACEHOLDER]");
+              const base = "flex min-h-11 items-center gap-[10px] text-[15px] text-body-dim";
+
+              return isRealLink ? (
+                <a
+                  key={label}
+                  href={href}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  className={`${base} transition-colors hover:text-white`}
+                >
+                  {icon}
+                  {label}
+                </a>
+              ) : (
+                <span key={label} className={base} aria-disabled="true">
+                  {icon}
+                  {label}
+                  <span className="font-mono text-[11px] text-muted">[PLACEHOLDER]</span>
+                </span>
+              );
+            })}
           </div>
         </div>
 

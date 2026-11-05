@@ -238,13 +238,20 @@ export default async function HomePage() {
               </p>
               <p className="mt-2 mb-0 text-[14px] leading-[1.4] text-muted">
                 {reviews.length > 0 ? reviews.length : reviewsCopy.count} Google reviews ·{" "}
-                <a
-                  href={reviewsCopy.profile}
-                  rel="noopener"
-                  className="font-semibold text-red-soft hover:text-bone"
-                >
-                  Read them all
-                </a>
+                {/* No Google profile URL yet: never render a [PLACEHOLDER] href. */}
+                {/^https?:\/\//.test(reviewsCopy.profile) &&
+                !reviewsCopy.profile.includes("[PLACEHOLDER]") ? (
+                  <a
+                    href={reviewsCopy.profile}
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    className="font-semibold text-red-soft hover:text-bone"
+                  >
+                    Read them all
+                  </a>
+                ) : (
+                  <span className="font-mono text-[11px] text-muted">[PLACEHOLDER]</span>
+                )}
               </p>
             </div>
           </div>
