@@ -3,3 +3,4 @@ city:
 month_year:
 one_line_on_what_was_done:
 write_up (2-4 sentences, real details only):
+note: before (white) and after (black with windows), same house. House number 26135 is visible: crop or blur before publishing. Confirm these are Cyril's own jobs.
