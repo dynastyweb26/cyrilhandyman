@@ -2,9 +2,9 @@ import type { Metadata, Viewport } from "next";
 import { Bricolage_Grotesque, Instrument_Sans, Newsreader } from "next/font/google";
 import type { ReactNode } from "react";
 import { JsonLd } from "@/components/json-ld";
-import { MobileCallBar } from "@/components/mobile-call-bar";
-import { SiteFooter } from "@/components/site-footer";
-import { SiteHeader } from "@/components/site-header";
+import { SiteFooter } from "@/components/SiteFooter";
+import { SiteHeader } from "@/components/SiteHeader";
+import { StickyCallBar } from "@/components/StickyCallBar";
 import { site } from "@/data/site";
 import { businessSchema } from "@/lib/schema";
 import "./globals.css";
@@ -76,7 +76,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           {children}
         </main>
         <SiteFooter />
-        <MobileCallBar />
+        <StickyCallBar />
       </body>
     </html>
   );
