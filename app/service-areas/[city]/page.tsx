@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { FAQAccordion } from "@/components/FAQAccordion";
+import { JsonLd } from "@/components/json-ld";
 import { LocalWorkModule } from "@/components/LocalWorkModule";
 import { NearbyCities } from "@/components/NearbyCities";
 import { PromiseBlock } from "@/components/PromiseBlock";
@@ -12,7 +13,9 @@ import { projectsByCity } from "@/data/gallery";
 import type { Bento } from "@/data/home";
 import { services } from "@/data/services";
 import { site } from "@/data/site";
+import { hasPendingTags } from "@/lib/indexability";
 import { getPublishedReviews } from "@/lib/reviews";
+import { breadcrumbSchema, businessSchema, faqSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/seo";
 
 export const revalidate = 600;
@@ -39,6 +42,8 @@ export async function generateMetadata({
     title: city.seo.title,
     description: city.seo.description,
     path: `/service-areas/${city.slug}`,
+    // Noindex until every [CYRIL] / [CONFIRM] tag on this page is real copy.
+    noIndex: hasPendingTags(city),
   });
 }
 
@@ -82,6 +87,8 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
       a: `We also work in ${nearList}, plus the rest of our eight-town service area. [CONFIRM]`,
     },
   ];
+
+  const cityFaqSchema = faqSchema(faqs);
 
   const tiles: Bento[] = services.map((service, index) => ({
     n: String(index + 1).padStart(2, "0"),
@@ -237,6 +244,21 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
       <NearbyCities city={city} />
 
       <QuoteBand city={city.name} heading={`Need something done in ${city.name}?`} sourcePage={cityHref(city)} />
+
+      {/* Same @id as the sitewide business node, narrowed to this city. */}
+      <JsonLd
+        id="city-business-schema"
+        data={businessSchema([`${city.name}, ${site.nap.region}`])}
+      />
+      {cityFaqSchema ? <JsonLd id="city-faq-schema" data={cityFaqSchema} /> : null}
+      <JsonLd
+        id="city-breadcrumb-schema"
+        data={breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Service areas", path: "/service-areas" },
+          { name: city.name, path: `/service-areas/${city.slug}` },
+        ])}
+      />
     </>
   );
 }

@@ -37,6 +37,10 @@ export const redirects: RedirectRule[] = [
   { source: "/services/media-accent-walls", destination: "/services/media-walls-accent-walls", statusCode: 301 },
   { source: "/services/window-blinds", destination: "/services/faux-wood-blinds", statusCode: 301 },
 
+  // Kaufman and Heath are no longer served: point the old URLs at the hub.
+  { source: "/service-areas/kaufman", destination: "/service-areas", statusCode: 301 },
+  { source: "/heath", destination: "/service-areas", statusCode: 301 },
+
   // Legacy entry points seen on the old SPA's catch-all rewrite.
   { source: "/index.html", destination: "/", statusCode: 301 },
   { source: "/home", destination: "/", statusCode: 301 },

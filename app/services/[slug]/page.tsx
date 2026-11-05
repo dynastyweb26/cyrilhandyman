@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { BeforeAfter } from "@/components/BeforeAfter";
 import { CityChip } from "@/components/CityChip";
 import { FAQAccordion } from "@/components/FAQAccordion";
+import { JsonLd } from "@/components/json-ld";
 import { PricingModule } from "@/components/PricingModule";
 import { QuoteBand } from "@/components/QuoteBand";
 import { ReviewCard } from "@/components/ReviewCard";
@@ -13,7 +14,9 @@ import { cities, cityHref } from "@/data/cities";
 import { projectsByService } from "@/data/gallery";
 import { getService, services } from "@/data/services";
 import { site } from "@/data/site";
+import { hasPendingTags } from "@/lib/indexability";
 import { getPublishedReviews } from "@/lib/reviews";
+import { breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/seo";
 
 export const revalidate = 600;
@@ -40,6 +43,8 @@ export async function generateMetadata({
     title: service.seo.title,
     description: service.seo.description,
     path: `/services/${service.slug}`,
+    // Noindex until every [CONFIRM] tag on this page is real copy.
+    noIndex: hasPendingTags(service),
   });
 }
 
@@ -72,6 +77,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
   ];
 
   const faqs = [...shared.slice(0, 2), ...service.faqs, ...shared.slice(2)];
+  const serviceFaqSchema = faqSchema(faqs);
 
   const steps = [
     { t: "Call or request a quote", d: "Call 945-344-4580 or send the form. Tell us what you need." },
@@ -394,6 +400,17 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         service={service.formValue}
         heading={`Ready for ${service.name.toLowerCase()}?`}
         sourcePage={`/services/${service.slug}`}
+      />
+
+      <JsonLd id="service-schema" data={serviceSchema(service)} />
+      {serviceFaqSchema ? <JsonLd id="service-faq-schema" data={serviceFaqSchema} /> : null}
+      <JsonLd
+        id="service-breadcrumb-schema"
+        data={breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Services", path: "/services" },
+          { name: service.name, path: `/services/${service.slug}` },
+        ])}
       />
     </>
   );

@@ -41,13 +41,6 @@ export const sitemapRoutes: SitemapRoute[] = [
     ],
   },
   { path: "/services", changeFrequency: "monthly", priority: 0.8 },
-  {
-    // No Christmas photo or video assets exist yet, so no image/video entries.
-    // TODO_CONTENT: add gallery/still entries once the install photos land.
-    path: "/services/christmas-light-installation",
-    changeFrequency: "weekly",
-    priority: 0.9,
-  },
   { path: "/service-areas", changeFrequency: "monthly", priority: 0.7 },
   { path: "/about", changeFrequency: "yearly", priority: 0.5 },
   { path: "/contact", changeFrequency: "yearly", priority: 0.6 },
