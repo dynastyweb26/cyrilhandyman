@@ -30,6 +30,13 @@ export const redirects: RedirectRule[] = [
   { source: "/blinds", destination: "/services", statusCode: 301 },
   { source: "/blinds/:path*", destination: "/services", statusCode: 301 },
 
+  // Old service URLs -> the five agreed slugs.
+  { source: "/services/christmas-lights", destination: "/services/christmas-light-installation", statusCode: 301 },
+  { source: "/services/garage-doors", destination: "/services/garage-door-repair-installation", statusCode: 301 },
+  { source: "/services/patio-screens", destination: "/services/motorized-retractable-patio-screens", statusCode: 301 },
+  { source: "/services/media-accent-walls", destination: "/services/media-walls-accent-walls", statusCode: 301 },
+  { source: "/services/window-blinds", destination: "/services/faux-wood-blinds", statusCode: 301 },
+
   // Legacy entry points seen on the old SPA's catch-all rewrite.
   { source: "/index.html", destination: "/", statusCode: 301 },
   { source: "/home", destination: "/", statusCode: 301 },
