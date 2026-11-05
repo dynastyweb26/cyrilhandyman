@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { cities, cityHref } from "@/data/cities";
 import { footerCompany, footerServices } from "@/data/nav";
 import { site } from "@/data/site";
 
@@ -10,9 +11,9 @@ const link =
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-hair bg-ink px-5 pb-8 pt-12 text-bone md:px-14 md:pb-10 md:pt-[88px]">
+    <footer className="border-t border-hair bg-ink px-5 pb-28 pt-12 text-bone md:px-14 md:pb-10 md:pt-[88px]">
       <div className="mx-auto w-full max-w-[1328px]">
-        <div className="grid gap-8 md:grid-cols-[minmax(0,1.6fr)_repeat(4,minmax(0,1fr))] md:gap-12">
+        <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-[minmax(0,1.4fr)_repeat(5,minmax(0,1fr))] md:gap-10">
           <div className="flex flex-col gap-5">
             <Link
               href="/"
@@ -47,6 +48,20 @@ export function SiteFooter() {
             ))}
           </nav>
 
+          <nav aria-label="Service areas" className="flex flex-col">
+            <h2 className={heading}>Service areas</h2>
+            <div className="grid grid-cols-2 gap-x-5">
+              {cities.map((city) => (
+                <Link key={city.slug} href={cityHref(city)} className={link}>
+                  {city.name}
+                </Link>
+              ))}
+            </div>
+            <Link href="/service-areas" className={link}>
+              All service areas
+            </Link>
+          </nav>
+
           <nav aria-label="Company" className="flex flex-col">
             <h2 className={heading}>Company</h2>
             {footerCompany.map((item) => (
@@ -75,7 +90,7 @@ export function SiteFooter() {
           <div className="flex flex-col">
             <h2 className={heading}>Follow</h2>
             <a
-              href="https://facebook.com/[PLACEHOLDER]"
+              href={site.social.facebook}
               rel="noopener"
               className="flex min-h-11 items-center gap-[10px] text-[15px] text-body-dim transition-colors hover:text-white"
             >
@@ -94,7 +109,7 @@ export function SiteFooter() {
               Facebook
             </a>
             <a
-              href="https://instagram.com/[PLACEHOLDER]"
+              href={site.social.instagram}
               rel="noopener"
               className="flex min-h-11 items-center gap-[10px] text-[15px] text-body-dim transition-colors hover:text-white"
             >
