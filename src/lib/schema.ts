@@ -18,7 +18,7 @@ export function businessSchema(): Record<string, unknown> {
     email: site.email,
     image: `${site.url}${site.brand.ogImage}`,
     logo: `${site.url}${site.brand.logo.src}`,
-    description: `${site.name} is a handyman and door contractor based in ${site.nap.locality}, ${site.nap.region}, serving ${site.county} and the surrounding towns.`,
+    description: `${site.name} is a handyman and door contractor based in ${site.nap.locality}, ${site.nap.region}, serving ${site.serviceRegion}.`,
     address: {
       "@type": "PostalAddress",
       addressLocality: site.nap.locality,

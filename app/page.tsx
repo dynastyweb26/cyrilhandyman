@@ -27,7 +27,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata: Metadata = pageMetadata({
   title: `Garage doors, blinds and patio screens in ${site.nap.locality}, ${site.nap.region}`,
   description:
-    "Handyman and home improvement in Forney, TX and Kaufman County. Garage doors, faux wood blinds, patio screens, media walls and Christmas lights. Same crew on every job.",
+    "Handyman and home improvement in Forney, TX and the towns around it. Garage doors, faux wood blinds, patio screens, media walls and Christmas lights. Same crew on every job.",
   path: "/",
 });
 

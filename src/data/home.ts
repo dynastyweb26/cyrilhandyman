@@ -4,7 +4,7 @@ export const hero = {
   eyebrow: "Forney, TX · Registered LLC · 2+ years",
   title: "Garage doors to media walls. Same crew, every job.",
   intro:
-    "The people who quote your job are the people who do it. Doors, blinds, patio screens, accent walls and holiday lights across Kaufman County.",
+    "The people who quote your job are the people who do it. Doors, blinds, patio screens, accent walls and holiday lights across Forney and the towns around it. [CONFIRM wording with Cyril]",
   primaryCta: { label: "Send a photo, get a quote", href: "#quote" },
   secondaryCta: { label: "See recent work", href: "/gallery" },
   trust: ["Registered Texas LLC", "2+ years", "Same crew on every job"],
@@ -29,11 +29,11 @@ export const bentoServices: Bento[] = [
     n: "01",
     title: "Garage doors",
     blurb: "New doors, openers, springs, repairs. The shop's specialty.",
-    href: "/services/garage-doors",
+    href: "/services/garage-door-repair-installation",
     tone: "ink",
     image: {
       slot: "svc-garage",
-      alt: "[ALT: New garage door installed on a home in Kaufman County]",
+      alt: "[ALT: New garage door installed on a home in Forney]",
       ratio: "5 / 2",
       label: "[ IMAGE 5:2 · 2000×800 — garage door install ]",
     },
@@ -55,21 +55,21 @@ export const bentoServices: Bento[] = [
     n: "03",
     title: "Patio screens",
     blurb: "Motorized and retractable.",
-    href: "/services/patio-screens",
+    href: "/services/motorized-retractable-patio-screens",
     tone: "sand",
   },
   {
     n: "04",
     title: "Media & accent walls",
     blurb: "Slat, panel and built-ins.",
-    href: "/services/media-accent-walls",
+    href: "/services/media-walls-accent-walls",
     tone: "ink",
   },
   {
     n: "05",
     title: "Christmas lights",
     blurb: "Designed, hung, maintained, taken down.",
-    href: "/services/christmas-lights",
+    href: "/services/christmas-light-installation",
     tone: "red",
   },
 ];
@@ -113,7 +113,7 @@ export const steps = [
 export const faqs: { q: string; a: string; confirm?: string }[] = [
   {
     q: "Which cities do you serve?",
-    a: "Forney, Mesquite, Rockwall, Heath, Terrell, Crandall, Kaufman and Sunnyvale, plus the towns around them.",
+    a: "Forney, Mesquite, Sunnyvale, Rockwall, Terrell, Crandall, Garland and Frisco, plus the towns around them.",
     confirm: "[CONFIRM final list]",
   },
   {
@@ -154,8 +154,8 @@ export const whereWeWork = {
   note: "[ Confirm the final city list with Cyril ] Each name links to its section on the service areas page, with projects done there.",
   map: {
     slot: "map",
-    alt: "Map of the Cyril Handyman & Door service area around Forney and Kaufman County, Texas",
-    label: "[ MAP 4:3 · 1600×1200 — Kaufman County service area shaded, no street address, no pin ]",
+    alt: "Map of the Cyril Handyman & Door service area around Forney, Texas and the towns served",
+    label: "[ MAP 4:3 · 1600×1200 — Forney and the towns around it shaded, no street address, no pin ]",
   },
 };
 

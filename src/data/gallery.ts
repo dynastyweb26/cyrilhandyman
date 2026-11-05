@@ -11,7 +11,12 @@ export type ProjectKind = "photo" | "video" | "ba";
 export type GalleryProject = {
   slug: string;
   kind: ProjectKind;
+  /** Display label, e.g. "Garage doors". */
   tag: string;
+  /** Service slug this project belongs to, for filtering. */
+  service: string;
+  /** City slug for filtering, or null while the job is a placeholder. */
+  citySlug: string | null;
   title: string;
   city: string;
   line: string;
@@ -27,16 +32,28 @@ const SLOT = "[ Project title ]";
 const CITY = "[ City ]";
 const LINE = "[ One line on what was done ]";
 
+/** Display tag -> service slug, so gallery filters and service pages agree. */
+export const tagToService: Record<string, string> = {
+  "Garage doors": "garage-door-repair-installation",
+  Blinds: "faux-wood-blinds",
+  "Patio screens": "motorized-retractable-patio-screens",
+  "Media walls": "media-walls-accent-walls",
+  "Christmas lights": "christmas-light-installation",
+};
+
 const project = (
   slug: string,
   kind: ProjectKind,
   tag: string,
   ratio: string,
   slot: string,
+  city: string | null = null,
 ): GalleryProject => ({
   slug,
   kind,
   tag,
+  service: tagToService[tag],
+  citySlug: city,
   title: SLOT,
   city: CITY,
   line: LINE,
@@ -100,3 +117,11 @@ export const filterSlug = (label: string): string =>
 
 export const getProject = (slug: string): GalleryProject | undefined =>
   galleryProjects.find((item) => item.slug === slug);
+
+/** Projects tagged to a city page. Empty until real city jobs are added. */
+export const projectsByCity = (city: string): GalleryProject[] =>
+  galleryProjects.filter((item) => item.citySlug === city);
+
+/** Projects tagged to a service page. Empty until real service jobs are added. */
+export const projectsByService = (service: string): GalleryProject[] =>
+  galleryProjects.filter((item) => item.service === service);

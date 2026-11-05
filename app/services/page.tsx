@@ -21,7 +21,7 @@ export default function ServicesPage() {
         intro={
           <>
             Garage doors, interior carpentry, flooring, paint and holiday lighting across{" "}
-            {site.county} and the towns around it.
+            {site.serviceRegion} and the towns around it.
           </>
         }
       />
@@ -32,21 +32,15 @@ export default function ServicesPage() {
             {services.map((service) => (
               <li key={service.slug} className="border border-line-ink p-6">
                 <h2 className="font-display text-body font-semibold uppercase tracking-[0.06em] text-ink">
-                  {service.name}
+                  {service.long}
                 </h2>
-                <p className="mt-2 text-small text-muted-ink">{service.summary}</p>
-                {service.href ? (
-                  <Link
-                    href={service.href}
-                    className="mt-5 inline-flex items-center gap-1.5 text-eyebrow font-semibold uppercase tracking-[0.14em] text-red hover:text-red-hover"
-                  >
-                    View details <ArrowRightIcon width={14} height={14} />
-                  </Link>
-                ) : (
-                  <p className="mt-5 text-eyebrow font-semibold uppercase tracking-[0.14em] text-muted-ink">
-                    Page coming soon — call for pricing
-                  </p>
-                )}
+                <p className="mt-2 text-small text-muted-ink">{service.promise}</p>
+                <Link
+                  href={`/services/${service.slug}`}
+                  className="mt-5 inline-flex items-center gap-1.5 text-eyebrow font-semibold uppercase tracking-[0.14em] text-red hover:text-red-hover"
+                >
+                  View details <ArrowRightIcon width={14} height={14} />
+                </Link>
               </li>
             ))}
           </ul>

@@ -1,6 +1,6 @@
 import type { City } from "@/data/site";
 
-/** "Forney, Mesquite, … and Kaufman" */
+/** "Forney, Mesquite, … and Frisco" */
 export function serviceAreasList(cities: City[]): string {
   const names = cities.map((city) => city.name);
   if (names.length <= 1) return names.join("");

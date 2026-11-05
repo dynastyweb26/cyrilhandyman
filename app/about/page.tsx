@@ -30,7 +30,7 @@ export default function AboutPage() {
               properly.
             </p>
             <p>
-              Most of our work comes from repeat customers and neighbours in {site.county}. That is
+              Most of our work comes from repeat customers and neighbours in {site.serviceRegion}. That is
               the whole marketing plan.
             </p>
             <p className="text-small">{todo("owner story, year founded, crew size")}</p>

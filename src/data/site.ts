@@ -1,104 +1,29 @@
 /**
  * Single source of truth for brand, NAP and the route list.
  *
- * Anything marked TODO_CONTENT is a placeholder the business has to supply
- * before launch — it is rendered visibly as "TODO_CONTENT — ..." rather than
- * hidden behind lorem ipsum.
+ * Cities and services live in their own files; this module re-exports them so
+ * existing imports keep working. Anything marked TODO_CONTENT is a placeholder
+ * the business has to supply before launch — it renders visibly, never hidden
+ * behind lorem ipsum.
  */
+export { cities, cityHref, cityName, getCity } from "./cities";
+export type { City, CitySlug } from "./cities";
+export { getService, serviceHref, services } from "./services";
+export type { Service, ServiceSlug } from "./services";
+
 export const todo = (what: string): string => `TODO_CONTENT — ${what}`;
-
-export type City = {
-  /** Anchor id on /service-areas */
-  slug: string;
-  name: string;
-};
-
-/**
- * The 8 cities in the nav "Areas" dropdown. Each links to its section on
- * /service-areas. Keep this list as the only place cities are defined.
- */
-export const cities: City[] = [
-  { slug: "forney", name: "Forney" },
-  { slug: "mesquite", name: "Mesquite" },
-  { slug: "sunnyvale", name: "Sunnyvale" },
-  { slug: "rockwall", name: "Rockwall" },
-  { slug: "heath", name: "Heath" },
-  { slug: "terrell", name: "Terrell" },
-  { slug: "crandall", name: "Crandall" },
-  { slug: "kaufman", name: "Kaufman" },
-];
-
-export type Service = {
-  slug: string;
-  name: string;
-  /** One-line description used on cards. */
-  summary: string;
-  /** Omitted while the page does not exist yet, so nothing 404s. */
-  href?: string;
-  status: "live" | "planned";
-};
-
-export const services: Service[] = [
-  {
-    slug: "christmas-light-installation",
-    name: "Christmas Light Installation",
-    summary:
-      "Commercial-grade holiday lighting designed, installed, maintained and taken down for homes and storefronts.",
-    href: "/services/christmas-light-installation",
-    status: "live",
-  },
-  {
-    slug: "garage-doors",
-    name: "Garage Doors",
-    summary:
-      "Garage door repair, new installation and opener replacement — the shop's specialty.",
-    status: "planned",
-  },
-  {
-    slug: "media-walls",
-    name: "Media Walls",
-    summary: "Custom built-in entertainment walls and shelving, built and trimmed on site.",
-    status: "planned",
-  },
-  {
-    slug: "kitchen-renovation",
-    name: "Kitchen Renovation",
-    summary: "Cabinet refacing and painting, countertops, backsplash and tile work.",
-    status: "planned",
-  },
-  {
-    slug: "accent-walls",
-    name: "Accent Walls",
-    summary: "Slat, panel and painted feature walls that add depth to a room.",
-    status: "planned",
-  },
-  {
-    slug: "flooring",
-    name: "Flooring & Carpet Removal",
-    summary: "LVP and tile installation, plus tear-out and disposal of old carpet.",
-    status: "planned",
-  },
-  {
-    slug: "interior-painting",
-    name: "Interior Painting",
-    summary: "Walls, trim and cabinetry painted clean, with proper prep.",
-    status: "planned",
-  },
-  {
-    slug: "window-blinds",
-    name: "Window Blinds & Shades",
-    summary:
-      "Custom zebra, roller, blackout and solar patio shades measured and installed.",
-    status: "planned",
-  },
-];
 
 export const site = {
   name: "Cyril Handyman & Door LLC",
   shortName: "Cyril Handyman",
   url: "https://crazydoorhandyman.com",
   tagline: "Working Wholeheartedly for the Lord",
-  county: "Kaufman County",
+  /**
+   * Regional wording. The old county-level line was removed on Cyril's
+   * instruction; every page uses this line until he confirms his own.
+   * [CONFIRM wording with Cyril]
+   */
+  serviceRegion: "Forney and the towns around it",
   phone: {
     display: "945-344-4580",
     /** E.164 for tel: links and schema. */
@@ -109,7 +34,6 @@ export const site = {
     /**
      * The shop's real logo: transparent PNG, black mark with white lettering,
      * so it sits directly on the dark chrome with no white chip behind it.
-     * Swap for the SVG when the vector exists.
      */
     logo: {
       src: "/brand/logo-transparent.png",
@@ -128,12 +52,15 @@ export const site = {
     region: "TX",
     regionName: "Texas",
     country: "US",
-    serviceRadius: todo("service radius, e.g. “within 40 miles of Forney, TX”"),
+    serviceRadius: todo("service radius, e.g. \u201cwithin 40 miles of Forney, TX\u201d"),
     hours: todo("hours of operation"),
-    response: todo("response time promise, e.g. “we reply within one business day”"),
+    response: todo("response time promise, e.g. \u201cwe reply within one business day\u201d"),
   },
   social: {
     googleBusinessProfile: todo("Google Business Profile URL"),
+    /** No real profile URLs have been supplied yet; the tags stay visible. */
+    facebook: "https://facebook.com/[PLACEHOLDER]",
+    instagram: "https://instagram.com/[PLACEHOLDER]",
   },
 };
 
@@ -151,5 +78,3 @@ export const nav = [
  * Also excluded from app/sitemap.ts and disallowed in app/robots.ts.
  */
 export const hiddenNav = [{ label: "Blog", href: "/blog" }];
-
-export const cityHref = (city: City): string => `/service-areas#${city.slug}`;

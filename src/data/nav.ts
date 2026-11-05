@@ -17,11 +17,11 @@ export const primaryNav: NavItem[] = [
 
 /** Service links used in the footer. Pages land in a later phase. */
 export const footerServices: NavItem[] = [
-  { label: "Garage doors", href: "/services/garage-doors" },
+  { label: "Garage doors", href: "/services/garage-door-repair-installation" },
   { label: "Faux wood blinds", href: "/services/faux-wood-blinds" },
-  { label: "Patio screens", href: "/services/patio-screens" },
-  { label: "Media & accent walls", href: "/services/media-accent-walls" },
-  { label: "Christmas lights", href: "/services/christmas-lights" },
+  { label: "Patio screens", href: "/services/motorized-retractable-patio-screens" },
+  { label: "Media & accent walls", href: "/services/media-walls-accent-walls" },
+  { label: "Christmas lights", href: "/services/christmas-light-installation" },
   { label: "All services", href: "/services" },
 ];
 

@@ -19,8 +19,7 @@ export default function ServiceAreasPage() {
         title="Where we work"
         intro={
           <>
-            Based in {site.nap.locality}, {site.nap.region} and working across {site.county} and
-            the surrounding towns.
+            Based in {site.nap.locality}, {site.nap.region} and working across {site.serviceRegion}.
           </>
         }
       />

@@ -8,7 +8,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata: Metadata = pageMetadata({
   title: "Gallery",
   description:
-    "Photos, short clips and before-and-afters from handyman and garage door jobs across Forney and Kaufman County.",
+    "Photos, short clips and before-and-afters from handyman and garage door jobs in Forney and the towns around it.",
   path: "/gallery",
 });
 
@@ -50,7 +50,7 @@ export default async function GalleryPage({
               </span>
             </h1>
             <p className="m-0 max-w-[340px] text-[16px] leading-[1.55] text-body-dark md:mb-2.5 md:text-[17px]">
-              Photos, short clips and before-and-afters from jobs across Kaufman County. Tap any
+              Photos, short clips and before-and-afters from jobs in Forney and the towns around it. Tap any
               project for the full story.
             </p>
           </div>
