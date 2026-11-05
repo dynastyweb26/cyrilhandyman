@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Gallery · Real jobs from Forney and Kaufman County · Cyril Handyman &amp; Door</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&amp;family=Instrument+Sans:wght@400;500;600;700&amp;family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0A0A0B;-webkit-font-smoothing:antialiased}
+a{color:#E04848}a:hover{color:#F5F3EF}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</helmet>
+<div style="background:#0A0A0B;color:#F5F3EF;font-family:'Instrument Sans',system-ui,sans-serif;min-width:1440px">
+<dc-import name="SiteHeader" active="Gallery" hint-size="100%,124px"></dc-import>
+
+<section data-screen-label="Gallery header" aria-labelledby="g-h" style="padding:72px 56px 64px">
+  <div style="max-width:1328px;margin:0 auto">
+    <nav aria-label="Breadcrumb" style="font:500 14px/1 'Instrument Sans',sans-serif;color:#A8A49C;margin-bottom:32px"><a href="/" style="color:#D6D2CB;text-decoration:none" style-hover="color:#FFFFFF">Home</a> <span aria-hidden="true" style="color:#CC0000;margin:0 8px">/</span> <span aria-current="page">Gallery</span></nav>
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:48px">
+      <h1 id="g-h" style="margin:0;font:800 104px/.94 'Bricolage Grotesque',sans-serif;letter-spacing:-.04em">The gallery. <span style="font:italic 400 108px/.94 'Newsreader',serif;letter-spacing:-.01em;color:#E04848">Every job, by town.</span></h1>
+      <p style="margin:0 0 10px;max-width:340px;font:400 17px/1.55 'Instrument Sans',sans-serif;color:#D6D2CB">Photos, short clips and before-and-afters from jobs across Kaufman County. Tap any project for the full story.</p>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Gallery grid" aria-label="Projects" style="padding:56px 56px 120px;background:#F5F3EF;color:#0A0A0B">
+  <div style="max-width:1328px;margin:0 auto">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:32px;margin-bottom:40px">
+      <div role="group" aria-label="Filter by service" style="display:flex;flex-wrap:wrap;gap:10px">
+        <sc-for list="{{ chips }}" as="f" hint-placeholder-count="6">
+          <button type="button" aria-pressed="{{ f.on }}" onClick="{{ f.pick }}" style="height:44px;padding:0 20px;border-radius:999px;border:1px solid #0A0A0B;background:{{ f.bg }};color:{{ f.fg }};font:600 15px/1 'Instrument Sans',sans-serif;cursor:pointer;transition:border-color .15s" style-hover="border-color:#CC0000" style-focus="outline:2px solid #CC0000;outline-offset:3px">{{ f.label }}</button>
+        </sc-for>
+      </div>
+      <p aria-live="polite" style="margin:0;font:500 15px/1 'Instrument Sans',sans-serif;color:#4A4640">{{ countText }}</p>
+    </div>
+    <div style="column-count:3;column-gap:24px">
+      <sc-for list="{{ items }}" as="c" hint-placeholder-count="12">
+        <div style="break-inside:avoid;margin-bottom:24px">
+          <dc-import name="GalleryCard" kind="{{ c.kind }}" tag="{{ c.tag }}" title="{{ c.title }}" city="{{ c.city }}" line="{{ c.line }}" slug="{{ c.slug }}" ratio="{{ c.ratio }}" slot="{{ c.slot }}" before-slot="{{ c.bs }}" after-slot="{{ c.as }}" style="width:100%" hint-size="100%,480px"></dc-import>
+        </div>
+      </sc-for>
+    </div>
+    <div style="display:flex;justify-content:center;margin-top:32px">
+      <a href="/gallery?page=2" style="display:inline-flex;align-items:center;height:56px;padding:0 32px;border:1.5px solid #0A0A0B;color:#0A0A0B;font:700 16px/1 'Instrument Sans',sans-serif;text-decoration:none;transition:background-color .15s,color .15s" style-hover="background-color:#0A0A0B;color:#F5F3EF" style-focus="outline:2px solid #CC0000;outline-offset:3px">Load more projects</a>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Gallery CTA" aria-labelledby="g-cta" style="padding:88px 56px;background:#CC0000;color:#FFFFFF">
+  <div style="max-width:1328px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:48px">
+    <h2 id="g-cta" style="margin:0;font:800 64px/1 'Bricolage Grotesque',sans-serif;letter-spacing:-.035em">Want one like these? <span style="font:italic 400 68px/1 'Newsreader',serif">Send a photo.</span></h2>
+    <div style="display:flex;gap:14px;flex:none">
+      <a href="/#quote" style="display:inline-flex;align-items:center;height:60px;padding:0 30px;background:#0A0A0B;color:#FFFFFF;font:700 17px/1 'Instrument Sans',sans-serif;text-decoration:none" style-hover="background-color:#17171A" style-focus="outline:2px solid #FFFFFF;outline-offset:3px">Get a quote →</a>
+      <a href="tel:+19453444580" style="display:inline-flex;align-items:center;height:60px;padding:0 30px;border:1.5px solid #FFFFFF;box-sizing:border-box;color:#FFFFFF;font:700 17px/1 'Instrument Sans',sans-serif;text-decoration:none" style-hover="background-color:#FFFFFF;color:#CC0000" style-focus="outline:2px solid #FFFFFF;outline-offset:3px">945-344-4580</a>
+    </div>
+  </div>
+</section>
+
+<dc-import name="SiteFooter" hint-size="100%,420px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { f: 'All' };
+  componentDidMount() {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) document.querySelectorAll('video').forEach(v => { v.autoplay = false; v.pause(); });
+  }
+  renderVals() {
+    const slug = s => s.toLowerCase().replace(/&/g, 'and').replace(/[^a-z]+/g, '-').replace(/-$/, '');
+    const R = { '4:5': ['4 / 5', '960×1200'], '1:1': ['1 / 1', '1200×1200'], '4:3': ['4 / 3', '1200×900'], '3:2': ['3 / 2', '1200×800'], '9:16': ['9 / 16', '720×1280'] };
+    const mk = (kind, tag, r, n) => ({
+      kind, tag, title: '[ Project title ]', city: '[ City ]', line: '[ One line on what was done ]',
+      slug: slug(tag) + '-' + n, ratio: R[r][0],
+      slot: kind === 'video' ? `[ VIDEO ${r} loop · ${R[r][1]} · max 8s ]` : `[ IMAGE ${r} · ${R[r][1]} ]`,
+      bs: `[ BEFORE ${r} · ${R[r][1]} ]`, as: `[ AFTER ${r} · ${R[r][1]} ]`
+    });
+    const all = [
+      mk('photo', 'Garage doors', '4:5', 1), mk('ba', 'Media walls', '4:3', 1), mk('video', 'Christmas lights', '9:16', 1),
+      mk('photo', 'Blinds', '1:1', 1), mk('video', 'Garage doors', '4:3', 2), mk('ba', 'Patio screens', '4:5', 1),
+      mk('photo', 'Media walls', '3:2', 2), mk('photo', 'Christmas lights', '4:5', 2), mk('ba', 'Garage doors', '1:1', 3),
+      mk('video', 'Patio screens', '9:16', 2), mk('photo', 'Blinds', '4:3', 2), mk('photo', 'Garage doors', '3:2', 4)
+    ];
+    const f = this.state.f;
+    const items = f === 'All' ? all : all.filter(c => c.tag === f);
+    return {
+      chips: ['All', 'Garage doors', 'Blinds', 'Patio screens', 'Media walls', 'Christmas lights'].map(l => ({
+        label: l, on: l === f ? 'true' : 'false', bg: l === f ? '#0A0A0B' : 'transparent', fg: l === f ? '#F5F3EF' : '#0A0A0B',
+        pick: () => this.setState({ f: l })
+      })),
+      items,
+      countText: `Showing ${items.length} of [ NN ] projects`
+    };
+  }
+}
+</script>
+</body>
+</html>

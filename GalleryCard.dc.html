@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<a href="{{ href }}" aria-hidden="{{ ariaHidden }}" tabIndex="{{ tabIndex }}" style="display:flex;flex-direction:column;height:100%;box-sizing:border-box;background:#17171A;border:1px solid #2A2A2F;color:#F5F3EF;text-decoration:none;transition:border-color .2s,transform .2s" style-hover="border-color:#CC0000;transform:translateY(-3px)" style-focus="outline:2px solid #CC0000;outline-offset:3px">
+  <div style="position:relative;aspect-ratio:{{ ratio }};background:#1C1C20;overflow:hidden">
+    <sc-if value="{{ isPhoto }}" hint-placeholder-val="{{ true }}">
+      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:16px;text-align:center;font:500 11px/1.5 ui-monospace,Menlo,monospace;letter-spacing:.04em;color:#8F8B84">{{ slot }}</div>
+      <img src="{{ px }}" alt="{{ alt }}" loading="lazy" decoding="async" data-slot="{{ slotId }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+    </sc-if>
+    <sc-if value="{{ isVideo }}" hint-placeholder-val="{{ false }}">
+      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:16px;text-align:center;font:500 11px/1.5 ui-monospace,Menlo,monospace;letter-spacing:.04em;color:#8F8B84">{{ slot }}</div>
+      <video muted="{{ true }}" loop="{{ true }}" playsInline="{{ true }}" autoPlay="{{ true }}" preload="none" poster="{{ px }}" aria-label="{{ alt }}" data-slot="{{ slotId }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></video>
+      <span style="position:absolute;top:12px;left:12px;display:flex;align-items:center;gap:7px;height:26px;padding:0 10px 0 8px;border-radius:999px;background:#0A0A0B;border:1px solid #2A2A2F;font:700 10px/1 'Instrument Sans',sans-serif;letter-spacing:.12em;color:#F5F3EF"><svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><polygon points="2,1 9,5 2,9" fill="#E04848"></polygon></svg>VIDEO</span>
+    </sc-if>
+    <sc-if value="{{ isBa }}" hint-placeholder-val="{{ false }}">
+      <div style="position:absolute;inset:0;background:#232329">
+        <div style="position:absolute;top:0;bottom:0;left:50%;right:0;display:flex;align-items:center;justify-content:center;padding:10px;text-align:center;font:500 10px/1.5 ui-monospace,Menlo,monospace;color:#8F8B84">{{ afterSlot }}</div>
+        <img src="{{ px }}" alt="{{ altAfter }}" loading="lazy" decoding="async" data-slot="{{ slotIdAfter }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+      </div>
+      <div style="position:absolute;inset:0;background:#1A1A1E;clip-path:inset(0 50% 0 0)">
+        <div style="position:absolute;top:0;bottom:0;left:0;right:50%;display:flex;align-items:center;justify-content:center;padding:10px;text-align:center;font:500 10px/1.5 ui-monospace,Menlo,monospace;color:#8F8B84">{{ beforeSlot }}</div>
+        <img src="{{ px }}" alt="{{ altBefore }}" loading="lazy" decoding="async" data-slot="{{ slotIdBefore }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+      </div>
+      <div style="position:absolute;top:0;bottom:0;left:50%;width:2px;margin-left:-1px;background:#CC0000"></div>
+      <span style="position:absolute;left:10px;bottom:10px;padding:5px 8px;background:#0A0A0B;font:700 10px/1 'Instrument Sans',sans-serif;letter-spacing:.12em;color:#F5F3EF">BEFORE</span>
+      <span style="position:absolute;right:10px;bottom:10px;padding:5px 8px;background:#0A0A0B;font:700 10px/1 'Instrument Sans',sans-serif;letter-spacing:.12em;color:#F5F3EF">AFTER</span>
+    </sc-if>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:8px;padding:20px 22px 24px;flex:1">
+    <span style="align-self:flex-start;display:inline-flex;align-items:center;height:26px;padding:0 12px;border-radius:999px;background:#0A0A0B;border:1px solid #2A2A2F;font:700 11px/1 'Instrument Sans',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#E04848">{{ tag }}</span>
+    <h3 style="margin:6px 0 0;font:700 22px/1.15 'Bricolage Grotesque',sans-serif;letter-spacing:-.01em;color:#F5F3EF">{{ title }}</h3>
+    <span style="font:500 14px/1.3 'Instrument Sans',sans-serif;color:#A8A49C">{{ city }}</span>
+    <p style="margin:0;font:400 15px/1.45 'Instrument Sans',sans-serif;color:#CFCBC4">{{ line }}</p>
+    <span style="margin-top:auto;padding-top:10px;font:700 14px/1 'Instrument Sans',sans-serif;color:#E04848">View project →</span>
+  </div>
+</a>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:360,&quot;height&quot;:480},&quot;kind&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;photo&quot;,&quot;video&quot;,&quot;ba&quot;],&quot;default&quot;:&quot;photo&quot;,&quot;tsType&quot;:&quot;'photo'|'video'|'ba'&quot;},&quot;tag&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Garage doors&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;title&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;[ Project title ]&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;city&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;[ City ]&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;line&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;[ One line on what was done ]&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;slug&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;project-slug&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;ratio&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;4 / 3&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;slot&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;[ IMAGE 4:3 · 1200×900 ]&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;beforeSlot&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;[ BEFORE 4:3 · 1200×900 ]&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;afterSlot&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;[ AFTER 4:3 · 1200×900 ]&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;dup&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const p = this.props;
+    const k = p.kind ?? 'photo';
+    const tag = p.tag ?? 'Garage doors';
+    const slug = p.slug ?? 'project-slug';
+    return {
+      px: 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7',
+      isPhoto: k === 'photo', isVideo: k === 'video', isBa: k === 'ba',
+      tag, title: p.title ?? '[ Project title ]', city: p.city ?? '[ City ]', line: p.line ?? '[ One line on what was done ]',
+      href: '/gallery/' + slug,
+      ratio: p.ratio ?? '4 / 3',
+      slot: p.slot ?? '[ IMAGE 4:3 · 1200×900 ]',
+      beforeSlot: p.beforeSlot ?? '[ BEFORE 4:3 · 1200×900 ]',
+      afterSlot: p.afterSlot ?? '[ AFTER 4:3 · 1200×900 ]',
+      slotId: slug + '-cover', slotIdBefore: slug + '-before', slotIdAfter: slug + '-after',
+      alt: `[ALT: ${tag} project, city]`, altBefore: `[ALT: Before, ${tag} project]`, altAfter: `[ALT: After, ${tag} project]`,
+      ariaHidden: p.dup ? 'true' : undefined,
+      tabIndex: p.dup ? -1 : undefined
+    };
+  }
+}
+</script>
+</body>
+</html>
