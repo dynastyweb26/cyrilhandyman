@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { BeforeAfter } from "@/components/BeforeAfter";
 import { CityChip } from "@/components/CityChip";
 import { Faq } from "@/components/Faq";
 import { GalleryMarquee } from "@/components/GalleryMarquee";
@@ -140,21 +141,14 @@ export default async function HomePage() {
             </Link>
           </div>
 
-          <div
-            data-slot="home-ba"
-            className="relative aspect-[4/5] w-full overflow-hidden bg-[#232329] md:aspect-[3/2]"
-          >
-            <div className="absolute inset-y-0 left-0 right-1/2 flex items-center bg-[#1A1A1E] px-2.5">
-              <span className="font-mono text-[10px] leading-[1.5] text-muted-faint md:text-[11px]">
-                [ BEFORE 3:2 · 1800×1200 ]
-              </span>
-            </div>
-            <div className="absolute inset-y-0 left-1/2 right-0 flex items-center justify-center px-2.5">
-              <span className="text-center font-mono text-[10px] leading-[1.5] text-muted-faint md:text-[11px]">
-                [ AFTER 3:2 · 1800×1200 ]
-              </span>
-            </div>
-            <div aria-hidden="true" className="absolute inset-y-0 left-1/2 -ml-px w-0.5 bg-red" />
+          <div className="aspect-[4/5] w-full md:aspect-[3/2]">
+            <BeforeAfter
+              slotId="home-ba"
+              beforeSlot="[ BEFORE 3:2 · 1800×1200 ]"
+              afterSlot="[ AFTER 3:2 · 1800×1200 ]"
+              altBefore="[ALT: Before — garage door, city]"
+              altAfter="[ALT: After — garage door, city]"
+            />
           </div>
         </div>
       </section>
