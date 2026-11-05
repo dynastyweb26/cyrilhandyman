@@ -7,58 +7,64 @@
 </head>
 <body>
 <x-dc>
-<footer style="background:#0A0A0B;color:#F5F3EF;font-family:'Instrument Sans',sans-serif;padding:88px 56px 40px;border-top:1px solid #1F1F23">
-  <div style="max-width:1328px;margin:0 auto">
-    <div style="display:grid;grid-template-columns:minmax(0,1.6fr) repeat(4,minmax(0,1fr));gap:48px">
-      <div style="display:flex;flex-direction:column;gap:20px">
-        <a href="/" style="display:flex;align-items:center;gap:14px;text-decoration:none;color:#F5F3EF;min-height:44px">
-          <span style="position:relative;flex:none;width:56px;height:56px;border-radius:50%;border:1px dashed #3A3A40;overflow:hidden;display:flex;align-items:center;justify-content:center;font:600 9px/1 ui-monospace,Menlo,monospace;color:#8F8B84">LOGO<img src="{{ px }}" alt="" data-slot="logo-footer" width="112" height="112" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain"></span>
-          <span style="font:800 18px/1.05 'Bricolage Grotesque',sans-serif;text-transform:uppercase;letter-spacing:.02em">Cyril Handyman<br>&amp; Door LLC</span>
-        </a>
-        <p style="margin:0;max-width:320px;font:400 15px/1.55 'Instrument Sans',sans-serif;color:#B4B0A8">Handyman and home improvement out of Forney, Texas. Serving Kaufman County and the towns around it.</p>
+<footer style="background:#0A0A0B;color:#E8E3DB;font-family:'Instrument Sans',system-ui,sans-serif;border-top:1px solid #1E1E22;padding:clamp(56px,6cqi,96px) clamp(20px,5.5cqi,80px) 32px">
+  <div style="max-width:1280px;margin:0 auto">
+    <div style="display:flex;flex-wrap:wrap;gap:48px 40px">
+      <div style="flex:1 1 280px;max-width:340px;display:flex;flex-direction:column;gap:24px">
+        <div style="display:flex;align-items:center;gap:14px">
+          <span data-slot="logo" style="width:56px;height:56px;flex:none;border:1px dashed #4A4A50;display:grid;place-items:center;font:10px ui-monospace,Menlo,monospace;color:#8F8A82">LOGO</span>
+          <span style="font-weight:700;font-size:17px;line-height:1.15;color:#F5F3EF">CYRIL HANDYMAN<br>&amp; DOOR LLC</span>
+        </div>
+        <p style="margin:0;font-size:15px;line-height:1.6;color:#BDB7AE">Handyman and home improvement out of Forney, Texas. Serving Forney and the towns around it. <span style="font:11px ui-monospace,Menlo,monospace;color:#8F8A82">[CONFIRM wording with Cyril]</span></p>
       </div>
-      <nav aria-label="Services" style="display:flex;flex-direction:column;gap:4px">
-        <h2 style="margin:0 0 10px;font:700 12px/1 'Instrument Sans',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#E04848">Services</h2>
-        <a href="/services/garage-doors" style="display:flex;align-items:center;min-height:36px;color:#E2DFD9;text-decoration:none;font-size:15px" style-hover="color:#FFFFFF">Garage doors</a>
-        <a href="/services/faux-wood-blinds" style="display:flex;align-items:center;min-height:36px;color:#E2DFD9;text-decoration:none;font-size:15px" style-hover="color:#FFFFFF">Faux wood blinds</a>
-        <a href="/services/patio-screens" style="display:flex;align-items:center;min-height:36px;color:#E2DFD9;text-decoration:none;font-size:15px" style-hover="color:#FFFFFF">Patio screens</a>
-        <a href="/services/media-accent-walls" style="display:flex;align-items:center;min-height:36px;color:#E2DFD9;text-decoration:none;font-size:15px" style-hover="color:#FFFFFF">Media &amp; accent walls</a>
-        <a href="/services/christmas-lights" style="display:flex;align-items:center;min-height:36px;color:#E2DFD9;text-decoration:none;font-size:15px" style-hover="color:#FFFFFF">Christmas lights</a>
-        <a href="/services" style="display:flex;align-items:center;min-height:36px;color:#E2DFD9;text-decoration:none;font-size:15px" style-hover="color:#FFFFFF">All services</a>
-      </nav>
-      <nav aria-label="Company" style="display:flex;flex-direction:column;gap:4px">
-        <h2 style="margin:0 0 10px;font:700 12px/1 'Instrument Sans',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#E04848">Company</h2>
-        <a href="/about" style="display:flex;align-items:center;min-height:36px;color:#E2DFD9;text-decoration:none;font-size:15px" style-hover="color:#FFFFFF">About</a>
-        <a href="/gallery" style="display:flex;align-items:center;min-height:36px;color:#E2DFD9;text-decoration:none;font-size:15px" style-hover="color:#FFFFFF">Gallery</a>
-        <a href="/service-areas" style="display:flex;align-items:center;min-height:36px;color:#E2DFD9;text-decoration:none;font-size:15px" style-hover="color:#FFFFFF">Service areas</a>
-        <a href="/#reviews" style="display:flex;align-items:center;min-height:36px;color:#E2DFD9;text-decoration:none;font-size:15px" style-hover="color:#FFFFFF">Reviews</a>
-        <a href="/faq" style="display:flex;align-items:center;min-height:36px;color:#E2DFD9;text-decoration:none;font-size:15px" style-hover="color:#FFFFFF">FAQ</a>
-      </nav>
-      <div style="display:flex;flex-direction:column;gap:4px">
-        <h2 style="margin:0 0 10px;font:700 12px/1 'Instrument Sans',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#E04848">Contact</h2>
-        <a href="tel:+19453444580" style="display:flex;align-items:center;min-height:36px;color:#FFFFFF;text-decoration:none;font:700 17px/1 'Instrument Sans',sans-serif" style-hover="color:#E04848">945-344-4580</a>
-        <a href="mailto:crazydoor04@gmail.com" style="display:flex;align-items:center;min-height:36px;color:#E2DFD9;text-decoration:none;font-size:15px" style-hover="color:#FFFFFF">crazydoor04@gmail.com</a>
-        <span style="display:flex;align-items:center;min-height:36px;color:#B4B0A8;font-size:15px">Forney, TX · Kaufman County</span>
+      <div style="flex:1 1 150px;display:flex;flex-direction:column;gap:14px">
+        <h2 style="margin:0 0 4px;font-size:12px;letter-spacing:.16em;color:#E0483E;font-weight:700">SERVICES</h2>
+        <a href="/services/garage-door-repair-installation" style="color:#E8E3DB;font-size:15px;min-height:28px" style-hover="color:#FFFFFF">Garage doors</a>
+        <a href="/services/faux-wood-blinds" style="color:#E8E3DB;font-size:15px;min-height:28px" style-hover="color:#FFFFFF">Faux wood blinds</a>
+        <a href="/services/motorized-retractable-patio-screens" style="color:#E8E3DB;font-size:15px;min-height:28px" style-hover="color:#FFFFFF">Patio screens</a>
+        <a href="/services/media-walls-accent-walls" style="color:#E8E3DB;font-size:15px;min-height:28px" style-hover="color:#FFFFFF">Media &amp; accent walls</a>
+        <a href="/services/christmas-light-installation" style="color:#E8E3DB;font-size:15px;min-height:28px" style-hover="color:#FFFFFF">Christmas lights</a>
+        <a href="/services" style="color:#E8E3DB;font-size:15px;min-height:28px" style-hover="color:#FFFFFF">All services</a>
       </div>
-      <div style="display:flex;flex-direction:column;gap:4px">
-        <h2 style="margin:0 0 10px;font:700 12px/1 'Instrument Sans',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#E04848">Follow</h2>
-        <a href="https://facebook.com/[PLACEHOLDER]" rel="noopener" style="display:flex;align-items:center;gap:10px;min-height:44px;color:#E2DFD9;text-decoration:none;font-size:15px" style-hover="color:#FFFFFF"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="1.5" y="1.5" width="15" height="15" rx="3"></rect><path d="M11.5 5.5h-1.5a1.5 1.5 0 0 0-1.5 1.5v9M7 9.5h4"></path></svg>Facebook</a>
-        <a href="https://instagram.com/[PLACEHOLDER]" rel="noopener" style="display:flex;align-items:center;gap:10px;min-height:44px;color:#E2DFD9;text-decoration:none;font-size:15px" style-hover="color:#FFFFFF"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="1.5" y="1.5" width="15" height="15" rx="4.5"></rect><circle cx="9" cy="9" r="3.5"></circle></svg>Instagram</a>
+      <div style="flex:1 1 150px;display:flex;flex-direction:column;gap:14px">
+        <h2 style="margin:0 0 4px;font-size:12px;letter-spacing:.16em;color:#E0483E;font-weight:700">SERVICE AREAS</h2>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px 20px">
+          <a href="/service-areas/forney" style="color:#E8E3DB;font-size:15px;min-height:28px" style-hover="color:#FFFFFF">Forney</a>
+          <a href="/service-areas/mesquite" style="color:#E8E3DB;font-size:15px;min-height:28px" style-hover="color:#FFFFFF">Mesquite</a>
+          <a href="/service-areas/sunnyvale" style="color:#E8E3DB;font-size:15px;min-height:28px" style-hover="color:#FFFFFF">Sunnyvale</a>
+          <a href="/service-areas/rockwall" style="color:#E8E3DB;font-size:15px;min-height:28px" style-hover="color:#FFFFFF">Rockwall</a>
+          <a href="/service-areas/terrell" style="color:#E8E3DB;font-size:15px;min-height:28px" style-hover="color:#FFFFFF">Terrell</a>
+          <a href="/service-areas/crandall" style="color:#E8E3DB;font-size:15px;min-height:28px" style-hover="color:#FFFFFF">Crandall</a>
+          <a href="/service-areas/garland" style="color:#E8E3DB;font-size:15px;min-height:28px" style-hover="color:#FFFFFF">Garland</a>
+          <a href="/service-areas/frisco" style="color:#E8E3DB;font-size:15px;min-height:28px" style-hover="color:#FFFFFF">Frisco</a>
+        </div>
+        <a href="/service-areas" style="color:#E8E3DB;font-size:15px;min-height:28px" style-hover="color:#FFFFFF">All service areas</a>
+      </div>
+      <div style="flex:1 1 120px;display:flex;flex-direction:column;gap:14px">
+        <h2 style="margin:0 0 4px;font-size:12px;letter-spacing:.16em;color:#E0483E;font-weight:700">COMPANY</h2>
+        <a href="/about" style="color:#E8E3DB;font-size:15px;min-height:28px" style-hover="color:#FFFFFF">About</a>
+        <a href="/gallery" style="color:#E8E3DB;font-size:15px;min-height:28px" style-hover="color:#FFFFFF">Gallery</a>
+        <a href="/reviews" style="color:#E8E3DB;font-size:15px;min-height:28px" style-hover="color:#FFFFFF">Reviews</a>
+        <a href="/faq" style="color:#E8E3DB;font-size:15px;min-height:28px" style-hover="color:#FFFFFF">FAQ</a>
+      </div>
+      <div style="flex:1 1 200px;display:flex;flex-direction:column;gap:14px">
+        <h2 style="margin:0 0 4px;font-size:12px;letter-spacing:.16em;color:#E0483E;font-weight:700">CONTACT</h2>
+        <a href="tel:+19453444580" style="color:#F5F3EF;font-size:20px;font-weight:700;min-height:28px" style-hover="color:#FFFFFF">945-344-4580</a>
+        <a href="mailto:crazydoor04@gmail.com" style="color:#E8E3DB;font-size:15px;min-height:28px" style-hover="color:#FFFFFF">crazydoor04@gmail.com</a>
+        <span style="font-size:15px;color:#BDB7AE">Forney, TX</span>
+        <div style="display:flex;gap:20px;margin-top:6px">
+          <a href="[PLACEHOLDER: Facebook URL]" style="color:#E8E3DB;font-size:15px;min-height:28px" style-hover="color:#FFFFFF">Facebook</a>
+          <a href="[PLACEHOLDER: Instagram URL]" style="color:#E8E3DB;font-size:15px;min-height:28px" style-hover="color:#FFFFFF">Instagram</a>
+        </div>
       </div>
     </div>
-    <div style="display:flex;justify-content:space-between;gap:24px;margin-top:72px;padding-top:24px;border-top:1px solid #1F1F23;font:400 13px/1.4 'Instrument Sans',sans-serif;color:#8F8B84">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:64px;padding-top:24px;border-top:1px solid #222226;font-size:13px;color:#A8A39B">
       <span>© 2026 Cyril Handyman &amp; Door LLC · Registered Texas LLC</span>
       <span>Same crew on every job.</span>
     </div>
   </div>
 </footer>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:480}}">
-class Component extends DCLogic {
-  renderVals() {
-    return { px: 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7' };
-  }
-}
-</script>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:520}}"></script>
 </body>
 </html>
