@@ -151,11 +151,12 @@ export const faqs: { q: string; a: string; confirm?: string }[] = [
 export const whereWeWork = {
   eyebrow: "Where we work",
   title: "Forney and the towns around it.",
-  note: "[ Confirm the final city list with Cyril ] Each name links to its section on the service areas page, with projects done there.",
+  note: "Each town has its own page with the work we’ve done there.",
+  noteLink: "All service areas",
   map: {
-    slot: "map",
+    slot: "home-map",
     alt: "Map of the Cyril Handyman & Door service area around Forney, Texas and the towns served",
-    label: "[ MAP 4:3 · 1600×1200 — Forney and the towns around it shaded, no street address, no pin ]",
+    label: "[ MAP 4:3 · 1600×1200 — service area shaded, no street address, no pin ]",
   },
 };
 

@@ -360,7 +360,13 @@ export default async function HomePage() {
               ))}
             </ul>
             <p className="mt-4 max-w-[460px] text-[14px] leading-[1.5] text-muted-soft md:mt-7 md:text-[15px] md:leading-[1.55]">
-              {whereWeWork.note}
+              {whereWeWork.note}{" "}
+              <Link href="/service-areas" className="font-bold text-bone underline underline-offset-[3px] hover:text-white">
+                {whereWeWork.noteLink}
+              </Link>{" "}
+              <span className="font-mono text-[11px] leading-[1.5] text-muted-faint">
+                [CONFIRM wording with Cyril]
+              </span>
             </p>
           </div>
           <div
