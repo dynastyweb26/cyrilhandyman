@@ -12,8 +12,9 @@ type PageMetadataInput = {
 };
 
 /**
- * Per-route metadata helper: title goes through the layout's title template,
- * canonical and OG URL are always absolute.
+ * Per-route metadata helper. Titles are the board's SEO-table strings verbatim,
+ * so they are emitted as `absolute` — the layout's `%s | site` template would
+ * otherwise double the brand ("… | Cyril | Cyril Handyman & Door LLC").
  */
 export function pageMetadata({
   title,
@@ -26,7 +27,7 @@ export function pageMetadata({
   const imageUrl = absoluteUrl(image);
 
   return {
-    title,
+    title: { absolute: title },
     description,
     alternates: { canonical: url },
     robots: noIndex ? { index: false, follow: false } : undefined,
