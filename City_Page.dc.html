@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<script src="cyril-data.js"></script>
+</helmet>
+<div style="container-type:inline-size;position:relative;background:#0A0A0B;color:#F5F3EF;font-family:'Instrument Sans',system-ui,sans-serif">
+  <dc-import name="SiteHeader" mobile="{{ mobile }}" active="Service areas" hint-size="100%,120px"></dc-import>
+  <main>
+    <section data-screen-label="City hero" style="padding:clamp(40px,5cqi,80px) clamp(20px,5.5cqi,80px) clamp(56px,6cqi,96px)">
+      <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,520px),1fr));gap:40px 72px;align-items:center">
+        <div style="display:flex;flex-direction:column;gap:24px">
+          <nav aria-label="Breadcrumb" style="display:flex;gap:8px;font-size:14px;color:#A8A39B"><a href="/service-areas" style="color:#BDB7AE;text-decoration:underline;text-underline-offset:3px">Service areas</a><span>/</span><span style="color:#F5F3EF">{{ name }}</span></nav>
+          <sc-if value="{{ home }}" hint-placeholder-val="{{ false }}">
+            <span style="align-self:flex-start;display:flex;align-items:center;gap:10px;background:#CC0000;color:#FFFFFF;font-size:12px;font-weight:700;letter-spacing:.16em;padding:8px 12px">HOME BASE · FORNEY, TX</span>
+          </sc-if>
+          <h1 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(42px,5.8cqi,88px);line-height:.93;letter-spacing:-.04em;text-wrap:balance">Handyman &amp; Door Services in <span style="font-family:Newsreader,serif;font-style:italic;font-weight:400;color:#E0483E;letter-spacing:-.02em">{{ name }}, TX</span></h1>
+          <p style="margin:0;font-size:clamp(17px,1.4cqi,20px);line-height:1.55;color:#D6D1C8;max-width:560px;text-wrap:pretty">{{ sub }}</p>
+          <div style="display:flex;flex-wrap:wrap;gap:12px">
+            <a href="tel:+19453444580" style="background:#CC0000;color:#FFFFFF;font-weight:700;font-size:18px;padding:0 28px;min-height:56px;display:flex;align-items:center" style-hover="background:#A30000;color:#FFFFFF" style-focus="outline:3px solid #F5F3EF;outline-offset:3px">Call 945-344-4580</a>
+            <a href="#quote" style="border:1px solid #F5F3EF;color:#F5F3EF;font-weight:700;font-size:18px;padding:0 26px;min-height:56px;display:flex;align-items:center" style-hover="background:#F5F3EF;color:#0A0A0B" style-focus="outline:3px solid #CC0000;outline-offset:3px">Request a quote</a>
+          </div>
+          <sc-if value="{{ away }}" hint-placeholder-val="{{ true }}">
+            <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px;font-size:14px;color:#BDB7AE"><span style="width:8px;height:8px;background:#CC0000;flex:none"></span>Serving {{ name }} from Forney<span style="font:11px ui-monospace,Menlo,monospace;color:#8F8A82">[CONFIRM drive time]</span></div>
+          </sc-if>
+        </div>
+        <div data-slot="{{ slug }}-hero" style="aspect-ratio:4/3;background:#17171A;border:1px solid #26262B;display:grid;place-items:center;padding:20px;text-align:center;font:12px/1.6 ui-monospace,Menlo,monospace;color:#8F8A82">[ IMAGE 4:3 · 1600×1200 — a real {{ name }} job, finished ]</div>
+      </div>
+    </section>
+
+    <section data-screen-label="Our promise" style="border-top:1px solid #1E1E22;padding:clamp(48px,5cqi,80px) clamp(20px,5.5cqi,80px)">
+      <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:32px 72px">
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <span style="font-size:13px;font-weight:700;letter-spacing:.16em;color:#E0483E">OUR PROMISE</span>
+          <h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(32px,3.4cqi,52px);line-height:1;letter-spacing:-.03em">You call. <span style="font-family:Newsreader,serif;font-style:italic;font-weight:400">We show up.</span></h2>
+          <p style="margin:0;font-size:16px;line-height:1.6;color:#BDB7AE;max-width:420px">Lots of happy customers around here got started the same way: one phone call.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:1px;background:#26262B;border:1px solid #26262B">
+          <div style="background:#0A0A0B;padding:24px;display:flex;flex-direction:column;gap:8px"><h3 style="margin:0;font-size:18px;font-weight:700">You come first</h3><p style="margin:0;font-size:15px;line-height:1.55;color:#BDB7AE">The job isn’t done until you’re happy with it.</p></div>
+          <div style="background:#0A0A0B;padding:24px;display:flex;flex-direction:column;gap:8px"><h3 style="margin:0;font-size:18px;font-weight:700">Travel isn’t an issue</h3><p style="margin:0;font-size:15px;line-height:1.55;color:#BDB7AE">{{ name }} is on our regular route.</p></div>
+          <div style="background:#0A0A0B;padding:24px;display:flex;flex-direction:column;gap:8px"><h3 style="margin:0;font-size:18px;font-weight:700">On time, every time we can</h3><p style="margin:0;font-size:15px;line-height:1.55;color:#BDB7AE">We always aim to be there when we said.</p></div>
+          <div style="background:#0A0A0B;padding:24px;display:flex;flex-direction:column;gap:8px"><h3 style="margin:0;font-size:18px;font-weight:700">One call to schedule</h3><p style="margin:0;font-size:15px;line-height:1.55;color:#BDB7AE">No portals, no back-and-forth. Just call.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section data-screen-label="Services in city" style="background:#F5F3EF;color:#0A0A0B;padding:clamp(64px,7cqi,112px) clamp(20px,5.5cqi,80px)">
+      <div style="max-width:1280px;margin:0 auto;display:flex;flex-direction:column;gap:40px">
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px">
+          <h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(38px,5cqi,76px);line-height:.95;letter-spacing:-.04em">What we do <span style="font-family:Newsreader,serif;font-style:italic;font-weight:400;color:#CC0000">in {{ name }}.</span></h2>
+          <p style="margin:0;font-size:16px;line-height:1.55;color:#55524D;max-width:320px">Each one has its own page with process, FAQs and real projects.</p>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:20px">
+          <a href="/services/garage-door-repair-installation" style="flex:1 1 440px;min-height:240px;background:#0A0A0B;color:#F5F3EF;padding:32px;display:flex;flex-direction:column;justify-content:space-between;gap:32px;transition:transform .2s" style-hover="transform:translateY(-4px);color:#F5F3EF" style-focus="outline:3px solid #CC0000;outline-offset:4px">
+            <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-family:Newsreader,serif;font-style:italic;font-size:30px;color:#E0483E">01</span><span style="width:48px;height:48px;border:1px solid #4A4A50;border-radius:50%;display:grid;place-items:center;font-size:20px">→</span></div>
+            <div><h3 style="margin:0 0 8px;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(28px,2.6cqi,40px);line-height:1;letter-spacing:-.03em">Garage doors in {{ name }}</h3><p style="margin:0;font-size:16px;color:#D6D1C8">New doors, openers, springs, repairs.</p></div>
+          </a>
+          <a href="/services/faux-wood-blinds" style="flex:1 1 440px;min-height:240px;background:#E8E3DB;color:#0A0A0B;padding:32px;display:flex;flex-direction:column;justify-content:space-between;gap:32px;transition:transform .2s" style-hover="transform:translateY(-4px);color:#0A0A0B" style-focus="outline:3px solid #CC0000;outline-offset:4px">
+            <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-family:Newsreader,serif;font-style:italic;font-size:30px;color:#CC0000">02</span><span style="width:48px;height:48px;border:1px solid #A8A196;border-radius:50%;display:grid;place-items:center;font-size:20px">→</span></div>
+            <div><h3 style="margin:0 0 8px;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(28px,2.6cqi,40px);line-height:1;letter-spacing:-.03em">Faux wood blinds in {{ name }}</h3><p style="margin:0;font-size:16px;color:#55524D">Measured and installed.</p></div>
+          </a>
+          <a href="/services/motorized-retractable-patio-screens" style="flex:1 1 300px;min-height:240px;background:#E8E3DB;color:#0A0A0B;padding:32px;display:flex;flex-direction:column;justify-content:space-between;gap:32px;transition:transform .2s" style-hover="transform:translateY(-4px);color:#0A0A0B" style-focus="outline:3px solid #CC0000;outline-offset:4px">
+            <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-family:Newsreader,serif;font-style:italic;font-size:30px;color:#CC0000">03</span><span style="width:48px;height:48px;border:1px solid #A8A196;border-radius:50%;display:grid;place-items:center;font-size:20px">→</span></div>
+            <div><h3 style="margin:0 0 8px;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(28px,2.6cqi,40px);line-height:1;letter-spacing:-.03em">Patio screens in {{ name }}</h3><p style="margin:0;font-size:16px;color:#55524D">Motorized and retractable.</p></div>
+          </a>
+          <a href="/services/media-walls-accent-walls" style="flex:1 1 300px;min-height:240px;background:#0A0A0B;color:#F5F3EF;padding:32px;display:flex;flex-direction:column;justify-content:space-between;gap:32px;transition:transform .2s" style-hover="transform:translateY(-4px);color:#F5F3EF" style-focus="outline:3px solid #CC0000;outline-offset:4px">
+            <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-family:Newsreader,serif;font-style:italic;font-size:30px;color:#E0483E">04</span><span style="width:48px;height:48px;border:1px solid #4A4A50;border-radius:50%;display:grid;place-items:center;font-size:20px">→</span></div>
+            <div><h3 style="margin:0 0 8px;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(28px,2.6cqi,40px);line-height:1;letter-spacing:-.03em">Media &amp; accent walls in {{ name }}</h3><p style="margin:0;font-size:16px;color:#D6D1C8">Slat, panel and built-ins.</p></div>
+          </a>
+          <a href="/services/christmas-light-installation" style="flex:1 1 300px;min-height:240px;background:#CC0000;color:#FFFFFF;padding:32px;display:flex;flex-direction:column;justify-content:space-between;gap:32px;transition:transform .2s" style-hover="transform:translateY(-4px);color:#FFFFFF" style-focus="outline:3px solid #0A0A0B;outline-offset:4px">
+            <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-family:Newsreader,serif;font-style:italic;font-size:30px">05</span><span style="width:48px;height:48px;border:1px solid #FFFFFF;border-radius:50%;display:grid;place-items:center;font-size:20px">→</span></div>
+            <div><h3 style="margin:0 0 8px;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(28px,2.6cqi,40px);line-height:1;letter-spacing:-.03em">Christmas lights in {{ name }}</h3><p style="margin:0;font-size:16px">Designed, hung, maintained, taken down.</p></div>
+          </a>
+        </div>
+        <p style="margin:0;padding-top:24px;border-top:1px solid #D6D0C6;font-size:16px;color:#3A3834">Also: flooring, painting, cabinet refacing and handyman repairs. <a href="/services" style="color:#CC0000;font-weight:700">See everything →</a></p>
+      </div>
+    </section>
+
+    <section data-screen-label="Local block" data-component="LocalWorkModule" style="background:#17171A;border-top:6px solid #CC0000;padding:clamp(64px,7cqi,112px) clamp(20px,5.5cqi,80px)">
+      <div style="max-width:1280px;margin:0 auto;display:flex;flex-direction:column;gap:48px">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:32px 72px;align-items:end">
+          <div style="display:flex;flex-direction:column;gap:16px">
+            <span style="font-size:13px;font-weight:700;letter-spacing:.16em;color:#E0483E">ONLY IN {{ upper }}</span>
+            <h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(40px,5.4cqi,84px);line-height:.92;letter-spacing:-.04em">Recent work <span style="font-family:Newsreader,serif;font-style:italic;font-weight:400;color:#E0483E">in {{ name }}.</span></h2>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:12px;padding-left:20px;border-left:1px solid #3A3A40">
+            <h3 style="margin:0;font-size:13px;font-weight:700;letter-spacing:.16em;color:#BDB7AE">WHAT WE SEE IN {{ upper }}</h3>
+            <p style="margin:0;font-family:Newsreader,serif;font-style:italic;font-size:clamp(19px,1.6cqi,23px);line-height:1.45;color:#E8E3DB;text-wrap:pretty">{{ see }}</p>
+          </div>
+        </div>
+        <sc-if value="{{ hasProjects }}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex;flex-direction:column;gap:20px">
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:20px">
+              <sc-for list="{{ projects }}" as="p" hint-placeholder-count="3">
+                <a href="/gallery" data-component="GalleryCard" style="display:flex;flex-direction:column;gap:14px;color:#F5F3EF" style-focus="outline:3px solid #E0483E;outline-offset:4px">
+                  <div data-slot="{{ p.slot }}" style="aspect-ratio:4/3;background:#0A0A0B;border:1px solid #2A2A2F;display:grid;place-items:center;padding:16px;text-align:center;font:12px/1.6 ui-monospace,Menlo,monospace;color:#8F8A82">[ IMAGE 4:3 · 1600×1200 — {{ p.service }}, {{ name }} ]</div>
+                  <span style="font-size:12px;font-weight:700;letter-spacing:.14em;color:#E0483E">{{ p.tag }} · {{ upper }}</span>
+                  <span style="font-size:18px;font-weight:600">[PLACEHOLDER: project title]</span>
+                </a>
+              </sc-for>
+            </div>
+            <div data-component="BeforeAfter" style="position:relative;aspect-ratio:21/9;display:grid;grid-template-columns:1fr 1fr;border:1px solid #2A2A2F">
+              <div data-slot="{{ slug }}-before" style="background:#0A0A0B;display:grid;place-items:center;padding:16px;text-align:center;font:12px/1.6 ui-monospace,Menlo,monospace;color:#8F8A82">[ BEFORE · 1600×1370 ]</div>
+              <div data-slot="{{ slug }}-after" style="background:#202024;display:grid;place-items:center;padding:16px;text-align:center;font:12px/1.6 ui-monospace,Menlo,monospace;color:#8F8A82">[ AFTER · same {{ name }} job ]</div>
+              <span style="position:absolute;top:16px;left:16px;background:#0A0A0B;color:#F5F3EF;font-size:12px;font-weight:700;letter-spacing:.14em;padding:6px 10px">BEFORE</span>
+              <span style="position:absolute;top:16px;right:16px;background:#CC0000;color:#FFFFFF;font-size:12px;font-weight:700;letter-spacing:.14em;padding:6px 10px">AFTER</span>
+              <span style="position:absolute;top:0;bottom:0;left:50%;width:2px;background:#F5F3EF"></span>
+              <span aria-label="Drag to compare" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:48px;height:48px;border-radius:50%;background:#F5F3EF;color:#0A0A0B;display:grid;place-items:center;font-size:18px;font-weight:700">↔</span>
+            </div>
+            <a href="/gallery" style="align-self:flex-start;color:#F5F3EF;font-weight:700;font-size:16px;min-height:44px;display:flex;align-items:center;border-bottom:2px solid #CC0000">All {{ name }} projects in the gallery →</a>
+          </div>
+        </sc-if>
+        <sc-if value="{{ noProjects }}" hint-placeholder-val="{{ false }}">
+          <div data-component="LocalWorkEmpty" style="border:1px dashed #4A4A50;padding:clamp(28px,3cqi,44px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:20px 48px;align-items:center">
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <span style="font:13px/1.5 ui-monospace,Menlo,monospace;color:#E8E3DB">[ PLACEHOLDER: first {{ name }} project ]</span>
+              <p style="margin:0;font-size:15px;line-height:1.6;color:#A8A39B">Cards and a before/after appear here once a {{ name }} job is tagged in the gallery. Until then this module stays this size.</p>
+            </div>
+            <a href="/gallery" style="justify-self:start;color:#F5F3EF;font-weight:700;font-size:16px;min-height:44px;display:flex;align-items:center;border-bottom:2px solid #CC0000">See projects from nearby towns →</a>
+          </div>
+        </sc-if>
+      </div>
+    </section>
+
+    <sc-if value="{{ hasReviews }}" hint-placeholder-val="{{ false }}">
+      <section data-screen-label="Reviews" style="background:#F5F3EF;color:#0A0A0B;padding:clamp(64px,7cqi,112px) clamp(20px,5.5cqi,80px) 0">
+        <div style="max-width:1280px;margin:0 auto;display:flex;flex-direction:column;gap:32px">
+          <h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(36px,4.4cqi,64px);line-height:.95;letter-spacing:-.035em">From {{ name }} customers.</h2>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:20px">
+            <figure data-component="ReviewCard" style="margin:0;background:#E8E3DB;padding:32px;display:flex;flex-direction:column;gap:20px"><span style="font-family:Newsreader,serif;font-style:italic;font-size:56px;line-height:.5;color:#CC0000">“</span><blockquote style="margin:0;font-size:19px;line-height:1.5">[PLACEHOLDER: real review from a {{ name }} customer, verbatim]</blockquote><figcaption style="font-size:14px;color:#55524D">[PLACEHOLDER: first name] · {{ name }} · [PLACEHOLDER: source]</figcaption></figure>
+            <figure data-component="ReviewCard" style="margin:0;background:#E8E3DB;padding:32px;display:flex;flex-direction:column;gap:20px"><span style="font-family:Newsreader,serif;font-style:italic;font-size:56px;line-height:.5;color:#CC0000">“</span><blockquote style="margin:0;font-size:19px;line-height:1.5">[PLACEHOLDER: real review from a {{ name }} customer, verbatim]</blockquote><figcaption style="font-size:14px;color:#55524D">[PLACEHOLDER: first name] · {{ name }} · [PLACEHOLDER: source]</figcaption></figure>
+          </div>
+        </div>
+      </section>
+    </sc-if>
+    <sc-if value="{{ reviewNote }}" hint-placeholder-val="{{ false }}">
+      <div style="background:#F5F3EF;padding:24px clamp(20px,5.5cqi,80px) 0"><div style="max-width:1280px;margin:0 auto;border:1px dashed #A8A196;padding:14px 18px;font:12px/1.5 ui-monospace,Menlo,monospace;color:#55524D">EMPTY STATE — no {{ name }} reviews yet, so the whole Reviews section (heading included) is removed and the FAQ moves up. Nothing renders here on the live page.</div></div>
+    </sc-if>
+
+    <section data-screen-label="Local FAQ" style="background:#F5F3EF;color:#0A0A0B;padding:clamp(64px,7cqi,112px) clamp(20px,5.5cqi,80px)">
+      <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:32px 72px">
+        <h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(36px,4.4cqi,64px);line-height:.95;letter-spacing:-.035em">Questions from <span style="font-family:Newsreader,serif;font-style:italic;font-weight:400;color:#CC0000">{{ name }}.</span></h2>
+        <div data-component="FAQAccordion" style="border-top:1px solid #0A0A0B">
+          <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="4">
+            <details open="{{ f.open }}" style="border-bottom:1px solid #C9C2B6">
+              <summary style="display:flex;justify-content:space-between;align-items:center;gap:20px;min-height:68px;cursor:pointer;font-size:19px;font-weight:600;list-style:none" style-focus="outline:3px solid #CC0000;outline-offset:2px">{{ f.q }}<span aria-hidden="true" style="font-size:24px;color:#CC0000;flex:none">+</span></summary>
+              <p style="margin:0 0 24px;font-size:16px;line-height:1.6;color:#3A3834;max-width:620px">{{ f.a }}</p>
+            </details>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+    <section data-screen-label="Nearby" style="background:#E8E3DB;color:#0A0A0B;padding:clamp(48px,5cqi,72px) clamp(20px,5.5cqi,80px)">
+      <div style="max-width:1280px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px">
+        <h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(28px,2.6cqi,40px);letter-spacing:-.03em">Near {{ name }}</h2>
+        <div style="display:flex;flex-wrap:wrap;gap:12px">
+          <sc-for list="{{ near }}" as="n" hint-placeholder-count="3">
+            <a href="/service-areas/{{ n.slug }}" style="display:flex;align-items:center;gap:16px;min-height:56px;padding:0 24px;background:#F5F3EF;color:#0A0A0B;font-size:18px;font-weight:700;border:1px solid #C9C2B6" style-hover="border:1px solid #0A0A0B;color:#0A0A0B" style-focus="outline:3px solid #CC0000;outline-offset:3px">{{ n.name }}<span style="color:#CC0000">→</span></a>
+          </sc-for>
+          <a href="/service-areas" style="display:flex;align-items:center;min-height:56px;padding:0 8px;color:#0A0A0B;font-size:16px;font-weight:600;text-decoration:underline;text-underline-offset:4px">All 8 towns</a>
+        </div>
+      </div>
+    </section>
+
+    <dc-import name="QuoteBand" city="{{ name }}" source="{{ source }}" heading="{{ cta }}" hint-size="100%,900px"></dc-import>
+  </main>
+  <dc-import name="SiteFooter" hint-size="100%,520px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;city&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;forney&quot;,&quot;mesquite&quot;,&quot;sunnyvale&quot;,&quot;rockwall&quot;,&quot;terrell&quot;,&quot;crandall&quot;,&quot;garland&quot;,&quot;frisco&quot;],&quot;default&quot;:&quot;frisco&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;mobile&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;},&quot;state&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;populated&quot;,&quot;empty&quot;],&quot;default&quot;:&quot;populated&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;States&quot;},&quot;annotate&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;States&quot;}}">
+class Component extends DCLogic {
+  componentDidMount() {
+    if (!window.CYRIL) this._t = setInterval(() => { if (window.CYRIL) { clearInterval(this._t); this.forceUpdate(); } }, 40);
+  }
+  componentWillUnmount() { clearInterval(this._t); }
+  renderVals() {
+    const mobile = !!this.props.mobile;
+    const annotate = this.props.annotate ?? true;
+    const D = window.CYRIL;
+    if (!D) return { mobile };
+    const c = D.cities.find(x => x.slug === (this.props.city || 'forney')) || D.cities[0];
+    const home = c.slug === 'forney';
+    const near = c.near.map(s => D.cities.find(x => x.slug === s));
+    const nearNames = near.map(n => n.name);
+    const list = nearNames.length > 1 ? nearNames.slice(0, -1).join(', ') + ' and ' + nearNames[nearNames.length - 1] : nearNames[0];
+    const populated = (this.props.state ?? 'populated') !== 'empty';
+    const hasProjects = populated, hasReviews = populated;
+    return {
+      mobile, name: c.name, slug: c.slug, upper: c.name.toUpperCase(), see: c.see, near,
+      source: '/service-areas/' + c.slug,
+      home, away: !home,
+      sub: home
+        ? 'Forney is home. This is where we’re based, so for Forney homes the drive is short and the schedule is easy. Garage doors, faux wood blinds, patio screens, media walls and Christmas lights, plus the smaller repairs in between.'
+        : 'Garage doors, faux wood blinds, patio screens, media walls and Christmas lights for ' + c.name + ' homes, booked with one phone call.',
+      hasProjects, noProjects: !hasProjects,
+      projects: [{ n: 1, service: 'garage door', tag: 'GARAGE DOORS' }, { n: 2, service: 'patio screens', tag: 'PATIO SCREENS' }, { n: 3, service: 'faux wood blinds', tag: 'BLINDS' }].map(p => ({ ...p, slot: c.slug + '-project-' + p.n })),
+      hasReviews, reviewNote: !hasReviews && annotate,
+      cta: 'Need something done in ' + c.name + '?',
+      faqs: [
+        { open: true, q: home ? 'Are you based in Forney?' : 'Do you travel to ' + c.name + '?', a: home ? 'Yes. Forney is home base for Cyril Handyman & Door.' : 'Yes. ' + c.name + ' is part of our regular service area and travel isn’t an issue. [CONFIRM]' },
+        { open: false, q: 'How do I schedule?', a: 'Call 945-344-4580. We’ll talk through the job and set a time on the same call. Or send a quote request below and we’ll call you back.' },
+        { open: false, q: 'How soon can you come out?', a: 'It depends on the job and the time of year. Call and we’ll give you the earliest time we have. [CONFIRM typical lead time]' },
+        { open: false, q: 'What areas near ' + c.name + ' do you cover?', a: 'We also work in ' + list + ', plus the rest of our eight-town service area. [CONFIRM]' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

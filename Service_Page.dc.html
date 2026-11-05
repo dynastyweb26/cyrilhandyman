@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<script src="cyril-data.js"></script>
+</helmet>
+<div style="container-type:inline-size;position:relative;background:#0A0A0B;color:#F5F3EF;font-family:'Instrument Sans',system-ui,sans-serif">
+  <dc-import name="SiteHeader" mobile="{{ mobile }}" active="Services" hint-size="100%,120px"></dc-import>
+  <main>
+    <section data-screen-label="Service hero" style="padding:clamp(32px,4.5cqi,72px) clamp(20px,5.5cqi,80px) clamp(48px,5cqi,80px)">
+      <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,520px),1fr));gap:36px 72px;align-items:center">
+        <div style="display:flex;flex-direction:column;gap:22px">
+          <nav aria-label="Breadcrumb" style="display:flex;gap:8px;font-size:14px;color:#A8A39B"><a href="/services" style="color:#BDB7AE;text-decoration:underline;text-underline-offset:3px">Services</a><span>/</span><span style="color:#F5F3EF">{{ s.name }}</span></nav>
+          <h1 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(40px,5.4cqi,84px);line-height:.93;letter-spacing:-.04em;text-wrap:balance">{{ s.long }} <span style="font-family:Newsreader,serif;font-style:italic;font-weight:400;color:#E0483E;letter-spacing:-.02em">in Forney, TX &amp; North Texas</span></h1>
+          <p style="margin:0;font-size:clamp(18px,1.5cqi,21px);line-height:1.5;color:#D6D1C8;max-width:540px;text-wrap:pretty">{{ s.promise }}</p>
+          <div style="display:flex;flex-wrap:wrap;gap:12px">
+            <a href="tel:+19453444580" style="background:#CC0000;color:#FFFFFF;font-weight:700;font-size:18px;padding:0 28px;min-height:56px;display:flex;align-items:center" style-hover="background:#A30000;color:#FFFFFF" style-focus="outline:3px solid #F5F3EF;outline-offset:3px">Call 945-344-4580</a>
+            <a href="#quote" style="border:1px solid #F5F3EF;color:#F5F3EF;font-weight:700;font-size:18px;padding:0 26px;min-height:56px;display:flex;align-items:center" style-hover="background:#F5F3EF;color:#0A0A0B" style-focus="outline:3px solid #CC0000;outline-offset:3px">Request a quote</a>
+          </div>
+          <ul data-component="TrustStrip" style="list-style:none;margin:8px 0 0;padding:16px 0 0;border-top:1px solid #26262B;display:flex;flex-wrap:wrap;gap:10px 24px;font-size:14px;color:#D6D1C8">
+            <li style="display:flex;align-items:center;gap:8px"><span style="width:6px;height:6px;background:#CC0000"></span>Based in Forney, TX</li>
+            <li style="display:flex;align-items:center;gap:8px"><span style="width:6px;height:6px;background:#CC0000"></span>Registered Texas LLC</li>
+            <li style="display:flex;align-items:center;gap:8px"><span style="width:6px;height:6px;background:#CC0000"></span>Scheduled by phone</li>
+            <li style="font:12px ui-monospace,Menlo,monospace;color:#8F8A82;display:flex;align-items:center">[PLACEHOLDER: review rating + count]</li>
+          </ul>
+        </div>
+        <div data-slot="service-hero" style="aspect-ratio:4/3;background:#17171A;border:1px solid #26262B;display:grid;place-items:center;padding:20px;text-align:center;font:12px/1.6 ui-monospace,Menlo,monospace;color:#8F8A82">[ IMAGE or VIDEO 4:3 · 1600×1200 — {{ s.slot }} ]</div>
+      </div>
+    </section>
+
+    <section data-screen-label="What we do" style="background:#F5F3EF;color:#0A0A0B;padding:clamp(64px,7cqi,112px) clamp(20px,5.5cqi,80px)">
+      <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:40px 72px">
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <span style="font-size:13px;font-weight:700;letter-spacing:.16em;color:#CC0000">WHAT WE DO</span>
+          <h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(36px,4.4cqi,64px);line-height:.95;letter-spacing:-.035em">{{ s.name }}, <span style="font-family:Newsreader,serif;font-style:italic;font-weight:400;color:#CC0000">start to finish.</span></h2>
+        </div>
+        <ol style="list-style:none;margin:0;padding:0;border-top:1px solid #0A0A0B">
+          <sc-for list="{{ jobs }}" as="j" hint-placeholder-count="4">
+            <li style="display:grid;grid-template-columns:56px 1fr;gap:16px;padding:24px 0;border-bottom:1px solid #C9C2B6">
+              <span style="font-family:Newsreader,serif;font-style:italic;font-size:26px;color:#CC0000;line-height:1.1">{{ j.n }}</span>
+              <div style="display:flex;flex-direction:column;gap:6px"><h3 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(24px,2cqi,30px);letter-spacing:-.025em">{{ j.t }}</h3><p style="margin:0;font-size:16px;line-height:1.6;color:#3A3834;max-width:560px">{{ j.d }}</p></div>
+            </li>
+          </sc-for>
+        </ol>
+      </div>
+    </section>
+
+    <section data-screen-label="How it works" style="padding:clamp(64px,7cqi,112px) clamp(20px,5.5cqi,80px)">
+      <div style="max-width:1280px;margin:0 auto;display:flex;flex-direction:column;gap:40px">
+        <h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(36px,4.4cqi,64px);line-height:.95;letter-spacing:-.035em">How it works.</h2>
+        <ol data-component="StepList" style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:1px;background:#26262B;border:1px solid #26262B">
+          <sc-for list="{{ steps }}" as="st" hint-placeholder-count="4">
+            <li style="background:#0A0A0B;padding:28px;display:flex;flex-direction:column;gap:14px;min-height:200px">
+              <span style="font-family:Newsreader,serif;font-style:italic;font-size:44px;line-height:1;color:#E0483E">{{ st.n }}</span>
+              <h3 style="margin:0;font-size:20px;font-weight:700">{{ st.t }}</h3>
+              <p style="margin:0;font-size:15px;line-height:1.6;color:#BDB7AE">{{ st.d }}</p>
+            </li>
+          </sc-for>
+        </ol>
+      </div>
+    </section>
+
+    <section data-screen-label="Pricing" data-component="PricingModule" style="background:#E8E3DB;color:#0A0A0B;padding:clamp(64px,7cqi,112px) clamp(20px,5.5cqi,80px)">
+      <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:40px 72px">
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <span style="font-size:13px;font-weight:700;letter-spacing:.16em;color:#CC0000">PRICING GUIDANCE</span>
+          <h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(36px,4.4cqi,64px);line-height:.95;letter-spacing:-.035em">What it costs.</h2>
+          <p style="margin:0;font-size:16px;line-height:1.6;color:#3A3834;max-width:420px">Every home is different, so your real number comes after a quick call. Ranges below are a starting point.</p>
+          <span style="align-self:flex-start;border:1px dashed #7A746B;padding:8px 12px;font:12px ui-monospace,Menlo,monospace;color:#3A3834">[CONFIRM pricing guidance with Cyril]</span>
+        </div>
+        <div style="background:#F5F3EF;display:flex;flex-direction:column">
+          <sc-for list="{{ jobs }}" as="j" hint-placeholder-count="4">
+            <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;padding:22px 24px;border-bottom:1px solid #D6D0C6">
+              <span style="font-size:18px;font-weight:700">{{ j.t }}</span>
+              <span style="display:flex;align-items:baseline;gap:10px"><span style="font-size:13px;color:#55524D">starting at</span><span data-slot="price" style="min-width:120px;text-align:center;border:1px dashed #A8A196;padding:6px 10px;font:13px ui-monospace,Menlo,monospace;color:#55524D">$ [CONFIRM]</span></span>
+            </div>
+          </sc-for>
+          <a href="tel:+19453444580" style="display:flex;justify-content:space-between;align-items:center;padding:0 24px;min-height:64px;background:#0A0A0B;color:#F5F3EF;font-weight:700;font-size:17px" style-hover="background:#17171A;color:#F5F3EF" style-focus="outline:3px solid #CC0000;outline-offset:3px">Get your exact price: 945-344-4580<span>→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section data-screen-label="Real projects" style="background:#17171A;padding:clamp(64px,7cqi,112px) clamp(20px,5.5cqi,80px)">
+      <div style="max-width:1280px;margin:0 auto;display:flex;flex-direction:column;gap:36px">
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px">
+          <h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(36px,4.4cqi,64px);line-height:.95;letter-spacing:-.035em">Real projects.</h2>
+          <a href="/gallery" style="color:#F5F3EF;font-weight:700;min-height:44px;display:flex;align-items:center;border-bottom:2px solid #CC0000">All {{ lowerName }} in the gallery →</a>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:20px">
+          <sc-for list="{{ cards }}" as="p" hint-placeholder-count="3">
+            <a href="/gallery" data-component="GalleryCard" style="display:flex;flex-direction:column;gap:14px;color:#F5F3EF" style-focus="outline:3px solid #E0483E;outline-offset:4px">
+              <div data-slot="service-project" style="aspect-ratio:4/3;background:#0A0A0B;border:1px solid #2A2A2F;display:grid;place-items:center;padding:16px;text-align:center;font:12px/1.6 ui-monospace,Menlo,monospace;color:#8F8A82">[ IMAGE 4:3 · 1600×1200 — {{ s.slot }} ]</div>
+              <span style="font-size:12px;font-weight:700;letter-spacing:.14em;color:#E0483E">{{ upperName }} · [PLACEHOLDER: TOWN]</span>
+              <span style="font-size:18px;font-weight:600">[PLACEHOLDER: project title]</span>
+            </a>
+          </sc-for>
+        </div>
+        <div data-component="BeforeAfter" style="position:relative;aspect-ratio:21/9;display:grid;grid-template-columns:1fr 1fr;border:1px solid #2A2A2F">
+          <div data-slot="service-before" style="background:#0A0A0B;display:grid;place-items:center;padding:16px;font:12px/1.6 ui-monospace,Menlo,monospace;color:#8F8A82;text-align:center">[ BEFORE · 1600×1370 ]</div>
+          <div data-slot="service-after" style="background:#202024;display:grid;place-items:center;padding:16px;font:12px/1.6 ui-monospace,Menlo,monospace;color:#8F8A82;text-align:center">[ AFTER · same job ]</div>
+          <span style="position:absolute;top:16px;left:16px;background:#0A0A0B;color:#F5F3EF;font-size:12px;font-weight:700;letter-spacing:.14em;padding:6px 10px">BEFORE</span>
+          <span style="position:absolute;top:16px;right:16px;background:#CC0000;color:#FFFFFF;font-size:12px;font-weight:700;letter-spacing:.14em;padding:6px 10px">AFTER</span>
+          <span style="position:absolute;top:0;bottom:0;left:50%;width:2px;background:#F5F3EF"></span>
+          <span aria-label="Drag to compare" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:48px;height:48px;border-radius:50%;background:#F5F3EF;color:#0A0A0B;display:grid;place-items:center;font-size:18px;font-weight:700">↔</span>
+        </div>
+      </div>
+    </section>
+
+    <section data-screen-label="Why us" style="background:#F5F3EF;color:#0A0A0B;padding:clamp(64px,7cqi,112px) clamp(20px,5.5cqi,80px) 0">
+      <div style="max-width:1280px;margin:0 auto;display:flex;flex-direction:column;gap:36px">
+        <h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(36px,4.4cqi,64px);line-height:.95;letter-spacing:-.035em">Why customers <span style="font-family:Newsreader,serif;font-style:italic;font-weight:400;color:#CC0000">choose us.</span></h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:20px">
+          <div style="border-top:3px solid #CC0000;padding-top:20px;display:flex;flex-direction:column;gap:8px"><h3 style="margin:0;font-size:20px;font-weight:700">Your satisfaction first</h3><p style="margin:0;font-size:16px;line-height:1.55;color:#3A3834">The job isn’t done until you’re happy with it.</p></div>
+          <div style="border-top:3px solid #0A0A0B;padding-top:20px;display:flex;flex-direction:column;gap:8px"><h3 style="margin:0;font-size:20px;font-weight:700">We aim to be on time</h3><p style="margin:0;font-size:16px;line-height:1.55;color:#3A3834">When we give you a time, we work to keep it.</p></div>
+          <div style="border-top:3px solid #0A0A0B;padding-top:20px;display:flex;flex-direction:column;gap:8px"><h3 style="margin:0;font-size:20px;font-weight:700">Travel isn’t an issue</h3><p style="margin:0;font-size:16px;line-height:1.55;color:#3A3834">Forney, Frisco or anywhere between on our list.</p></div>
+          <div style="border-top:3px solid #0A0A0B;padding-top:20px;display:flex;flex-direction:column;gap:8px"><h3 style="margin:0;font-size:20px;font-weight:700">Simple scheduling</h3><p style="margin:0;font-size:16px;line-height:1.55;color:#3A3834">One phone call and you’re on the calendar.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section data-screen-label="Service FAQ" style="background:#F5F3EF;color:#0A0A0B;padding:clamp(64px,7cqi,112px) clamp(20px,5.5cqi,80px)">
+      <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:32px 72px">
+        <h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(36px,4.4cqi,64px);line-height:.95;letter-spacing:-.035em">Questions.</h2>
+        <div data-component="FAQAccordion" style="border-top:1px solid #0A0A0B">
+          <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="7">
+            <details open="{{ f.open }}" style="border-bottom:1px solid #C9C2B6">
+              <summary style="display:flex;justify-content:space-between;align-items:center;gap:20px;min-height:68px;cursor:pointer;font-size:19px;font-weight:600;list-style:none" style-focus="outline:3px solid #CC0000;outline-offset:2px">{{ f.q }}<span aria-hidden="true" style="font-size:24px;color:#CC0000;flex:none">+</span></summary>
+              <p style="margin:0 0 24px;font-size:16px;line-height:1.6;color:#3A3834;max-width:620px">{{ f.a }}</p>
+            </details>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+    <section data-screen-label="Areas" style="padding:clamp(56px,6cqi,96px) clamp(20px,5.5cqi,80px)">
+      <div style="max-width:1280px;margin:0 auto;display:flex;flex-direction:column;gap:28px">
+        <h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(32px,3.4cqi,52px);line-height:1;letter-spacing:-.03em">{{ s.name }} in eight towns.</h2>
+        <div style="display:flex;flex-wrap:wrap;gap:10px">
+          <sc-for list="{{ cities }}" as="c" hint-placeholder-count="8">
+            <a href="/service-areas/{{ c.slug }}" style="min-height:52px;padding:0 20px;display:flex;align-items:center;border:1px solid #3A3A40;color:#F5F3EF;font-weight:700;font-size:17px" style-hover="border:1px solid #F5F3EF;color:#FFFFFF" style-focus="outline:3px solid #E0483E;outline-offset:3px">{{ c.name }}</a>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+    <sc-if value="{{ reviewNote }}" hint-placeholder-val="{{ true }}">
+      <div style="padding:0 clamp(20px,5.5cqi,80px) 40px"><div style="max-width:1280px;margin:0 auto;border:1px dashed #4A4A50;padding:14px 18px;font:12px/1.5 ui-monospace,Menlo,monospace;color:#A8A39B">DESIGN NOTE — Reviews section (ReviewCard ×2–3, filtered to {{ lowerName }}) renders here only when real reviews exist. Hidden for now.</div></div>
+    </sc-if>
+
+    <section data-screen-label="Related" style="background:#F5F3EF;color:#0A0A0B;padding:clamp(56px,6cqi,96px) clamp(20px,5.5cqi,80px)">
+      <div style="max-width:1280px;margin:0 auto;display:flex;flex-direction:column;gap:28px">
+        <h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(32px,3.4cqi,52px);line-height:1;letter-spacing:-.03em">We also do</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:16px">
+          <sc-for list="{{ related }}" as="r" hint-placeholder-count="4">
+            <a href="/services/{{ r.slug }}" style="min-height:160px;background:#E8E3DB;color:#0A0A0B;padding:24px;display:flex;flex-direction:column;justify-content:space-between;gap:20px;transition:transform .2s" style-hover="transform:translateY(-4px);color:#0A0A0B" style-focus="outline:3px solid #CC0000;outline-offset:4px">
+              <span style="align-self:flex-end;width:44px;height:44px;border:1px solid #A8A196;border-radius:50%;display:grid;place-items:center;font-size:18px">→</span>
+              <span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:26px;letter-spacing:-.025em;line-height:1">{{ r.name }}</span>
+            </a>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+    <dc-import name="QuoteBand" service="{{ formService }}" source="{{ source }}" hint-size="100%,900px"></dc-import>
+  </main>
+  <dc-import name="SiteFooter" hint-size="100%,520px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;service&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;garage-door-repair-installation&quot;,&quot;faux-wood-blinds&quot;,&quot;motorized-retractable-patio-screens&quot;,&quot;media-walls-accent-walls&quot;,&quot;christmas-light-installation&quot;],&quot;default&quot;:&quot;garage-door-repair-installation&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;mobile&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;},&quot;annotate&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  componentDidMount() {
+    if (!window.CYRIL) this._t = setInterval(() => { if (window.CYRIL) { clearInterval(this._t); this.forceUpdate(); } }, 40);
+  }
+  componentWillUnmount() { clearInterval(this._t); }
+  renderVals() {
+    const mobile = !!this.props.mobile;
+    const D = window.CYRIL;
+    if (!D) return { mobile, s: {} };
+    const s = D.services.find(x => x.slug === (this.props.service || 'garage-door-repair-installation')) || D.services[0];
+    const xmas = s.slug === 'christmas-light-installation';
+    const formMap = { 'garage-door-repair-installation': 'garage-doors', 'faux-wood-blinds': 'faux-wood-blinds', 'motorized-retractable-patio-screens': 'patio-screens', 'media-walls-accent-walls': 'media-accent-walls', 'christmas-light-installation': 'christmas-lights' };
+    const shared = [
+      { q: 'Do you work in my town?', a: 'We cover Forney, Mesquite, Sunnyvale, Rockwall, Terrell, Crandall, Garland and Frisco. Somewhere close by? Call and ask.' },
+      { q: 'How do I schedule?', a: 'Call 945-344-4580. We’ll talk through the job and set a time on the same call.' },
+      { q: 'How soon can you come out?', a: 'It depends on the job and the season. Call and we’ll give you our earliest time. [CONFIRM typical lead time]' },
+      { q: 'How much does it cost?', a: 'It depends on the job. [CONFIRM pricing guidance with Cyril]' }
+    ];
+    return {
+      mobile, s,
+      lowerName: s.name.toLowerCase(), upperName: s.name.toUpperCase(),
+      source: '/services/' + s.slug, formService: formMap[s.slug],
+      jobs: s.jobs.map((j, i) => ({ ...j, n: '0' + (i + 1) })),
+      steps: [
+        { n: '1', t: 'Call or request a quote', d: 'Call 945-344-4580 or send the form. Tell us what you need.' },
+        { n: '2', t: xmas ? 'We plan the design' : 'We take a look', d: xmas ? 'Roofline, trees, windows: we agree on the look with you. [CONFIRM]' : 'We come out, measure and talk options. [CONFIRM on-site estimate]' },
+        { n: '3', t: 'Pick a day', d: 'We set the install date by phone. No portals.' },
+        { n: '4', t: xmas ? 'Hung, kept lit, taken down' : 'We install', d: xmas ? 'We hang everything, fix anything that goes out, and take it down after the season.' : 'Installed, cleaned up and checked with you before we leave.' }
+      ],
+      cards: [1, 2, 3].map(i => ({ i })),
+      faqs: [...shared.slice(0, 2), ...s.faqs, ...shared.slice(2)].map((f, i) => ({ ...f, open: i === 0 })),
+      cities: D.cities,
+      related: D.services.filter(x => x.slug !== s.slug),
+      reviewNote: this.props.annotate ?? true
+    };
+  }
+}
+</script>
+</body>
+</html>

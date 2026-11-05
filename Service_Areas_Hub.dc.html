@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<script src="cyril-data.js"></script>
+</helmet>
+<div style="container-type:inline-size;position:relative;background:#0A0A0B;color:#F5F3EF;font-family:'Instrument Sans',system-ui,sans-serif">
+  <dc-import name="SiteHeader" mobile="{{ mobile }}" active="Service areas" hint-size="100%,120px"></dc-import>
+  <main>
+    <section data-screen-label="Hub hero" style="padding:clamp(48px,6.5cqi,112px) clamp(20px,5.5cqi,80px) clamp(48px,5cqi,80px)">
+      <div style="max-width:1280px;margin:0 auto;display:flex;flex-direction:column;gap:24px">
+        <span style="font-size:13px;font-weight:700;letter-spacing:.16em;color:#E0483E">SERVICE AREAS</span>
+        <h1 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(46px,7.4cqi,116px);line-height:.9;letter-spacing:-.045em;max-width:1000px">Forney and <span style="font-family:Newsreader,serif;font-style:italic;font-weight:400;color:#E0483E;letter-spacing:-.02em">the towns around it.</span></h1>
+        <p style="margin:0;font-size:clamp(17px,1.5cqi,21px);line-height:1.5;color:#D6D1C8;max-width:600px">Eight towns, one crew, one phone number. Pick yours to see the work we do there. <span style="font:11px ui-monospace,Menlo,monospace;color:#8F8A82">[CONFIRM wording with Cyril]</span></p>
+        <div style="display:flex;flex-wrap:wrap;gap:12px">
+          <a href="tel:+19453444580" style="background:#CC0000;color:#FFFFFF;font-weight:700;font-size:18px;padding:0 28px;min-height:56px;display:flex;align-items:center" style-hover="background:#A30000;color:#FFFFFF" style-focus="outline:3px solid #F5F3EF;outline-offset:3px">Call 945-344-4580</a>
+          <a href="#quote" style="border:1px solid #F5F3EF;color:#F5F3EF;font-weight:700;font-size:18px;padding:0 26px;min-height:56px;display:flex;align-items:center" style-hover="background:#F5F3EF;color:#0A0A0B" style-focus="outline:3px solid #CC0000;outline-offset:3px">Request a quote</a>
+        </div>
+      </div>
+    </section>
+
+    <section data-screen-label="Map + chips" style="border-top:1px solid #1E1E22;padding:clamp(48px,6cqi,96px) clamp(20px,5.5cqi,80px)">
+      <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:40px 72px;align-items:center">
+        <div style="display:flex;flex-direction:column;gap:24px">
+          <h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(32px,3.6cqi,56px);line-height:1;letter-spacing:-.035em">Where we work.</h2>
+          <div style="display:flex;flex-wrap:wrap;gap:10px">
+            <sc-for list="{{ cities }}" as="c" hint-placeholder-count="8">
+              <a href="/service-areas/{{ c.slug }}" data-component="CityChip" style="min-height:52px;padding:0 20px;display:flex;align-items:center;border:1px solid #3A3A40;color:#F5F3EF;font-weight:700;font-size:17px" style-hover="border:1px solid #F5F3EF;color:#FFFFFF" style-focus="outline:3px solid #E0483E;outline-offset:3px">{{ c.name }}</a>
+            </sc-for>
+          </div>
+          <p style="margin:0;font-size:15px;line-height:1.6;color:#A8A39B;max-width:460px">Each name opens its own page with the work we’ve done in that town. Not on the list? Call and ask.</p>
+        </div>
+        <div data-slot="service-area-map" style="aspect-ratio:4/3;background:#17171A;border:1px solid #26262B;display:grid;place-items:center;padding:20px;text-align:center;font:12px/1.6 ui-monospace,Menlo,monospace;color:#8F8A82">[ MAP 4:3 · 1600×1200 — service area shaded, no street address, no pin ]</div>
+      </div>
+    </section>
+
+    <section data-screen-label="City cards" style="background:#F5F3EF;color:#0A0A0B;padding:clamp(64px,7cqi,112px) clamp(20px,5.5cqi,80px)">
+      <div style="max-width:1280px;margin:0 auto;display:flex;flex-direction:column;gap:40px">
+        <h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(38px,5cqi,76px);line-height:.95;letter-spacing:-.04em">Pick <span style="font-family:Newsreader,serif;font-style:italic;font-weight:400;color:#CC0000">your town.</span></h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,520px),1fr));gap:20px">
+          <sc-for list="{{ cities }}" as="c" hint-placeholder-count="8">
+            <article data-component="CityCard" style="background:#E8E3DB;padding:clamp(24px,2.6cqi,40px);display:flex;flex-direction:column;gap:20px;min-height:300px">
+              <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px">
+                <span style="font-family:Newsreader,serif;font-style:italic;font-size:28px;color:#CC0000">{{ c.n }}</span>
+                <span style="font-size:12px;font-weight:700;letter-spacing:.14em;color:#55524D">{{ c.badge }}</span>
+              </div>
+              <h3 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(36px,3.4cqi,52px);line-height:.95;letter-spacing:-.035em">{{ c.name }}<span style="font-size:.5em;letter-spacing:0;color:#55524D">, TX</span></h3>
+              <p style="margin:0;font-size:16px;line-height:1.6;color:#3A3834;max-width:520px;flex:1">{{ c.intro }} <span style="font:11px ui-monospace,Menlo,monospace;color:#6B655C">[CONFIRM intro]</span></p>
+              <div style="display:flex;flex-wrap:wrap;gap:8px 24px;padding-top:18px;border-top:1px solid #C9C2B6">
+                <a href="tel:+19453444580" style="min-height:44px;display:flex;align-items:center;color:#CC0000;font-weight:700;font-size:16px" style-focus="outline:3px solid #CC0000;outline-offset:2px">Call 945-344-4580</a>
+                <a href="/service-areas/{{ c.slug }}" style="min-height:44px;display:flex;align-items:center;color:#0A0A0B;font-weight:700;font-size:16px;margin-left:auto" style-hover="color:#CC0000" style-focus="outline:3px solid #CC0000;outline-offset:2px">See {{ c.name }} →</a>
+              </div>
+            </article>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+    <section data-screen-label="Every town strip" style="padding:clamp(56px,6cqi,96px) clamp(20px,5.5cqi,80px)">
+      <div style="max-width:1280px;margin:0 auto;display:flex;flex-direction:column;gap:28px">
+        <h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(32px,3.4cqi,52px);line-height:1;letter-spacing:-.03em">What we do in every town.</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));border-top:1px solid #3A3A40">
+          <sc-for list="{{ services }}" as="s" hint-placeholder-count="5">
+            <a href="/services/{{ s.slug }}" style="display:flex;flex-direction:column;gap:10px;padding:24px 20px 24px 0;border-bottom:1px solid #26262B;color:#F5F3EF;min-height:120px" style-hover="color:#FFFFFF" style-focus="outline:3px solid #E0483E;outline-offset:2px">
+              <span style="font-family:Newsreader,serif;font-style:italic;font-size:22px;color:#E0483E">{{ s.n }}</span>
+              <span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:24px;letter-spacing:-.02em;line-height:1.05">{{ s.name }} →</span>
+            </a>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+    <dc-import name="QuoteBand" source="/service-areas" hint-size="100%,900px"></dc-import>
+  </main>
+  <dc-import name="SiteFooter" hint-size="100%,520px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;mobile&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  componentDidMount() {
+    if (!window.CYRIL) this._t = setInterval(() => { if (window.CYRIL) { clearInterval(this._t); this.forceUpdate(); } }, 40);
+  }
+  componentWillUnmount() { clearInterval(this._t); }
+  renderVals() {
+    const mobile = !!this.props.mobile;
+    const D = window.CYRIL;
+    if (!D) return { mobile };
+    return {
+      mobile,
+      cities: D.cities.map((c, i) => ({ ...c, n: '0' + (i + 1), badge: c.slug === 'forney' ? 'HOME BASE' : (c.slug === 'garland' || c.slug === 'frisco') ? 'NEW' : '' })),
+      services: D.services.map((s, i) => ({ ...s, n: '0' + (i + 1) }))
+    };
+  }
+}
+</script>
+</body>
+</html>
