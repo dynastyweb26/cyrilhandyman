@@ -7,39 +7,53 @@
 </head>
 <body>
 <x-dc>
-<header style="background:#0A0A0B;font-family:'Instrument Sans',system-ui,sans-serif">
-  <div style="display:flex;justify-content:space-between;gap:24px;padding:10px 56px;border-bottom:1px solid #1F1F23;font:400 13px/1.4 'Instrument Sans',sans-serif;color:#B4B0A8">
-    <span>Forney, TX · Serving Kaufman County and the towns around it</span>
-    <span>Working wholeheartedly, one job at a time</span>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;family=Instrument+Sans:wght@400;500;600;700&amp;family=Newsreader:ital,opsz,wght@1,6..72,400..500&amp;display=swap">
+<style>body{margin:0;background:#0A0A0B;-webkit-font-smoothing:antialiased} a{color:#CC0000;text-decoration:none} a:hover{color:#A30000}</style>
+</helmet>
+<header style="position:relative;z-index:30;background:#0A0A0B;color:#F5F3EF;font-family:'Instrument Sans',system-ui,sans-serif">
+  <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:8px clamp(20px,3cqi,48px);border-bottom:1px solid #222226;font-size:13px;color:#BDB7AE">
+    <span>Forney, TX · Serving Forney and the towns around it <span style="font-family:ui-monospace,Menlo,monospace;font-size:11px;color:#8F8A82">[CONFIRM wording with Cyril]</span></span>
+    <sc-if value="{{ desktop }}" hint-placeholder-val="{{ true }}"><span>Working wholeheartedly, one job at a time</span></sc-if>
   </div>
-  <nav aria-label="Primary" style="display:flex;align-items:center;justify-content:space-between;gap:32px;padding:18px 56px;border-bottom:1px solid #1F1F23">
-    <a href="/" aria-label="Cyril Handyman &amp; Door, home" style="display:flex;align-items:center;gap:14px;min-height:44px;text-decoration:none;color:#F5F3EF">
-      <span style="position:relative;flex:none;width:46px;height:46px;border-radius:50%;background:#0A0A0B;border:1px dashed #3A3A40;overflow:hidden;display:flex;align-items:center;justify-content:center;font:600 8px/1 ui-monospace,Menlo,monospace;color:#8F8B84">LOGO<img src="{{ px }}" alt="" data-slot="logo" width="92" height="92" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain"></span>
-      <span style="font:800 17px/1 'Bricolage Grotesque',sans-serif;letter-spacing:.02em;text-transform:uppercase">Cyril Handyman &amp; Door</span>
+  <div style="display:flex;align-items:center;justify-content:space-between;gap:24px;padding:14px clamp(20px,3cqi,48px);border-bottom:1px solid #1E1E22">
+    <a href="/" style="display:flex;align-items:center;gap:14px;color:#F5F3EF;min-height:44px" style-focus="outline:3px solid #F5F3EF;outline-offset:4px">
+      <span data-slot="logo" style="width:48px;height:48px;flex:none;border:1px dashed #4A4A50;display:grid;place-items:center;font:10px ui-monospace,Menlo,monospace;color:#8F8A82">LOGO</span>
+      <span style="font-weight:700;font-size:16px;letter-spacing:.02em;line-height:1.1">CYRIL HANDYMAN &amp; DOOR</span>
     </a>
-    <div style="display:flex;align-items:center;gap:40px">
-      <ul style="display:flex;align-items:center;gap:30px;margin:0;padding:0;list-style:none">
-        <sc-for list="{{ links }}" as="l" hint-placeholder-count="6">
-          <li><a href="{{ l.href }}" aria-current="{{ l.cur }}" style="display:inline-flex;align-items:center;min-height:44px;padding-top:2px;box-sizing:border-box;font:500 16px/1 'Instrument Sans',sans-serif;color:{{ l.color }};text-decoration:none;border-bottom:2px solid {{ l.bc }};transition:color .15s,border-color .15s" style-hover="color:#FFFFFF;border-bottom-color:#CC0000" style-focus="outline:2px solid #F5F3EF;outline-offset:4px">{{ l.label }}</a></li>
-        </sc-for>
-      </ul>
-      <a href="tel:+19453444580" style="display:inline-flex;align-items:center;gap:10px;height:52px;padding:0 24px;background:#CC0000;color:#FFFFFF;font:700 16px/1 'Instrument Sans',sans-serif;text-decoration:none;transition:background-color .15s,transform .1s" style-hover="background-color:#A80000" style-active="background-color:#8F0000;transform:translateY(1px)" style-focus="outline:2px solid #F5F3EF;outline-offset:3px">Call 945-344-4580</a>
+    <sc-if value="{{ desktop }}" hint-placeholder-val="{{ true }}">
+      <nav style="display:flex;align-items:center;gap:32px">
+        <div style="display:flex;gap:28px;font-size:16px;font-weight:500">
+          <sc-for list="{{ nav }}" as="n" hint-placeholder-count="6">
+            <sc-if value="{{ n.active }}" hint-placeholder-val="{{ false }}"><a href="{{ n.href }}" aria-current="page" style="color:#F5F3EF;padding:10px 0;border-bottom:2px solid #CC0000">{{ n.label }}</a></sc-if>
+            <sc-if value="{{ n.idle }}" hint-placeholder-val="{{ true }}"><a href="{{ n.href }}" style="color:#E8E3DB;padding:10px 0;border-bottom:2px solid transparent" style-hover="color:#FFFFFF;border-bottom:2px solid #4A4A50" style-focus="outline:3px solid #F5F3EF;outline-offset:4px">{{ n.label }}</a></sc-if>
+          </sc-for>
+        </div>
+        <a href="tel:+19453444580" style="background:#CC0000;color:#FFFFFF;font-weight:700;font-size:17px;padding:0 24px;min-height:52px;display:flex;align-items:center" style-hover="background:#A30000;color:#FFFFFF" style-focus="outline:3px solid #F5F3EF;outline-offset:3px">Call 945-344-4580</a>
+      </nav>
+    </sc-if>
+    <sc-if value="{{ mobile }}" hint-placeholder-val="{{ false }}">
+      <button aria-label="Open menu" style="width:48px;height:48px;flex:none;background:transparent;border:1px solid #3A3A40;color:#F5F3EF;font:600 13px 'Instrument Sans',sans-serif;cursor:pointer">MENU</button>
+    </sc-if>
+  </div>
+  <sc-if value="{{ mobile }}" hint-placeholder-val="{{ false }}">
+    <div data-component="MobileCallBar" style="position:absolute;top:772px;left:0;right:0;display:grid;grid-template-columns:1.3fr 1fr;gap:8px;padding:10px 12px;background:#0A0A0B;border-top:1px solid #2A2A2F;box-shadow:0 -12px 24px rgba(0,0,0,.35)">
+      <a href="tel:+19453444580" style="background:#CC0000;color:#FFFFFF;font-weight:700;font-size:16px;min-height:52px;display:flex;align-items:center;justify-content:center" style-focus="outline:3px solid #F5F3EF;outline-offset:2px">Call 945-344-4580</a>
+      <a href="#quote" style="border:1px solid #F5F3EF;color:#F5F3EF;font-weight:700;font-size:16px;min-height:52px;display:flex;align-items:center;justify-content:center" style-focus="outline:3px solid #CC0000;outline-offset:2px">Get a quote</a>
     </div>
-  </nav>
+  </sc-if>
 </header>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:140},&quot;active&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;&quot;,&quot;Services&quot;,&quot;Gallery&quot;,&quot;Service areas&quot;,&quot;Reviews&quot;,&quot;About&quot;,&quot;FAQ&quot;],&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:140},&quot;mobile&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;},&quot;active&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
 class Component extends DCLogic {
   renderVals() {
-    const active = this.props.active ?? '';
-    const items = [['Services', '/#services'], ['Gallery', '/gallery'], ['Service areas', '/service-areas'], ['Reviews', '/#reviews'], ['About', '/about'], ['FAQ', '/faq']];
-    return {
-      px: 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7',
-      links: items.map(([label, href]) => {
-        const on = label === active;
-        return { label, href, cur: on ? 'page' : undefined, bc: on ? '#CC0000' : 'transparent', color: on ? '#FFFFFF' : '#E2DFD9' };
-      })
-    };
+    const mobile = !!this.props.mobile;
+    const active = this.props.active || '';
+    const nav = [['Services','/services'],['Gallery','/gallery'],['Service areas','/service-areas'],['Reviews','/reviews'],['About','/about'],['FAQ','/faq']]
+      .map(([label, href]) => ({ label, href, active: label === active, idle: label !== active }));
+    return { mobile, desktop: !mobile, nav };
   }
 }
 </script>

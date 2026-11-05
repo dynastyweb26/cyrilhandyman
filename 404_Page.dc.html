@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<div style="container-type:inline-size;position:relative;background:#0A0A0B;color:#F5F3EF;font-family:'Instrument Sans',system-ui,sans-serif">
+  <dc-import name="SiteHeader" mobile="{{ mobile }}" hint-size="100%,120px"></dc-import>
+  <main style="padding:clamp(80px,10cqi,160px) clamp(20px,5.5cqi,80px) clamp(80px,9cqi,144px)">
+    <div style="max-width:880px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:28px">
+      <span style="font-family:Newsreader,serif;font-style:italic;font-size:clamp(56px,6cqi,96px);line-height:1;color:#E0483E">404</span>
+      <h1 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(44px,6.4cqi,96px);line-height:.92;letter-spacing:-.045em;text-wrap:balance">That page isn’t here.</h1>
+      <p style="margin:0;font-size:clamp(17px,1.4cqi,20px);line-height:1.55;color:#D6D1C8;max-width:520px">It may have moved. Start from the homepage, or call and we’ll point you the right way.</p>
+      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px">
+        <a href="/" style="background:#CC0000;color:#FFFFFF;font-weight:700;font-size:18px;padding:0 28px;min-height:56px;display:flex;align-items:center" style-hover="background:#A30000;color:#FFFFFF" style-focus="outline:3px solid #F5F3EF;outline-offset:3px">Back to home</a>
+        <a href="tel:+19453444580" style="border:1px solid #F5F3EF;color:#F5F3EF;font-weight:700;font-size:18px;padding:0 26px;min-height:56px;display:flex;align-items:center" style-hover="background:#F5F3EF;color:#0A0A0B" style-focus="outline:3px solid #CC0000;outline-offset:3px">Call 945-344-4580</a>
+      </div>
+      <div style="width:100%;margin-top:48px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:40px;text-align:left;border-top:1px solid #26262B;padding-top:40px">
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <h2 style="margin:0 0 8px;font-size:12px;font-weight:700;letter-spacing:.16em;color:#E0483E">SERVICES</h2>
+          <a href="/services/garage-door-repair-installation" style="color:#F5F3EF;font-size:17px;font-weight:600;min-height:44px;display:flex;align-items:center;border-bottom:1px solid #1E1E22" style-hover="color:#FFFFFF" style-focus="outline:3px solid #E0483E">Garage doors →</a>
+          <a href="/services/faux-wood-blinds" style="color:#F5F3EF;font-size:17px;font-weight:600;min-height:44px;display:flex;align-items:center;border-bottom:1px solid #1E1E22" style-hover="color:#FFFFFF" style-focus="outline:3px solid #E0483E">Faux wood blinds →</a>
+          <a href="/services/motorized-retractable-patio-screens" style="color:#F5F3EF;font-size:17px;font-weight:600;min-height:44px;display:flex;align-items:center;border-bottom:1px solid #1E1E22" style-hover="color:#FFFFFF" style-focus="outline:3px solid #E0483E">Patio screens →</a>
+          <a href="/services/media-walls-accent-walls" style="color:#F5F3EF;font-size:17px;font-weight:600;min-height:44px;display:flex;align-items:center;border-bottom:1px solid #1E1E22" style-hover="color:#FFFFFF" style-focus="outline:3px solid #E0483E">Media &amp; accent walls →</a>
+          <a href="/services/christmas-light-installation" style="color:#F5F3EF;font-size:17px;font-weight:600;min-height:44px;display:flex;align-items:center" style-hover="color:#FFFFFF" style-focus="outline:3px solid #E0483E">Christmas lights →</a>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <h2 style="margin:0;font-size:12px;font-weight:700;letter-spacing:.16em;color:#E0483E">TOWNS WE SERVE</h2>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <a href="/service-areas/forney" style="min-height:44px;padding:0 16px;display:flex;align-items:center;border:1px solid #3A3A40;color:#F5F3EF;font-weight:700" style-hover="border:1px solid #F5F3EF;color:#FFFFFF" style-focus="outline:3px solid #E0483E;outline-offset:2px">Forney</a>
+            <a href="/service-areas/mesquite" style="min-height:44px;padding:0 16px;display:flex;align-items:center;border:1px solid #3A3A40;color:#F5F3EF;font-weight:700" style-hover="border:1px solid #F5F3EF;color:#FFFFFF" style-focus="outline:3px solid #E0483E;outline-offset:2px">Mesquite</a>
+            <a href="/service-areas/sunnyvale" style="min-height:44px;padding:0 16px;display:flex;align-items:center;border:1px solid #3A3A40;color:#F5F3EF;font-weight:700" style-hover="border:1px solid #F5F3EF;color:#FFFFFF" style-focus="outline:3px solid #E0483E;outline-offset:2px">Sunnyvale</a>
+            <a href="/service-areas/rockwall" style="min-height:44px;padding:0 16px;display:flex;align-items:center;border:1px solid #3A3A40;color:#F5F3EF;font-weight:700" style-hover="border:1px solid #F5F3EF;color:#FFFFFF" style-focus="outline:3px solid #E0483E;outline-offset:2px">Rockwall</a>
+            <a href="/service-areas/terrell" style="min-height:44px;padding:0 16px;display:flex;align-items:center;border:1px solid #3A3A40;color:#F5F3EF;font-weight:700" style-hover="border:1px solid #F5F3EF;color:#FFFFFF" style-focus="outline:3px solid #E0483E;outline-offset:2px">Terrell</a>
+            <a href="/service-areas/crandall" style="min-height:44px;padding:0 16px;display:flex;align-items:center;border:1px solid #3A3A40;color:#F5F3EF;font-weight:700" style-hover="border:1px solid #F5F3EF;color:#FFFFFF" style-focus="outline:3px solid #E0483E;outline-offset:2px">Crandall</a>
+            <a href="/service-areas/garland" style="min-height:44px;padding:0 16px;display:flex;align-items:center;border:1px solid #3A3A40;color:#F5F3EF;font-weight:700" style-hover="border:1px solid #F5F3EF;color:#FFFFFF" style-focus="outline:3px solid #E0483E;outline-offset:2px">Garland</a>
+            <a href="/service-areas/frisco" style="min-height:44px;padding:0 16px;display:flex;align-items:center;border:1px solid #3A3A40;color:#F5F3EF;font-weight:700" style-hover="border:1px solid #F5F3EF;color:#FFFFFF" style-focus="outline:3px solid #E0483E;outline-offset:2px">Frisco</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <dc-import name="SiteFooter" hint-size="100%,520px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;mobile&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  renderVals() { return { mobile: !!this.props.mobile }; }
+}
+</script>
+</body>
+</html>

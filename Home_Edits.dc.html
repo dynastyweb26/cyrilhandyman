@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<div style="container-type:inline-size;position:relative;background:#0A0A0B;color:#F5F3EF;font-family:'Instrument Sans',system-ui,sans-serif">
+  <dc-import name="SiteHeader" mobile="{{ mobile }}" hint-size="100%,120px"></dc-import>
+  <div style="padding:14px clamp(20px,5.5cqi,80px);background:#17171A;font:12px/1.5 ui-monospace,Menlo,monospace;color:#A8A39B">DESIGN NOTE — home page, edited sections only: top strip, Five specialties (linked), Where we work, footer.</div>
+
+  <section data-screen-label="Five specialties" style="background:#F5F3EF;color:#0A0A0B;padding:clamp(64px,7cqi,112px) clamp(20px,5.5cqi,80px)">
+    <div style="max-width:1280px;margin:0 auto;display:flex;flex-direction:column;gap:48px">
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px">
+        <h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(44px,6cqi,92px);line-height:.92;letter-spacing:-.045em">Five specialties.<br><span style="font-family:Newsreader,serif;font-style:italic;font-weight:400;color:#CC0000;letter-spacing:-.02em">One crew.</span></h2>
+        <p style="margin:0;font-size:16px;line-height:1.55;color:#55524D;max-width:320px">Each one has its own page with pricing guidance, process, FAQs and real projects.</p>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:24px">
+        <a href="/services/garage-door-repair-installation" style="flex:1.4 1 480px;background:#0A0A0B;color:#F5F3EF;padding:36px;display:flex;flex-direction:column;gap:28px;transition:transform .2s,box-shadow .2s" style-hover="transform:translateY(-6px);box-shadow:0 18px 0 -8px #CC0000;color:#F5F3EF" style-focus="outline:3px solid #CC0000;outline-offset:4px">
+          <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-family:Newsreader,serif;font-style:italic;font-size:34px;color:#E0483E">01</span><span style="width:48px;height:48px;border:1px solid #4A4A50;border-radius:50%;display:grid;place-items:center;font-size:20px">→</span></div>
+          <div data-slot="home-tile-garage" style="aspect-ratio:5/2;background:#17171A;display:grid;place-items:center;padding:12px;text-align:center;font:11px ui-monospace,Menlo,monospace;color:#8F8A82">[ IMAGE 5:2 · 2000×800 — garage door install ]</div>
+          <div><h3 style="margin:0 0 8px;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(30px,3cqi,44px);letter-spacing:-.035em;line-height:1">Garage doors</h3><p style="margin:0;font-size:17px;color:#D6D1C8">New doors, openers, springs, repairs. The shop’s specialty.</p></div>
+        </a>
+        <a href="/services/faux-wood-blinds" style="flex:1 1 380px;background:#E8E3DB;color:#0A0A0B;padding:36px;display:flex;flex-direction:column;gap:28px;transition:transform .2s,box-shadow .2s" style-hover="transform:translateY(-6px);box-shadow:0 18px 0 -8px #CC0000;color:#0A0A0B" style-focus="outline:3px solid #CC0000;outline-offset:4px">
+          <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-family:Newsreader,serif;font-style:italic;font-size:34px;color:#CC0000">02</span><span style="width:48px;height:48px;border:1px solid #A8A196;border-radius:50%;display:grid;place-items:center;font-size:20px">→</span></div>
+          <div data-slot="home-tile-blinds" style="aspect-ratio:16/9;background:#DDD6CB;display:grid;place-items:center;padding:12px;text-align:center;font:11px ui-monospace,Menlo,monospace;color:#55524D">[ IMAGE 16:9 · 1600×900 — blinds in a window ]</div>
+          <div><h3 style="margin:0 0 8px;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(30px,3cqi,44px);letter-spacing:-.035em;line-height:1">Faux wood blinds</h3><p style="margin:0;font-size:17px;color:#55524D">Measured and installed.</p></div>
+        </a>
+        <a href="/services/motorized-retractable-patio-screens" style="flex:1 1 300px;min-height:400px;background:#E8E3DB;color:#0A0A0B;padding:36px;display:flex;flex-direction:column;justify-content:space-between;gap:28px;transition:transform .2s,box-shadow .2s" style-hover="transform:translateY(-6px);box-shadow:0 18px 0 -8px #CC0000;color:#0A0A0B" style-focus="outline:3px solid #CC0000;outline-offset:4px">
+          <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-family:Newsreader,serif;font-style:italic;font-size:34px;color:#CC0000">03</span><span style="width:48px;height:48px;border:1px solid #A8A196;border-radius:50%;display:grid;place-items:center;font-size:20px">→</span></div>
+          <div><h3 style="margin:0 0 8px;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(30px,3cqi,44px);letter-spacing:-.035em;line-height:1">Patio screens</h3><p style="margin:0;font-size:17px;color:#55524D">Motorized and retractable.</p></div>
+        </a>
+        <a href="/services/media-walls-accent-walls" style="flex:1 1 300px;min-height:400px;background:#0A0A0B;color:#F5F3EF;padding:36px;display:flex;flex-direction:column;justify-content:space-between;gap:28px;transition:transform .2s,box-shadow .2s" style-hover="transform:translateY(-6px);box-shadow:0 18px 0 -8px #CC0000;color:#F5F3EF" style-focus="outline:3px solid #CC0000;outline-offset:4px">
+          <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-family:Newsreader,serif;font-style:italic;font-size:34px;color:#E0483E">04</span><span style="width:48px;height:48px;border:1px solid #4A4A50;border-radius:50%;display:grid;place-items:center;font-size:20px">→</span></div>
+          <div><h3 style="margin:0 0 8px;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(30px,3cqi,44px);letter-spacing:-.035em;line-height:1">Media &amp;<br>accent walls</h3><p style="margin:0;font-size:17px;color:#D6D1C8">Slat, panel and built-ins.</p></div>
+        </a>
+        <a href="/services/christmas-light-installation" style="flex:1 1 300px;min-height:400px;background:#CC0000;color:#FFFFFF;padding:36px;display:flex;flex-direction:column;justify-content:space-between;gap:28px;transition:transform .2s,box-shadow .2s" style-hover="transform:translateY(-6px);box-shadow:0 18px 0 -8px #0A0A0B;color:#FFFFFF" style-focus="outline:3px solid #0A0A0B;outline-offset:4px">
+          <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-family:Newsreader,serif;font-style:italic;font-size:34px">05</span><span style="width:48px;height:48px;border:1px solid #FFFFFF;border-radius:50%;display:grid;place-items:center;font-size:20px">→</span></div>
+          <div><h3 style="margin:0 0 8px;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(30px,3cqi,44px);letter-spacing:-.035em;line-height:1">Christmas lights</h3><p style="margin:0;font-size:17px">Designed, hung, maintained, taken down.</p></div>
+        </a>
+      </div>
+      <p style="margin:0;padding-top:28px;border-top:1px solid #D6D0C6;font-size:16px;color:#3A3834">Also: flooring, painting, cabinet refacing and handyman repairs. <a href="/services" style="color:#CC0000;font-weight:700">See everything →</a></p>
+
+      <div data-screen-label="Tile states" style="display:flex;flex-direction:column;gap:16px;border:1px dashed #A8A196;padding:24px">
+        <span style="font:12px ui-monospace,Menlo,monospace;color:#55524D">DESIGN NOTE — ServiceTile states (whole tile is one link)</span>
+        <div style="display:flex;flex-wrap:wrap;gap:32px">
+          <div style="flex:1 1 220px;display:flex;flex-direction:column;gap:12px">
+            <div style="background:#E8E3DB;padding:24px;min-height:150px;display:flex;flex-direction:column;justify-content:space-between"><span style="align-self:flex-end;width:44px;height:44px;border:1px solid #A8A196;border-radius:50%;display:grid;place-items:center">→</span><span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:26px;letter-spacing:-.03em">Patio screens</span></div>
+            <span style="font:12px ui-monospace,Menlo,monospace;color:#3A3834">Default</span>
+          </div>
+          <div style="flex:1 1 220px;display:flex;flex-direction:column;gap:12px">
+            <div style="background:#E8E3DB;padding:24px;min-height:150px;display:flex;flex-direction:column;justify-content:space-between;transform:translateY(-6px);box-shadow:0 18px 0 -8px #CC0000"><span style="align-self:flex-end;width:44px;height:44px;border:1px solid #A8A196;border-radius:50%;display:grid;place-items:center">→</span><span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:26px;letter-spacing:-.03em">Patio screens</span></div>
+            <span style="font:12px ui-monospace,Menlo,monospace;color:#3A3834">Hover — lifts 6px, red ledge below (ink ledge on the red tile)</span>
+          </div>
+          <div style="flex:1 1 220px;display:flex;flex-direction:column;gap:12px">
+            <div style="background:#E8E3DB;padding:24px;min-height:150px;display:flex;flex-direction:column;justify-content:space-between;outline:3px solid #CC0000;outline-offset:4px"><span style="align-self:flex-end;width:44px;height:44px;border:1px solid #A8A196;border-radius:50%;display:grid;place-items:center">→</span><span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:26px;letter-spacing:-.03em">Patio screens</span></div>
+            <span style="font:12px ui-monospace,Menlo,monospace;color:#3A3834">Focus-visible — 3px red ring, 4px offset</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Where we work" style="padding:clamp(64px,8cqi,128px) clamp(20px,5.5cqi,80px)">
+    <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:48px 72px;align-items:center">
+      <div style="display:flex;flex-direction:column;gap:24px">
+        <span style="font-size:13px;font-weight:700;letter-spacing:.16em;color:#E0483E">WHERE WE WORK</span>
+        <h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(40px,4.6cqi,68px);line-height:.95;letter-spacing:-.04em">Forney and the towns around it.</h2>
+        <div style="display:flex;flex-wrap:wrap;gap:10px">
+          <a href="/service-areas/forney" style="min-height:52px;padding:0 20px;display:flex;align-items:center;border:1px solid #3A3A40;color:#F5F3EF;font-weight:700;font-size:17px" style-hover="border:1px solid #F5F3EF;color:#FFFFFF" style-focus="outline:3px solid #E0483E;outline-offset:3px">Forney</a>
+          <a href="/service-areas/mesquite" style="min-height:52px;padding:0 20px;display:flex;align-items:center;border:1px solid #3A3A40;color:#F5F3EF;font-weight:700;font-size:17px" style-hover="border:1px solid #F5F3EF;color:#FFFFFF" style-focus="outline:3px solid #E0483E;outline-offset:3px">Mesquite</a>
+          <a href="/service-areas/sunnyvale" style="min-height:52px;padding:0 20px;display:flex;align-items:center;border:1px solid #3A3A40;color:#F5F3EF;font-weight:700;font-size:17px" style-hover="border:1px solid #F5F3EF;color:#FFFFFF" style-focus="outline:3px solid #E0483E;outline-offset:3px">Sunnyvale</a>
+          <a href="/service-areas/rockwall" style="min-height:52px;padding:0 20px;display:flex;align-items:center;border:1px solid #3A3A40;color:#F5F3EF;font-weight:700;font-size:17px" style-hover="border:1px solid #F5F3EF;color:#FFFFFF" style-focus="outline:3px solid #E0483E;outline-offset:3px">Rockwall</a>
+          <a href="/service-areas/terrell" style="min-height:52px;padding:0 20px;display:flex;align-items:center;border:1px solid #3A3A40;color:#F5F3EF;font-weight:700;font-size:17px" style-hover="border:1px solid #F5F3EF;color:#FFFFFF" style-focus="outline:3px solid #E0483E;outline-offset:3px">Terrell</a>
+          <a href="/service-areas/crandall" style="min-height:52px;padding:0 20px;display:flex;align-items:center;border:1px solid #3A3A40;color:#F5F3EF;font-weight:700;font-size:17px" style-hover="border:1px solid #F5F3EF;color:#FFFFFF" style-focus="outline:3px solid #E0483E;outline-offset:3px">Crandall</a>
+          <a href="/service-areas/garland" style="min-height:52px;padding:0 20px;display:flex;align-items:center;border:1px solid #3A3A40;color:#F5F3EF;font-weight:700;font-size:17px" style-hover="border:1px solid #F5F3EF;color:#FFFFFF" style-focus="outline:3px solid #E0483E;outline-offset:3px">Garland</a>
+          <a href="/service-areas/frisco" style="min-height:52px;padding:0 20px;display:flex;align-items:center;border:1px solid #3A3A40;color:#F5F3EF;font-weight:700;font-size:17px" style-hover="border:1px solid #F5F3EF;color:#FFFFFF" style-focus="outline:3px solid #E0483E;outline-offset:3px">Frisco</a>
+        </div>
+        <p style="margin:0;font-size:15px;line-height:1.6;color:#A8A39B;max-width:460px">Each town has its own page with the work we’ve done there. <a href="/service-areas" style="color:#F5F3EF;font-weight:700;text-decoration:underline;text-underline-offset:3px">All service areas</a> <span style="font:11px ui-monospace,Menlo,monospace;color:#8F8A82">[CONFIRM wording with Cyril]</span></p>
+      </div>
+      <div data-slot="home-map" style="aspect-ratio:4/3;background:#17171A;border:1px solid #26262B;display:grid;place-items:center;padding:20px;text-align:center;font:12px/1.6 ui-monospace,Menlo,monospace;color:#8F8A82">[ MAP 4:3 · 1600×1200 — service area shaded, no street address, no pin ]</div>
+    </div>
+  </section>
+  <dc-import name="SiteFooter" hint-size="100%,520px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;mobile&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  renderVals() { return { mobile: !!this.props.mobile }; }
+}
+</script>
+</body>
+</html>
