@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { Bento } from "@/data/home";
 
@@ -60,11 +61,22 @@ export function ServiceTile({ tile, className = "" }: { tile: Bento; className?:
           data-slot={tile.image.slot}
           className={`absolute inset-x-[22px] bottom-[128px] top-[66px] overflow-hidden md:inset-x-9 md:bottom-[176px] md:top-[100px] ${tone.frame}`}
         >
-          <span
-            className={`absolute inset-0 flex items-center justify-center px-2.5 text-center font-mono text-[10px] leading-[1.5] md:text-[11px] ${tone.frameText}`}
-          >
-            {tile.image.label}
-          </span>
+          {tile.image.photo ? (
+            <Image
+              src={tile.image.photo.src}
+              alt={tile.image.photo.alt}
+              fill
+              sizes="(min-width: 768px) 30vw, 50vw"
+              className="object-cover"
+              style={{ objectPosition: tile.image.photo.position ?? "50% 50%" }}
+            />
+          ) : (
+            <span
+              className={`absolute inset-0 flex items-center justify-center px-2.5 text-center font-mono text-[10px] leading-[1.5] md:text-[11px] ${tone.frameText}`}
+            >
+              {tile.image.label}
+            </span>
+          )}
         </div>
       ) : null}
 

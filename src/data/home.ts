@@ -1,3 +1,6 @@
+import type { Photo } from "@/data/gallery";
+import { blinds, mediaWalls, patioScreens } from "@/data/gallery";
+
 /** Home page content, kept out of the components so copy is easy to swap. */
 
 export const hero = {
@@ -21,7 +24,7 @@ export type Bento = {
   blurb: string;
   href: string;
   tone: "ink" | "sand" | "red";
-  image?: { slot: string; alt: string; ratio: string; label: string };
+  image?: { slot: string; alt: string; ratio: string; label: string; photo?: Photo };
 };
 
 export const bentoServices: Bento[] = [
@@ -33,9 +36,16 @@ export const bentoServices: Bento[] = [
     tone: "ink",
     image: {
       slot: "svc-garage",
-      alt: "[ALT: New garage door installed on a home in Forney]",
+      alt: "The new black garage door with a row of windows on a brick house.",
       ratio: "5 / 2",
       label: "[ IMAGE 5:2 · 2000×800 — garage door install ]",
+      photo: {
+        src: "/media/projects/garage-doors-01/after-629.webp",
+        width: 629,
+        height: 348,
+        alt: "New black garage door with a row of windows on a brick house.",
+        position: "50% 50%",
+      },
     },
   },
   {
@@ -46,9 +56,13 @@ export const bentoServices: Bento[] = [
     tone: "sand",
     image: {
       slot: "svc-blinds",
-      alt: "[ALT: Faux wood blinds installed in a living room window]",
+      alt: "White faux wood blinds lowered on two living room windows.",
       ratio: "16 / 9",
       label: "[ IMAGE 16:9 · 1600×900 — blinds in a window ]",
+      photo: {
+        ...blinds[0].photo!,
+        position: "50% 35%",
+      },
     },
   },
   {
@@ -57,6 +71,13 @@ export const bentoServices: Bento[] = [
     blurb: "Motorized and retractable.",
     href: "/services/motorized-retractable-patio-screens",
     tone: "sand",
+    image: {
+      slot: "svc-patio",
+      alt: "A dark patio screen drawn across a gable end above a pool.",
+      ratio: "4 / 3",
+      label: "[ IMAGE 4:3 · 1600×1200 — patio screen lowered ]",
+      photo: patioScreens[2].photo,
+    },
   },
   {
     n: "04",
@@ -64,6 +85,13 @@ export const bentoServices: Bento[] = [
     blurb: "Slat, panel and built-ins.",
     href: "/services/media-walls-accent-walls",
     tone: "ink",
+    image: {
+      slot: "svc-media",
+      alt: "Slat accent wall with blue LED lighting behind two marble-look panels.",
+      ratio: "4 / 3",
+      label: "[ IMAGE 4:3 · 1600×1200 — media wall, finished ]",
+      photo: mediaWalls[0].photo,
+    },
   },
   {
     n: "05",

@@ -10,7 +10,7 @@ import { ReviewCard } from "@/components/ReviewCard";
 import { ServiceTile } from "@/components/ServiceTile";
 import { Step } from "@/components/Step";
 import { QuoteForm } from "@/components/quote-form";
-import { marqueeRowA, marqueeRowB } from "@/data/gallery";
+import { garagePair, marqueeRowA, marqueeRowB } from "@/data/gallery";
 import {
   bentoServices,
   faqs,
@@ -142,13 +142,7 @@ export default async function HomePage() {
           </div>
 
           <div className="aspect-[4/5] w-full md:aspect-[3/2]">
-            <BeforeAfter
-              slotId="home-ba"
-              beforeSlot="[ BEFORE 3:2 · 1800×1200 ]"
-              afterSlot="[ AFTER 3:2 · 1800×1200 ]"
-              altBefore="[ALT: Before — garage door, city]"
-              altAfter="[ALT: After — garage door, city]"
-            />
+            <BeforeAfter slotId="home-ba" before={garagePair.before} after={garagePair.after} />
           </div>
         </div>
       </section>
