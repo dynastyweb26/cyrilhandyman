@@ -212,6 +212,28 @@ const mediaWalls: GalleryProject[] = [
   ),
 ];
 
+/**
+ * The pair on the home page and the media walls service page: the same TV,
+ * cropped so it lands in the same place in both frames.
+ * Before crop 1232x924 at (223,218); after crop 1800x1350 at (600,0).
+ */
+export const mediaWallPair = {
+  before: photo(
+    `${MEDIA}/media-walls-10/pair-before-1600.webp`,
+    1600,
+    1200,
+    "A TV and soundbar on a bare beige wall, before the media wall was built.",
+    "50% 50%",
+  ),
+  after: photo(
+    `${MEDIA}/media-walls-10/pair-after-1600.webp`,
+    1600,
+    1200,
+    "The same wall finished in vertical wood slats, with white built-in shelves at the left and a white floating console under the TV.",
+    "50% 50%",
+  ),
+};
+
 /** Blinds. Only blinds-01 is faux wood; the rest are zebra or roller shades. */
 const blinds: GalleryProject[] = [
   project(

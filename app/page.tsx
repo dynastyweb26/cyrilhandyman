@@ -9,7 +9,7 @@ import { ReviewCard } from "@/components/ReviewCard";
 import { ServiceTile } from "@/components/ServiceTile";
 import { Step } from "@/components/Step";
 import { QuoteForm } from "@/components/quote-form";
-import { garagePair, marqueeRowA, marqueeRowB } from "@/data/gallery";
+import { marqueeRowA, marqueeRowB, mediaWallPair } from "@/data/gallery";
 import { allFiveStars, reviewCount } from "@/data/reviews";
 import {
   bentoServices,
@@ -53,6 +53,38 @@ export default async function HomePage() {
     <>
       <Hero />
 
+      {/* Before / after — first section under the hero. */}
+      <section aria-labelledby="before-after-heading" className="bg-ink px-5 py-16 md:px-14 md:py-32">
+        <div className="mx-auto grid w-full max-w-[1328px] items-center gap-9 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:gap-20">
+          <div>
+            <p className={eyebrow}>Before / after</p>
+            <h2
+              id="before-after-heading"
+              className="m-0 font-display text-[36px] font-extrabold leading-none tracking-[-0.03em] text-bone md:text-[60px]"
+            >
+              Drag to see the difference.
+            </h2>
+            <p className="mt-3.5 max-w-[460px] text-[16px] leading-[1.5] text-body-dark md:mt-6 md:text-[18px] md:leading-[1.55]">
+              Slat media wall
+            </p>
+            <Link
+              href="/gallery"
+              className="mt-3 inline-flex min-h-11 items-center text-[15px] font-bold leading-none text-red-soft hover:text-bone md:mt-5 md:text-[16px]"
+            >
+              Browse the gallery →
+            </Link>
+          </div>
+
+          <div className="aspect-[4/3] w-full">
+            <BeforeAfter
+              slotId="home-ba"
+              before={mediaWallPair.before}
+              after={mediaWallPair.after}
+            />
+          </div>
+        </div>
+      </section>
+
       <GalleryMarquee rowA={marqueeRowA} rowB={marqueeRowB} />
 
       {/* Services */}
@@ -85,35 +117,6 @@ export default async function HomePage() {
               See everything →
             </Link>
           </p>
-        </div>
-      </section>
-
-      {/* Before / after — the interactive slider is its own component. */}
-      <section aria-labelledby="before-after-heading" className="bg-ink px-5 py-16 md:px-14 md:py-32">
-        <div className="mx-auto grid w-full max-w-[1328px] items-center gap-9 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:gap-20">
-          <div>
-            <p className={eyebrow}>Before / after</p>
-            <h2
-              id="before-after-heading"
-              className="m-0 font-display text-[36px] font-extrabold leading-none tracking-[-0.03em] text-bone md:text-[60px]"
-            >
-              Drag to see the difference.
-            </h2>
-            <p className="mt-3.5 max-w-[460px] text-[16px] leading-[1.5] text-body-dark md:mt-6 md:text-[18px] md:leading-[1.55]">
-              Every gallery project can carry a before and after, with the city and service on it
-              so you know it was done near you.
-            </p>
-            <Link
-              href="/gallery"
-              className="mt-3 inline-flex min-h-11 items-center text-[15px] font-bold leading-none text-red-soft hover:text-bone md:mt-5 md:text-[16px]"
-            >
-              Browse the gallery →
-            </Link>
-          </div>
-
-          <div className="aspect-[4/5] w-full md:aspect-[3/2]">
-            <BeforeAfter slotId="home-ba" before={garagePair.before} after={garagePair.after} />
-          </div>
         </div>
       </section>
 
