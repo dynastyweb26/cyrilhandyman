@@ -6,7 +6,14 @@
  */
 
 import type { Photo } from "@/data/gallery";
-import { blinds, garagePair, heroPhotos, mediaWalls, patioScreens } from "@/data/gallery";
+import {
+  blinds,
+  garagePair,
+  heroPhotos,
+  mediaWallPair,
+  mediaWalls,
+  patioScreens,
+} from "@/data/gallery";
 
 export type ServiceSlug =
   | "garage-door-repair-installation"
@@ -155,6 +162,7 @@ export const services: Service[] = [
     promise: "Slat walls, panel walls and built-ins, designed with you and built in place.",
     slot: "media wall, finished",
     hero: heroPhotos.mediaWalls,
+    pair: mediaWallPair,
     tile: mediaWalls[0].photo,
     short: "Slat, panel and built-ins.",
     formValue: "media-accent-walls",

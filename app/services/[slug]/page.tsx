@@ -237,7 +237,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 
           {photos.length > 0 ? (
             <div className="grid gap-5 sm:grid-cols-2 md:grid-cols-3">
-              {photos.slice(0, 3).map((project) => (
+              {photos.slice(0, 6).map((project) => (
                 <Link
                   key={project.slug}
                   href={`/gallery/${project.slug}`}
@@ -285,13 +285,21 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             </div>
           )}
 
-          {service.pair && photos.length === 0 ? (
-            <div className="aspect-video w-full overflow-hidden border border-line">
-              <BeforeAfter
-                slotId={`${service.slug}-pair`}
-                before={service.pair.before}
-                after={service.pair.after}
-              />
+          {service.pair ? (
+            <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
+                <h3 className="m-0 font-display text-[28px] font-extrabold leading-none tracking-[-0.03em] text-bone md:text-[40px]">
+                  Before and after.
+                </h3>
+                <p className="m-0 text-[15px] leading-none text-muted-soft">Slat media wall</p>
+              </div>
+              <div className="aspect-[4/3] w-full overflow-hidden border border-line">
+                <BeforeAfter
+                  slotId={`${service.slug}-pair`}
+                  before={service.pair.before}
+                  after={service.pair.after}
+                />
+              </div>
             </div>
           ) : null}
         </div>

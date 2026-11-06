@@ -210,6 +210,54 @@ const mediaWalls: GalleryProject[] = [
     ),
     "Slat wall with marble TV panel and purple LED",
   ),
+  project(
+    "media-walls-10",
+    WALLS,
+    photo(
+      `${MEDIA}/media-walls-10/cover-1600.webp`,
+      1600,
+      1200,
+      "Vertical wood slat wall around a wall-mounted TV, with white built-in shelves at the left and a white floating console below the screen.",
+      "50% 45%",
+    ),
+    "Slat media wall with built-in shelves and floating console",
+  ),
+  project(
+    "media-walls-11",
+    WALLS,
+    photo(
+      `${MEDIA}/media-walls-11/cover-1126.webp`,
+      1126,
+      1080,
+      "Navy blue accent wall with a walnut slat strip, a white TV panel and a white floating console lit from behind.",
+      "50% 40%",
+    ),
+    "Navy accent wall with a walnut slat strip and floating console",
+  ),
+  project(
+    "media-walls-12",
+    WALLS,
+    photo(
+      `${MEDIA}/media-walls-12/cover-739.webp`,
+      739,
+      1281,
+      "Slat and panel TV wall with a linear electric fireplace burning below the screen.",
+      "50% 35%",
+    ),
+    "Slat and panel TV wall with a linear fireplace",
+  ),
+  project(
+    "media-walls-13",
+    WALLS,
+    photo(
+      `${MEDIA}/media-walls-13/cover-660.webp`,
+      660,
+      1554,
+      "Tall marble-look panel wall in a two-storey room, with blue fluted trim beside the panels and a TV set low into the wall.",
+      "50% 35%",
+    ),
+    "Tall marble-look panel wall with blue fluted trim",
+  ),
 ];
 
 /**
@@ -522,6 +570,10 @@ export const galleryProjects: GalleryProject[] = [
   mediaWalls[7],
   blinds[4],
   mediaWalls[9],
+  mediaWalls[10],
+  mediaWalls[11],
+  mediaWalls[12],
+  mediaWalls[13],
   otherWork[4],
   blinds[6],
   otherWork[6],
