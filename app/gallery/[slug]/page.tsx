@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BeforeAfter } from "@/components/BeforeAfter";
@@ -21,8 +22,8 @@ export async function generateMetadata({
   if (!project) return pageMetadata({ title: "Project", description: "Project not found.", path: "/gallery" });
 
   return pageMetadata({
-    title: `${project.title} · ${project.tag} in ${project.city}, TX`,
-    description: `${project.tag} project in ${project.city}, Texas. ${project.line}`,
+    title: `${project.title} · ${project.tag}`,
+    description: `${project.title}. ${project.tag} work by Cyril Handyman & Door.`,
     path: `/gallery/${project.slug}`,
   });
 }
@@ -32,10 +33,13 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   const project = getProject(slug);
   if (!project) notFound();
 
-  const serviceHref = `/services/${filterSlug(project.tag)}`;
+  const serviceHref = project.service ? `/services/${project.service}` : "/services";
   const related = galleryProjects
     .filter((item) => item.tag === project.tag && item.slug !== project.slug)
     .slice(0, 3);
+  const siblings = galleryProjects.filter(
+    (item) => item.photo && item.slug.startsWith(`${project.slug}-`),
+  );
 
   return (
     <article>
@@ -60,14 +64,31 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
             <span aria-current="page">{project.title}</span>
           </nav>
 
-          <div
-            data-slot="project-hero"
-            className="relative aspect-video w-full overflow-hidden border border-line bg-coal"
-          >
-            <span className="absolute inset-0 flex items-center justify-center p-6 text-center font-mono text-[12px] leading-[1.5] text-muted-faint">
-              [ HERO IMAGE 16:9 · 2400×1350 — or VIDEO 16:9 loop · 1920×1080, max 12s, muted · this
-              is the LCP image: load eagerly, fetchpriority high ]
-            </span>
+          <div className="relative aspect-video w-full overflow-hidden border border-line bg-coal">
+            {project.photo ? (
+              <Image
+                src={project.photo.src}
+                alt={project.photo.alt}
+                fill
+                priority
+                sizes="(min-width: 1328px) 1328px, 100vw"
+                className="object-cover"
+                style={{ objectPosition: project.photo.position ?? "50% 50%" }}
+              />
+            ) : project.before ? (
+              <Image
+                src={project.after?.src ?? project.before.src}
+                alt={project.after?.alt ?? project.before.alt}
+                fill
+                priority
+                sizes="(min-width: 1328px) 1328px, 100vw"
+                className="object-cover"
+              />
+            ) : (
+              <span className="absolute inset-0 flex items-center justify-center p-6 text-center font-mono text-[12px] leading-[1.5] text-muted-faint">
+                [ HERO IMAGE 16:9 · 2400×1350 ]
+              </span>
+            )}
           </div>
         </div>
       </section>
@@ -81,9 +102,11 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
             <h1 className="mb-0 mt-6 font-display text-[44px] font-extrabold leading-[0.96] tracking-[-0.04em] text-bone md:text-[80px]">
               {project.title}
             </h1>
-            <p className="mb-0 mt-4 font-accent text-[24px] font-normal italic leading-[1.2] text-red-soft md:text-[30px]">
-              {project.city}, Texas
-            </p>
+            {project.city ? (
+              <p className="mb-0 mt-4 font-accent text-[24px] font-normal italic leading-[1.2] text-red-soft md:text-[30px]">
+                {project.city}, Texas
+              </p>
+            ) : null}
 
             <div className="mt-7 flex max-w-[680px] flex-col gap-5 text-[17px] leading-[1.65] text-body-dark md:mt-10 md:text-[19px]">
               <p className="m-0">
@@ -108,10 +131,12 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                   {project.tag}
                 </Link>
               </dd>
-              <dt className="text-muted-soft">City</dt>
-              <dd className="m-0 font-semibold text-bone">{project.city}</dd>
-              <dt className="text-muted-soft">Finished</dt>
-              <dd className="m-0 font-semibold text-bone">[ Month YYYY ]</dd>
+              {project.city ? (
+                <>
+                  <dt className="text-muted-soft">City</dt>
+                  <dd className="m-0 font-semibold text-bone">{project.city}</dd>
+                </>
+              ) : null}
               <dt className="text-muted-soft">Crew</dt>
               <dd className="m-0 font-semibold text-bone">Cyril and team</dd>
             </dl>
@@ -132,56 +157,62 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         </div>
       </section>
 
-      <section aria-labelledby="project-ba" className="px-5 pb-16 md:px-14 md:pb-24">
-        <div className="mx-auto w-full max-w-[1328px]">
-          <div className="mb-5 flex flex-col gap-2 md:mb-7 md:flex-row md:items-end md:justify-between">
-            <h2
-              id="project-ba"
-              className="m-0 font-display text-[32px] font-extrabold leading-none tracking-[-0.03em] text-bone md:text-[48px]"
-            >
-              Before and after.
-            </h2>
-            <p className="m-0 text-[15px] leading-none text-muted-soft">
-              Drag the handle, or use the arrow keys.
-            </p>
+      {project.before && project.after ? (
+        <section aria-labelledby="project-ba" className="px-5 pb-16 md:px-14 md:pb-24">
+          <div className="mx-auto w-full max-w-[1328px]">
+            <div className="mb-5 flex flex-col gap-2 md:mb-7 md:flex-row md:items-end md:justify-between">
+              <h2
+                id="project-ba"
+                className="m-0 font-display text-[32px] font-extrabold leading-none tracking-[-0.03em] text-bone md:text-[48px]"
+              >
+                Before and after.
+              </h2>
+              <p className="m-0 text-[15px] leading-none text-muted-soft">
+                Drag the handle, or use the arrow keys.
+              </p>
+            </div>
+            <div className="aspect-video w-full overflow-hidden border border-line">
+              <BeforeAfter
+                slotId="project"
+                before={project.before}
+                after={project.after}
+              />
+            </div>
           </div>
-          <div className="aspect-video w-full">
-            <BeforeAfter
-              slotId="project"
-              beforeSlot="[ BEFORE 16:9 · 2400×1350 — same angle as after ]"
-              afterSlot="[ AFTER 16:9 · 2400×1350 ]"
-            />
-          </div>
-        </div>
-      </section>
+        </section>
+      ) : null}
 
-      <section aria-labelledby="project-more" className="px-5 pb-16 md:px-14 md:pb-28">
-        <div className="mx-auto w-full max-w-[1328px]">
-          <h2
-            id="project-more"
-            className="mb-5 mt-0 font-display text-[32px] font-extrabold leading-none tracking-[-0.03em] text-bone md:mb-7 md:text-[48px]"
-          >
-            More from this job.
-          </h2>
-          <div className="grid gap-5 md:grid-cols-3">
-            {[1, 2, 3].map((index) => (
-              <figure key={index} className="m-0">
-                <div
-                  data-slot={`project-photo-${index}`}
-                  className="relative aspect-[4/3] overflow-hidden border border-line bg-coal"
-                >
-                  <span className="absolute inset-0 flex items-center justify-center font-mono text-[11px] leading-[1.5] text-muted-faint">
-                    [ IMAGE 4:3 · 1200×900 ]
-                  </span>
-                </div>
-                <figcaption className="mt-3 text-[14px] leading-[1.4] text-muted-soft">
-                  [ Optional caption ]
-                </figcaption>
-              </figure>
-            ))}
+      {siblings.length > 0 ? (
+        <section aria-labelledby="project-more" className="px-5 pb-16 md:px-14 md:pb-28">
+          <div className="mx-auto w-full max-w-[1328px]">
+            <h2
+              id="project-more"
+              className="mb-5 mt-0 font-display text-[32px] font-extrabold leading-none tracking-[-0.03em] text-bone md:mb-7 md:text-[48px]"
+            >
+              More from this job.
+            </h2>
+            <div className="grid gap-5 md:grid-cols-3">
+              {siblings.map((item) => (
+                <figure key={item.slug} className="m-0">
+                  <div className="relative aspect-[4/3] overflow-hidden border border-line bg-coal">
+                    <Image
+                      src={item.photo!.src}
+                      alt={item.photo!.alt}
+                      fill
+                      sizes="(min-width: 768px) 33vw, 100vw"
+                      className="object-cover"
+                      style={{ objectPosition: item.photo!.position ?? "50% 50%" }}
+                    />
+                  </div>
+                  <figcaption className="mt-3 text-[14px] leading-[1.4] text-muted-soft">
+                    {item.title}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      ) : null}
 
       <section aria-labelledby="project-related" className="bg-bone px-5 py-16 text-ink md:px-14 md:pb-[120px] md:pt-24">
         <div className="mx-auto w-full max-w-[1328px]">

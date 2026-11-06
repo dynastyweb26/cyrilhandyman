@@ -81,7 +81,7 @@ export default async function GalleryPage({
               })}
             </div>
             <p aria-live="polite" className="m-0 text-[15px] font-medium leading-none text-muted-ink">
-              Showing {visible.length} of [ NN ] projects
+              Showing {visible.length} of {galleryProjects.length} projects
               {activeLabel !== "All" ? ` · ${activeLabel}` : ""}
             </p>
           </div>
@@ -96,19 +96,9 @@ export default async function GalleryPage({
             </div>
           ) : (
             <p className="border border-dashed border-ink/25 p-6 text-[15px] leading-[1.6] text-muted-ink">
-              TODO_CONTENT — no projects are tagged “{activeLabel}” yet. Real job photos get added
-              to the placeholder array before launch.
+              No {activeLabel.toLowerCase()} photos yet. New jobs go up here as they finish.
             </p>
           )}
-
-          <div className="mt-8 flex justify-center">
-            <Link
-              href="/gallery?page=2"
-              className="inline-flex h-14 items-center border-[1.5px] border-ink px-8 text-[16px] font-bold leading-none text-ink transition-colors duration-150 hover:bg-ink hover:text-bone focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-red"
-            >
-              Load more projects
-            </Link>
-          </div>
         </div>
       </section>
 
