@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BeforeAfter } from "@/components/BeforeAfter";
@@ -55,6 +56,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 
   const isChristmas = service.slug === "christmas-light-installation";
   const projects = projectsByService(service.slug);
+  const photos = projects.filter((project) => project.photo);
   const reviews = await getPublishedReviews({ limit: 3, service: service.long });
 
   const shared = [
@@ -152,14 +154,28 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             <TrustStrip />
           </div>
 
-          <div
-            data-slot={`${service.slug}-hero`}
-            className="relative aspect-[4/3] w-full overflow-hidden border border-line bg-coal"
-          >
-            <span className="absolute inset-0 flex items-center justify-center p-5 text-center font-mono text-[12px] leading-[1.6] text-muted-faint">
-              [ IMAGE or VIDEO 4:3 · 1600×1200 — {service.slot} ]
-            </span>
-          </div>
+          {service.hero ? (
+            <div className="relative aspect-[4/3] w-full overflow-hidden border border-line bg-coal">
+              <Image
+                src={service.hero.src}
+                alt={service.hero.alt}
+                fill
+                priority
+                sizes="(min-width: 768px) 50vw, 100vw"
+                className="object-cover"
+                style={{ objectPosition: service.hero.position ?? "50% 50%" }}
+              />
+            </div>
+          ) : (
+            <div
+              data-slot={`${service.slug}-hero`}
+              className="relative aspect-[4/3] w-full overflow-hidden border border-line bg-coal"
+            >
+              <span className="absolute inset-0 flex items-center justify-center p-5 text-center font-mono text-[12px] leading-[1.6] text-muted-faint">
+                [ IMAGE or VIDEO 4:3 · 1600×1200 — {service.slot} ]
+              </span>
+            </div>
+          )}
         </div>
       </section>
 
@@ -225,28 +241,32 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             </Link>
           </div>
 
-          {projects.length > 0 ? (
+          {photos.length > 0 ? (
             <div className="grid gap-5 sm:grid-cols-2 md:grid-cols-3">
-              {projects.slice(0, 3).map((project) => (
+              {photos.slice(0, 3).map((project) => (
                 <Link
                   key={project.slug}
                   href={`/gallery/${project.slug}`}
                   className="flex flex-col gap-3.5 text-bone focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-red-soft"
                 >
                   <div className="relative aspect-[4/3] w-full overflow-hidden border border-line bg-ink">
-                    <span className="absolute inset-0 flex items-center justify-center p-4 text-center font-mono text-[12px] leading-[1.6] text-muted-faint">
-                      [ PHOTO — {project.title} ]
-                    </span>
+                    <Image
+                      src={project.photo!.src}
+                      alt={project.photo!.alt}
+                      fill
+                      sizes="(min-width: 768px) 33vw, 100vw"
+                      className="object-cover"
+                      style={{ objectPosition: project.photo!.position ?? "50% 50%" }}
+                    />
                   </div>
                   <span className="text-[12px] font-bold uppercase leading-none tracking-[0.14em] text-red-soft">
                     {service.name.toUpperCase()}
-                    {project.city ? ` · ${project.city.toUpperCase()}` : ""}
                   </span>
                   <span className="text-[18px] font-semibold leading-[1.3]">{project.title}</span>
                 </Link>
               ))}
             </div>
-          ) : (
+          ) : service.pair ? null : (
             <div className="grid gap-5 sm:grid-cols-2 md:grid-cols-3">
               {[1, 2, 3].map((index) => (
                 <Link
@@ -271,15 +291,15 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             </div>
           )}
 
-          {projects.length > 0 ? null : (
-            <div className="aspect-[21/9] w-full">
+          {service.pair && photos.length === 0 ? (
+            <div className="aspect-video w-full overflow-hidden border border-line">
               <BeforeAfter
-                slotId={service.slug}
-                beforeSlot="[ BEFORE · 1600×1370 ]"
-                afterSlot="[ AFTER · same job ]"
+                slotId={`${service.slug}-pair`}
+                before={service.pair.before}
+                after={service.pair.after}
               />
             </div>
-          )}
+          ) : null}
         </div>
       </section>
 
@@ -402,7 +422,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         sourcePage={`/services/${service.slug}`}
       />
 
-      <JsonLd id="service-schema" data={serviceSchema(service)} />
+      <JsonLd id="service-schema" data={serviceSchema({ ...service, image: service.hero?.src })} />
       {serviceFaqSchema ? <JsonLd id="service-faq-schema" data={serviceFaqSchema} /> : null}
       <JsonLd
         id="service-breadcrumb-schema"
