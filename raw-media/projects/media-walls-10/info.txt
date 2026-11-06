@@ -5,3 +5,4 @@ one_line_on_what_was_done:
 write_up (2-4 sentences, real details only):
 note: slat wall with built-in shelves, white floating console, wall-mounted TV. Real phone photos (4K). Crew member visible from behind, no customer faces. MOV of the install (IMG_8512, 14s, 4K, family visible) NOT committed: needs OK + compression.
 before.jpg = same room as 1-3 (tray ceiling, fireplace with diamond tile, painting). Before is a wider, different angle (4:3, 2000x1500) than the after photos (16:9); a slider needs a matching after shot or a crop.
+PAIR for home page: before.jpg + after.jpg (after = copy of 1.jpg). A 430px screenshot 'after' was also sent but is too small; not committed. Before TV screen shows IPTV channel names: blur. Before has a baby bouncer lower left: crop out.
