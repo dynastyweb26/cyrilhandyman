@@ -7,7 +7,7 @@ export const hero = {
   eyebrow: "Forney, TX · Registered LLC · 2+ years",
   title: "Garage doors to media walls. Same crew, every job.",
   intro:
-    "The people who quote your job are the people who do it. Doors, blinds, patio screens, accent walls and holiday lights across Forney and the towns around it. [CONFIRM wording with Cyril]",
+    "The people who quote your job are the people who do it. Doors, blinds, patio screens, accent walls and holiday lights across Forney and the towns around it.",
   primaryCta: { label: "Send a photo, get a quote", href: "#quote" },
   secondaryCta: { label: "See recent work", href: "/gallery" },
   trust: ["Registered Texas LLC", "2+ years", "Same crew on every job"],
@@ -24,7 +24,7 @@ export type Bento = {
   blurb: string;
   href: string;
   tone: "ink" | "sand" | "red";
-  image?: { slot: string; alt: string; ratio: string; label: string; photo?: Photo };
+  image?: { photo?: Photo; alt?: string; slot?: string; ratio?: string; label?: string };
 };
 
 export const bentoServices: Bento[] = [
@@ -142,7 +142,6 @@ export const faqs: { q: string; a: string; confirm?: string }[] = [
   {
     q: "Which cities do you serve?",
     a: "Forney, Mesquite, Sunnyvale, Rockwall, Terrell, Crandall, Garland and Frisco, plus the towns around them.",
-    confirm: "[CONFIRM final list]",
   },
   {
     q: "How do I get a quote?",
@@ -162,7 +161,6 @@ export const faqs: { q: string; a: string; confirm?: string }[] = [
   {
     q: "What do motorized patio screens cost?",
     a: "It depends on the size of the opening, the fabric and the motor. Send a photo and we will quote from that.",
-    confirm: '[CONFIRM whether a "starting at" price can be shown]',
   },
   {
     q: "When should I book Christmas lights?",
@@ -179,7 +177,7 @@ export const faqs: { q: string; a: string; confirm?: string }[] = [
 export const whereWeWork = {
   eyebrow: "Where we work",
   title: "Forney and the towns around it.",
-  note: "Each town has its own page with the work we’ve done there.",
+  note: "Each town has its own page.",
   noteLink: "All service areas",
   map: {
     slot: "home-map",
@@ -198,9 +196,4 @@ export const quote = {
 
 export const reviewsCopy = {
   title: "What neighbors say.",
-  average: "[ X.X ]",
-  count: "[ NN ]",
-  profile: "https://g.page/[PLACEHOLDER]",
-  placeholderBody: "[ Real review text goes here — pulled from Google reviews, nothing invented. ]",
-  placeholderMeta: "[ First name ] · [ City ] · [ Service ]",
 };

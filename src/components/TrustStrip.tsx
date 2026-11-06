@@ -1,6 +1,9 @@
+import { allFiveStars, reviewCount } from "@/data/reviews";
+
 /**
- * Trust strip: only the things we can prove today, plus a visible placeholder
- * where the rating and count will go once real reviews exist.
+ * Trust strip: only the things we can prove today. The review line shows the
+ * real count from the data file and stars only because every review in it is
+ * 5-star — never an average rating.
  */
 export function TrustStrip({ className = "" }: { className?: string }) {
   const items = ["Based in Forney, TX", "Registered Texas LLC", "Scheduled by phone"];
@@ -15,8 +18,13 @@ export function TrustStrip({ className = "" }: { className?: string }) {
           {item}
         </li>
       ))}
-      <li className="flex items-center font-mono text-[12px] leading-none text-muted-faint">
-        [PLACEHOLDER: review rating + count]
+      <li className="flex items-center gap-2">
+        {allFiveStars ? (
+          <span aria-label="Rated five out of five stars" className="text-[13px] leading-none tracking-[0.12em] text-red-soft">
+            ★★★★★
+          </span>
+        ) : null}
+        {reviewCount} Google reviews
       </li>
     </ul>
   );
