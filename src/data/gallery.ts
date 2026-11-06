@@ -280,6 +280,7 @@ export const mediaWallPair = {
     "The same wall finished in vertical wood slats, with white built-in shelves at the left and a white floating console under the TV.",
     "50% 50%",
   ),
+  caption: "Slat media wall",
 };
 
 /** Blinds. Only blinds-01 is faux wood; the rest are zebra or roller shades. */
@@ -437,7 +438,146 @@ const garageDoors: GalleryProject[] = [
       "50% 50%",
     ),
   },
+  {
+    slug: "garage-doors-02",
+    kind: "ba",
+    tag: GARAGE,
+    service: tagToService[GARAGE] ?? null,
+    citySlug: null,
+    title: "Garage door replacement, before and after",
+    city: "",
+    line: "",
+    ratio: "415 / 272",
+    before: photo(
+      `${MEDIA}/garage-doors-02/before-832.webp`,
+      832,
+      547,
+      "An older white panel garage door under a grey gable, seen from the driveway before replacement.",
+      "50% 50%",
+    ),
+    after: photo(
+      `${MEDIA}/garage-doors-02/after-415.webp`,
+      415,
+      272,
+      "The same house with a new white garage door with a row of windows, new trim and a wall lamp.",
+      "50% 50%",
+    ),
+  },
+  {
+    slug: "garage-doors-03",
+    kind: "ba",
+    tag: GARAGE,
+    service: tagToService[GARAGE] ?? null,
+    citySlug: null,
+    title: "Garage door replacement, before and after",
+    city: "",
+    line: "",
+    ratio: "1270 / 1017",
+    before: photo(
+      `${MEDIA}/garage-doors-03/before-1293.webp`,
+      1293,
+      1007,
+      "A close view of an older white panel garage door and its trim, before replacement.",
+      "50% 50%",
+    ),
+    after: photo(
+      `${MEDIA}/garage-doors-03/after-1270.webp`,
+      1270,
+      1017,
+      "The same garage with a new white door with a row of windows at the top, new trim and a wall lamp.",
+      "50% 50%",
+    ),
+  },
+  project(
+    "garage-doors-04",
+    GARAGE,
+    photo(
+      `${MEDIA}/garage-doors-04/cover-845.webp`,
+      845,
+      416,
+      "A cream garage door with a stone surround and raw wood trim posts, seen from the driveway.",
+      "50% 50%",
+    ),
+    "Cream garage door with stone surround and raw wood trim",
+  ),
+  project(
+    "garage-doors-05",
+    GARAGE,
+    photo(
+      `${MEDIA}/garage-doors-05/cover-706.webp`,
+      706,
+      622,
+      "A black garage door with a row of side windows, set in white stucco.",
+      "50% 50%",
+    ),
+    "Modern black garage door with side windows",
+  ),
+  project(
+    "garage-doors-06",
+    GARAGE,
+    photo(
+      `${MEDIA}/garage-doors-06/cover-832.webp`,
+      832,
+      628,
+      "An older grey garage door from inside the garage, with the torsion spring and track above it.",
+      "50% 50%",
+    ),
+    "Garage door with spring and track, interior",
+  ),
+  project(
+    "garage-doors-07",
+    GARAGE,
+    photo(
+      `${MEDIA}/garage-doors-07/cover-1315.webp`,
+      1315,
+      1011,
+      "A grey garage door inside a garage during a replacement, with a ladder, boxes and tools around it.",
+      "50% 50%",
+    ),
+    "Garage door mid-replacement, interior",
+  ),
+  project(
+    "garage-doors-08",
+    GARAGE,
+    photo(
+      `${MEDIA}/garage-doors-08/cover-1307.webp`,
+      1307,
+      1036,
+      "Two white garage doors with rows of window panels, seen from inside the garage.",
+      "50% 50%",
+    ),
+    "Two-bay garage doors with window panels, interior view",
+  ),
+  project(
+    "garage-doors-09",
+    GARAGE,
+    photo(
+      `${MEDIA}/garage-doors-09/cover-821.webp`,
+      821,
+      842,
+      "A white garage door with frosted side windows, seen from inside a new garage.",
+      "50% 50%",
+    ),
+    "Garage door with frosted side windows, new construction",
+  ),
+  /** Second photo of the cream-door job: shown under its main card, not in the grid. */
+  project(
+    "garage-doors-04-b",
+    GARAGE,
+    photo(
+      `${MEDIA}/garage-doors-04/2-780.webp`,
+      780,
+      417,
+      "The same cream garage door and raw wood trim from the other side, with the stone corner at the right.",
+      "50% 50%",
+    ),
+    "Cream door and raw wood trim, second view",
+  ),
 ];
+
+/** Widest garage photo: the garage service hero and the home tile. */
+const garage08 = garageDoors.find((item) => item.slug === "garage-doors-08");
+export const garageHero = garage08?.photo as Photo;
 
 /** Cabinets, closets and counters. No service page: /gallery only. */
 const otherWork: GalleryProject[] = [
@@ -551,24 +691,32 @@ export const galleryProjects: GalleryProject[] = [
   mediaWalls[1],
   patioScreens[0],
   otherWork[1],
+  garageDoors[1],
   mediaWalls[2],
   blinds[2],
+  garageDoors[2],
   mediaWalls[4],
   otherWork[5],
   patioScreens[2],
+  garageDoors[3],
   mediaWalls[6],
   blinds[3],
   otherWork[2],
+  garageDoors[4],
   mediaWalls[8],
   blinds[5],
   mediaWalls[3],
+  garageDoors[5],
   otherWork[0],
   patioScreens[1],
   mediaWalls[5],
+  garageDoors[6],
   blinds[1],
   otherWork[3],
   mediaWalls[7],
+  garageDoors[7],
   blinds[4],
+  garageDoors[8],
   mediaWalls[9],
   mediaWalls[10],
   mediaWalls[11],
@@ -638,6 +786,7 @@ export const heroPhotos = {
 export const garagePair = {
   before: garageDoors[0].before as Photo,
   after: garageDoors[0].after as Photo,
+  caption: "Garage door replacement",
 };
 
 export { mediaWalls, blinds, patioScreens, garageDoors, otherWork, christmasLights };

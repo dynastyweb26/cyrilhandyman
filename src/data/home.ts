@@ -1,5 +1,5 @@
 import type { Photo } from "@/data/gallery";
-import { blinds, mediaWalls, patioScreens } from "@/data/gallery";
+import { blinds, garageHero, mediaWalls, patioScreens } from "@/data/gallery";
 
 /** Home page content, kept out of the components so copy is easy to swap. */
 
@@ -36,16 +36,10 @@ export const bentoServices: Bento[] = [
     tone: "ink",
     image: {
       slot: "svc-garage",
-      alt: "The new black garage door with a row of windows on a brick house.",
+      alt: "Two white garage doors with rows of window panels, seen from inside the garage.",
       ratio: "5 / 2",
       label: "[ IMAGE 5:2 · 2000×800 — garage door install ]",
-      photo: {
-        src: "/media/projects/garage-doors-01/after-629.webp",
-        width: 629,
-        height: 348,
-        alt: "New black garage door with a row of windows on a brick house.",
-        position: "50% 50%",
-      },
+      photo: garageHero,
     },
   },
   {

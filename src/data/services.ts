@@ -8,6 +8,7 @@
 import type { Photo } from "@/data/gallery";
 import {
   blinds,
+  garageHero,
   garagePair,
   heroPhotos,
   mediaWallPair,
@@ -34,7 +35,7 @@ export type Service = {
   /** Real hero photo, only where the source is at least 1200px wide. */
   hero?: Photo;
   /** Real before/after pair, when one exists for this service. */
-  pair?: { before: Photo; after: Photo };
+  pair?: { before: Photo; after: Photo; caption?: string };
   /** Best available photo for a photo-backed service tile. */
   tile?: Photo;
   /** One line for cards. */
@@ -54,10 +55,10 @@ export const services: Service[] = [
     long: "Garage Door Repair & Installation",
     promise: "New garage doors, openers, springs and repairs, scheduled with one phone call.",
     slot: "garage door install",
-    // The only garage photos are 629px wide, so the hero stays an empty state.
+    // 1307px wide: the two-bay interior shot, sharp enough for the hero.
+    hero: garageHero,
     pair: garagePair,
-    // 629px wide: soft on a wide tile, and never upscaled.
-    tile: garagePair.after,
+    tile: garageHero,
     short: "New doors, openers, springs, repairs.",
     formValue: "garage-doors",
     tone: "ink",

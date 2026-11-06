@@ -291,7 +291,9 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                 <h3 className="m-0 font-display text-[28px] font-extrabold leading-none tracking-[-0.03em] text-bone md:text-[40px]">
                   Before and after.
                 </h3>
-                <p className="m-0 text-[15px] leading-none text-muted-soft">Slat media wall</p>
+                <p className="m-0 text-[15px] leading-none text-muted-soft">
+                  {service.pair.caption ?? ""}
+                </p>
               </div>
               <div className="aspect-[4/3] w-full overflow-hidden border border-line">
                 <BeforeAfter
