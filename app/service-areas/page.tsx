@@ -11,7 +11,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata: Metadata = pageMetadata({
   title: "Service Areas | Forney and the towns around it",
   description:
-    "Eight towns, one crew, one phone number. Garage doors, faux wood blinds, patio screens, media walls and Christmas lights across Forney and the towns around it.",
+    "Based in Forney and working across North Texas: garage doors, faux wood blinds, patio screens, media walls and Christmas lights. Call 945-344-4580.",
   path: "/service-areas",
 });
 
@@ -33,10 +33,8 @@ export default function ServiceAreasPage() {
             </span>
           </h1>
           <p className="m-0 max-w-[600px] text-[17px] leading-[1.5] text-body-dark md:text-[21px]">
-            Eight towns, one crew, one phone number. Pick yours to see the work we do there.{" "}
-            <span className="font-mono text-[11px] leading-[1.5] text-muted-faint">
-              [CONFIRM wording with Cyril]
-            </span>
+            Based in Forney and working across North Texas. Pick your town below, and if you
+            don’t see it, call us and ask.
           </p>
           <div className="flex flex-wrap gap-3">
             <a
@@ -73,8 +71,14 @@ export default function ServiceAreasPage() {
               ))}
             </div>
             <p className="m-0 max-w-[460px] text-[15px] leading-[1.6] text-muted">
-              Each name opens its own page with the work we’ve done in that town. Not on the list?
-              Call and ask.
+              Each name opens its own page. Don’t see your town?{" "}
+              <a
+                href={`tel:${site.phone.tel}`}
+                className="font-bold text-bone underline underline-offset-[3px] hover:text-white"
+              >
+                Call us
+              </a>
+              .
             </p>
           </div>
 
