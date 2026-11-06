@@ -35,7 +35,7 @@ export function SiteFooter() {
             </Link>
             <p className="m-0 max-w-[320px] text-[15px] leading-[1.55] text-muted">
               Handyman and home improvement out of Forney, Texas. Serving Forney and the towns
-              around it. [CONFIRM wording with Cyril]
+              around it.
             </p>
           </div>
 

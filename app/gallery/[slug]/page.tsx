@@ -109,13 +109,10 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
             ) : null}
 
             <div className="mt-7 flex max-w-[680px] flex-col gap-5 text-[17px] leading-[1.65] text-body-dark md:mt-10 md:text-[19px]">
+              <p className="m-0">A finished job from the gallery.</p>
               <p className="m-0">
-                [ PLACEHOLDER write-up, 2–4 sentences: what the homeowner needed, what the crew did,
-                and how long it took. Written with Cyril from the real job — no invented details. ]
-              </p>
-              <p className="m-0">
-                [ Optional second paragraph: products or materials used, anything the homeowner
-                should know. ]
+                The photo is the record of this one: no city, date, measurements or materials are
+                attached to it.
               </p>
             </div>
           </div>
@@ -242,8 +239,10 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
             </div>
           ) : (
             <p className="border border-dashed border-ink/25 p-6 text-[15px] text-muted-ink">
-              TODO_CONTENT — more {project.tag.toLowerCase()} projects will appear here once real
-              jobs are added.
+              No other {project.tag.toLowerCase()} projects are in the gallery yet.{" "}
+              <Link href="/gallery" className="font-bold text-red-deep hover:text-ink">
+                Browse the full gallery →
+              </Link>
             </p>
           )}
         </div>

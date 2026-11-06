@@ -2,10 +2,7 @@ import Link from "next/link";
 import { cityHref, type City } from "@/data/cities";
 import { site } from "@/data/site";
 
-/**
- * Hub card: index, badge, town, intro and the two ways in. The [CONFIRM intro]
- * tag rides along because Cyril still has to supply the local detail.
- */
+/** Hub card: index, badge, town, intro and the two ways in. */
 export function CityCard({ city, index }: { city: City; index: number }) {
   return (
     <article className="flex min-h-[300px] flex-col gap-5 bg-sand p-6 md:p-10">
@@ -26,8 +23,7 @@ export function CityCard({ city, index }: { city: City; index: number }) {
       </h3>
 
       <p className="m-0 max-w-[520px] flex-1 text-[16px] leading-[1.6] text-ink/80">
-        {city.intro}{" "}
-        <span className="font-mono text-[11px] leading-[1.5] text-ink/50">[CONFIRM intro]</span>
+        {city.intro}
       </p>
 
       <div className="flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-ink/15 pt-4">

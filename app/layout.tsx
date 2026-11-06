@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     template: `%s | ${site.name}`,
   },
   description:
-    "TODO_CONTENT — one-sentence site description used as the default meta description.",
+    "Garage doors, faux wood blinds, patio screens, media walls and Christmas lights in Forney, TX and across North Texas. Call 945-344-4580.",
   applicationName: site.name,
   icons: {
     icon: [{ url: "/favicon.ico" }, { url: "/favicon.png", type: "image/png" }],
