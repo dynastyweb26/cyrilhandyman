@@ -33,16 +33,79 @@ const tones = {
 } as const;
 
 /**
- * One bento tile. The whole tile is the link. Media sits between the number and
- * the title, on a solid tile colour so the text keeps its contrast.
+ * Dark scrim over a full-bleed photo. Near-opaque at the bottom, where the
+ * title and blurb sit, and lighter at the top so the number and arrow stay
+ * legible without hiding the work.
  */
-export function ServiceTile({ tile, className = "" }: { tile: Bento; className?: string }) {
+const scrim = {
+  background:
+    "linear-gradient(to top, #0a0a0b 0%, rgba(10, 10, 11, 0.94) 38%, rgba(10, 10, 11, 0.74) 70%, rgba(10, 10, 11, 0.58) 100%)",
+} as const;
+
+const base =
+  "relative flex flex-col justify-between overflow-hidden p-[18px] transition-[transform,background-color] duration-[250ms] hover:-translate-y-1 focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-4 motion-reduce:hover:translate-y-0 md:p-9";
+
+/**
+ * One bento tile. The whole tile is the link. When the tile has a real photo it
+ * fills the tile as a background under a dark scrim; without one the tile
+ * keeps its solid colour and the labelled media slot.
+ */
+export function ServiceTile({
+  tile,
+  className = "",
+  sizes = "(min-width: 768px) 50vw, 100vw",
+}: {
+  tile: Bento;
+  className?: string;
+  sizes?: string;
+}) {
   const tone = tones[tile.tone];
+  const photo = tile.image?.photo;
+
+  if (photo) {
+    return (
+      <Link
+        href={tile.href}
+        className={`${base} bg-ink text-bone focus-visible:outline-red ${className}`}
+      >
+        <Image
+          src={photo.src}
+          alt={photo.alt}
+          fill
+          sizes={sizes}
+          className="object-cover"
+          style={{ objectPosition: photo.position ?? "50% 50%" }}
+        />
+        <span aria-hidden="true" className="absolute inset-0" style={scrim} />
+
+        <div className="relative flex items-start justify-between">
+          <span className="font-accent text-[24px] font-normal italic leading-none text-bone md:text-[32px]">
+            {tile.n}
+          </span>
+          <span
+            aria-hidden="true"
+            className="hidden size-12 items-center justify-center rounded-full border border-white/70 text-[20px] font-semibold leading-none text-bone md:flex"
+          >
+            →
+          </span>
+        </div>
+
+        <div className="relative">
+          <h3 className="m-0 font-display text-[28px] font-extrabold leading-none tracking-[-0.02em] text-bone md:text-[40px] md:tracking-[-0.025em]">
+            {tile.title}
+          </h3>
+          <p className="mt-1.5 text-[14px] leading-[1.35] text-body-dark md:mt-3 md:text-[17px] md:leading-[1.4]">
+            {tile.blurb}
+          </p>
+        </div>
+      </Link>
+    );
+  }
 
   return (
     <Link
       href={tile.href}
-      className={`relative flex flex-col justify-between overflow-hidden p-[18px] transition-[transform,background-color] duration-[250ms] hover:-translate-y-1 focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-4 motion-reduce:hover:translate-y-0 md:p-9 ${tone.tile} ${tone.ring} ${className}`}
+      className={`${base} active:translate-y-0 ${tone.tile} ${tone.ring} ${className}`}
     >
       <div className="flex items-start justify-between">
         <span className={`font-accent text-[24px] font-normal italic leading-none md:text-[32px] ${tone.number}`}>
@@ -56,27 +119,16 @@ export function ServiceTile({ tile, className = "" }: { tile: Bento; className?:
         </span>
       </div>
 
-      {tile.image ? (
+      {tile.image?.label ? (
         <div
           data-slot={tile.image.slot}
           className={`absolute inset-x-[22px] bottom-[128px] top-[66px] overflow-hidden md:inset-x-9 md:bottom-[176px] md:top-[100px] ${tone.frame}`}
         >
-          {tile.image.photo ? (
-            <Image
-              src={tile.image.photo.src}
-              alt={tile.image.photo.alt}
-              fill
-              sizes="(min-width: 768px) 30vw, 50vw"
-              className="object-cover"
-              style={{ objectPosition: tile.image.photo.position ?? "50% 50%" }}
-            />
-          ) : (
-            <span
-              className={`absolute inset-0 flex items-center justify-center px-2.5 text-center font-mono text-[10px] leading-[1.5] md:text-[11px] ${tone.frameText}`}
-            >
-              {tile.image.label}
-            </span>
-          )}
+          <span
+            className={`absolute inset-0 flex items-center justify-center px-2.5 text-center font-mono text-[10px] leading-[1.5] md:text-[11px] ${tone.frameText}`}
+          >
+            {tile.image.label}
+          </span>
         </div>
       ) : null}
 

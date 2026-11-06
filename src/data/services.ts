@@ -6,7 +6,7 @@
  */
 
 import type { Photo } from "@/data/gallery";
-import { garagePair, heroPhotos } from "@/data/gallery";
+import { blinds, garagePair, heroPhotos, mediaWalls, patioScreens } from "@/data/gallery";
 
 export type ServiceSlug =
   | "garage-door-repair-installation"
@@ -28,6 +28,8 @@ export type Service = {
   hero?: Photo;
   /** Real before/after pair, when one exists for this service. */
   pair?: { before: Photo; after: Photo };
+  /** Best available photo for a photo-backed service tile. */
+  tile?: Photo;
   /** One line for cards. */
   short: string;
   jobs: { t: string; d: string }[];
@@ -47,6 +49,8 @@ export const services: Service[] = [
     slot: "garage door install",
     // The only garage photos are 629px wide, so the hero stays an empty state.
     pair: garagePair,
+    // 629px wide: soft on a wide tile, and never upscaled.
+    tile: garagePair.after,
     short: "New doors, openers, springs, repairs.",
     formValue: "garage-doors",
     tone: "ink",
@@ -86,6 +90,7 @@ export const services: Service[] = [
     promise: "Faux wood blinds, measured and installed in your home.",
     slot: "blinds in a window",
     // blinds-01 is 1179px wide: below the 1200px hero floor, so no hero.
+    tile: { ...blinds[0].photo!, position: "50% 35%" },
     short: "Measured and installed.",
     formValue: "faux-wood-blinds",
     tone: "sand",
@@ -112,6 +117,7 @@ export const services: Service[] = [
     promise: "Motorized and retractable patio screens, fitted to your patio.",
     slot: "patio screen lowered",
     hero: heroPhotos.patioScreens,
+    tile: patioScreens[2].photo,
     short: "Motorized and retractable.",
     formValue: "patio-screens",
     tone: "sand",
@@ -149,6 +155,7 @@ export const services: Service[] = [
     promise: "Slat walls, panel walls and built-ins, designed with you and built in place.",
     slot: "media wall, finished",
     hero: heroPhotos.mediaWalls,
+    tile: mediaWalls[0].photo,
     short: "Slat, panel and built-ins.",
     formValue: "media-accent-walls",
     tone: "ink",
