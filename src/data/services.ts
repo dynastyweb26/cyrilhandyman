@@ -5,6 +5,17 @@
  * invented, and the tags keep the page out of the index until Cyril answers.
  */
 
+import type { Photo } from "@/data/gallery";
+import {
+  blinds,
+  garageHero,
+  garagePair,
+  heroPhotos,
+  mediaWallPair,
+  mediaWalls,
+  patioScreens,
+} from "@/data/gallery";
+
 export type ServiceSlug =
   | "garage-door-repair-installation"
   | "faux-wood-blinds"
@@ -21,6 +32,12 @@ export type Service = {
   promise: string;
   /** What the media slot should show, e.g. "garage door install". */
   slot: string;
+  /** Real hero photo, only where the source is at least 1200px wide. */
+  hero?: Photo;
+  /** Real before/after pair, when one exists for this service. */
+  pair?: { before: Photo; after: Photo; caption?: string };
+  /** Best available photo for a photo-backed service tile. */
+  tile?: Photo;
   /** One line for cards. */
   short: string;
   jobs: { t: string; d: string }[];
@@ -38,6 +55,10 @@ export const services: Service[] = [
     long: "Garage Door Repair & Installation",
     promise: "New garage doors, openers, springs and repairs, scheduled with one phone call.",
     slot: "garage door install",
+    // 1307px wide: the two-bay interior shot, sharp enough for the hero.
+    hero: garageHero,
+    pair: garagePair,
+    tile: garageHero,
     short: "New doors, openers, springs, repairs.",
     formValue: "garage-doors",
     tone: "ink",
@@ -76,6 +97,8 @@ export const services: Service[] = [
     long: "Faux Wood Blinds",
     promise: "Faux wood blinds, measured and installed in your home.",
     slot: "blinds in a window",
+    // blinds-01 is 1179px wide: below the 1200px hero floor, so no hero.
+    tile: { ...blinds[0].photo!, position: "50% 35%" },
     short: "Measured and installed.",
     formValue: "faux-wood-blinds",
     tone: "sand",
@@ -101,6 +124,8 @@ export const services: Service[] = [
     long: "Motorized & Retractable Patio Screens",
     promise: "Motorized and retractable patio screens, fitted to your patio.",
     slot: "patio screen lowered",
+    hero: heroPhotos.patioScreens,
+    tile: patioScreens[2].photo,
     short: "Motorized and retractable.",
     formValue: "patio-screens",
     tone: "sand",
@@ -137,6 +162,9 @@ export const services: Service[] = [
     long: "Media Walls & Accent Walls",
     promise: "Slat walls, panel walls and built-ins, designed with you and built in place.",
     slot: "media wall, finished",
+    hero: heroPhotos.mediaWalls,
+    pair: mediaWallPair,
+    tile: mediaWalls[0].photo,
     short: "Slat, panel and built-ins.",
     formValue: "media-accent-walls",
     tone: "ink",

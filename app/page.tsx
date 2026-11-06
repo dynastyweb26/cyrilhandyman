@@ -5,12 +5,12 @@ import { CityChip } from "@/components/CityChip";
 import { Faq } from "@/components/Faq";
 import { GalleryMarquee } from "@/components/GalleryMarquee";
 import { Hero } from "@/components/Hero";
-import { JsonLd } from "@/components/json-ld";
 import { ReviewCard } from "@/components/ReviewCard";
 import { ServiceTile } from "@/components/ServiceTile";
 import { Step } from "@/components/Step";
 import { QuoteForm } from "@/components/quote-form";
-import { marqueeRowA, marqueeRowB } from "@/data/gallery";
+import { marqueeRowA, marqueeRowB, mediaWallPair } from "@/data/gallery";
+import { allFiveStars, reviewCount } from "@/data/reviews";
 import {
   bentoServices,
   faqs,
@@ -47,41 +47,43 @@ const bentoLayout = [
 ];
 
 export default async function HomePage() {
-  const reviews = await getPublishedReviews({ limit: 3 });
-  const average =
-    reviews.length > 0
-      ? reviews.reduce((total, review) => total + review.rating, 0) / reviews.length
-      : 0;
-
-  const reviewSchema =
-    reviews.length > 0
-      ? {
-          "@context": "https://schema.org",
-          "@type": "HomeAndConstructionBusiness",
-          "@id": `${site.url}/#business`,
-          name: site.name,
-          aggregateRating: {
-            "@type": "AggregateRating",
-            ratingValue: average.toFixed(1),
-            reviewCount: reviews.length,
-          },
-          review: reviews.map((review) => ({
-            "@type": "Review",
-            author: { "@type": "Person", name: review.author_first_name },
-            reviewRating: {
-              "@type": "Rating",
-              ratingValue: review.rating,
-              bestRating: 5,
-              worstRating: 1,
-            },
-            reviewBody: review.body,
-          })),
-        }
-      : null;
+  const reviews = await getPublishedReviews({ limit: 6 });
 
   return (
     <>
       <Hero />
+
+      {/* Before / after — first section under the hero. */}
+      <section aria-labelledby="before-after-heading" className="bg-ink px-5 py-16 md:px-14 md:py-32">
+        <div className="mx-auto grid w-full max-w-[1328px] items-center gap-9 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:gap-20">
+          <div>
+            <p className={eyebrow}>Before / after</p>
+            <h2
+              id="before-after-heading"
+              className="m-0 font-display text-[36px] font-extrabold leading-none tracking-[-0.03em] text-bone md:text-[60px]"
+            >
+              Drag to see the difference.
+            </h2>
+            <p className="mt-3.5 max-w-[460px] text-[16px] leading-[1.5] text-body-dark md:mt-6 md:text-[18px] md:leading-[1.55]">
+              Slat media wall
+            </p>
+            <Link
+              href="/gallery"
+              className="mt-3 inline-flex min-h-11 items-center text-[15px] font-bold leading-none text-red-soft hover:text-bone md:mt-5 md:text-[16px]"
+            >
+              Browse the gallery →
+            </Link>
+          </div>
+
+          <div className="aspect-[4/3] w-full">
+            <BeforeAfter
+              slotId="home-ba"
+              before={mediaWallPair.before}
+              after={mediaWallPair.after}
+            />
+          </div>
+        </div>
+      </section>
 
       <GalleryMarquee rowA={marqueeRowA} rowB={marqueeRowB} />
 
@@ -99,7 +101,7 @@ export default async function HomePage() {
               </span>
             </h2>
             <p className="mt-4 mb-0 max-w-[330px] text-[16px] leading-[1.55] text-muted-ink md:mb-2 md:mt-0">
-              Each one has its own page with pricing guidance, process, FAQs and real projects.
+              Each one has its own page with process, FAQs and real projects.
             </p>
           </div>
 
@@ -115,41 +117,6 @@ export default async function HomePage() {
               See everything →
             </Link>
           </p>
-        </div>
-      </section>
-
-      {/* Before / after — the interactive slider is its own component. */}
-      <section aria-labelledby="before-after-heading" className="bg-ink px-5 py-16 md:px-14 md:py-32">
-        <div className="mx-auto grid w-full max-w-[1328px] items-center gap-9 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:gap-20">
-          <div>
-            <p className={eyebrow}>Before / after</p>
-            <h2
-              id="before-after-heading"
-              className="m-0 font-display text-[36px] font-extrabold leading-none tracking-[-0.03em] text-bone md:text-[60px]"
-            >
-              Drag to see the difference.
-            </h2>
-            <p className="mt-3.5 max-w-[460px] text-[16px] leading-[1.5] text-body-dark md:mt-6 md:text-[18px] md:leading-[1.55]">
-              Every gallery project can carry a before and after, with the city and service on it
-              so you know it was done near you.
-            </p>
-            <Link
-              href="/gallery"
-              className="mt-3 inline-flex min-h-11 items-center text-[15px] font-bold leading-none text-red-soft hover:text-bone md:mt-5 md:text-[16px]"
-            >
-              Browse the gallery →
-            </Link>
-          </div>
-
-          <div className="aspect-[4/5] w-full md:aspect-[3/2]">
-            <BeforeAfter
-              slotId="home-ba"
-              beforeSlot="[ BEFORE 3:2 · 1800×1200 ]"
-              afterSlot="[ AFTER 3:2 · 1800×1200 ]"
-              altBefore="[ALT: Before — garage door, city]"
-              altAfter="[ALT: After — garage door, city]"
-            />
-          </div>
         </div>
       </section>
 
@@ -228,77 +195,41 @@ export default async function HomePage() {
               {reviewsCopy.title}
             </h2>
             <div className="mt-4 text-left md:mt-0 md:text-right">
-              <p className="m-0 flex items-center gap-2.5 text-red-soft md:justify-end md:gap-3">
-                <span className="font-display text-[30px] font-extrabold leading-none md:text-[44px]">
-                  {reviews.length > 0 ? average.toFixed(1) : reviewsCopy.average}
-                </span>
-                <span aria-label="Rating out of five" className="text-[24px] leading-none md:text-[36px]">
-                  ★★★★★
-                </span>
-              </p>
-              <p className="mt-2 mb-0 text-[14px] leading-[1.4] text-muted">
-                {reviews.length > 0 ? reviews.length : reviewsCopy.count} Google reviews ·{" "}
-                {/* No Google profile URL yet: never render a [PLACEHOLDER] href. */}
-                {/^https?:\/\//.test(reviewsCopy.profile) &&
-                !reviewsCopy.profile.includes("[PLACEHOLDER]") ? (
-                  <a
-                    href={reviewsCopy.profile}
-                    rel="noopener noreferrer"
-                    target="_blank"
-                    className="font-semibold text-red-soft hover:text-bone"
+              {allFiveStars ? (
+                <p className="m-0 flex items-center gap-2.5 text-red-soft md:justify-end md:gap-3">
+                  <span
+                    aria-label="Rated five out of five stars"
+                    className="text-[24px] leading-none md:text-[36px]"
                   >
-                    Read them all
-                  </a>
-                ) : (
-                  <span className="font-mono text-[11px] text-muted">[PLACEHOLDER]</span>
-                )}
+                    ★★★★★
+                  </span>
+                </p>
+              ) : null}
+              <p className="mt-2 mb-0 text-[14px] leading-[1.4] text-muted">
+                {reviewCount} Google reviews
               </p>
             </div>
           </div>
 
           <ul className="-mx-5 flex list-none gap-3 overflow-x-auto px-5 pb-2 [scroll-padding:0_20px] [scroll-snap-type:x_mandatory] md:mx-0 md:grid md:grid-cols-3 md:gap-5 md:overflow-visible md:px-0 md:pb-0">
-            {reviews.length > 0
-              ? reviews.map((review) => (
-                  <li
-                    key={review.id}
-                    className="w-[300px] flex-none [scroll-snap-align:start] md:w-auto"
-                  >
-                    <ReviewCard
-                      card={{
-                        rating: review.rating,
-                        body: review.body,
-                        meta: [review.author_first_name, review.city, review.service]
-                          .filter(Boolean)
-                          .join(" · "),
-                        source: review.source,
-                        area: `${review.rating} out of 5 stars`,
-                        reviewUrl: review.review_url,
-                      }}
-                      compact
-                    />
-                  </li>
-                ))
-              : [0, 1, 2].map((slot) => (
-                  <li key={slot} className="w-[300px] flex-none [scroll-snap-align:start] md:w-auto">
-                    <ReviewCard
-                      card={{
-                        rating: 5,
-                        body: reviewsCopy.placeholderBody,
-                        meta: reviewsCopy.placeholderMeta,
-                        area: "[ N ] out of 5 stars",
-                      }}
-                      compact
-                    />
-                  </li>
-                ))}
+            {reviews.map((review) => (
+              <li
+                key={review.id}
+                className="w-[300px] flex-none [scroll-snap-align:start] md:w-auto"
+              >
+                <ReviewCard
+                  card={{
+                    rating: 5,
+                    body: review.text,
+                    meta: review.name,
+                    source: "Google review",
+                    area: "5 out of 5 stars",
+                  }}
+                  compact
+                />
+              </li>
+            ))}
           </ul>
-
-          {reviews.length === 0 ? (
-            <p className="mt-4 text-[13px] leading-[1.5] text-muted-faint">
-              TODO_CONTENT — real Google reviews are added to the reviews table before launch.
-              Nothing above is invented copy.
-            </p>
-          ) : null}
         </div>
       </section>
 
@@ -371,9 +302,14 @@ export default async function HomePage() {
               <Link href="/service-areas" className="font-bold text-bone underline underline-offset-[3px] hover:text-white">
                 {whereWeWork.noteLink}
               </Link>{" "}
-              <span className="font-mono text-[11px] leading-[1.5] text-muted-faint">
-                [CONFIRM wording with Cyril]
-              </span>
+              Don’t see your town?{" "}
+              <a
+                href={`tel:${site.phone.tel}`}
+                className="font-bold text-bone underline underline-offset-[3px] hover:text-white"
+              >
+                Call us
+              </a>
+              .
             </p>
           </div>
           <div
@@ -433,7 +369,6 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {reviewSchema ? <JsonLd id="home-reviews-schema" data={reviewSchema} /> : null}
     </>
   );
 }

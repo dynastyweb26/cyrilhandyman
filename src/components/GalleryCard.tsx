@@ -1,10 +1,15 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { GalleryProject } from "@/data/gallery";
 
 /**
- * Gallery / job card. The whole card is one link. Media is a labelled slot
- * (data-slot) because no real photos exist yet — no invented imagery.
+ * Gallery / job card. The whole card is one link. Real photos render through
+ * next/image; the Christmas lights card keeps a labelled slot because there
+ * are no photos for it yet.
  */
+
+const cardSizes = "(min-width: 1024px) 360px, (min-width: 768px) 33vw, 100vw";
+
 export function GalleryCard({
   project,
   duplicate = false,
@@ -14,7 +19,8 @@ export function GalleryCard({
   duplicate?: boolean;
   className?: string;
 }) {
-  const { slug, kind, tag, title, city, line, ratio, slot, beforeSlot, afterSlot } = project;
+  const { slug, kind, tag, title, city, line, ratio, photo, before, after, slot } = project;
+  const isPair = kind === "ba" && before && after;
 
   return (
     <Link
@@ -24,13 +30,25 @@ export function GalleryCard({
       className={`group flex h-full flex-col border border-line bg-coal text-bone transition-[border-color,transform] duration-200 hover:-translate-y-[3px] hover:border-red focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-red motion-reduce:hover:translate-y-0 ${className}`}
     >
       <div className="relative overflow-hidden bg-slot" style={{ aspectRatio: ratio }}>
-        {kind === "ba" ? (
+        {isPair ? (
           <>
-            <div className="absolute inset-0 bg-[#1A1A1E]">
-              <SlotLabel text={beforeSlot ?? slot} slotId={`${slug}-before`} align="left" />
-            </div>
-            <div className="absolute inset-0 bg-[#232329] left-1/2">
-              <SlotLabel text={afterSlot ?? slot} slotId={`${slug}-after`} align="left" />
+            <Image
+              src={after.src}
+              alt={after.alt}
+              fill
+              sizes={cardSizes}
+              className="object-cover"
+              style={{ objectPosition: after.position ?? "50% 50%" }}
+            />
+            <div className="absolute inset-0" style={{ clipPath: "inset(0 50% 0 0)" }}>
+              <Image
+                src={before.src}
+                alt={before.alt}
+                fill
+                sizes={cardSizes}
+                className="object-cover"
+                style={{ objectPosition: before.position ?? "50% 50%" }}
+              />
             </div>
             <div aria-hidden="true" className="absolute inset-y-0 left-1/2 -ml-px w-0.5 bg-red" />
             <span className="absolute bottom-2.5 left-2.5 bg-ink px-2 py-1 text-[10px] font-bold uppercase leading-none tracking-[0.12em] text-bone">
@@ -40,18 +58,17 @@ export function GalleryCard({
               After
             </span>
           </>
+        ) : photo ? (
+          <Image
+            src={photo.src}
+            alt={photo.alt}
+            fill
+            sizes={cardSizes}
+            className="object-cover"
+            style={{ objectPosition: photo.position ?? "50% 50%" }}
+          />
         ) : (
-          <>
-            <SlotLabel text={slot} slotId={`${slug}-cover`} align="center" />
-            {kind === "video" ? (
-              <span className="absolute left-3 top-3 flex h-[26px] items-center gap-[7px] rounded-full border border-line bg-ink pl-2 pr-2.5 text-[10px] font-bold uppercase leading-none tracking-[0.12em] text-bone">
-                <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true">
-                  <polygon points="2,1 9,5 2,9" fill="#E04848" />
-                </svg>
-                Video
-              </span>
-            ) : null}
-          </>
+          <SlotLabel text={slot ?? ""} slotId={`${slug}-cover`} align="center" />
         )}
       </div>
 
@@ -62,8 +79,10 @@ export function GalleryCard({
         <h3 className="mt-1.5 font-display text-[22px] font-bold leading-[1.15] tracking-[-0.01em] text-bone">
           {title}
         </h3>
-        <span className="text-[14px] font-medium leading-[1.3] text-muted-soft">{city}</span>
-        <p className="m-0 text-[15px] leading-[1.45] text-[#CFCBC4]">{line}</p>
+        {city ? (
+          <span className="text-[14px] font-medium leading-[1.3] text-muted-soft">{city}</span>
+        ) : null}
+        {line ? <p className="m-0 text-[15px] leading-[1.45] text-[#CFCBC4]">{line}</p> : null}
         <span className="mt-auto pt-2.5 text-[14px] font-bold leading-none text-red-soft">
           View project →
         </span>

@@ -11,7 +11,7 @@ export function SiteHeader() {
   return (
     <header className="relative z-20 bg-ink">
       <div className="flex items-center justify-between gap-6 border-b border-hair px-5 py-2 text-[12px] leading-[1.4] text-muted md:px-14 md:py-[10px] md:text-[13px]">
-        <span>Forney, TX · Serving Forney and the towns around it [CONFIRM wording with Cyril]</span>
+        <span>Forney, TX · Serving Forney and the towns around it</span>
         <span className="hidden md:inline">Working wholeheartedly, one job at a time</span>
       </div>
 

@@ -84,7 +84,7 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
     },
     {
       q: `What areas near ${city.name} do you cover?`,
-      a: `We also work in ${nearList}, plus the rest of our eight-town service area. [CONFIRM]`,
+      a: `We also work in ${nearList}, plus the towns around them.`,
     },
   ];
 
@@ -96,6 +96,7 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
     blurb: service.short,
     href: `/services/${service.slug}`,
     tone: service.tone,
+    image: service.tile ? { alt: service.tile.alt, photo: service.tile } : undefined,
   }));
 
   return (
@@ -218,9 +219,9 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
                   <span aria-hidden="true" className="font-accent text-[56px] italic leading-[0.5] text-red">
                     “
                   </span>
-                  <blockquote className="m-0 text-[19px] leading-[1.5]">{review.body}</blockquote>
+                  <blockquote className="m-0 text-[19px] leading-[1.5]">{review.text}</blockquote>
                   <figcaption className="text-[14px] leading-[1.4] text-ink/70">
-                    {[review.author_first_name, city.name, review.source].filter(Boolean).join(" · ")}
+                    {[review.name, "Google review"].join(" · ")}
                   </figcaption>
                 </figure>
               ))}

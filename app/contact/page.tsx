@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import { PhoneIcon } from "@/components/icons";
 import { PageHeader } from "@/components/page-header";
 import { serviceAreasList } from "@/lib/format";
-import { cities, site, todo } from "@/data/site";
+import { cities, site } from "@/data/site";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
   title: "Contact & Free Quotes",
   description:
-    "TODO_CONTENT — contact description: phone, email and how to request a quote.",
+    "Call 945-344-4580 or email crazydoor04@gmail.com for a free quote on garage doors, blinds, patio screens, media walls and Christmas lights around Forney, TX.",
   path: "/contact",
 });
 
@@ -75,10 +75,7 @@ export default function ContactPage() {
               Quote form
             </h2>
             <p className="mt-3 text-small text-muted-ink">
-              {todo("quote form build — name, phone, city, service, message; decide EmailJS/Resend + spam protection")}
-            </p>
-            <p className="mt-3 text-small text-muted-ink">
-              Until the form ships, calling is the fastest way to get a price.
+              Call or text with the job and your city. A photo of the space helps us quote it.
             </p>
             <a
               href={`tel:${site.phone.tel}`}

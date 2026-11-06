@@ -2,7 +2,7 @@ import Link from "next/link";
 import { CityChip } from "@/components/CityChip";
 import { cities, cityHref, type City } from "@/data/cities";
 
-/** Neighbouring city links plus the way back to all eight. */
+/** Neighbouring city links plus the way back to the service-areas hub. */
 export function NearbyCities({ city }: { city: City }) {
   const near = city.near
     .map((slug) => cities.find((item) => item.slug === slug))
@@ -34,7 +34,7 @@ export function NearbyCities({ city }: { city: City }) {
             href="/service-areas"
             className="inline-flex min-h-14 items-center px-2 text-[16px] font-semibold leading-none text-ink underline decoration-1 underline-offset-4 hover:text-red focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[3px] focus-visible:outline-red"
           >
-            All 8 towns
+            All service areas
           </Link>
         </div>
       </div>

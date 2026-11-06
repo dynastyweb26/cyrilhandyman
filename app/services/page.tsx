@@ -19,6 +19,7 @@ export default function ServicesPage() {
     blurb: service.short,
     href: `/services/${service.slug}`,
     tone: service.tone,
+    image: service.tile ? { alt: service.tile.alt, photo: service.tile } : undefined,
   }));
 
   return (

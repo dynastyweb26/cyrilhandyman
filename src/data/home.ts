@@ -1,10 +1,13 @@
+import type { Photo } from "@/data/gallery";
+import { blinds, garageHero, mediaWalls, patioScreens } from "@/data/gallery";
+
 /** Home page content, kept out of the components so copy is easy to swap. */
 
 export const hero = {
   eyebrow: "Forney, TX · Registered LLC · 2+ years",
   title: "Garage doors to media walls. Same crew, every job.",
   intro:
-    "The people who quote your job are the people who do it. Doors, blinds, patio screens, accent walls and holiday lights across Forney and the towns around it. [CONFIRM wording with Cyril]",
+    "The people who quote your job are the people who do it. Doors, blinds, patio screens, accent walls and holiday lights across Forney and the towns around it.",
   primaryCta: { label: "Send a photo, get a quote", href: "#quote" },
   secondaryCta: { label: "See recent work", href: "/gallery" },
   trust: ["Registered Texas LLC", "2+ years", "Same crew on every job"],
@@ -21,7 +24,7 @@ export type Bento = {
   blurb: string;
   href: string;
   tone: "ink" | "sand" | "red";
-  image?: { slot: string; alt: string; ratio: string; label: string };
+  image?: { photo?: Photo; alt?: string; slot?: string; ratio?: string; label?: string };
 };
 
 export const bentoServices: Bento[] = [
@@ -33,9 +36,10 @@ export const bentoServices: Bento[] = [
     tone: "ink",
     image: {
       slot: "svc-garage",
-      alt: "[ALT: New garage door installed on a home in Forney]",
+      alt: "Two white garage doors with rows of window panels, seen from inside the garage.",
       ratio: "5 / 2",
       label: "[ IMAGE 5:2 · 2000×800 — garage door install ]",
+      photo: garageHero,
     },
   },
   {
@@ -46,9 +50,13 @@ export const bentoServices: Bento[] = [
     tone: "sand",
     image: {
       slot: "svc-blinds",
-      alt: "[ALT: Faux wood blinds installed in a living room window]",
+      alt: "White faux wood blinds lowered on two living room windows.",
       ratio: "16 / 9",
       label: "[ IMAGE 16:9 · 1600×900 — blinds in a window ]",
+      photo: {
+        ...blinds[0].photo!,
+        position: "50% 35%",
+      },
     },
   },
   {
@@ -57,6 +65,13 @@ export const bentoServices: Bento[] = [
     blurb: "Motorized and retractable.",
     href: "/services/motorized-retractable-patio-screens",
     tone: "sand",
+    image: {
+      slot: "svc-patio",
+      alt: "A dark patio screen drawn across a gable end above a pool.",
+      ratio: "4 / 3",
+      label: "[ IMAGE 4:3 · 1600×1200 — patio screen lowered ]",
+      photo: patioScreens[2].photo,
+    },
   },
   {
     n: "04",
@@ -64,6 +79,13 @@ export const bentoServices: Bento[] = [
     blurb: "Slat, panel and built-ins.",
     href: "/services/media-walls-accent-walls",
     tone: "ink",
+    image: {
+      slot: "svc-media",
+      alt: "Slat accent wall with blue LED lighting behind two marble-look panels.",
+      ratio: "4 / 3",
+      label: "[ IMAGE 4:3 · 1600×1200 — media wall, finished ]",
+      photo: mediaWalls[0].photo,
+    },
   },
   {
     n: "05",
@@ -114,7 +136,6 @@ export const faqs: { q: string; a: string; confirm?: string }[] = [
   {
     q: "Which cities do you serve?",
     a: "Forney, Mesquite, Sunnyvale, Rockwall, Terrell, Crandall, Garland and Frisco, plus the towns around them.",
-    confirm: "[CONFIRM final list]",
   },
   {
     q: "How do I get a quote?",
@@ -134,7 +155,6 @@ export const faqs: { q: string; a: string; confirm?: string }[] = [
   {
     q: "What do motorized patio screens cost?",
     a: "It depends on the size of the opening, the fabric and the motor. Send a photo and we will quote from that.",
-    confirm: '[CONFIRM whether a "starting at" price can be shown]',
   },
   {
     q: "When should I book Christmas lights?",
@@ -151,7 +171,7 @@ export const faqs: { q: string; a: string; confirm?: string }[] = [
 export const whereWeWork = {
   eyebrow: "Where we work",
   title: "Forney and the towns around it.",
-  note: "Each town has its own page with the work we’ve done there.",
+  note: "Each town has its own page.",
   noteLink: "All service areas",
   map: {
     slot: "home-map",
@@ -170,9 +190,4 @@ export const quote = {
 
 export const reviewsCopy = {
   title: "What neighbors say.",
-  average: "[ X.X ]",
-  count: "[ NN ]",
-  profile: "https://g.page/[PLACEHOLDER]",
-  placeholderBody: "[ Real review text goes here — pulled from Google reviews, nothing invented. ]",
-  placeholderMeta: "[ First name ] · [ City ] · [ Service ]",
 };

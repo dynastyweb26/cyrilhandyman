@@ -72,6 +72,7 @@ export function serviceSchema(service: {
   long: string;
   promise: string;
   slug: string;
+  image?: string;
 }): Record<string, unknown> {
   return {
     "@context": "https://schema.org",
@@ -81,6 +82,7 @@ export function serviceSchema(service: {
     serviceType: service.name,
     description: service.promise,
     url: `${site.url}/services/${service.slug}`,
+    ...(service.image ? { image: `${site.url}${service.image}` } : {}),
     provider: { "@id": `${site.url}/#business` },
     areaServed: cities.map((city) => ({ "@type": "City", name: `${city.name}, ${site.nap.region}` })),
   };

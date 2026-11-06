@@ -1,7 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import { useCallback, useRef, useState } from "react";
 import type { KeyboardEvent, PointerEvent } from "react";
+import type { Photo } from "@/data/gallery";
 
 /**
  * Before/after comparison. No library: the top layer is clipped with
@@ -9,7 +11,11 @@ import type { KeyboardEvent, PointerEvent } from "react";
  * the page scrollable on touch. Arrow keys move 4%, Shift+Arrow 10%, Home/End
  * jump to either end.
  */
+const pairSizes = "(min-width: 1024px) 60vw, 100vw";
+
 export function BeforeAfter({
+  before,
+  after,
   beforeSlot = "[ BEFORE 3:2 · 1800×1200 ]",
   afterSlot = "[ AFTER 3:2 · 1800×1200 ]",
   slotId = "ba",
@@ -17,6 +23,9 @@ export function BeforeAfter({
   altAfter = "[ALT: After — service, city]",
   className = "",
 }: {
+  /** Real photos. Without them the frame stays a labelled slot. */
+  before?: Photo;
+  after?: Photo;
   beforeSlot?: string;
   afterSlot?: string;
   slotId?: string;
@@ -88,20 +97,34 @@ export function BeforeAfter({
     >
       {/* After: the full frame underneath. */}
       <div className="absolute inset-0 bg-[#232329]">
-        <div className="absolute inset-y-0 left-1/2 right-0 flex items-center justify-center p-4 text-center font-mono text-[11px] leading-[1.5] text-muted-faint">
-          {afterSlot}
-        </div>
-        <img
-          src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-          alt={altAfter}
-          loading="lazy"
-          decoding="async"
-          draggable={false}
-          data-slot={`${slotId}-after`}
-          className="absolute inset-0 size-full object-cover"
-        />
+        {after ? (
+          <Image
+            src={after.src}
+            alt={after.alt}
+            fill
+            sizes={pairSizes}
+            draggable={false}
+            className="object-cover"
+            style={{ objectPosition: after.position ?? "50% 50%" }}
+          />
+        ) : (
+          <>
+            <div className="absolute inset-y-0 left-1/2 right-0 flex items-center justify-center p-4 text-center font-mono text-[11px] leading-[1.5] text-muted-faint">
+              {afterSlot}
+            </div>
+            <img
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+              alt={altAfter}
+              loading="lazy"
+              decoding="async"
+              draggable={false}
+              data-slot={`${slotId}-after`}
+              className="absolute inset-0 size-full object-cover"
+            />
+          </>
+        )}
         <span className="absolute bottom-4 right-4 bg-ink px-2.5 py-1.5 text-[11px] font-semibold uppercase leading-none tracking-[0.14em] text-body-dark">
-          After · [ Photo ]
+          After{after ? "" : " · [ Photo ]"}
         </span>
       </div>
 
@@ -110,20 +133,34 @@ export function BeforeAfter({
         className="absolute inset-0 bg-[#1A1A1E]"
         style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
       >
-        <div className="absolute inset-y-0 left-0 right-1/2 flex items-center justify-center p-4 text-center font-mono text-[11px] leading-[1.5] text-muted-faint">
-          {beforeSlot}
-        </div>
-        <img
-          src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-          alt={altBefore}
-          loading="lazy"
-          decoding="async"
-          draggable={false}
-          data-slot={`${slotId}-before`}
-          className="absolute inset-0 size-full object-cover"
-        />
+        {before ? (
+          <Image
+            src={before.src}
+            alt={before.alt}
+            fill
+            sizes={pairSizes}
+            draggable={false}
+            className="object-cover"
+            style={{ objectPosition: before.position ?? "50% 50%" }}
+          />
+        ) : (
+          <>
+            <div className="absolute inset-y-0 left-0 right-1/2 flex items-center justify-center p-4 text-center font-mono text-[11px] leading-[1.5] text-muted-faint">
+              {beforeSlot}
+            </div>
+            <img
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+              alt={altBefore}
+              loading="lazy"
+              decoding="async"
+              draggable={false}
+              data-slot={`${slotId}-before`}
+              className="absolute inset-0 size-full object-cover"
+            />
+          </>
+        )}
         <span className="absolute bottom-4 left-4 bg-ink px-2.5 py-1.5 text-[11px] font-semibold uppercase leading-none tracking-[0.14em] text-body-dark">
-          Before · [ Photo ]
+          Before{before ? "" : " · [ Photo ]"}
         </span>
       </div>
 
