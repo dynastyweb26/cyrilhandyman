@@ -114,7 +114,7 @@ export const whoShowsUp = {
       detail: "Local to Forney. Our name is on the truck and on every review.",
     },
     {
-      term: "Working wholeheartedly",
+      term: "Working wholeheartedly for the Lord",
       detail: "The job is finished right and the space is left cleaner than we found it.",
     },
   ],
