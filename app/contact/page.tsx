@@ -3,6 +3,7 @@ import { PhoneIcon } from "@/components/icons";
 import { PageHeader } from "@/components/page-header";
 import { serviceAreasList } from "@/lib/format";
 import { cities, site } from "@/data/site";
+import { publicText } from "@/lib/indexability";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
@@ -59,14 +60,18 @@ export default function ContactPage() {
                   Service area
                 </p>
                 <p className="mt-1 text-body text-ink">{serviceAreasList(cities)}</p>
-                <p className="mt-1 text-small text-muted-ink">{site.nap.serviceRadius}</p>
+                {publicText(site.nap.serviceRadius) ? (
+                  <p className="mt-1 text-small text-muted-ink">{publicText(site.nap.serviceRadius)}</p>
+                ) : null}
               </li>
-              <li>
+              {publicText(site.nap.hours) ? (
+<li>
                 <p className="text-eyebrow font-semibold uppercase tracking-[0.14em] text-muted-ink">
                   Hours
                 </p>
-                <p className="mt-1 text-body text-ink">{site.nap.hours}</p>
+                <p className="mt-1 text-body text-ink">{publicText(site.nap.hours)}</p>
               </li>
+) : null}
             </ul>
           </div>
 

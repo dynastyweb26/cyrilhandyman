@@ -1,3 +1,5 @@
+import { publicText } from "@/lib/indexability";
+
 /**
  * Native details/summary accordion. No JS: the answers are in the DOM for
  * crawlers and for anyone with scripts off. The + rotates when open.
@@ -9,9 +11,15 @@ export function FAQAccordion({
   items: { q: string; a: string }[];
   className?: string;
 }) {
+  // Questions whose answer Cyril has not confirmed yet are left out.
+  const shown = items
+    .map((item) => ({ q: item.q, a: publicText(item.a) }))
+    .filter((item): item is { q: string; a: string } => item.a !== null);
+  if (shown.length === 0) return null;
+
   return (
     <div className={`border-t border-ink ${className}`}>
-      {items.map((item, index) => (
+      {shown.map((item, index) => (
         <details
           key={item.q}
           open={index === 0}

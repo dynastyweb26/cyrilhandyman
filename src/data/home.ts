@@ -122,7 +122,7 @@ export const whoShowsUp = {
 
 export const steps = [
   { n: "1", title: "Send a photo", body: "Or call. Tell us the job and the city." },
-  { n: "2", title: "Get a quote", body: "A clear price and a date. [ Confirm response time ]" },
+  { n: "2", title: "Get a quote", body: "A clear price and a date." },
   { n: "3", title: "We do the work", body: "The same crew you spoke to." },
   { n: "4", title: "Cleaner than we found it", body: "We walk through it with you before we leave." },
 ];
@@ -184,7 +184,7 @@ export const quote = {
   eyebrow: "Quote by photo",
   titleLead: "Send a photo.",
   titleAccent: "Get a price.",
-  body: "Snap the door, window, wall or roofline. Tell us the city. Cyril gets back to you with a price. [ Confirm response time ]",
+  body: "Snap the door, window, wall or roofline. Tell us the city. Cyril gets back to you with a price.",
   phoneLabel: "Rather talk it through?",
 };
 

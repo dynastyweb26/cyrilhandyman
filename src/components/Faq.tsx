@@ -1,6 +1,7 @@
 import { JsonLd } from "@/components/json-ld";
 import { site } from "@/data/site";
 import type { faqs } from "@/data/home";
+import { publicText } from "@/lib/indexability";
 
 type FaqItem = (typeof faqs)[number];
 
@@ -10,7 +11,10 @@ type FaqItem = (typeof faqs)[number];
  * FAQPage JSON-LD only includes entries whose answer is real — never [CONFIRM].
  */
 export function Faq({ items }: { items: FaqItem[] }) {
-  const answerable = items.filter((item) => item.a.length > 0 && !item.a.includes("[CONFIRM"));
+  // Unanswered questions (empty or tagged answers) are not shown or marked up.
+  const answerable = items
+    .map((item) => ({ ...item, a: publicText(item.a) ?? "" }))
+    .filter((item) => item.a.length > 0);
 
   const schema =
     answerable.length > 0
@@ -28,7 +32,7 @@ export function Faq({ items }: { items: FaqItem[] }) {
   return (
     <>
       <div className="border border-b-0 border-line bg-coal">
-        {items.map((item, index) => (
+        {answerable.map((item, index) => (
           <details key={item.q} open={index === 0} className="group border-b border-line">
             <summary className="flex min-h-16 cursor-pointer items-center justify-between gap-5 px-4 py-3.5 text-[17px] font-semibold leading-[1.35] text-bone transition-colors duration-150 hover:bg-slot focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-bone md:min-h-[76px] md:px-7 md:py-5 md:text-[19px]">
               <span className="flex items-baseline gap-4">
@@ -49,10 +53,7 @@ export function Faq({ items }: { items: FaqItem[] }) {
               </span>
             </summary>
             <p className="m-0 max-w-[680px] px-[18px] pb-5 pl-[62px] text-[15px] leading-[1.6] text-body-dark md:px-7 md:pb-[26px] md:pl-[74px] md:text-[17px]">
-              {item.a ? `${item.a} ` : null}
-              {item.confirm ? (
-                <span className="font-semibold text-red-soft">{item.confirm}</span>
-              ) : null}
+              {item.a}
             </p>
           </details>
         ))}

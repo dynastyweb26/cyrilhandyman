@@ -1,3 +1,5 @@
+import { publicText } from "@/lib/indexability";
+
 /**
  * Numbered steps. Every list opens with the same first step, so the path from
  * the page to the phone is always the same.
@@ -23,7 +25,9 @@ export function StepList({
             {index + 1}
           </span>
           <h3 className="m-0 text-[20px] font-bold leading-[1.3] text-bone">{step.t}</h3>
-          <p className="m-0 text-[15px] leading-[1.6] text-muted">{step.d}</p>
+          {publicText(step.d) ? (
+            <p className="m-0 text-[15px] leading-[1.6] text-muted">{publicText(step.d)}</p>
+          ) : null}
         </li>
       ))}
     </ol>

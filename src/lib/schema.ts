@@ -1,5 +1,5 @@
 import { cities, services, site } from "@/data/site";
-import { hasPendingTags } from "@/lib/indexability";
+import { publicText } from "@/lib/indexability";
 
 /**
  * Sitewide business schema.
@@ -52,7 +52,9 @@ export function breadcrumbSchema(trail: { name: string; path: string }[]): Recor
  * answer still carries a pending tag are left out rather than published.
  */
 export function faqSchema(items: { q: string; a: string }[]): Record<string, unknown> | null {
-  const usable = items.filter((item) => item.a.trim().length > 0 && !hasPendingTags(item.q, item.a));
+  const usable = items
+    .map((item) => ({ q: item.q, a: publicText(item.a) }))
+    .filter((item): item is { q: string; a: string } => item.a !== null && publicText(item.q) !== null);
   if (usable.length === 0) return null;
 
   return {

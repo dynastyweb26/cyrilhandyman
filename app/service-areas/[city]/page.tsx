@@ -154,9 +154,6 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
               <p className="m-0 flex flex-wrap items-center gap-2.5 text-[14px] leading-[1.4] text-muted">
                 <span aria-hidden="true" className="size-2 flex-none bg-red" />
                 Serving {city.name} from Forney
-                <span className="font-mono text-[11px] leading-[1.5] text-muted-faint">
-                  [CONFIRM drive time]
-                </span>
               </p>
             )}
           </div>

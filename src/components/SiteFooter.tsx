@@ -126,13 +126,14 @@ export function SiteFooter() {
                   </svg>
                 ),
               },
-              // A [PLACEHOLDER] URL is not a destination: the label renders as
-              // plain text until site.social holds a real profile.
-            ].map(({ label, href, icon }) => {
-              const isRealLink = /^https?:\/\//.test(href) && !href.includes("[PLACEHOLDER]");
+              // A [PLACEHOLDER] URL is not a destination: the link is left out
+              // until site.social holds a real profile.
+            ]
+              .filter(({ href }) => /^https?:\/\//.test(href) && !href.includes("[PLACEHOLDER]"))
+              .map(({ label, href, icon }) => {
               const base = "flex min-h-11 items-center gap-[10px] text-[15px] text-body-dim";
 
-              return isRealLink ? (
+              return (
                 <a
                   key={label}
                   href={href}
@@ -143,12 +144,6 @@ export function SiteFooter() {
                   {icon}
                   {label}
                 </a>
-              ) : (
-                <span key={label} className={base} aria-disabled="true">
-                  {icon}
-                  {label}
-                  <span className="font-mono text-[11px] text-muted">[PLACEHOLDER]</span>
-                </span>
               );
             })}
           </div>

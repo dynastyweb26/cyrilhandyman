@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHeader } from "@/components/page-header";
-import { site, todo } from "@/data/site";
+import { site } from "@/data/site";
+import { publicText } from "@/lib/indexability";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
   title: "About",
   description:
-    "TODO_CONTENT — about description: who Cyril Handyman & Door LLC is and how the crew works.",
+    "Cyril Handyman & Door LLC is a Forney, TX crew doing garage doors, faux wood blinds, patio screens, media walls and Christmas lights. Same crew on every job.",
   path: "/about",
 });
 
@@ -33,8 +34,9 @@ export default function AboutPage() {
               Most of our work comes from repeat customers and neighbours in {site.serviceRegion}. That is
               the whole marketing plan.
             </p>
-            <p className="text-small">{todo("owner story, year founded, crew size")}</p>
-            <p className="text-small">{site.nap.response}</p>
+            {publicText(site.nap.response) ? (
+              <p className="text-small">{publicText(site.nap.response)}</p>
+            ) : null}
           </div>
           <div className="border border-line-ink bg-bone p-6 lg:p-8">
             <h2 className="font-display text-body font-semibold uppercase tracking-[0.08em] text-ink">
@@ -66,7 +68,8 @@ export default function AboutPage() {
                   Area
                 </dt>
                 <dd className="text-ink">
-                  {site.nap.locality}, {site.nap.region} — {site.nap.serviceRadius}
+                  {site.nap.locality}, {site.nap.region}
+                  {publicText(site.nap.serviceRadius) ? ` — ${publicText(site.nap.serviceRadius)}` : null}
                 </dd>
               </div>
             </dl>

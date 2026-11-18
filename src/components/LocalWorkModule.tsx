@@ -2,6 +2,7 @@ import Link from "next/link";
 import { GalleryCard } from "@/components/GalleryCard";
 import type { City } from "@/data/cities";
 import type { GalleryProject } from "@/data/gallery";
+import { publicText } from "@/lib/indexability";
 
 /**
  * "Recent work in {City}" band. With no tagged projects it collapses to
@@ -15,6 +16,7 @@ export function LocalWorkModule({
   projects: GalleryProject[];
 }) {
   const hasProjects = projects.length > 0;
+  const localDetail = publicText(city.see);
 
   return (
     <section
@@ -35,14 +37,16 @@ export function LocalWorkModule({
               <span className="font-accent font-normal italic text-red-soft">in {city.name}.</span>
             </h2>
           </div>
+          {localDetail ? (
           <div className="border-l border-edge pl-5">
             <h3 className="m-0 mb-3 text-[13px] font-bold uppercase leading-none tracking-[0.16em] text-muted">
               What we see in {city.name.toUpperCase()}
             </h3>
             <p className="m-0 font-accent text-[19px] italic leading-[1.45] text-bone md:text-[23px]">
-              {city.see}
+              {localDetail}
             </p>
           </div>
+          ) : null}
         </div>
 
         {hasProjects ? (

@@ -16,7 +16,7 @@ import { cities, cityHref } from "@/data/cities";
 import { projectsByService } from "@/data/gallery";
 import { getService, services } from "@/data/services";
 import { site } from "@/data/site";
-import { hasPendingTags } from "@/lib/indexability";
+import { hasPendingTags, publicText } from "@/lib/indexability";
 import { getPublishedReviews } from "@/lib/reviews";
 import { breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/seo";
@@ -183,7 +183,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             </h2>
           </div>
           <ol className="m-0 list-none border-t border-ink p-0">
-            {service.jobs.map((job, index) => (
+            {service.jobs.filter((job) => publicText(job.d)).map((job, index) => (
               <li key={job.t} className="grid grid-cols-[56px_minmax(0,1fr)] gap-4 border-b border-[#C9C2B6] py-6">
                 <span className="font-accent text-[26px] font-normal italic leading-[1.1] text-red">
                   {String(index + 1).padStart(2, "0")}
@@ -192,7 +192,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                   <h3 className="m-0 font-display text-[24px] font-extrabold leading-[1.1] tracking-[-0.025em] md:text-[30px]">
                     {job.t}
                   </h3>
-                  <p className="m-0 max-w-[560px] text-[16px] leading-[1.6] text-ink/80">{job.d}</p>
+                  <p className="m-0 max-w-[560px] text-[16px] leading-[1.6] text-ink/80">{publicText(job.d)}</p>
                 </div>
               </li>
             ))}
