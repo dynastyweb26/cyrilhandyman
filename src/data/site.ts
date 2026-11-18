@@ -29,7 +29,7 @@ export const site = {
     /** E.164 for tel: links and schema. */
     tel: "+19453444580",
   },
-  email: "crazydoor04@gmail.com",
+  email: "cyrilhandymanllc@gmail.com",
   brand: {
     /**
      * The shop's real logo: transparent PNG, black mark with white lettering,
