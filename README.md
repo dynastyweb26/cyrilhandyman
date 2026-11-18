@@ -24,9 +24,17 @@ Server-side only — set these in Vercel → Project → Settings → Environmen
 | `SUPABASE_URL`, `SUPABASE_ANON_KEY` | quote form insert, reviews read |
 | `RESEND_API_KEY`, `LEAD_NOTIFY_TO`, `LEAD_NOTIFY_FROM` | lead notification email |
 
+A lead counts as delivered when either path works. For launch, the Resend
+email is the one that matters (it reaches Cyril); Supabase is an optional
+backup log.
+
+- `LEAD_NOTIFY_TO`: the inbox that gets quote requests.
+- `LEAD_NOTIFY_FROM`: must be an address on a domain verified in Resend
+  (e.g. `quotes@crazydoorhandyman.com`), or Resend rejects the send.
+
 With no variables set the form returns a "please call" error instead of
-pretending the lead was captured, and the reviews band renders its
-TODO_CONTENT state.
+pretending the lead was captured, and logs `[lead] Lead was not delivered`
+to Vercel runtime logs.
 
 ## What exists
 

@@ -38,6 +38,10 @@ export async function submitLead(
   const [saved, emailed] = await Promise.all([saveLead(parsed.data), sendLeadEmail(parsed.data)]);
 
   if (!saved && !emailed) {
+    console.error(
+      "[lead] Lead was not delivered: Supabase insert and Resend email both failed or are not configured.",
+      { service: parsed.data.service, city: parsed.data.city, page: parsed.data.sourcePage },
+    );
     return {
       status: "error",
       message: `We couldn't send that right now. Please call ${site.phone.display} and we'll take the details.`,
