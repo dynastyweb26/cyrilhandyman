@@ -1,9 +1,8 @@
 /**
  * The eight cities, lifted from cyril-data.js — the content source of truth.
  *
- * Copy Cyril still has to confirm keeps its [CYRIL ...] / [CONFIRM ...] tag, so
- * it stays visible on the page and keeps that page out of the index until the
- * tag is replaced with real local detail.
+ * Local detail is only what Cyril confirmed: the jobs people call for most and
+ * the towns he works in most. No neighborhoods or home details are claimed.
  */
 
 export type CitySlug =
@@ -43,7 +42,7 @@ export const cities: City[] = [
     badge: "HOME BASE",
     intro:
       "Our home base. Garage doors, faux wood blinds, patio screens, media walls and Christmas lights, plus the smaller repairs in between.",
-    see: "[CYRIL: add real local detail — which Forney neighborhoods you work in most, what the homes are like (age, builders, garage sizes), and which jobs Forney homeowners ask for first.]",
+    see: "In Forney, most calls are for renovations, media walls and garage doors.",
     seo: {
       title: "Forney, TX Handyman & Door Services | Cyril",
       description:
@@ -60,7 +59,7 @@ export const cities: City[] = [
     badge: null,
     intro:
       "Garage door repairs and new doors, faux wood blinds and patio screens for Mesquite homes. One call sets the day.",
-    see: "[CYRIL: add real local detail — the Mesquite areas you work in, older vs. newer homes you see there, and the most common Mesquite requests.]",
+    see: "In Mesquite, most calls are for renovations, media walls and garage doors.",
     seo: {
       title: "Handyman & Door Services in Mesquite, TX | Cyril",
       description:
@@ -77,7 +76,7 @@ export const cities: City[] = [
     badge: null,
     intro:
       "Media walls, faux wood blinds and garage doors for Sunnyvale homeowners. Tell us what you have in mind and we’ll set a time.",
-    see: "[CYRIL: add real local detail — Sunnyvale neighborhoods, lot and home sizes you see, and what Sunnyvale customers usually call about.]",
+    see: "In Sunnyvale, most calls are for renovations, media walls and garage doors.",
     seo: {
       title: "Handyman & Door Services in Sunnyvale, TX | Cyril",
       description:
@@ -94,7 +93,7 @@ export const cities: City[] = [
     badge: null,
     intro:
       "Patio screens, garage doors and Christmas lights in Rockwall. Travel isn’t an issue. Call and we’ll get you on the schedule.",
-    see: "[CYRIL: add real local detail — Rockwall areas you work in, lake-side vs. in-town homes, and the jobs Rockwall homeowners ask for most.]",
+    see: "Rockwall is one of the areas we work in most. Most calls here are for renovations, media walls and garage doors.",
     seo: {
       title: "Handyman & Door Services in Rockwall, TX | Cyril",
       description:
@@ -110,7 +109,7 @@ export const cities: City[] = [
     homeBase: false,
     badge: null,
     intro: "Garage doors, blinds and handyman repairs in Terrell. Scheduling is one phone call.",
-    see: "[CYRIL: add real local detail — Terrell neighborhoods, the age of homes you see there, and common Terrell requests.]",
+    see: "In Terrell, most calls are for renovations, media walls and garage doors.",
     seo: {
       title: "Handyman & Door Services in Terrell, TX | Cyril",
       description:
@@ -127,7 +126,7 @@ export const cities: City[] = [
     badge: null,
     intro:
       "From a new garage door opener to a full accent wall, we work in Crandall homes. Call to set a time.",
-    see: "[CYRIL: add real local detail — Crandall subdivisions you work in, what the homes are like, and what Crandall customers call about.]",
+    see: "In Crandall, most calls are for renovations, media walls and garage doors.",
     seo: {
       title: "Handyman & Door Services in Crandall, TX | Cyril",
       description:
@@ -144,7 +143,7 @@ export const cities: City[] = [
     badge: "NEW",
     intro:
       "Now serving Garland: garage doors, blinds, patio screens, media walls and Christmas lights. Same crew, same phone number.",
-    see: "[CYRIL: add real local detail — the Garland areas you cover, typical home age there, and the first Garland jobs you’ve done.]",
+    see: "Garland is one of the areas we work in most. Most calls here are for renovations, media walls and garage doors.",
     seo: {
       title: "Handyman & Door Services in Garland, TX | Cyril",
       description:
@@ -160,7 +159,7 @@ export const cities: City[] = [
     homeBase: false,
     badge: "NEW",
     intro: "Now serving Frisco. The same five specialties, booked with one phone call.",
-    see: "[CYRIL: add real local detail — the Frisco neighborhoods you work in, newer-build details you see, and what Frisco customers ask for.]",
+    see: "Frisco is one of the areas we work in most. Most calls here are for renovations, media walls and garage doors.",
     seo: {
       title: "Handyman & Door Services in Frisco, TX | Cyril",
       description:

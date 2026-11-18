@@ -771,6 +771,27 @@ export const getProject = (slug: string): GalleryProject | undefined =>
 export const projectsByCity = (city: string): GalleryProject[] =>
   galleryProjects.filter((item) => item.citySlug === city);
 
+/**
+ * A stable "random" pick of real jobs for a city page. Cyril hasn't tracked
+ * which town each job was in, so these are shown as the crew's work, never
+ * labelled or claimed as that city. Seeded by the slug so builds are stable
+ * and each town shows a different mix.
+ */
+export const sampleProjectsForCity = (city: string, count = 3): GalleryProject[] => {
+  let seed = 0;
+  for (const char of city) seed = (seed * 31 + char.charCodeAt(0)) >>> 0;
+  const next = () => {
+    seed = (seed * 1664525 + 1013904223) >>> 0;
+    return seed / 2 ** 32;
+  };
+  const pool = galleryProjects.filter((item) => item.photo || (item.before && item.after));
+  for (let i = pool.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(next() * (i + 1));
+    [pool[i], pool[j]] = [pool[j], pool[i]];
+  }
+  return pool.slice(0, count);
+};
+
 /** Projects tagged to a service page. */
 export const projectsByService = (service: string): GalleryProject[] =>
   galleryProjects.filter((item) => item.service === service);

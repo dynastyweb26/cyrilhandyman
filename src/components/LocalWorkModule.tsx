@@ -5,8 +5,8 @@ import type { GalleryProject } from "@/data/gallery";
 import { publicText } from "@/lib/indexability";
 
 /**
- * "Recent work in {City}" band. With no tagged projects it collapses to
- * LocalWorkEmpty and the before/after slider is left out entirely.
+ * Recent-work band on a city page. The jobs are the crew's real work, but not
+ * tagged to a town, so nothing here says they were done in this city.
  */
 export function LocalWorkModule({
   city,
@@ -27,14 +27,14 @@ export function LocalWorkModule({
         <div className="grid items-end gap-8 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:gap-[72px]">
           <div>
             <p className="mb-4 text-[13px] font-bold uppercase leading-none tracking-[0.16em] text-red-soft">
-              Only in {city.name.toUpperCase()}
+              Serving {city.name.toUpperCase()}
             </p>
             <h2
               id="local-work-heading"
               className="m-0 font-display text-[40px] font-extrabold leading-[0.92] tracking-[-0.04em] text-bone md:text-[84px]"
             >
               Recent work{" "}
-              <span className="font-accent font-normal italic text-red-soft">in {city.name}.</span>
+              <span className="font-accent font-normal italic text-red-soft">from our crew.</span>
             </h2>
           </div>
           {localDetail ? (
@@ -60,7 +60,7 @@ export function LocalWorkModule({
               href="/gallery"
               className="inline-flex min-h-11 items-center self-start border-b-2 border-red text-[16px] font-bold leading-none text-bone hover:text-white focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[3px] focus-visible:outline-red-soft"
             >
-              All {city.name} projects in the gallery →
+              See the full gallery →
             </Link>
           </div>
         ) : (

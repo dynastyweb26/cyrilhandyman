@@ -10,7 +10,7 @@ import { BrandPanel } from "@/components/BrandPanel";
 import { QuoteBand } from "@/components/QuoteBand";
 import { ServiceTile } from "@/components/ServiceTile";
 import { cities, cityHref, getCity } from "@/data/cities";
-import { projectsByCity } from "@/data/gallery";
+import { sampleProjectsForCity } from "@/data/gallery";
 import type { Bento } from "@/data/home";
 import { services } from "@/data/services";
 import { site } from "@/data/site";
@@ -56,7 +56,7 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
   const city = getCity(slug);
   if (!city) notFound();
 
-  const projects = projectsByCity(city.slug);
+  const projects = sampleProjectsForCity(city.slug);
   const reviews = await getPublishedReviews({ limit: 2, city: city.name });
 
   const sub = city.homeBase
