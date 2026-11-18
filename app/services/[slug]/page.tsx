@@ -17,6 +17,7 @@ import { projectsByService } from "@/data/gallery";
 import { getService, services } from "@/data/services";
 import { site } from "@/data/site";
 import { hasPendingTags, publicText } from "@/lib/indexability";
+import { serviceSteps, sharedFaqs } from "@/lib/page-copy";
 import { getPublishedReviews } from "@/lib/reviews";
 import { breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/seo";
@@ -45,8 +46,12 @@ export async function generateMetadata({
     title: service.seo.title,
     description: service.seo.description,
     path: `/services/${service.slug}`,
-    // Noindex until every [CONFIRM] tag on this page is real copy.
-    noIndex: hasPendingTags(service),
+    // Noindex until every [CONFIRM] tag the page renders is real copy.
+    noIndex: hasPendingTags(
+      service,
+      sharedFaqs,
+      serviceSteps(service.slug === "christmas-light-installation"),
+    ),
   });
 }
 
@@ -60,40 +65,10 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
   const photos = projects.filter((project) => project.photo);
   const reviews = await getPublishedReviews({ limit: 3, service: service.slug });
 
-  const shared = [
-    {
-      q: "Do you work in my town?",
-      a: "We cover Forney, Mesquite, Sunnyvale, Rockwall, Terrell, Crandall, Garland and Frisco. Somewhere close by? Call and ask.",
-    },
-    {
-      q: "How do I schedule?",
-      a: "Call 945-344-4580. We’ll talk through the job and set a time on the same call.",
-    },
-    {
-      q: "How soon can you come out?",
-      a: "It depends on the job and the season. Call and we’ll give you our earliest time. [CONFIRM typical lead time]",
-    },
-  ];
-
-  const faqs = [...shared.slice(0, 2), ...service.faqs, ...shared.slice(2)];
+  const faqs = [...sharedFaqs.slice(0, 2), ...service.faqs, ...sharedFaqs.slice(2)];
   const serviceFaqSchema = faqSchema(faqs);
 
-  const steps = [
-    { t: "Call or request a quote", d: "Call 945-344-4580 or send the form. Tell us what you need." },
-    {
-      t: isChristmas ? "We plan the design" : "We take a look",
-      d: isChristmas
-        ? "Roofline, trees, windows: we agree on the look with you. [CONFIRM]"
-        : "We come out, measure and talk options. [CONFIRM on-site estimate]",
-    },
-    { t: "Pick a day", d: "We set the install date by phone. No portals." },
-    {
-      t: isChristmas ? "Hung, kept lit, taken down" : "We install",
-      d: isChristmas
-        ? "We hang everything, fix anything that goes out, and take it down after the season."
-        : "Installed, cleaned up and checked with you before we leave.",
-    },
-  ];
+  const steps = serviceSteps(isChristmas);
 
   const related = services.filter((item) => item.slug !== service.slug);
 

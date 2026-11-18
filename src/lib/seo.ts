@@ -30,7 +30,8 @@ export function pageMetadata({
     title: { absolute: title },
     description,
     alternates: { canonical: url },
-    robots: noIndex ? { index: false, follow: false } : undefined,
+    // follow: true so links on a held-back page still pass to the rest of the site.
+    robots: noIndex ? { index: false, follow: true } : undefined,
     openGraph: {
       type: "website",
       siteName: site.name,

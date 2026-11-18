@@ -15,6 +15,7 @@ import type { Bento } from "@/data/home";
 import { services } from "@/data/services";
 import { site } from "@/data/site";
 import { hasPendingTags } from "@/lib/indexability";
+import { cityFaqs } from "@/lib/page-copy";
 import { getPublishedReviews } from "@/lib/reviews";
 import { breadcrumbSchema, businessSchema, faqSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/seo";
@@ -43,8 +44,8 @@ export async function generateMetadata({
     title: city.seo.title,
     description: city.seo.description,
     path: `/service-areas/${city.slug}`,
-    // Noindex until every [CYRIL] / [CONFIRM] tag on this page is real copy.
-    noIndex: hasPendingTags(city),
+    // Noindex until every [CYRIL] / [CONFIRM] tag the page renders is real copy.
+    noIndex: hasPendingTags(city, cityFaqs(city)),
   });
 }
 
@@ -62,32 +63,7 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
     ? "Forney is home. This is where we’re based, so for Forney homes the drive is short and the schedule is easy. Garage doors, faux wood blinds, patio screens, media walls and Christmas lights, plus the smaller repairs in between."
     : `Garage doors, faux wood blinds, patio screens, media walls and Christmas lights for ${city.name} homes, booked with one phone call.`;
 
-  const nearNames = city.near.map((nearSlug) => getCity(nearSlug)?.name ?? nearSlug);
-  const nearList =
-    nearNames.length > 1
-      ? `${nearNames.slice(0, -1).join(", ")} and ${nearNames[nearNames.length - 1]}`
-      : (nearNames[0] ?? "");
-
-  const faqs = [
-    {
-      q: city.homeBase ? "Are you based in Forney?" : `Do you travel to ${city.name}?`,
-      a: city.homeBase
-        ? "Yes. Forney is home base for Cyril Handyman & Door."
-        : `Yes. ${city.name} is part of our regular service area and travel isn’t an issue. [CONFIRM]`,
-    },
-    {
-      q: "How do I schedule?",
-      a: "Call 945-344-4580. We’ll talk through the job and set a time on the same call. Or send a quote request below and we’ll call you back.",
-    },
-    {
-      q: "How soon can you come out?",
-      a: "It depends on the job and the time of year. Call and we’ll give you the earliest time we have. [CONFIRM typical lead time]",
-    },
-    {
-      q: `What areas near ${city.name} do you cover?`,
-      a: `We also work in ${nearList}, plus the towns around them.`,
-    },
-  ];
+  const faqs = cityFaqs(city);
 
   const cityFaqSchema = faqSchema(faqs);
 

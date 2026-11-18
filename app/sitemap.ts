@@ -4,6 +4,7 @@ import { services } from "@/data/services";
 import { absoluteUrl, sitemapRoutes } from "@/data/seo";
 import type { SitemapRoute } from "@/data/seo";
 import { hasPendingTags } from "@/lib/indexability";
+import { cityFaqs, serviceSteps, sharedFaqs } from "@/lib/page-copy";
 
 /**
  * The noindex gate applies here too: a city or service page whose data still
@@ -13,14 +14,21 @@ import { hasPendingTags } from "@/lib/indexability";
 export default function sitemap(): MetadataRoute.Sitemap {
   const generated: SitemapRoute[] = [
     ...cities
-      .filter((city) => !hasPendingTags(city))
+      .filter((city) => !hasPendingTags(city, cityFaqs(city)))
       .map((city) => ({
         path: `/service-areas/${city.slug}`,
         changeFrequency: "monthly" as const,
         priority: city.homeBase ? 0.8 : 0.6,
       })),
     ...services
-      .filter((service) => !hasPendingTags(service))
+      .filter(
+        (service) =>
+          !hasPendingTags(
+            service,
+            sharedFaqs,
+            serviceSteps(service.slug === "christmas-light-installation"),
+          ),
+      )
       .map((service) => ({
         path: `/services/${service.slug}`,
         changeFrequency: "monthly" as const,
