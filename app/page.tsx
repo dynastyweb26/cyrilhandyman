@@ -1,3 +1,4 @@
+import { ServiceAreaMap } from "@/components/ServiceAreaMap";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BeforeAfter } from "@/components/BeforeAfter";
@@ -306,7 +307,7 @@ export default async function HomePage() {
               .
             </p>
           </div>
-          <BrandPanel slot={whereWeWork.map.slot} className="aspect-[4/3] w-full" />
+          <ServiceAreaMap className="w-full" />
         </div>
       </section>
 

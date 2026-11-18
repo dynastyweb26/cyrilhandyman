@@ -1,8 +1,8 @@
+import { ServiceAreaMap } from "@/components/ServiceAreaMap";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { CityCard } from "@/components/CityCard";
 import { CityChip } from "@/components/CityChip";
-import { BrandPanel } from "@/components/BrandPanel";
 import { QuoteBand } from "@/components/QuoteBand";
 import { cities, cityHref } from "@/data/cities";
 import { services } from "@/data/services";
@@ -83,7 +83,7 @@ export default function ServiceAreasPage() {
             </p>
           </div>
 
-          <BrandPanel slot="service-area-map" className="aspect-[4/3] w-full" />
+          <ServiceAreaMap className="w-full" />
         </div>
       </section>
 
