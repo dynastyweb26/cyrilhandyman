@@ -139,8 +139,7 @@ export const faqs: { q: string; a: string; confirm?: string }[] = [
   },
   {
     q: "How do I get a quote?",
-    a: "Send a photo and your city through the form on this page, or call 945-344-4580.",
-    confirm: "[CONFIRM response time]",
+    a: "Send a photo and your city through the form on this page, or call 945-344-4580. We call back as soon as possible, within the hour.",
   },
   {
     q: "Do you take small jobs?",
@@ -158,14 +157,13 @@ export const faqs: { q: string; a: string; confirm?: string }[] = [
   },
   {
     q: "When should I book Christmas lights?",
-    a: "",
-    confirm: "[CONFIRM booking window and takedown policy]",
+    a: "We take Christmas light bookings from now until Christmas.",
   },
   {
     q: "What do you need from me to quote a media or accent wall?",
     a: "A photo of the wall, rough measurements and the look you want.",
   },
-  { q: "How do you handle payment?", a: "", confirm: "[CONFIRM accepted payment methods and deposit policy]" },
+  { q: "How do you handle payment?", a: "We take Zelle, bank deposit, check or bank transfer." },
 ];
 
 export const whereWeWork = {

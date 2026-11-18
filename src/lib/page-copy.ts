@@ -16,7 +16,7 @@ export const sharedFaqs = [
   },
   {
     q: "How soon can you come out?",
-    a: "It depends on the job and the season. Call and we’ll give you our earliest time. [CONFIRM typical lead time]",
+    a: "Usually within 1 to 3 days, depending on the job. Call and we’ll give you our earliest time.",
   },
 ];
 
@@ -27,8 +27,8 @@ export function serviceSteps(isChristmas: boolean) {
     {
       t: isChristmas ? "We plan the design" : "We take a look",
       d: isChristmas
-        ? "Roofline, trees, windows: we agree on the look with you. [CONFIRM]"
-        : "We come out, measure and talk options. [CONFIRM on-site estimate]",
+        ? "Free on-site estimate. Roofline, trees, windows: we agree on the look with you."
+        : "Free on-site estimate. We come out, measure and talk options. A travel fee applies beyond 25 miles.",
     },
     { t: "Pick a day", d: "We set the install date by phone. No portals." },
     {
@@ -53,7 +53,7 @@ export function cityFaqs(city: City) {
       q: city.homeBase ? "Are you based in Forney?" : `Do you travel to ${city.name}?`,
       a: city.homeBase
         ? "Yes. Forney is home base for Cyril Handyman & Door."
-        : `Yes. ${city.name} is part of our regular service area and travel isn’t an issue. [CONFIRM]`,
+        : `Yes. ${city.name} is inside our service area, within 60 miles of Forney. Estimates are free; a travel fee applies beyond 25 miles.`,
     },
     {
       q: "How do I schedule?",
@@ -61,7 +61,7 @@ export function cityFaqs(city: City) {
     },
     {
       q: "How soon can you come out?",
-      a: "It depends on the job and the time of year. Call and we’ll give you the earliest time we have. [CONFIRM typical lead time]",
+      a: "Usually within 1 to 3 days, depending on the job. Call and we’ll give you the earliest time we have.",
     },
     {
       q: `What areas near ${city.name} do you cover?`,

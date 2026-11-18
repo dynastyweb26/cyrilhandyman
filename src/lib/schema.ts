@@ -35,6 +35,13 @@ export function businessSchema(areaServed?: string[]): Record<string, unknown> {
     },
     areaServed: areas.map((name) => ({ "@type": "City", name })),
     knowsAbout: services.map((service) => service.name),
+    // Cyril takes calls and works 24/7.
+    openingHoursSpecification: {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      opens: "00:00",
+      closes: "23:59",
+    },
     ...(sameAs.length > 0 ? { sameAs } : {}),
   };
 }

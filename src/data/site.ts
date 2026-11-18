@@ -52,9 +52,9 @@ export const site = {
     region: "TX",
     regionName: "Texas",
     country: "US",
-    serviceRadius: todo("service radius, e.g. \u201cwithin 40 miles of Forney, TX\u201d"),
-    hours: todo("hours of operation"),
-    response: todo("response time promise, e.g. \u201cwe reply within one business day\u201d"),
+    serviceRadius: "Within 60 miles of Forney, TX",
+    hours: "Open 24/7",
+    response: "We call back as soon as possible, within the hour.",
   },
   social: {
     googleBusinessProfile: todo("Google Business Profile URL"),

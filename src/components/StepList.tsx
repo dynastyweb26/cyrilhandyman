@@ -12,7 +12,7 @@ export function StepList({
   const items =
     steps ?? [
       { t: "Call or request a quote", d: "Call 945-344-4580 or send the form. Tell us what you need." },
-      { t: "We take a look", d: "We come out, measure and talk options. [CONFIRM on-site estimate]" },
+      { t: "We take a look", d: "Free on-site estimate. We come out, measure and talk options. A travel fee applies beyond 25 miles." },
       { t: "Pick a day", d: "We set the install date by phone. No portals." },
       { t: "We install", d: "Installed, cleaned up and checked with you before we leave." },
     ];
