@@ -122,13 +122,13 @@ export const services: Service[] = [
     slot: "patio screen lowered",
     hero: heroPhotos.patioScreens,
     tile: patioScreens[2].photo,
-    short: "Motorized, with remote, switch or app.",
+    short: "Motorized, with a remote.",
     formValue: "patio-screens",
     tone: "sand",
     jobs: [
       {
         t: "Motorized screens",
-        d: "Raise and lower with a remote, a wall switch or an app.",
+        d: "Raise and lower with a remote.",
       },
       {
         t: "Out of sight when up",
@@ -138,14 +138,14 @@ export const services: Service[] = [
     faqs: [
       {
         q: "Do you install manual screens too?",
-        a: "We install motorized screens. They raise and lower with a remote, a wall switch or an app.",
+        a: "We install motorized screens. They raise and lower with a remote.",
       },
       { q: "Do motorized screens need power?", a: "Yes. Motorized screens need power at the patio for the motor." },
     ],
     seo: {
       title: "Motorized Retractable Patio Screens, Forney TX | Cyril",
       description:
-        "Motorized retractable patio screens with remote, switch or app control in Forney, TX and North Texas. Call Cyril Handyman & Door: 945-344-4580.",
+        "Motorized retractable patio screens with remote control in Forney, TX and North Texas. Call Cyril Handyman & Door: 945-344-4580.",
     },
   },
   {

@@ -62,7 +62,7 @@ export const bentoServices: Bento[] = [
   {
     n: "03",
     title: "Patio screens",
-    blurb: "Motorized, with remote, switch or app.",
+    blurb: "Motorized, with a remote.",
     href: "/services/motorized-retractable-patio-screens",
     tone: "sand",
     image: {
