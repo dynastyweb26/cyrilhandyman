@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { cities } from "@/data/cities";
+import { galleryProjects } from "@/data/gallery";
 import { services } from "@/data/services";
 import { absoluteUrl, sitemapRoutes } from "@/data/seo";
 import type { SitemapRoute } from "@/data/seo";
@@ -33,6 +34,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
         path: `/services/${service.slug}`,
         changeFrequency: "monthly" as const,
         priority: 0.8,
+      })),
+    // Gallery project pages, only where a real photo exists.
+    ...galleryProjects
+      .filter((project) => project.photo || (project.before && project.after))
+      .map((project) => ({
+        path: `/gallery/${project.slug}`,
+        changeFrequency: "yearly" as const,
+        priority: 0.4,
+        images: [(project.photo ?? project.after)!.src],
       })),
   ];
 

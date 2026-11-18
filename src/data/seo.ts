@@ -30,18 +30,13 @@ export const sitemapRoutes: SitemapRoute[] = [
     path: "/",
     changeFrequency: "weekly",
     priority: 1,
+    // The hero video is left out of the sitemap until it is confirmed as
+    // footage of Cyril's own job (the description claims it is).
     images: [media.hero.posterSrc],
-    videos: [
-      {
-        title: "Cyril Handyman & Door LLC — garage door and handyman work",
-        thumbnail_loc: media.hero.posterSrc,
-        description: media.hero.description,
-        content_loc: media.hero.videoSrc,
-      },
-    ],
   },
   { path: "/services", changeFrequency: "monthly", priority: 0.8 },
   { path: "/service-areas", changeFrequency: "monthly", priority: 0.7 },
+  { path: "/gallery", changeFrequency: "monthly", priority: 0.6 },
   { path: "/about", changeFrequency: "yearly", priority: 0.5 },
   { path: "/contact", changeFrequency: "yearly", priority: 0.6 },
 ];
