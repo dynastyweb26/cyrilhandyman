@@ -6,6 +6,7 @@ import { BeforeAfter } from "@/components/BeforeAfter";
 import { CityChip } from "@/components/CityChip";
 import { FAQAccordion } from "@/components/FAQAccordion";
 import { JsonLd } from "@/components/json-ld";
+import { BrandPanel } from "@/components/BrandPanel";
 import { QuoteBand } from "@/components/QuoteBand";
 import { ReviewCard } from "@/components/ReviewCard";
 import { ServiceTile } from "@/components/ServiceTile";
@@ -163,14 +164,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               />
             </div>
           ) : (
-            <div
-              data-slot={`${service.slug}-hero`}
-              className="relative aspect-[4/3] w-full overflow-hidden border border-line bg-coal"
-            >
-              <span className="absolute inset-0 flex items-center justify-center p-5 text-center font-mono text-[12px] leading-[1.6] text-muted-faint">
-                [ IMAGE or VIDEO 4:3 · 1600×1200 — {service.slot} ]
-              </span>
-            </div>
+            <BrandPanel slot={`${service.slug}-hero`} className="aspect-[4/3] w-full" />
           )}
         </div>
       </section>
@@ -260,30 +254,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                 </Link>
               ))}
             </div>
-          ) : service.pair ? null : (
-            <div className="grid gap-5 sm:grid-cols-2 md:grid-cols-3">
-              {[1, 2, 3].map((index) => (
-                <Link
-                  key={index}
-                  href="/gallery"
-                  className="flex flex-col gap-3.5 text-bone focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-red-soft"
-                >
-                  <div
-                    data-slot={`${service.slug}-project-${index}`}
-                    className="relative aspect-[4/3] w-full overflow-hidden border border-line bg-ink"
-                  >
-                    <span className="absolute inset-0 flex items-center justify-center p-4 text-center font-mono text-[12px] leading-[1.6] text-muted-faint">
-                      [ IMAGE 4:3 · 1600×1200 — {service.slot} ]
-                    </span>
-                  </div>
-                  <span className="text-[12px] font-bold uppercase leading-none tracking-[0.14em] text-red-soft">
-                    {service.name.toUpperCase()} · [PLACEHOLDER: TOWN]
-                  </span>
-                  <span className="text-[18px] font-semibold leading-[1.3]">[PLACEHOLDER: project title]</span>
-                </Link>
-              ))}
-            </div>
-          )}
+          ) : null}
 
           {service.pair ? (
             <div className="flex flex-col gap-4">

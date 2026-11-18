@@ -36,10 +36,6 @@ export function Hero() {
       />
       <div aria-hidden="true" className="absolute inset-0 bg-ink/55" />
 
-      <div className="absolute inset-x-5 top-4 border border-dashed border-edge px-2.5 py-2 font-mono text-[10px] leading-[1.5] tracking-[0.04em] text-muted-faint md:inset-x-auto md:right-14 md:top-7 md:px-3 md:text-[11px]">
-        <span className="md:hidden">{hero.videoSlotMobile}</span>
-        <span className="hidden md:inline">{hero.videoSlot}</span>
-      </div>
 
       <div className="relative mx-auto w-full max-w-[1328px]">
         <p className="mb-[18px] text-[11px] font-bold uppercase leading-[1.3] tracking-[0.16em] text-red-soft md:mb-7 md:text-[13px] md:leading-none">

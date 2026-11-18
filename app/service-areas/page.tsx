@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { CityCard } from "@/components/CityCard";
 import { CityChip } from "@/components/CityChip";
+import { BrandPanel } from "@/components/BrandPanel";
 import { QuoteBand } from "@/components/QuoteBand";
 import { cities, cityHref } from "@/data/cities";
 import { services } from "@/data/services";
@@ -82,14 +83,7 @@ export default function ServiceAreasPage() {
             </p>
           </div>
 
-          <div
-            data-slot="service-area-map"
-            className="relative aspect-[4/3] w-full overflow-hidden border border-line bg-coal"
-          >
-            <span className="absolute inset-0 flex items-center justify-center p-5 text-center font-mono text-[12px] leading-[1.6] text-muted-faint">
-              [ MAP 4:3 · 1600×1200 — service area shaded, no street address, no pin ]
-            </span>
-          </div>
+          <BrandPanel slot="service-area-map" className="aspect-[4/3] w-full" />
         </div>
       </section>
 

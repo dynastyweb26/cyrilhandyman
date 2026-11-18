@@ -8,6 +8,7 @@ import { Hero } from "@/components/Hero";
 import { ReviewCard } from "@/components/ReviewCard";
 import { ServiceTile } from "@/components/ServiceTile";
 import { Step } from "@/components/Step";
+import { BrandPanel } from "@/components/BrandPanel";
 import { QuoteForm } from "@/components/quote-form";
 import { marqueeRowA, marqueeRowB, mediaWallPair } from "@/data/gallery";
 import { allFiveStars, reviewCount } from "@/data/reviews";
@@ -123,14 +124,7 @@ export default async function HomePage() {
       {/* Who shows up */}
       <section id="about" aria-labelledby="who-heading" className="bg-coal px-5 py-16 md:px-14 md:py-32">
         <div className="mx-auto grid w-full max-w-[1328px] items-center gap-6 md:grid-cols-2 md:gap-[88px]">
-          <div
-            data-slot={whoShowsUp.image.slot}
-            className="relative aspect-square w-full overflow-hidden border border-line bg-ink"
-          >
-            <span className="absolute inset-0 flex items-center justify-center p-5 text-center font-mono text-[10px] leading-[1.5] text-muted-faint md:p-6 md:text-[11px]">
-              {whoShowsUp.image.label}
-            </span>
-          </div>
+          <BrandPanel slot={whoShowsUp.image.slot} className="aspect-square w-full" />
           <div>
             <p className={eyebrow}>{whoShowsUp.eyebrow}</p>
             <h2
@@ -312,14 +306,7 @@ export default async function HomePage() {
               .
             </p>
           </div>
-          <div
-            data-slot={whereWeWork.map.slot}
-            className="relative aspect-[4/3] w-full overflow-hidden border border-line bg-coal"
-          >
-            <span className="absolute inset-0 flex items-center justify-center p-5 text-center font-mono text-[10px] leading-[1.5] text-muted-faint md:p-6 md:text-[11px]">
-              {whereWeWork.map.label}
-            </span>
-          </div>
+          <BrandPanel slot={whereWeWork.map.slot} className="aspect-[4/3] w-full" />
         </div>
       </section>
 

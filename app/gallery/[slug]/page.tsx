@@ -7,6 +7,7 @@ import { GalleryCard } from "@/components/GalleryCard";
 import { filterSlug, galleryProjects, getProject } from "@/data/gallery";
 import { site } from "@/data/site";
 import { pageMetadata } from "@/lib/seo";
+import { BrandPanel } from "@/components/BrandPanel";
 
 export function generateStaticParams() {
   return galleryProjects.map((project) => ({ slug: project.slug }));
@@ -85,9 +86,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                 className="object-cover"
               />
             ) : (
-              <span className="absolute inset-0 flex items-center justify-center p-6 text-center font-mono text-[12px] leading-[1.5] text-muted-faint">
-                [ HERO IMAGE 16:9 · 2400×1350 ]
-              </span>
+              <BrandPanel className="absolute inset-0 border-0" />
             )}
           </div>
         </div>

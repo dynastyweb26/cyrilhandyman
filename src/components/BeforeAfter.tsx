@@ -86,6 +86,10 @@ export function BeforeAfter({
 
   const rounded = Math.round(position);
 
+
+  // No real pair, no slider: an empty frame with spec labels never ships.
+  if (!before || !after) return null;
+
   return (
     <div
       ref={box}

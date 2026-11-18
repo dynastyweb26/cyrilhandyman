@@ -3,7 +3,7 @@ import { QuoteForm } from "@/components/quote-form";
 import { site } from "@/data/site";
 
 /**
- * Red CTA band plus the quote form. The form is still UI-only; city and source
+ * Red CTA band plus the quote form. City and source
  * page ride along as hidden fields, and a city page shows its town read-only.
  */
 export function QuoteBand({
@@ -65,9 +65,6 @@ export function QuoteBand({
                 {site.phone.display}
               </a>
             </p>
-            <span className="mt-3 block font-mono text-[12px] leading-[1.5] text-muted-faint">
-              [CONFIRM callback time with Cyril]
-            </span>
           </div>
           <QuoteForm city={city} service={service} sourcePage={sourcePage} tone="dark" />
         </div>

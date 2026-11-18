@@ -6,6 +6,7 @@ import { JsonLd } from "@/components/json-ld";
 import { LocalWorkModule } from "@/components/LocalWorkModule";
 import { NearbyCities } from "@/components/NearbyCities";
 import { PromiseBlock } from "@/components/PromiseBlock";
+import { BrandPanel } from "@/components/BrandPanel";
 import { QuoteBand } from "@/components/QuoteBand";
 import { ServiceTile } from "@/components/ServiceTile";
 import { cities, cityHref, getCity } from "@/data/cities";
@@ -160,14 +161,7 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
             )}
           </div>
 
-          <div
-            data-slot={`${city.slug}-hero`}
-            className="relative aspect-[4/3] w-full overflow-hidden border border-line bg-coal"
-          >
-            <span className="absolute inset-0 flex items-center justify-center p-5 text-center font-mono text-[12px] leading-[1.6] text-muted-faint">
-              [ IMAGE 4:3 · 1600×1200 — a real {city.name} job, finished ]
-            </span>
-          </div>
+          <BrandPanel slot={`${city.slug}-hero`} className="aspect-[4/3] w-full" />
         </div>
       </section>
 

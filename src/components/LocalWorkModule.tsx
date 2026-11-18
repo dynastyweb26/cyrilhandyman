@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { BeforeAfter } from "@/components/BeforeAfter";
 import { GalleryCard } from "@/components/GalleryCard";
 import type { City } from "@/data/cities";
 import type { GalleryProject } from "@/data/gallery";
@@ -53,13 +52,6 @@ export function LocalWorkModule({
                 <GalleryCard key={project.slug} project={project} />
               ))}
             </div>
-            <div className="aspect-[21/9] w-full">
-              <BeforeAfter
-                slotId={city.slug}
-                beforeSlot="[ BEFORE · 1600×1370 ]"
-                afterSlot={`[ AFTER · same ${city.name} job ]`}
-              />
-            </div>
             <Link
               href="/gallery"
               className="inline-flex min-h-11 items-center self-start border-b-2 border-red text-[16px] font-bold leading-none text-bone hover:text-white focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[3px] focus-visible:outline-red-soft"
@@ -80,12 +72,12 @@ export function LocalWorkEmpty({ city }: { city: City }) {
   return (
     <div className="grid items-center gap-5 border border-dashed border-[#4A4A50] p-7 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:gap-x-12 md:p-11">
       <div className="flex flex-col gap-2.5">
-        <span className="font-mono text-[13px] leading-[1.5] text-bone">
-          [ PLACEHOLDER: first {city.name} project ]
-        </span>
+        <p className="m-0 text-[17px] font-semibold leading-[1.4] text-bone">
+          {city.name} photos are on the way.
+        </p>
         <p className="m-0 text-[15px] leading-[1.6] text-muted-soft">
-          Cards and a before/after appear here once a {city.name} job is tagged in the gallery.
-          Until then this module stays this size.
+          We’re adding finished {city.name} jobs to the gallery. Until then, see the same crew’s
+          work in the towns next door.
         </p>
       </div>
       <Link

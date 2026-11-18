@@ -725,7 +725,6 @@ export const galleryProjects: GalleryProject[] = [
   otherWork[4],
   blinds[6],
   otherWork[6],
-  christmasLights[0],
 ];
 
 /** Two rows for the home marquee. */
