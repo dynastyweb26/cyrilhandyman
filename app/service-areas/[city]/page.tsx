@@ -17,7 +17,7 @@ import { site } from "@/data/site";
 import { hasPendingTags } from "@/lib/indexability";
 import { cityFaqs } from "@/lib/page-copy";
 import { getPublishedReviews } from "@/lib/reviews";
-import { breadcrumbSchema, businessSchema, faqSchema } from "@/lib/schema";
+import { breadcrumbSchema, cityPageSchema, faqSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/seo";
 
 export const revalidate = 600;
@@ -213,10 +213,10 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
 
       <QuoteBand city={city.name} heading={`Need something done in ${city.name}?`} sourcePage={cityHref(city)} />
 
-      {/* Same @id as the sitewide business node, narrowed to this city. */}
+      {/* Points at the sitewide business node rather than repeating it. */}
       <JsonLd
-        id="city-business-schema"
-        data={businessSchema([`${city.name}, ${site.nap.region}`])}
+        id="city-page-schema"
+        data={cityPageSchema(city.name, cityHref(city))}
       />
       {cityFaqSchema ? <JsonLd id="city-faq-schema" data={cityFaqSchema} /> : null}
       <JsonLd

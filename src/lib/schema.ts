@@ -10,6 +10,11 @@ import { publicText } from "@/lib/indexability";
 export function businessSchema(areaServed?: string[]): Record<string, unknown> {
   const areas = areaServed ?? cities.map((city) => `${city.name}, ${site.nap.region}`);
 
+  // Only real profile URLs; placeholders and TODO_CONTENT are skipped.
+  const sameAs = [site.social.googleBusinessProfile, site.social.facebook, site.social.instagram].filter(
+    (url) => /^https?:\/\//.test(url) && publicText(url) === url,
+  );
+
   return {
     "@context": "https://schema.org",
     "@type": "HomeAndConstructionBusiness",
@@ -30,6 +35,24 @@ export function businessSchema(areaServed?: string[]): Record<string, unknown> {
     },
     areaServed: areas.map((name) => ({ "@type": "City", name })),
     knowsAbout: services.map((service) => service.name),
+    ...(sameAs.length > 0 ? { sameAs } : {}),
+  };
+}
+
+/**
+ * City page: a WebPage about this town that points at the one sitewide
+ * business entity, instead of a second business block with the same @id.
+ */
+export function cityPageSchema(cityName: string, path: string): Record<string, unknown> {
+  const area = `${cityName}, ${site.nap.region}`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${site.url}${path}#webpage`,
+    url: `${site.url}${path}`,
+    name: `Handyman & Door Services in ${area}`,
+    about: { "@id": `${site.url}/#business` },
+    mentions: { "@type": "City", name: area },
   };
 }
 
