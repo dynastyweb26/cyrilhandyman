@@ -9,7 +9,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata: Metadata = pageMetadata({
   title: "About Cyril Handyman & Door | Forney, TX",
   description:
-    "Cyril Handyman & Door LLC is a Forney, TX crew doing garage doors, faux wood blinds, patio screens, media walls and Christmas lights. Same crew on every job.",
+    "Cyril Handyman & Door LLC is a Forney, TX crew doing garage doors, faux wood blinds, patio screens, media walls and Christmas lights. Free on-site estimates.",
   path: "/about",
 });
 

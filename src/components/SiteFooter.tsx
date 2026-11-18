@@ -151,7 +151,7 @@ export function SiteFooter() {
 
         <div className="mt-14 flex flex-col gap-2 border-t border-hair pt-6 text-[12px] leading-[1.4] text-muted-faint md:mt-[72px] md:flex-row md:items-center md:justify-between md:text-[13px]">
           <span>© 2026 Cyril Handyman &amp; Door LLC · Registered Texas LLC</span>
-          <span>Same crew on every job.</span>
+          <span>Free on-site estimates.</span>
         </div>
       </div>
     </footer>

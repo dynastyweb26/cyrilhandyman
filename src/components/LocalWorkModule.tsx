@@ -80,8 +80,8 @@ export function LocalWorkEmpty({ city }: { city: City }) {
           {city.name} photos are on the way.
         </p>
         <p className="m-0 text-[15px] leading-[1.6] text-muted-soft">
-          We’re adding finished {city.name} jobs to the gallery. Until then, see the same crew’s
-          work in the towns next door.
+          We’re adding finished {city.name} jobs to the gallery. Until then, see our work in the
+          towns next door.
         </p>
       </div>
       <Link

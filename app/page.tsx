@@ -29,7 +29,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata: Metadata = pageMetadata({
   title: `Handyman & Garage Door Service in ${site.nap.locality}, ${site.nap.region} | Cyril Handyman`,
   description:
-    "Handyman in Forney, TX: garage doors, blinds, patio screens, media walls and Christmas lights. Same crew on every job. Call 945-344-4580.",
+    "Handyman in Forney, TX: garage doors, blinds, patio screens, media walls and Christmas lights. Free on-site estimates. Call 945-344-4580.",
   path: "/",
 });
 

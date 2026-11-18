@@ -5,12 +5,12 @@ import { blinds, garageHero, mediaWalls, patioScreens } from "@/data/gallery";
 
 export const hero = {
   eyebrow: "Forney, TX · Registered LLC · 2+ years",
-  title: "Garage doors to media walls. Same crew, every job.",
+  title: "Garage doors to media walls. One call, done right.",
   intro:
-    "The people who quote your job are the people who do it. Doors, blinds, patio screens, accent walls and holiday lights across Forney and the towns around it.",
+    "Talk to Cyril directly and get a clear price. Doors, blinds, patio screens, accent walls and holiday lights across Forney and the towns around it.",
   primaryCta: { label: "Send a photo, get a quote", href: "#quote" },
   secondaryCta: { label: "See recent work", href: "/gallery" },
-  trust: ["Registered Texas LLC", "2+ years", "Same crew on every job"],
+  trust: ["Registered Texas LLC", "2+ years", "Free on-site estimates"],
   video: "/media/hero.mp4",
   poster: "/media/hero-poster.webp",
   videoSlot: "[ HERO VIDEO 16:9 loop · 1920×1080 · 15–20s, muted, no audio · poster 1920×1080 JPG ]",
@@ -97,8 +97,8 @@ export const bentoServices: Bento[] = [
 ];
 
 export const whoShowsUp = {
-  eyebrow: "Who shows up",
-  title: "The ones you talked to.",
+  eyebrow: "Who you deal with",
+  title: "One name, one number.",
   image: {
     slot: "crew",
     alt: "[ALT: Cyril and his crew standing in front of the company truck in Forney, TX]",
@@ -106,8 +106,8 @@ export const whoShowsUp = {
   },
   rows: [
     {
-      term: "Cyril and his team do every job",
-      detail: "No handoffs and no strangers. You meet the crew who does the work.",
+      term: "You talk to Cyril directly",
+      detail: "Straight answers and a clear price, from the first call.",
     },
     {
       term: "Registered Texas LLC, 2+ years in",
@@ -123,7 +123,7 @@ export const whoShowsUp = {
 export const steps = [
   { n: "1", title: "Send a photo", body: "Or call. Tell us the job and the city." },
   { n: "2", title: "Get a quote", body: "A clear price and a date." },
-  { n: "3", title: "We do the work", body: "The same crew you spoke to." },
+  { n: "3", title: "We do the work", body: "On the day we set together." },
   { n: "4", title: "Cleaner than we found it", body: "We walk through it with you before we leave." },
 ];
 
@@ -143,11 +143,11 @@ export const faqs: { q: string; a: string; confirm?: string }[] = [
   },
   {
     q: "Do you take small jobs?",
-    a: "Yes. Anything from a sticking door to a full media wall, with the same crew and the same standard.",
+    a: "Yes. Anything from a sticking door to a full media wall, with the same standard.",
   },
   {
-    q: "Who actually does the work?",
-    a: "Cyril and his team do every job. No handoffs.",
+    q: "Who do I deal with?",
+    a: "Cyril. Call 945-344-4580 and you talk to him directly.",
   },
   { q: "How long does a garage door install take?", a: "", confirm: "[CONFIRM typical install time]" },
   { q: "How long until my faux wood blinds arrive?", a: "", confirm: "[CONFIRM lead time]" },

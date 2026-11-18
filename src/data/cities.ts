@@ -142,7 +142,7 @@ export const cities: City[] = [
     homeBase: false,
     badge: "NEW",
     intro:
-      "Now serving Garland: garage doors, blinds, patio screens, media walls and Christmas lights. Same crew, same phone number.",
+      "Now serving Garland: garage doors, blinds, patio screens, media walls and Christmas lights. One phone number for every job.",
     see: "Garland is one of the areas we work in most. Most calls here are for renovations, media walls and garage doors.",
     seo: {
       title: "Handyman & Door Services in Garland, TX | Cyril",
