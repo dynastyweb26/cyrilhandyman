@@ -32,9 +32,9 @@ export function serviceSteps(isChristmas: boolean) {
     },
     { t: "Pick a day", d: "We set the install date by phone. No portals." },
     {
-      t: isChristmas ? "Hung, kept lit, taken down" : "We install",
+      t: isChristmas ? "Hung, then taken down" : "We install",
       d: isChristmas
-        ? "We hang everything, fix anything that goes out, and take it down after the season."
+        ? "We hang everything and take it down after the season."
         : "Installed, cleaned up and checked with you before we leave.",
     },
   ];

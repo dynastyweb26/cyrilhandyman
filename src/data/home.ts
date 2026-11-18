@@ -62,7 +62,7 @@ export const bentoServices: Bento[] = [
   {
     n: "03",
     title: "Patio screens",
-    blurb: "Motorized and retractable.",
+    blurb: "Motorized, with remote, switch or app.",
     href: "/services/motorized-retractable-patio-screens",
     tone: "sand",
     image: {
@@ -90,7 +90,7 @@ export const bentoServices: Bento[] = [
   {
     n: "05",
     title: "Christmas lights",
-    blurb: "Designed, hung, maintained, taken down.",
+    blurb: "Hung and taken down.",
     href: "/services/christmas-light-installation",
     tone: "red",
   },

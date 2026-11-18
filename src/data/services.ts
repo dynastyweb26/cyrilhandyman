@@ -65,7 +65,7 @@ export const services: Service[] = [
     jobs: [
       {
         t: "New doors",
-        d: "Measured, supplied and installed. [CONFIRM door styles and brands offered]",
+        d: "Measured, supplied and installed. We install every type, including popular brands like Clopay, Amarr and Wayne Dalton.",
       },
       { t: "Openers", d: "New openers and replacements on an existing door." },
       {
@@ -77,13 +77,9 @@ export const services: Service[] = [
     faqs: [
       {
         q: "Do you repair broken springs?",
-        a: "Yes. Spring replacement is one of the jobs we do most. [CONFIRM same-day availability]",
+        a: "Yes, and same-day spring repair is available. Spring replacement is one of the jobs we do most.",
       },
-      {
-        q: "Can you put a new opener on my existing door?",
-        a: "[CONFIRM] Usually, yes. Tell us the door on the phone and we’ll let you know.",
-      },
-      { q: "Do you haul away the old door?", a: "[CONFIRM haul-away policy]" },
+      { q: "Do you haul away the old door?", a: "Yes. We haul away the old door when we install the new one." },
     ],
     seo: {
       title: "Garage Door Repair & Installation in Forney, TX | Cyril",
@@ -105,12 +101,12 @@ export const services: Service[] = [
     jobs: [
       { t: "Measured", d: "We measure every window ourselves so the blinds fit the first time." },
       { t: "Installed", d: "Mounted, leveled and checked before we leave." },
-      { t: "One window or the whole house", d: "[CONFIRM] Single rooms or every window at once." },
+      { t: "One window or the whole house", d: "Single rooms or every window at once." },
     ],
     faqs: [
-      { q: "Do you measure the windows?", a: "Yes. We measure and install. [CONFIRM]" },
-      { q: "Can you do the whole house at once?", a: "[CONFIRM]" },
-      { q: "Where do the blinds come from?", a: "[CONFIRM supplier / brands]" },
+      { q: "Do you measure the windows?", a: "Yes. We measure and install." },
+      { q: "Can you do the whole house at once?", a: "Yes. We do single rooms or the whole house." },
+      { q: "Where do the blinds come from?", a: "We source them from a private supplier." },
     ],
     seo: {
       title: "Faux Wood Blinds in Forney, TX | Cyril Handyman",
@@ -121,39 +117,35 @@ export const services: Service[] = [
   {
     slug: "motorized-retractable-patio-screens",
     name: "Patio screens",
-    long: "Motorized & Retractable Patio Screens",
-    promise: "Motorized and retractable patio screens, fitted to your patio.",
+    long: "Motorized Retractable Patio Screens",
+    promise: "Motorized retractable patio screens, fitted to your patio.",
     slot: "patio screen lowered",
     hero: heroPhotos.patioScreens,
     tile: patioScreens[2].photo,
-    short: "Motorized and retractable.",
+    short: "Motorized, with remote, switch or app.",
     formValue: "patio-screens",
     tone: "sand",
     jobs: [
       {
         t: "Motorized screens",
-        d: "Raise and lower with a switch or remote. [CONFIRM controls offered]",
+        d: "Raise and lower with a remote, a wall switch or an app.",
       },
       {
-        t: "Retractable screens",
-        d: "Roll away when you don’t need them, come down when you do.",
+        t: "Out of sight when up",
+        d: "They roll away when you don’t need them and come down when you do.",
       },
     ],
     faqs: [
       {
-        q: "What’s the difference between motorized and retractable?",
-        a: "Motorized screens raise and lower with a motor. Retractable screens roll up out of sight by hand. [CONFIRM options offered]",
+        q: "Do you install manual screens too?",
+        a: "We install motorized screens. They raise and lower with a remote, a wall switch or an app.",
       },
-      { q: "Do motorized screens need an outlet nearby?", a: "[CONFIRM power requirements]" },
-      {
-        q: "Will screens fit my patio?",
-        a: "[CONFIRM] Call and describe the patio, or send photos with a quote request.",
-      },
+      { q: "Do motorized screens need power?", a: "Yes. Motorized screens need power at the patio for the motor." },
     ],
     seo: {
-      title: "Motorized & Retractable Patio Screens, Forney TX | Cyril",
+      title: "Motorized Retractable Patio Screens, Forney TX | Cyril",
       description:
-        "Motorized and retractable patio screens in Forney, TX and North Texas. Call Cyril Handyman & Door: 945-344-4580.",
+        "Motorized retractable patio screens with remote, switch or app control in Forney, TX and North Texas. Call Cyril Handyman & Door: 945-344-4580.",
     },
   },
   {
@@ -171,15 +163,18 @@ export const services: Service[] = [
     jobs: [
       { t: "Slat walls", d: "Vertical slat walls for living rooms, offices and entries." },
       { t: "Panel walls", d: "Panel and trim accent walls, painted or stained." },
-      { t: "Built-ins", d: "Media walls and built-in shelving around the TV. [CONFIRM]" },
+      { t: "Media walls", d: "Built around the TV, with the TV mounted and the wires hidden." },
     ],
     faqs: [
       {
         q: "What styles do you build?",
-        a: "Slat walls, panel walls and built-ins. [CONFIRM materials]",
+        a: "Slat walls, panel walls and media walls, built from wood, sheetrock, PVC and standard panels.",
       },
-      { q: "Can you mount the TV and hide the wires?", a: "[CONFIRM]" },
-      { q: "How long does a media wall take?", a: "[CONFIRM typical timeline]" },
+      { q: "Can you mount the TV and hide the wires?", a: "Yes. We mount the TV and hide the wires." },
+      {
+        q: "How long does a media wall take?",
+        a: "About 5 days to build the pieces in our workshop, then 2 to 3 days to install, depending on the design.",
+      },
     ],
     seo: {
       title: "Media Walls & Accent Walls in Forney, TX | Cyril",
@@ -191,35 +186,26 @@ export const services: Service[] = [
     slug: "christmas-light-installation",
     name: "Christmas lights",
     long: "Christmas Light Installation",
-    promise: "Christmas lights designed, hung, maintained through the season and taken down.",
+    promise: "Christmas lights hung on your house and taken down after the season.",
     slot: "house lit at night",
-    short: "Designed, hung, maintained, taken down.",
+    short: "Hung and taken down.",
     formValue: "christmas-lights",
     tone: "red",
     jobs: [
-      {
-        t: "Design",
-        d: "We walk the house with you and plan where the lights go: roofline, trees, windows, walkway. [CONFIRM]",
-      },
       { t: "Install", d: "Hung by us, so you stay off the ladder." },
-      {
-        t: "Maintenance",
-        d: "A strand goes out mid-season? Call and we’ll fix it. [CONFIRM terms]",
-      },
-      { t: "Takedown", d: "After the season we take it all down. [CONFIRM storage]" },
+      { t: "Takedown", d: "After the season we take it all down." },
     ],
     faqs: [
-      { q: "When should I book?", a: "[CONFIRM booking window]" },
+      { q: "When should I book?", a: "We take bookings from now until Christmas." },
       {
         q: "Do you take the lights down after the season?",
         a: "Yes. Takedown is part of the service.",
       },
-      { q: "Do you supply the lights or use mine?", a: "[CONFIRM]" },
     ],
     seo: {
       title: "Christmas Light Installation in Forney, TX | Cyril",
       description:
-        "Christmas lights designed, hung, maintained and taken down in Forney, TX and North Texas. Call Cyril Handyman & Door: 945-344-4580.",
+        "Christmas lights hung and taken down after the season in Forney, TX and North Texas. Call Cyril Handyman & Door: 945-344-4580.",
     },
   },
 ];
