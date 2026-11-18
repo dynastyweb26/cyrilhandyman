@@ -6,8 +6,8 @@ export function PromiseBlock({ city }: { city: string }) {
   const points = [
     { title: "You come first", body: "The job isn’t done until you’re happy with it." },
     {
-      title: "Travel isn’t an issue",
-      body: `${city} is on our regular route.`,
+      title: "Within 60 miles of Forney",
+      body: `${city} is inside our service area.`,
     },
     { title: "On time, every time we can", body: "We always aim to be there when we said." },
     { title: "One call to schedule", body: "No portals, no back-and-forth. Just call." },

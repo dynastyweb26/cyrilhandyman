@@ -92,12 +92,12 @@ export const cities: City[] = [
     homeBase: false,
     badge: null,
     intro:
-      "Patio screens, garage doors and Christmas lights in Rockwall. Travel isn’t an issue. Call and we’ll get you on the schedule.",
+      "Patio screens, garage doors and Christmas lights in Rockwall, inside our 60-mile service area. Call and we’ll get you on the schedule.",
     see: "Rockwall is one of the areas we work in most. Most calls here are for renovations, media walls and garage doors.",
     seo: {
       title: "Handyman & Door Services in Rockwall, TX | Cyril",
       description:
-        "Patio screens, garage doors and Christmas light installation in Rockwall, TX. Travel isn’t an issue. Call 945-344-4580.",
+        "Patio screens, garage doors and Christmas light installation in Rockwall, TX, within 60 miles of Forney. Call 945-344-4580.",
     },
   },
   {

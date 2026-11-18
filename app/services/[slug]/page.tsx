@@ -75,7 +75,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
   const why = [
     { title: "Your satisfaction first", body: "The job isn’t done until you’re happy with it." },
     { title: "We aim to be on time", body: "When we give you a time, we work to keep it." },
-    { title: "Travel isn’t an issue", body: "Forney, Frisco or anywhere between on our list." },
+    { title: "Within 60 miles of Forney", body: "Forney, Frisco or anywhere between on our list." },
     { title: "Simple scheduling", body: "One phone call and you’re on the calendar." },
   ];
 
