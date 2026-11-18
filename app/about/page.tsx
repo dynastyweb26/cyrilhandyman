@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { BrandPanel } from "@/components/BrandPanel";
 import { PageHeader } from "@/components/page-header";
 import { site } from "@/data/site";
 import { publicText } from "@/lib/indexability";
@@ -24,8 +25,14 @@ export default function AboutPage() {
       <section className="bg-white">
         <div className="mx-auto grid max-w-page gap-12 px-page-x py-section lg:grid-cols-2 lg:gap-16 lg:px-page-x-lg lg:py-section-lg">
           <div className="space-y-4 text-muted-ink">
+            {/* Photo of Cyril goes here once he sends it; logo panel until then. */}
+            <BrandPanel slot="about-cyril" className="aspect-[4/3] w-full" />
             <p>
-              Cyril Handyman &amp; Door LLC started with door work and grew into the renovation and
+              Cyril Handyman &amp; Door LLC is run by Cyril Fotsing: hard-working, and dedicated to
+              the job in front of him.
+            </p>
+            <p>
+              The business started with door work and grew into the renovation and
               finish work that surrounds it — media walls, kitchens, flooring and paint. The crew
               still treats every job the same way: agree the scope, protect the room, and finish it
               properly.
