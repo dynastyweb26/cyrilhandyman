@@ -26,9 +26,9 @@ import { getPublishedReviews } from "@/lib/reviews";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: `Garage doors, blinds and patio screens in ${site.nap.locality}, ${site.nap.region}`,
+  title: `Handyman & Garage Door Service in ${site.nap.locality}, ${site.nap.region} | Cyril Handyman`,
   description:
-    "Handyman and home improvement in Forney, TX and the towns around it. Garage doors, faux wood blinds, patio screens, media walls and Christmas lights. Same crew on every job.",
+    "Handyman in Forney, TX: garage doors, blinds, patio screens, media walls and Christmas lights. Same crew on every job. Call 945-344-4580.",
   path: "/",
 });
 

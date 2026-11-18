@@ -23,7 +23,7 @@ export async function generateMetadata({
   if (!project) return pageMetadata({ title: "Project", description: "Project not found.", path: "/gallery" });
 
   return pageMetadata({
-    title: `${project.title} · ${project.tag}`,
+    title: `${project.title} · ${project.tag} | Cyril Handyman & Door`,
     description: `${project.title}. ${project.tag} work by Cyril Handyman & Door.`,
     path: `/gallery/${project.slug}`,
   });

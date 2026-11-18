@@ -7,7 +7,7 @@ import { publicText } from "@/lib/indexability";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Contact & Free Quotes",
+  title: "Free Quote | Cyril Handyman & Door, Forney TX",
   description:
     "Call 945-344-4580 or email crazydoor04@gmail.com for a free quote on garage doors, blinds, patio screens, media walls and Christmas lights around Forney, TX.",
   path: "/contact",

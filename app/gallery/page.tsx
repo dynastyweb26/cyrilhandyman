@@ -6,7 +6,7 @@ import { site } from "@/data/site";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Gallery",
+  title: "Project Gallery | Cyril Handyman & Door",
   description:
     "Photos, short clips and before-and-afters from handyman and garage door jobs in Forney and the towns around it.",
   path: "/gallery",

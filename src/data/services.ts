@@ -86,7 +86,7 @@ export const services: Service[] = [
       { q: "Do you haul away the old door?", a: "[CONFIRM haul-away policy]" },
     ],
     seo: {
-      title: "Garage Door Repair & Installation in Forney, TX",
+      title: "Garage Door Repair & Installation in Forney, TX | Cyril",
       description:
         "Garage door repair, new doors, openers and springs in Forney, TX and North Texas. Call Cyril Handyman & Door: 945-344-4580.",
     },
@@ -151,7 +151,7 @@ export const services: Service[] = [
       },
     ],
     seo: {
-      title: "Motorized & Retractable Patio Screens, Forney TX",
+      title: "Motorized & Retractable Patio Screens, Forney TX | Cyril",
       description:
         "Motorized and retractable patio screens in Forney, TX and North Texas. Call Cyril Handyman & Door: 945-344-4580.",
     },
