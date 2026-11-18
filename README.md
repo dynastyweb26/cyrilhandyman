@@ -67,22 +67,29 @@ to Vercel runtime logs.
 - `public/brand/logo-transparent.png` — the real logo (black mark, white lettering),
   rendered directly on the dark chrome. Swap in the SVG and update
   `site.brand.logo.src` when the vector exists.
-- `public/media/hero.mp4` + `public/media/hero-poster.webp` — placeholder garage-door
-  still/clip. Replace with real footage and keep the poster under ~100 KB.
+- `public/media/hero.mp4` + `public/media/hero-poster.webp` — footage of Cyril's own
+  garage door job (confirmed). Keep the poster under ~100 KB if it is swapped.
 - `public/gallery/christmas/*` — the flagship gallery expects six photos at the paths
   listed in `src/data/christmas-lights.ts`.
 - `public/og-image.png` — 1200×630 social card.
 
-## TODO_CONTENT before launch
+## Seasonal: Christmas lights
 
-Rendered visibly on the site, not hidden lorem ipsum:
+The Christmas lights service page (`/services/christmas-light-installation`) is
+seasonal. Cyril takes it off the site in January and puts it back for the next
+season. When it comes off, remove it from `src/data/services.ts` and the home
+services list (`src/data/home.ts`), and redirect the URL to `/services` in
+`src/data/redirects.ts` so it doesn’t 404.
 
-- Site + per-page meta descriptions (`app/*/page.tsx`).
-- Footer NAP: hours, service radius, response-time promise.
-- Christmas page: prices, booking cutoff dates, ownership model, maintenance promise,
-  commercial scope, reviews (real quotes only), gallery photos, city intro copy.
-- About: owner story, founding year, crew size.
-- Contact: quote form build (EmailJS today → decide transport + spam protection).
+## Still open before launch
+
+- Google Business Profile URL (the share link supplied couldn't be confirmed as
+  the profile) and a Facebook page URL. Both stay hidden until real.
+- Photo of Cyril for the About page (logo panel holds the spot).
+- Christmas light job photos.
+- FAQ answers not yet supplied: garage install time, blinds lead time, deposit
+  policy. Those questions stay hidden until answered.
+- Lead email env vars on Vercel (see Environment).
 
 ## Deploy / verification
 
