@@ -802,10 +802,15 @@ export const heroPhotos = {
   patioScreens: patioScreens[0].photo,
 };
 
-/** The one real before/after pair in the set. */
+/**
+ * Garage pair for the garage door service page. Uses garage-doors-03: the
+ * only pair shot at ~1400px, so it stays sharp at full width (01 and 02 are
+ * 415-829px screenshots and blur when stretched).
+ */
+const sharpGaragePair = garageDoors.find((p) => p.slug === "garage-doors-03") ?? garageDoors[0];
 export const garagePair = {
-  before: garageDoors[0].before as Photo,
-  after: garageDoors[0].after as Photo,
+  before: sharpGaragePair.before as Photo,
+  after: sharpGaragePair.after as Photo,
   caption: "Garage door replacement",
 };
 
