@@ -23,7 +23,12 @@ export async function generateMetadata({
   if (!project) return pageMetadata({ title: "Project", description: "Project not found.", path: "/gallery" });
 
   return pageMetadata({
-    title: `${project.title} · ${project.tag} | Cyril Handyman & Door`,
+    // Keep titles under ~60 chars so Google doesn't truncate them:
+    // full brand if it fits, short brand if that fits, else the title alone.
+    title:
+      [`${project.title} | Cyril Handyman & Door`, `${project.title} | Cyril Handyman`].find(
+        (t) => t.length <= 60,
+      ) ?? project.title,
     description: `${project.title}. ${project.tag} work by Cyril Handyman & Door.`,
     path: `/gallery/${project.slug}`,
   });
