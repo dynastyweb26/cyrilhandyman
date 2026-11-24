@@ -151,7 +151,15 @@ export function SiteFooter() {
 
         <div className="mt-14 flex flex-col gap-2 border-t border-hair pt-6 text-[12px] leading-[1.4] text-muted-faint md:mt-[72px] md:flex-row md:items-center md:justify-between md:text-[13px]">
           <span>© 2026 Cyril Handyman &amp; Door LLC · Registered Texas LLC</span>
-          <span>Free on-site estimates.</span>
+          <span>
+            Free on-site estimates. · Website by{" "}
+            <a
+              href="https://dynastyweb.co"
+              className="text-muted underline-offset-2 hover:text-white hover:underline"
+            >
+              Dynasty Web
+            </a>
+          </span>
         </div>
       </div>
     </footer>
