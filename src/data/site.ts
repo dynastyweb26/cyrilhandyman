@@ -59,8 +59,8 @@ export const site = {
   social: {
     /** Claimed Google Business Profile (cid confirmed via OpenSEO, Nov 2026). */
     googleBusinessProfile: "https://www.google.com/maps?cid=14825470358048337501",
-    /** No Facebook page supplied; hidden from the footer and schema. */
-    facebook: "https://facebook.com/[PLACEHOLDER]",
+    /** Business page (renaming to the LLC name in progress, Nov 2026). */
+    facebook: "https://www.facebook.com/profile.php?id=61586953762794",
     instagram: "https://www.instagram.com/cyril_handyman_llc/",
   },
 };
