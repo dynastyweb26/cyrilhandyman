@@ -57,11 +57,8 @@ export const site = {
     response: "We call back as soon as possible, within the hour.",
   },
   social: {
-    /**
-     * A Google share link was supplied but could not be confirmed as the
-     * Business Profile, so it is left out until the direct profile URL is in.
-     */
-    googleBusinessProfile: todo("Google Business Profile URL"),
+    /** Claimed Google Business Profile (cid confirmed via OpenSEO, Nov 2026). */
+    googleBusinessProfile: "https://www.google.com/maps?cid=14825470358048337501",
     /** No Facebook page supplied; hidden from the footer and schema. */
     facebook: "https://facebook.com/[PLACEHOLDER]",
     instagram: "https://www.instagram.com/cyril_handyman_llc/",
