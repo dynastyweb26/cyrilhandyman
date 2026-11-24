@@ -27,7 +27,7 @@ import { getPublishedReviews } from "@/lib/reviews";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: `Handyman & Garage Door Service in ${site.nap.locality}, ${site.nap.region} | Cyril Handyman`,
+  title: `Handyman & Garage Doors in ${site.nap.locality}, ${site.nap.region} | Cyril Handyman`,
   description:
     "Handyman in Forney, TX: garage doors, blinds, patio screens, media walls and Christmas lights. Free on-site estimates. Call 945-344-4580.",
   path: "/",
