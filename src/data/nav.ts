@@ -12,7 +12,7 @@ export const primaryNav: NavItem[] = [
   { label: "Service areas", href: "/service-areas", match: "/service-areas" },
   { label: "Reviews", href: "/#reviews" },
   { label: "About", href: "/about", match: "/about" },
-  { label: "FAQ", href: "/faq", match: "/faq" },
+  { label: "FAQ", href: "/#faq", match: "/faq" },
 ];
 
 /** Service links used in the footer. Pages land in a later phase. */
@@ -30,5 +30,5 @@ export const footerCompany: NavItem[] = [
   { label: "Gallery", href: "/gallery" },
   { label: "Service areas", href: "/service-areas" },
   { label: "Reviews", href: "/#reviews" },
-  { label: "FAQ", href: "/faq" },
+  { label: "FAQ", href: "/#faq" },
 ];
