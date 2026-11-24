@@ -26,9 +26,11 @@ export type RedirectRule = {
 };
 
 export const redirects: RedirectRule[] = [
-  // Blinds section: no equivalent page yet, so fold into the services index.
-  { source: "/blinds", destination: "/services", statusCode: 301 },
-  { source: "/blinds/:path*", destination: "/services", statusCode: 301 },
+  // Old landing pages -> the matching service page (Google still has /blinds indexed).
+  { source: "/blinds", destination: "/services/faux-wood-blinds", statusCode: 301 },
+  { source: "/blinds/:path*", destination: "/services/faux-wood-blinds", statusCode: 301 },
+  { source: "/garage-doors", destination: "/services/garage-door-repair-installation", statusCode: 301 },
+  { source: "/patio-screens", destination: "/services/motorized-retractable-patio-screens", statusCode: 301 },
 
   // Old service URLs -> the five agreed slugs.
   { source: "/services/christmas-lights", destination: "/services/christmas-light-installation", statusCode: 301 },
