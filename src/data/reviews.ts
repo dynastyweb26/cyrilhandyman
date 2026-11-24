@@ -172,3 +172,10 @@ export const reviews: Review[] = [
 export const allFiveStars = reviews.length > 0;
 
 export const reviewCount = reviews.length;
+
+/**
+ * Total reviews on Cyril's Google Business Profile (confirmed Nov 2026).
+ * Higher than reviewCount because not every Google review is copied here.
+ * Update this when the profile count changes.
+ */
+export const googleReviewCount = 29;

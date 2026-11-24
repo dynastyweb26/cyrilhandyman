@@ -12,7 +12,7 @@ import { Step } from "@/components/Step";
 import { BrandPanel } from "@/components/BrandPanel";
 import { QuoteForm } from "@/components/quote-form";
 import { marqueeRowA, marqueeRowB, mediaWallPair } from "@/data/gallery";
-import { allFiveStars, reviewCount } from "@/data/reviews";
+import { allFiveStars, googleReviewCount } from "@/data/reviews";
 import {
   bentoServices,
   faqs,
@@ -201,7 +201,7 @@ export default async function HomePage() {
                 </p>
               ) : null}
               <p className="mt-2 mb-0 text-[14px] leading-[1.4] text-muted">
-                {reviewCount} Google reviews
+                {googleReviewCount} Google reviews
               </p>
             </div>
           </div>

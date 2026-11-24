@@ -1,4 +1,4 @@
-import { allFiveStars, reviewCount } from "@/data/reviews";
+import { allFiveStars, googleReviewCount } from "@/data/reviews";
 
 /**
  * Trust strip: only the things we can prove today. The review line shows the
@@ -24,7 +24,7 @@ export function TrustStrip({ className = "" }: { className?: string }) {
             ★★★★★
           </span>
         ) : null}
-        {reviewCount} Google reviews
+        {googleReviewCount} Google reviews
       </li>
     </ul>
   );
