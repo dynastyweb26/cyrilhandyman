@@ -35,9 +35,7 @@ export function SiteHeader() {
           />
           <span className="font-display text-[14px] font-extrabold uppercase leading-[1.05] tracking-[0.02em] md:text-[17px] md:leading-none">
             Cyril Handyman
-            <br className="md:hidden" />
-            <span className="hidden md:inline"> &amp; Door</span>
-            <span className="md:hidden"> &amp; Door</span>
+            <br className="md:hidden" /> &amp; Door
           </span>
         </Link>
 
