@@ -172,7 +172,11 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                 Drag the handle, or use the arrow keys.
               </p>
             </div>
-            <div className="aspect-video w-full overflow-hidden border border-line">
+            {/* Never upscale: low-res pairs (some are ~600px) blur when stretched. */}
+            <div
+              className="mx-auto aspect-video w-full overflow-hidden border border-line"
+              style={{ maxWidth: Math.min(project.before.width, project.after.width) }}
+            >
               <BeforeAfter
                 slotId="project"
                 before={project.before}
