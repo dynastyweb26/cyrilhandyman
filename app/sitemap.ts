@@ -53,8 +53,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     images: route.images?.map(absoluteUrl),
     videos: route.videos?.map((video) => ({
       ...video,
+      // Next does not escape video text, and a raw "&" breaks the whole XML file.
+      title: escapeXml(video.title),
+      description: escapeXml(video.description),
       thumbnail_loc: absoluteUrl(video.thumbnail_loc),
       content_loc: absoluteUrl(video.content_loc),
     })),
   }));
+}
+
+function escapeXml(text: string): string {
+  return text
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&apos;");
 }
