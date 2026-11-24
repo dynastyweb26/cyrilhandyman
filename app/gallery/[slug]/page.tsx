@@ -29,7 +29,10 @@ export async function generateMetadata({
       [`${project.title} | Cyril Handyman & Door`, `${project.title} | Cyril Handyman`].find(
         (t) => t.length <= 60,
       ) ?? project.title,
-    description: `${project.title}. ${project.tag} work by Cyril Handyman & Door.`,
+    // Unique per project; "Other work" reads as handyman work, not "Other work work".
+    description: `${project.title}. A real ${
+      project.tag === "Other work" ? "handyman" : project.tag.toLowerCase()
+    } job by Cyril Handyman & Door, with photos from the finished work.`,
     path: `/gallery/${project.slug}`,
   });
 }
